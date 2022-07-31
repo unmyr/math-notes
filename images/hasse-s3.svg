@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg height='129pt' preserveAspectRatio='xMidYMid meet' viewBox='0.00 0.00 260.40 129.40' width='260pt' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg'>
+<g class='graph' id='graph0' transform='scale(1 1) rotate(0) translate(7.2 122.2)'>
+<polygon fill='white' points='-7.2,7.2 -7.2,-122.2 253.2,-122.2 253.2,7.2 -7.2,7.2' stroke='transparent'/>
+
+<g class='node' id='node1'>
+<title>G</title>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='53.5' y='-103.3'>{</text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='63.5' y='-103.3'>e</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='72.5' y='-103.3'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='82.5' y='-103.3'>f</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='88.5' y='-103.3'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='98.5' y='-103.3'>g</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='108.5' y='-103.3'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='118.5' y='-103.3'>p</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='128.5' y='-103.3'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='138.5' y='-103.3'>q</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='148.5' y='-103.3'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='158.5' y='-103.3'>r</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='165.5' y='-103.3'>}</text>
+</g>
+
+<g class='node' id='node2'>
+<title>e_p</title>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='-1' y='-54.8'>{</text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='9' y='-54.8'>e</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='18' y='-54.8'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='28' y='-54.8'>p</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='38' y='-54.8'>}</text>
+</g>
+
+<g class='edge' id='edge1'>
+<title>G:s&#45;&#45;e_p:n</title>
+<path d='M114.5,-97C114.5,-97 23.5,-67.5 23.5,-67.5' fill='none' stroke='black'/>
+</g>
+
+<g class='node' id='node3'>
+<title>e_q</title>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='60' y='-54.8'>{</text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='70' y='-54.8'>e</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='79' y='-54.8'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='89' y='-54.8'>q</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='99' y='-54.8'>}</text>
+</g>
+
+<g class='edge' id='edge2'>
+<title>G:s&#45;&#45;e_q:n</title>
+<path d='M114.5,-97C114.5,-97 84.5,-67.5 84.5,-67.5' fill='none' stroke='black'/>
+</g>
+
+<g class='node' id='node4'>
+<title>e_r</title>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='122.5' y='-54.8'>{</text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='132.5' y='-54.8'>e</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='141.5' y='-54.8'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='151.5' y='-54.8'>r</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='158.5' y='-54.8'>}</text>
+</g>
+
+<g class='edge' id='edge3'>
+<title>G:s&#45;&#45;e_r:n</title>
+<path d='M114.5,-97C114.5,-97 145.5,-67.5 145.5,-67.5' fill='none' stroke='black'/>
+</g>
+
+<g class='node' id='node5'>
+<title>e_f_g</title>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='182' y='-54.8'>{</text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='192' y='-54.8'>e</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='201' y='-54.8'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='211' y='-54.8'>f</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='217' y='-54.8'>, </text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='227' y='-54.8'>g</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='237' y='-54.8'>}</text>
+</g>
+
+<g class='edge' id='edge4'>
+<title>G:s&#45;&#45;e_f_g:n</title>
+<path d='M114.5,-97C114.5,-97 214.5,-68 214.5,-68' fill='none' stroke='black'/>
+</g>
+
+<g class='node' id='node6'>
+<title>e</title>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='100' y='-6.3'>{</text>
+<text font-family='Times,serif' font-size='14.00' font-style='italic' text-anchor='start' x='110' y='-6.3'>e</text>
+<text font-family='Times,serif' font-size='14.00' text-anchor='start' x='119' y='-6.3'>}</text>
+</g>
+
+<g class='edge' id='edge5'>
+<title>e_p:s&#45;&#45;e:n</title>
+<path d='M23.5,-47.5C23.5,-47.5 114.5,-18 114.5,-18' fill='none' stroke='black'/>
+</g>
+
+<g class='edge' id='edge6'>
+<title>e_q:s&#45;&#45;e:n</title>
+<path d='M84.5,-47.5C84.5,-47.5 114.5,-18 114.5,-18' fill='none' stroke='black'/>
+</g>
+
+<g class='edge' id='edge7'>
+<title>e_r:s&#45;&#45;e:n</title>
+<path d='M145.5,-47.5C145.5,-47.5 114.5,-18 114.5,-18' fill='none' stroke='black'/>
+</g>
+
+<g class='edge' id='edge8'>
+<title>e_f_g:s&#45;&#45;e:n</title>
+<path d='M214.5,-47C214.5,-47 114.5,-18 114.5,-18' fill='none' stroke='black'/>
+</g>
+</g>
+</svg>
