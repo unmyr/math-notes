@@ -101,7 +101,6 @@ endif::[]
 
 :infty: &#8734;
 
-:cong: ≅
 :minus: −
 :xx: ×
 :oplus: ⊕
@@ -120,6 +119,9 @@ endif::[]
 :isomorphic: ≅
 :leq: &#8804;
 :setminus: &#x2216;
+:cong: ≅
+:rtimes: &#8906;
+:ltimes: &#8905;
 
 ifeval::["{backend}" != "pdf"]
 :sim: &#8764;
