@@ -86,6 +86,7 @@ ifeval::["{backend}" != "pdf"]
 :QQ: &#8474;
 :RR: &#8477;
 :ZZ: ℤ
+:Sym: 𝕾
 endif::[]
 
 ifeval::["{backend}" == "pdf"]
@@ -95,10 +96,12 @@ ifeval::["{backend}" == "pdf"]
 :QQ: pass:q[**Q**]
 :RR: pass:q[**R**]
 :ZZ: pass:q[**Z**]
+:Sym: pass:q[__S__]
 endif::[]
 
 :infty: &#8734;
 
+:cong: ≅
 :minus: −
 :xx: ×
 :oplus: ⊕
