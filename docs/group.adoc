@@ -279,6 +279,53 @@ endif::[]
 | _h_ | _h_ | _g_ | _f_ | _e_
 |===
 
+==== order 6:
+
+===== _S_~3~ -> _S_~3~^-1^
+
+* _g_{nbsp}^-1^: {_e_ -> _e_, _f_ -> _g_, _g_ -> _f_, _p_ -> _p_, _q_ -> _q_, _r_ -> _r_}
+
+_H_ = {_e_, _f_, _g_} とすると、_G_ = {_eH_, _pH_={_p_,_r_,_q_}}
+
+ifeval::["{backend}" == "pdf"]
+:table_options: options="header, unbreakable"
+:table_width:
+endif::[]
+ifeval::["{backend}" != "pdf"]
+:table_options: options="header, autowidth, unbreakable"
+:table_width:
+endif::[]
+
+[cols="1a,1a" {table_options}]
+.The multiplication table ({Sym}~3~ and {Sym}~3~^-1^)
+|===
+| {Sym}~3~ | {Sym}~3~^-1^
+
+|
+[cols="1h,1d,1d,1d,1d,1d,1d", {table_width} {table_options}]
+!===
+!       ! _e_ ! _f_ ! _g_ ! _p_ ! _q_ ! _r_
+!   _e_ ! _e_ ! _f_ ! _g_ ! _p_ ! _q_ ! _r_
+!   _f_ ! _f_ ! _g_ ! _e_ ! _r_ ! _p_ ! _q_
+!   _g_ ! _g_ ! _e_ ! _f_ ! _q_ ! _r_ ! _p_
+!   _p_ ! _p_ ! _q_ ! _r_ ! _e_ ! _f_ ! _g_
+!   _q_ ! _q_ ! _r_ ! _p_ ! _g_ ! _e_ ! _f_
+!   _r_ ! _r_ ! _p_ ! _q_ ! _f_ ! _g_ ! _e_
+!===
+|
+[cols="1h,1d,1d,1d,1d,1d,1d" {table_width} {table_options}]
+!===
+!     ! _e_ ! _g_ ! _f_ ! _p_ ! _q_ ! _r_
+! _e_ ! _e_ ! _g_ ! _f_ ! _p_ ! _q_ ! _r_
+! _g_ ! _g_ ! _f_ ! _e_ ! _r_ ! _p_ ! _q_
+! _f_ ! _f_ ! _e_ ! _g_ ! _q_ ! _r_ ! _p_
+! _p_ ! _p_ ! _q_ ! _r_ ! _e_ ! _g_ ! _f_
+! _q_ ! _q_ ! _r_ ! _p_ ! _f_ ! _e_ ! _g_
+! _r_ ! _r_ ! _p_ ! _q_ ! _g_ ! _f_ ! _e_
+!===
+|===
+
+
 .{Sym}~3~ - Hasse diagram
 ["graphviz", "hasse-s3", format="svg"]
 ----
@@ -350,37 +397,6 @@ graph {
   {e_p, e_q, e_r, e_f_g} -- e [ headport=n, tailport=s ]
 }
 ----
-
-==== order 6:
-
-[cols="1a,1a" {table_options}]
-.The multiplication table ({Sym}~3~ and {Sym}~3~^-1^)
-|===
-| {Sym}~3~ | {Sym}~3~^-1^
-
-|
-[cols="1h,1d,1d,1d,1d,1d,1d", {table_width} {table_options}]
-!===
-!       ! _e_ ! _f_ ! _g_ ! _p_ ! _q_ ! _r_
-!   _e_ ! _e_ ! _f_ ! _g_ ! _p_ ! _q_ ! _r_
-!   _f_ ! _f_ ! _g_ ! _e_ ! _r_ ! _p_ ! _q_
-!   _g_ ! _g_ ! _e_ ! _f_ ! _q_ ! _r_ ! _p_
-!   _p_ ! _p_ ! _q_ ! _r_ ! _e_ ! _f_ ! _g_
-!   _q_ ! _q_ ! _r_ ! _p_ ! _g_ ! _e_ ! _f_
-!   _r_ ! _r_ ! _p_ ! _q_ ! _f_ ! _g_ ! _e_
-!===
-|
-[cols="1h,1d,1d,1d,1d,1d,1d" {table_width} {table_options}]
-!===
-!     ! _e_ ! _g_ ! _f_ ! _p_ ! _q_ ! _r_
-! _e_ ! _e_ ! _g_ ! _f_ ! _p_ ! _q_ ! _r_
-! _g_ ! _g_ ! _f_ ! _e_ ! _r_ ! _p_ ! _q_
-! _f_ ! _f_ ! _e_ ! _g_ ! _q_ ! _r_ ! _p_
-! _p_ ! _p_ ! _q_ ! _r_ ! _e_ ! _g_ ! _f_
-! _q_ ! _q_ ! _r_ ! _p_ ! _f_ ! _e_ ! _g_
-! _r_ ! _r_ ! _p_ ! _q_ ! _g_ ! _f_ ! _e_
-!===
-|===
 
 ==== order 8
 
