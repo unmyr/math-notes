@@ -291,7 +291,7 @@ endif::[]
 
 [stem,latexmath]
 ++++
-z = \frac{1}{2} + \frac{\sqrt{3}{2}}i = e^{\frac{e \pi i}{6}}
+z = \frac{1}{2} + \frac{\sqrt{3}}{2}i = e^{\frac{e \pi i}{6}}
 ++++
 
 ===== _S_~3~ -> _S_~3~^-1^
