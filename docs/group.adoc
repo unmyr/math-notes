@@ -279,7 +279,10 @@ endif::[]
 | _h_ | _h_ | _g_ | _f_ | _e_
 |===
 
-==== order 6:
+==== order 6
+
+* https://groupprops.subwiki.org/wiki/Groups_of_order_6[Groups of order 6 - Groupprops^]
+* https://proofwiki.org/wiki/Groups_of_Order_6[Groups of Order 6 - ProofWiki^]
 
 ===== _S_~3~ -> _S_~3~^-1^
 
