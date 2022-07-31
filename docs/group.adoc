@@ -1,0 +1,669 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::attrs.adoc[]
+
+== Group theory
+
+=== Definition of group and subgroup
+
+.Group
+****
+A group _G_ is a finite or infinite set of elements together with a binary operation (called the group operation) that together satisfy the four fundamental properties of closure, associativity, the identity property, and the inverse property. The operation with respect to which a group is defined is often called the "group operation," and a set is said to be a group "under" this operation. Elements _A_, _B_, _C_, ... with binary operation between _A_ and _B_ denoted _AB_ form a group if
+
+1. Closure: +
+   If _A_ and _B_ are two elements in _G_, then the product _AB_ is also in _G_.
+2. Associativity: +
+   The defined multiplication is associative, +
+   i.e., for all _A_,_B_,_C_ in _G_, (_AB_)_C_=_A_(_BC_).
+3. Identity: +
+   There is an identity element _I_ (a.k.a. 1, E, or e)
+   such that _IA_=_AI_=_A_ for every element _A_ in _G_.
+4. Inverse: +
+   There must be an inverse (a.k.a. reciprocal) of each element.
+   Therefore, for each element _A_ of _G_, the set contains
+   an element _B_=_A_^(-1)^ such that _AA_^(-1)^=_A_^(-1)^_A_=_I_.
+
+Reference: +
+http://mathworld.wolfram.com/Group.html[Group - from Wolfram MathWorld]
+****
+
+==== centralizer and Normalizer(中心化群と正規化群)
+
+.Centralizer
+****
+The centralizer of a subset *_S_* of group (or semigroup) *_G_* is defined to be
+
+// [.text-center]
+// *C*~*_G_*~(*_S_*) or *Z*~*_G_*~(*_S_*) = {__g__ {isin} __G__ | __gs__ = __sg__ for all __s__ {isin} *_S_*}
+
+[stem,latexmath]
+++++
+\large \textbf{C}_{G}(S) \,\,\text{or}\,\, \textbf{Z}_{G}(S) = \left\{g \in G \mid gs=sg \,\, \text{for all}\,\, s \in S \right\}
+++++
+
+****
+
+.Normalizer
+****
+The normalizer of *_S_* in the group (or semigroup) *_G_* is defined to be
+
+// [.text-center]
+// *N*~*_G_*~(*_S_*) = {_g_ {isin} _G_ | _gS_ = _Sg_}
+
+[stem,latexmath]
+++++
+\large \textbf{N}_{G}(S) = \left\{ g \in G \mid gS=Sg\right\}
+++++
+
+****
+
+* https://en.wikipedia.org/wiki/Centralizer_and_normalizer[Centralizer and normalizer - Wikipedia]
+
+=== examples
+
+* https://www.math.colostate.edu/~jwilson/math/index-order.html[Tiny Group Library: Order Index - Group Lattices^]
+
+==== order 2: {ZZ}/2{ZZ}, _S_~2~, _D_~1~
+{ZZ}/2{ZZ}, _D_~1~, XOR, S={(), (A B)}, etc
+
+
+[cols="1a,1a" frame="none" grid="none", options="autowidth"]
+|===
+|
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="_x_^2^=1"
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+*_x_^2^=1*
+endif::[]
+[cols="1h,1d,1d" options="header, autowidth" {table_tile}]
+!===
+ ! {xx} >!  1 >! -1
+>!   1  >!  1 >! -1
+>!  -1  >! -1 >!  1
+!===
+
+|
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="XOR"
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+*XOR*
+endif::[]
+[cols="1h,1d,1d" options="header, autowidth" {table_tile}]
+!===
+! ⊕ ! 0 ! 1
+! 0 ! 0 ! 1
+! 1 ! 1 ! 0
+!===
+
+|===
+
+==== order 3: _C_~3~, {ZZ}/3{ZZ}
+(_C_~3~={_g_^0^, _g_^1^, _g_^2^},*) {isomorphic} {ZZ}/3{ZZ}
+
+[cols="1a,1a" frame="none" grid="none", options="autowidth"]
+|===
+|
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="__C__~3~"
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+*__C__~3~*
+endif::[]
+[cols="1h,1d,1d,1d", options="header,autowidth" {table_tile}]
+!===
+!       ! _g_^0^ ! _g_^1^ ! _g_^2^
+! _g_^0^ ! _g_^0^ ! _g_^1^ ! _g_^2^
+! _g_^1^ ! _g_^1^ ! _g_^2^ ! _g_^0^
+! _g_^2^ ! _g_^2^ ! _g_^0^ ! _g_^1^
+!===
+
+|
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="{ZZ}/3{ZZ}(_x_+_y_ mod 3)"
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+*{ZZ}/3{ZZ}(_x_+_y_ mod 3)*
+endif::[]
+[cols="1h,1d,1d,1d", options="header,autowidth" {table_tile}]
+!===
+!                 ! [overline]#0#~3~ ! [overline]#1#~3~ ! [overline]#2#~3~
+! [overline]#0#~3~ ! [overline]#0#~3~ ! [overline]#1#~3~ ! [overline]#2#~3~
+! [overline]#1#~3~ ! [overline]#1#~3~ ! [overline]#2#~3~ ! [overline]#0#~3~
+! [overline]#2#~3~ ! [overline]#2#~3~ ! [overline]#0#~3~ ! [overline]#1#~3~
+!===
+
+|===
+
+<<<
+
+==== order 4: _C_~4~, {ZZ}~4~
+* _S_={_e_=_p_^0^, _p_^1^, _p_^2^, _p_^3^}
+* 部分群: {_p_^0^} → {_p_^0^, _p_^2^} → {_p_^0^, _p_^1^, _p_^2^, _p_^3^}
+
+ifeval::["{backend}" == "pdf"]
+:table_width_pdf: width="40"
+endif::[]
+
+[cols="1a,1a" frame="none" grid="none" options="autowidth"]
+|===
+|
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="__K__~4~ = __C__~2~ × __C__~2~"
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+*__K__~4~ = __C__~2~ × __C__~2~*
+endif::[]
+
+[cols="2h,1d,1d,1d,1d" options="header,autowidth" title="_C_~4~"]
+!===
+!          ! _p_^0^ ! _p_^1^ ! _p_^2^ ! _p_^3^
+! *_p_^0^* ! _p_^0^ ! _p_^1^ ! _p_^2^ ! _p_^3^
+! *_p_^1^* ! _p_^1^ ! _p_^2^ ! _p_^3^ ! _p_^0^
+! *_p_^2^* ! _p_^2^ ! _p_^3^ ! _p_^0^ ! _p_^1^
+! *_p_^3^* ! _p_^3^ ! _p_^0^ ! _p_^1^ ! _p_^2^
+!===
+|
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="{ZZ}/4{ZZ}(_x_+_y_ mod 4)"
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+*{ZZ}/4{ZZ}(_x_+_y_ mod 4)*
+endif::[]
+[cols="1h,1d,1d,1d,1d", options="header, autowidth" {table_tile}]
+!===
+!                  ! [overline]#0#~4~ ! [overline]#1#~4~ ! [overline]#2#~4~ ! [overline]#3#~4~
+! [overline]#0#~4~ ! [overline]#0#~4~ ! [overline]#1#~4~ ! [overline]#2#~4~ ! [overline]#3#~4~
+! [overline]#1#~4~ ! [overline]#1#~4~ ! [overline]#2#~4~ ! [overline]#3#~4~ ! [overline]#0#~4~
+! [overline]#2#~4~ ! [overline]#2#~4~ ! [overline]#3#~4~ ! [overline]#0#~4~ ! [overline]#1#~4~
+! [overline]#3#~4~ ! [overline]#3#~4~ ! [overline]#0#~4~ ! [overline]#1#~4~ ! [overline]#2#~4~
+!===
+
+|===
+
+.Subgroup of _C_~4~
+[cols="2h,1d,1d" options="header,autowidth" title="subgroup of _C_~4~"]
+|===
+|                    | { _p_^0^, _p_^2^ } | { _p_^1^, _p_^3^ }
+| { _p_^0^, _p_^2^ } | { _p_^0^, _p_^2^ } | { _p_^1^, _p_^3^ }
+| { _p_^1^, _p_^3^ } | { _p_^1^, _p_^3^ } | { _p_^0^, _p_^2^ }
+|===
+
+==== order 4: _K_~4~, _D_~2~
+
+* _S_={_p_^2^=_q_^2^=_r_^2^=_e_, _r_=_p_^1^_q_^1^=_q_^1^_p_^1^}
+* 部分群: ++{++_e_++}++, {_e_, _p_}, {_e_, _q_}, {_e_, _r_}, {_e_, _p_, _q_, _r_}
+** _D_~2~ … 平面に書かれた文字に関する対称性 +
+__e__、__p__:2点を軸とする鏡映(Reflection)、__q__:2点の中点による回転(Rotation)、__r__:__pq__の合成
+回転は 180°/2 の角度
+
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="The multiplication table (クラインの四元群; Klein four-group)"
+endif::[]
+
+.The multiplication table (クラインの四元群; Klein four-group)
+[cols="1a,1a" frame="none" grid="none" options="autowidth"]
+|===
+|
+[cols="1h,1d,1d,1d,1d" options="header, autowidth" title="_K_~4~"]
+!===
+!     ! _e_ ! _p_ ! _q_ ! _r_
+! _e_ ! _e_ ! _p_ ! _q_ ! _r_
+! _p_ ! _p_ ! _e_ ! _r_ ! _q_
+! _q_ ! _q_ ! _r_ ! _e_ ! _p_
+! _r_ ! _r_ ! _q_ ! _p_ ! _e_
+!===
+
+|
+[cols="1h,1d,1d,1d,1d" options="header, autowidth" title="_K_~4~ {cong} _C_~2~ × _C_~2~"]
+!===
+!                ! _s_^0^_r_^0^ ! _s_^0^_r_^1^ ! _s_^1^_r_^0^ ! _s_^1^_r_^1^
+! *_s_^0^_r_^0^* ! _s_^0^_r_^0^ ! _s_^0^_r_^1^ ! _s_^1^_r_^0^ ! _s_^1^_r_^1^
+! *_s_^0^_r_^1^* ! _s_^0^_r_^1^ ! _s_^0^_r_^0^ ! _s_^1^_r_^1^ ! _s_^1^_r_^0^
+! *_s_^1^_r_^0^* ! _s_^1^_r_^0^ ! _s_^1^_r_^1^ ! _s_^0^_r_^0^ ! _s_^0^_r_^1^
+! *_s_^1^_r_^1^* ! _s_^1^_r_^1^ ! _s_^1^_r_^0^ ! _s_^0^_r_^1^ ! _s_^0^_r_^0^
+!===
+
+|===
+
+_p_ { _e_, _p_ } _p_^-1^ = _p_ { _e_, _p_ } _p_ = { _e_, _p_ } _p_ = { _e_, _p_ } +
+_q_ { _e_, _p_ } _q_^-1^ = _q_ { _e_, _p_ } _q_ = { _q_, _r_ } _q_ = { _e_, _p_ } +
+_r_ { _e_, _p_ } _r_^{sp}-1^ = _r_ { _e_, _p_ } _r_ = { _r_, _q_ } _r_ = { _e_, _p_ }
+
+{cap_omega} = { { _e_, _p_ }, { _e_, _q_ }, { _e_, _r_ } } +
+{cap_delta}{cap_omega} = { { _e_ } }
+
+===== 行列の例
+A: X軸の鏡映反転, B: Y軸の鏡映反転, C: A,Bの合成 について、 +
+_e_(_x_)=_E_**_x_**, _f_(_x_)=_A_**_x_**, _g_(_x_)=_B_**_x_**, _h_(_x_)=_C_**_x_**の
+集合は、クライン群をなす。
+[stem,latexmath]
+++++
+A=\left(\begin{array}{rr}  1 & 0 \\ 0 & -1 \end{array}\right),
+B=\left(\begin{array}{rr} -1 & 0 \\ 0 &  1 \end{array}\right),
+C=\left(\begin{array}{rr} -1 & 0 \\ 0 & -1 \end{array}\right)
+++++
+
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="The multiplication table (一次変換群)"
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+* The multiplication table (一次変換群)
++
+endif::[]
+[cols="1h,1d,1d,1d,1d" options="header, autowidth, unbreakable" {table_tile}]
+|===
+|     | _e_ | _f_ | _g_ | _h_
+| _e_ | _e_ | _f_ | _g_ | _h_
+| _f_ | _f_ | _e_ | _h_ | _g_
+| _g_ | _g_ | _h_ | _e_ | _f_
+| _h_ | _h_ | _g_ | _f_ | _e_
+|===
+
+.{Sym}~3~ - Hasse diagram
+["graphviz", "hasse-s3", format="svg"]
+----
+graph {
+  layout = dot
+  rankdir = TB
+  graph [ pad="0.1", ranksep="0.4", nodesep="0.2", splines="line" ];
+  node [ shape="none", height=0.25 ]
+
+  G [
+    label=<{<I>e</I>, <I>f</I>, <I>g</I>, <I>p</I>, <I>q</I>, <I>r</I>}>,
+    fixedsize=true, width=1.72
+  ]
+
+  e_p [label=<{<I>e</I>, <I>p</I>}>, fixedsize=true, width=0.65]
+  e_q [label=<{<I>e</I>, <I>q</I>}>, fixedsize=true, width=0.65]
+  e_r [label=<{<I>e</I>, <I>r</I>}>, fixedsize=true, width=0.64]
+  e_f_g [
+    label=<{<I>e</I>, <I>f</I>, <I>g</I>}>,
+    fixedsize=true, width=0.87, height=0.29
+  ]
+  { rank=same; e_p; e_q; e_r; e_f_g; }
+
+  e [ label=<{<I>e</I>}>, fixedsize=true, width=0.36 ]
+
+  G -- {e_p, e_q, e_r, e_f_g} [ headport=n, tailport=s ]
+  {e_p, e_q, e_r, e_f_g} -- e [ headport=n, tailport=s ]
+}
+----
+
+.{Sym}~3~ - Hasse diagram (Composition)
+["graphviz", "hasse-s3-comp", format="png"]
+----
+graph {
+  layout = dot
+  rankdir = TB
+  graph [ pad="0.1", ranksep="0.4", nodesep="0.2", splines="line" ];
+  node [ shape="none" ]
+
+  G [
+    label=<{<I>e</I>, <I>f</I>, <I>g</I>, <I>p</I>, <I>q</I>, <I>r</I>}>,
+    fixedsize=true, width=1.75, height=0.25
+  ]
+
+  e_p [
+    label=<{<I>e</I>=<I>f</I><SUP><FONT POINT-SIZE="10">&nbsp;0</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">0</FONT></SUP>,<br/> &nbsp; <I>p</I>=<I>f</I><SUP>&nbsp;<FONT POINT-SIZE="10">0</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">1</FONT></SUP>}>,
+    fixedsize=true, width=1.05, height=0.5
+  ]
+  e_q [
+    label=<{<I>e</I>=<I>f</I><SUP>&nbsp;<FONT POINT-SIZE="10">0</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">0</FONT></SUP>,<br/> &nbsp; <I>q</I>=<I>f</I><SUP>&nbsp;<FONT POINT-SIZE="10">2</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">1</FONT></SUP>}>,
+    fixedsize=true, width=1.05, height=0.5
+  ]
+  e_r [
+    label=<{<I>e</I>=<I>f</I><SUP>&nbsp;<FONT POINT-SIZE="10">0</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">0</FONT></SUP>,<br/> &nbsp; <I>r</I>=<I>f</I><SUP>&nbsp;<FONT POINT-SIZE="10">1</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">1</FONT></SUP>}>,
+    fixedsize=true, width=1.05, height=0.5
+  ]
+  e_f_g [
+    label=<{<I>e</I>=<I>f</I><SUP>&nbsp;<FONT POINT-SIZE="10">0</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">0</FONT></SUP>,<br/> &nbsp; <I>f</I>=<I>f</I><SUP>&nbsp;<FONT POINT-SIZE="10">1</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">0</FONT></SUP>,<br/> &nbsp; <I>g</I>=<I>f</I><SUP>&nbsp;<FONT POINT-SIZE="10">2</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">0</FONT></SUP>}>,
+    fixedsize=true, width=1.15, height=0.75
+  ]
+  { rank=same; e_p; e_q; e_r; e_f_g; }
+
+  e [
+    label=<{<I>e</I>=<I>f</I><SUP>&nbsp;<FONT POINT-SIZE="10">0</FONT></SUP>∘<I>p</I><SUP><FONT POINT-SIZE="10">0</FONT></SUP>}>,
+    fixedsize=true, width=1.05, height=0.3
+  ]
+
+  G -- {e_p, e_q, e_r, e_f_g} [ headport=n, tailport=s ]
+  {e_p, e_q, e_r, e_f_g} -- e [ headport=n, tailport=s ]
+}
+----
+
+==== order 6:
+
+[cols="1a,1a" {table_options}]
+.The multiplication table ({Sym}~3~ and {Sym}~3~^-1^)
+|===
+| {Sym}~3~ | {Sym}~3~^-1^
+
+|
+[cols="1h,1d,1d,1d,1d,1d,1d", {table_width} {table_options}]
+!===
+!       ! _e_ ! _f_ ! _g_ ! _p_ ! _q_ ! _r_
+!   _e_ ! _e_ ! _f_ ! _g_ ! _p_ ! _q_ ! _r_
+!   _f_ ! _f_ ! _g_ ! _e_ ! _r_ ! _p_ ! _q_
+!   _g_ ! _g_ ! _e_ ! _f_ ! _q_ ! _r_ ! _p_
+!   _p_ ! _p_ ! _q_ ! _r_ ! _e_ ! _f_ ! _g_
+!   _q_ ! _q_ ! _r_ ! _p_ ! _g_ ! _e_ ! _f_
+!   _r_ ! _r_ ! _p_ ! _q_ ! _f_ ! _g_ ! _e_
+!===
+|
+[cols="1h,1d,1d,1d,1d,1d,1d" {table_width} {table_options}]
+!===
+!     ! _e_ ! _g_ ! _f_ ! _p_ ! _q_ ! _r_
+! _e_ ! _e_ ! _g_ ! _f_ ! _p_ ! _q_ ! _r_
+! _g_ ! _g_ ! _f_ ! _e_ ! _r_ ! _p_ ! _q_
+! _f_ ! _f_ ! _e_ ! _g_ ! _q_ ! _r_ ! _p_
+! _p_ ! _p_ ! _q_ ! _r_ ! _e_ ! _g_ ! _f_
+! _q_ ! _q_ ! _r_ ! _p_ ! _f_ ! _e_ ! _g_
+! _r_ ! _r_ ! _p_ ! _q_ ! _g_ ! _f_ ! _e_
+!===
+|===
+
+==== order 8
+
+* https://groupprops.subwiki.org/wiki/Groups_of_order_8[Groups of order 8 - Groupprops^]
+* https://crypto.stanford.edu/pbc/notes/group/ordereight.html[Group Theory - Groups Up To Order Eight^]
+* https://proofwiki.org/wiki/Groups_of_Order_8[Groups of Order 8 - ProofWiki^]
+
+It turns out there are 3 abelian groups and 2 nonabelian groups.
+
+* abelian groups: C~8~, C~4~{xx}C~2~, C~2~{xx}C~2~{xx}C~2~
+* nonabelian groups: D~4~, Q~8~ (dicyclic group)
+
+===== Q~8~
+
+.*4変数*
+* _s_^2^ = _e_, _i_^2^ = _j_^2^ = _k_^2^ = _i_ _j_ _k_ = _s_
+
+.The multiplication table (order 8; Q8)
+[cols="h,d,d,d,d,d,d,d,d", options="header, autowidth"]
+|===
+|      | _e_  | _s_  | _i_  | _si_ | _j_  | _sj_ | _k_  | _sk_
+| _e_  | _e_  | _s_  | _i_  | _si_ | _j_  | _sj_ | _k_  | _sk_
+| _s_  | _s_  | _e_  | _si_ | _i_  | _sj_ | _j_  | _sk_ | _k_
+| _i_  | _i_  | _si_ | _s_  | _e_  | _k_  | _sk_ | _sj_ | _j_
+| _si_ | _si_ | _i_  | _e_  | _s_  | _sk_ | _k_  | _j_  | _sj_
+| _j_  | _j_  | _sj_ | _sk_ | _k_  | _s_  | _e_  | _i_  | _si_
+| _sj_ | _sj_ | _j_  | _k_  | _sk_ | _e_  | _s_  | _si_ | _i_
+| _k_  | _k_  | _sk_ | _j_  | _sj_ | _si_ | _i_  | _s_  | _e_
+| _sk_ | _sk_ | _k_  | _sj_ | _j_  | _i_  | _si_ | _e_  | _s_
+|===
+
+* (_s_^1^ _i_^1^) (_s_^1^ _i_^1^) = _s_^1^ (_i_^1^ _s_^1^) _i_^1^ = _s_^1^ _s_^1^ _i_^1^ _i_^1^ = _e_ _s_ = _s_
+* (_s_^1^ _i_^1^) (_s_^1^ _j_^1^) = _s_^1^ (_i_^1^ _s_^1^) _j_^1^ = _s_^1^ _s_^1^ _i_^1^ _j_^1^ = _e_ _k_ = _k_
+* _s_{sp}^-1^ {_i_, _j_, _k_} _s_ = (_s_{sp}^-1^) {_is_, _js_, _ks_} = _s_ {_si_, _sj_, _sk_} = {_i_, _j_, _k_}
+
+
+.*2変数*
+* _x_^4^ = _e_, _x_^2^ = _y_^2^, _y_{sp}^-1^_x_ _y_ = _x_{sp}^-1^
+* normal subgroups: N={ { _e_ }, {_e_, _x_^2^}, {_e_, _x_, _x_^2^, _x_^3^}}
+* subgroups: H={ { _e_ }, {_e_, _x_^2^}, {_e_, _x_, _x_^2^, _x_^3^},
+  {_e_, _y_, _x_^2^, _x_^2^_y_}, {_e_, _xy_, _x_^2^, _x_^3^_y_}, _G_ }
+* center of quaternion group: Z(_G_) = {{z} {isin} {cap_G} {vbar} {z}{g} = {g}{z} ({forall}{g}{isin}{cap_g}) } = {_e_, _x_^2^}
+* ex. N={_e_, _x_, _x_^2^, _x_^3^} {cap} H={_e_, _xy_, _x_^2^, _x_^3^_y_} = {_e_, _x_^2^} {neq} { _e_ }
+
+.The multiplication table (order 8; Q8)
+[cols="h,d,d,d,d,d,d,d,d", options="header, autowidth"]
+|===
+|           | _e_       | _x_^2^    | _x_       | _x_^3^    | _y_       | _x_^2^_y_ | _x_ _y_   | _x_^3^_y_
+| _e_       | _e_       | _x_^2^    | _x_       | _x_^3^    | _y_       | _x_^2^_y_ | _x_ _y_   | _x_^3^_y_
+| _x_^2^    | _x_^2^    | _e_       | _x_^3^    | _x_       | _x_^2^_y_ | _y_       | _x_^3^_y_ | _x_ _y_
+| _x_       | _x_       | _x_^3^    | _x_^2^    | _e_       | _x_ _y_   | _x_^3^_y_ | _x_^2^_y_ | _y_
+| _x_^3^    | _x_^3^    | _x_       | _e_       | _x_^2^    | _x_^3^_y_ | _x_ _y_   | _y_       | _x_^2^_y_
+| _y_       | _y_       | _x_^2^_y_ | _x_^3^_y_ | _x_ _y_   | _x_^2^    | _e_       | _x_       | _x_^3^ 
+| _x_^2^_y_ | _x_^2^_y_ | _y_       | _x_ _y_   | _x_^3^_y_ | _e_       | _x_^2^    | _x_^3^    | _x_
+| _x_ _y_   | _x_ _y_   | _x_^3^_y_ | _y_       | _x_^2^_y_ | _x_^3^    | _x_       | _x_^2^    | _e_
+| _x_^3^_y_ | _x_^3^_y_ | _x_ _y_   | _x_^2^_y_ | _y_       | _x_       | _x_^3^    | _e_       | _x_^2^
+|===
+
+.The multiplication table (order 4; Q8/C2)
+[cols="h,d,d,d,d", options="header, autowidth"]
+|===
+|                      | {_e_, _x_^2^}        | {_x_, _x_^3^}        | {_y_, _x_^2^_y_}     | {_x_ _y_, _x_^3^_y_}
+| {_e_, _x_^2^}        | {_e_, _x_^2^}        | {_x_, _x_^3^}        | {_y_, _x_^2^_y_}     | {_x_ _y_, _x_^3^_y_}
+| {_x_, _x_^3^}        | {_x_, _x_^3^}        | {_e_, _x_^2^}        | {_x_ _y_, _x_^3^_y_} | {_y_, _x_^2^_y_}
+| {_y_, _x_^2^_y_}     | {_y_, _x_^2^_y_}     | {_x_ _y_, _x_^3^_y_} | {_e_, _x_^2^}        | {_x_, _x_^3^} 
+| {_x_ _y_, _x_^3^_y_} | {_x_ _y_, _x_^3^_y_} | {_y_, _x_^2^_y_}     | {_x_, _x_^3^}        | {_e_, _x_^2^}
+|===
+
+.The multiplication table (order 4; Q8/C4)
+[cols="h,d,d", options="header, autowidth"]
+|===
+|                                      | {_e_, _x_, _x_^2^, _x_^3^}           | {_y_, _x_ _y_, _x_^2^_y_, _x_^3^_y_}
+| {_e_, _x_, _x_^2^, _x_^3^}           | {_e_, _x_, _x_^2^, _x_^3^}           | {_y_, _x_ _y_, _x_^2^_y_, _x_^3^_y_}
+| {_y_, _x_ _y_, _x_^2^_y_, _x_^3^_y_} | {_y_, _x_ _y_, _x_^2^_y_, _x_^3^_y_} | {_e_, _x_, _x_^2^, _x_^3^}
+|===
+
+.References
+* https://en.wikipedia.org/wiki/Quaternion_group[Quaternion group - Wikipedia^] +
+  group q8 - Google Search
+* https://groupprops.subwiki.org/wiki/Quaternion_group[Quaternion group - Groupprops - Subwiki^] +
+  group q8 - Google Search
+
+
+=== 二面体群(dihedral group)
+
+_D_~n~ =〈_r_,_s_| _r_^n^=_1_, _s_^2^=_1_, _srs_=_r_^-1^〉or
+_D_~n~ =〈_x_,_y_| _x_^2^=_y_^2^=(_xy_)^n^=_1_〉
+
+* s: reflections across n lines through the origin
+* r: n rotations of multiples of 360°/n about the origin
+
+==== _D_~1~
+* _D_~1~: {e=_r_~0°~, _s_~0~} +
+  _D_~1~ is isomorphic to Z~2~, the cyclic group of order 2.
+** _r_~0~: 360°/n = 360°/1 = 360° の回転、つまり単位元
+** _s_~0~: originを通る 0° の線による鏡映(origin(x,y)=P~0~)
+
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="The multiplication table (order 2; D1)"
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+* The multiplication table (order 2; D1)
++
+endif::[]
+[cols="1h,1d,1d", options="header,autowidth" {table_tile}]
+|===
+|       | _r_~0~ | _s_~0~
+| _r_~0~ | _r_~0~ | _s_~0~
+| _s_~0~ | _s_~0~ | _r_~0~
+|===
+
+==== _D_~2~
+* _D_~2~: {e=_r_~0°~, _r_~180°~, _s_~0~, _s_~1~=_r_~180°~_s_~0~} +
+  _D_~2~ is isomorphic to K~4~, the Klein four-group. +
+  origin は、P~0~ と P~1~ の中点になる +
+  _s_~0~: 重心を通る 0° の線による鏡映(P~0~ と P~1~ と重心を通る直線による鏡映) +
+  _s_~0~: 重心を通る 180° の線による鏡映(P~0~ と P~1~ と垂直にoriginのみを通る直線による鏡映) +
+
+ifeval::["{backend}" != "pdf"]
+:table_tile: ,title="The multiplication table (order 4; _D_~2~; _K_~4~)"
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+* The multiplication table (order 4; _D_~2~; _K_~4~)
++
+endif::[]
+[cols="1h,1d,1d,1d,1d", options="header,autowidth" {table_tile}]
+|===
+|         | _r_~0~   | _r_~180°~ | _s_~0~   | _s_~1~
+| _r_~0~   | _r_~0~   | _r_~180°~ | _s_~0~   | _s_~1~
+| _r_~180°~ | _r_~180°~ | _r_~0~   | _s_~1~   | _s_~0~
+| _s_~0~   | _s_~0~   | _s_~1~   | _r_~0~   | _r_~180°~
+| _s_~1~   | _s_~1~   | _s_~0~   | _r_~180°~ | _r_~0~
+|===
+
+<<<
+
+==== _D_~3~
+
+_D_~3~ is non-Abelian.
+
+* _D_~3~: {_s_^2^=_e_, _r_^3^=_e_, (_sr_)^2^ = _e_} or {_r_^3^=_s_^2^=_e_, _srs_ = _r_^{sp}-1^} +
+  _e_=_r_^0^=_s_^2^: 単位元(0°回転) +
+  _r_^1^=_s_~120°~ _s_~0°~: 120°回転 (重心を通る 0° の線による鏡映し、重心を通る 120° の線による鏡映) +
+  _r_^2^=_s_~240°~ _s_~0°~: 240°回転 (重心を通る 0° の線による鏡映し、重心を通る 240° の線による鏡映) +
+  _s_: P~0~と重心を通る 0° の線による鏡映 +
+  _sr_=_s_~240°~: 120°回転した後に P~0~と重心を通る 0° の線による鏡映(= P~0~と重心を通る 240° の線による鏡映) +
+  _sr_^2^=_s_~120°~: 240°回転した後に P~0~と重心を通る 0° の線による鏡映(= P~0~と重心を通る 120° の線による鏡映) +
+  normal subgroups: { { _e_ }, N={ _e_,  _r_, _r_^2^ }, _G_ } +
+  subgroups: { { _e_ }, H={ _e_, _s_ }, { _e_, _sr_=_r_^2^_s_ }, { _e_, _sr_^2^=_rs_ }, { _e_,  _r_, _r_^2^ }, _G_ }
++
+.The multiplication table (order 6; D3)
+[cols="1a,1a" frame="none" grid="none" options="autowidth"]
+|===
+|
+.HN
+[cols="4h,1d,1d,1d,1d,1d,1d", options="header,autowidth"]
+!===
+!         ! _e_     ! _r_     ! _r_^2^  ! _s_     ! _sr_    ! _sr_^2^
+! _e_     ! _e_     ! _r_     ! _r_^2^  ! _s_     ! _sr_    ! _sr_^2^
+! _r_     ! _r_     ! _r_^2^  ! _e_     ! _sr_^2^ ! _s_     ! _sr_
+! _r_^2^  ! _r_^2^  ! _e_     ! _r_     ! _sr_    ! _sr_^2^ ! _s_
+! _s_     ! _s_     ! _sr_    ! _sr_^2^ ! _e_     ! _r_     ! _r_^2^
+! _sr_    ! _sr_    ! _sr_^2^ ! _s_     ! _r_^2^  ! _e_     ! _r_
+! _sr_^2^ ! _sr_^2^ ! _s_     ! _sr_    ! _r_     ! _r_^2^  ! _e_
+!===
+
+|
+.NH
+[cols="4h,1d,1d,1d,1d,1d,1d", options="header,autowidth"]
+!===
+!           ! _e_       ! _r_       ! _r_^2^    ! _s_       ! _rs_      ! _r_^2^_s_
+! _e_       ! _e_       ! _r_       ! _r_^2^    ! _s_       ! _rs_      ! _r_^2^_s_
+! _r_       ! _r_       ! _r_^2^    ! _e_       ! _rs_      ! _r_^2^_s_ ! _s_
+! _r_^2^    ! _r_^2^    ! _e_       ! _r_       ! _r_^2^_s_ ! _s_       ! _rs_
+! _s_       ! _s_       ! _r_^2^_s_ ! _rs_      ! _e_       ! _r_^2^    ! _r_
+! _rs_      ! _rs_      ! _s_       ! _r_^2^_s_ ! _r_       ! _e_       ! _r_^2^
+! _r_^2^_s_ ! _r_^2^_s_ ! _rs_      ! _s_       ! _r_^2^    ! _r_       ! _e_
+!===
+
+|===
++
+image::order_6_D3_diagram.png[]
+
+.References
+* https://mathworld.wolfram.com/DihedralGroupD3.html[Dihedral Group D_3 -- from Wolfram MathWorld^]
+
+===== Semidirect products
+
+* _D_~3~: {_s_^2^=_e_, _r_^3^=_e_, (_sr_)^2^ = _e_} or {_r_^3^=_s_^2^=_e_, _srs_ = _r_^{sp}-1^} +
+   _s_^0^_r_^0^: 0°回転,  _s_^0^_r_^1^: 120°回転, _s_^0^_r_^2^: 240°回転 +
+  _s_^1^_r_^0^: P~0~と重心を通る 0° の線による鏡映(P~0~と重心を通る直線による鏡映) +
+  _s_^1^_r_^1^: 120°回転した後に P~0~と重心を通る 0° の線による鏡映(= P~0~と重心を通る 240° の線による鏡映) +
+  _s_^1^_r_^2^: 240°回転した後に P~0~と重心を通る 0° の線による鏡映(= P~0~と重心を通る 120° の線による鏡映) +
+  normal subgroups: { { _s_^0^_r_^0^ }, { _s_^0^_r_^0^,  _s_^0^_r_^1^, _s_^0^_r_^2^}, _G_ } +
+  subgroups: { { _s_^0^_r_^0^ }, { _s_^0^_r_^0^, _s_^1^_r_^0^}, { _s_^0^_r_^0^, _s_^1^_r_^1^}, { _s_^0^_r_^0^, _s_^1^_r_^2^}, { _s_^0^_r_^0^,  _s_^0^_r_^1^, _s_^0^_r_^2^}, _G_ }
++
+.The multiplication table (order 6; D3)
+[cols="1a,1a" frame="none" grid="none" options="autowidth"]
+|===
+|
+.HN
+[cols="h,d,d,d,d,d,d", options="header, autowidth"]
+!===
+!              ! _s_^0^_r_^0^ ! _s_^0^_r_^1^ ! _s_^0^_r_^2^ ! _s_^1^_r_^0^ ! _s_^1^_r_^1^ ! _s_^1^_r_^2^
+! _s_^0^_r_^0^ ! _s_^0^_r_^0^ ! _s_^0^_r_^1^ ! _s_^0^_r_^2^ ! _s_^1^_r_^0^ ! _s_^1^_r_^1^ ! _s_^1^_r_^2^
+! _s_^0^_r_^1^ ! _s_^0^_r_^1^ ! _s_^0^_r_^2^ ! _s_^0^_r_^0^ ! _s_^1^_r_^2^ ! _s_^1^_r_^0^ ! _s_^1^_r_^1^
+! _s_^0^_r_^2^ ! _s_^0^_r_^2^ ! _s_^0^_r_^0^ ! _s_^0^_r_^1^ ! _s_^1^_r_^1^ ! _s_^1^_r_^2^ ! _s_^1^_r_^0^
+! _s_^1^_r_^0^ ! _s_^1^_r_^0^ ! _s_^1^_r_^1^ ! _s_^1^_r_^1^ ! _s_^0^_r_^0^ ! _s_^0^_r_^1^ ! _s_^0^_r_^2^
+! _s_^1^_r_^1^ ! _s_^1^_r_^1^ ! _s_^1^_r_^2^ ! _s_^1^_r_^2^ ! _s_^0^_r_^2^ ! _s_^0^_r_^0^ ! _s_^0^_r_^1^
+! _s_^1^_r_^2^ ! _s_^1^_r_^2^ ! _s_^1^_r_^0^ ! _s_^1^_r_^0^ ! _s_^0^_r_^1^ ! _s_^0^_r_^2^ ! _s_^0^_r_^0^
+!===
+|
+.NH
+[cols="h,d,d,d,d,d,d", options="header, autowidth"]
+!===
+!              ! _r_^0^_s_^0^ ! _r_^1^_s_^0^ ! _r_^2^_s_^0^ ! _r_^0^_s_^1^ ! _r_^1^_s_^1^ ! _r_^2^_s_^1^
+! _r_^0^_s_^0^ ! _r_^0^_s_^0^ ! _r_^1^_s_^0^ ! _r_^2^_s_^0^ ! _r_^0^_s_^1^ ! _r_^1^_s_^1^ ! _r_^2^_s_^1^
+! _r_^1^_s_^0^ ! _r_^1^_s_^0^ ! _r_^2^_s_^0^ ! _r_^0^_s_^0^ ! _r_^1^_s_^1^ ! _r_^2^_s_^1^ ! _r_^0^_s_^1^
+! _r_^2^_s_^0^ ! _r_^2^_s_^0^ ! _r_^0^_s_^0^ ! _r_^1^_s_^0^ ! _r_^2^_s_^1^ ! _r_^0^_s_^1^ ! _r_^1^_s_^1^
+! _r_^0^_s_^1^ ! _r_^0^_s_^1^ ! _r_^2^_s_^1^ ! _r_^1^_s_^1^ ! _r_^0^_s_^0^ ! _r_^2^_s_^0^ ! _r_^1^_s_^0^
+! _r_^1^_s_^1^ ! _r_^1^_s_^1^ ! _r_^0^_s_^1^ ! _r_^2^_s_^1^ ! _r_^1^_s_^0^ ! _r_^0^_s_^0^ ! _r_^2^_s_^0^
+! _r_^2^_s_^1^ ! _r_^2^_s_^1^ ! _r_^1^_s_^1^ ! _r_^0^_s_^1^ ! _r_^2^_s_^0^ ! _r_^1^_s_^0^ ! _r_^0^_s_^0^
+!===
+|===
+
+===== 二面体群と置換の同型写像
+ifeval::["{backend}" == "pdf"]
+:table_width_pdf: width="80"
+endif::[]
+
+.二面体群(絶対座標 1 2 3 とラベル A, B, C)
+[cols="10h,4d,4d,4d,7d,7d,7d,7d" {table_options}]
+|===
+|                | 1 | 2 | 3 | loc(A) | loc(B) | loc\(C) |
+| _r_^0^=()       | A | B | C | 1      | 2      | 3        | ()
+| _r_^1^=(A B C)  | C | A | B | 2      | 3      | 1        | (2 3 1)
+| _r_^2^=(A C B)  | B | C | A | 3      | 1      | 2        | (3 1 2)
+| _m_=(B C)      | A | C | B | 1      | 3      | 2        | (2 3)
+| _r_^1^_m_=(A C) | C | B | A | 3      | 2      | 1        | (1 3)
+| _r_^2^_m_=(A B) | B | A | C | 2      | 1      | 3        | (1 2)
+|===
+
+* location of plane 1/2/3
+* label its 3 vertices by A,B,C
+
+<<<
+
+==== _D_~4~
+_D_~4~={_e_=_s_^0^_r_^0^, _s_^0^_r_^1^, _s_^0^_r_^2^, _s_^0^_r_^3^, _s_^1^_r_^0^, _s_^1^_r_^1^, _s_^1^_r_^2^, _s_^1^_r_^3^}
+
+.The multiplication table (order 8; D4)
+[cols="h,d,d,d,d,d,d,d,d", options="header, autowidth"]
+|===
+|              | _s_^0^_r_^0^ | _s_^0^_r_^1^ | _s_^0^_r_^2^ | _s_^0^_r_^3^ | _s_^1^_r_^0^ | _s_^1^_r_^1^ | _s_^1^_r_^2^ | _s_^1^_r_^3^
+| _s_^0^_r_^0^ | _s_^0^_r_^0^ | _s_^0^_r_^1^ | _s_^0^_r_^2^ | _s_^0^_r_^3^ | _s_^1^_r_^0^ | _s_^1^_r_^1^ | _s_^1^_r_^2^ | _s_^1^_r_^3^
+| _s_^0^_r_^1^ | _s_^0^_r_^1^ | _s_^0^_r_^2^ | _s_^0^_r_^3^ | _s_^0^_r_^0^ | _s_^1^_r_^1^ | _s_^1^_r_^2^ | _s_^1^_r_^3^ | _s_^1^_r_^0^
+| _s_^0^_r_^2^ | _s_^0^_r_^2^ | _s_^0^_r_^3^ | _s_^0^_r_^0^ | _s_^0^_r_^1^ | _s_^1^_r_^2^ | _s_^1^_r_^3^ | _s_^1^_r_^0^ | _s_^1^_r_^1^
+| _s_^0^_r_~3~ | _s_^0^_r_~3~ | _s_^0^_r_^0^ | _s_^0^_r_^1^ | _s_^0^_r_^2^ | _s_^1^_r_^3^ | _s_^1^_r_^0^ | _s_^1^_r_^1^ | _s_^1^_r_^2^
+| _s_^1^_r_^0^ | _s_^1^_r_^0^ | _s_^1^_r_^3^ | _s_^1^_r_^2^ | _s_^1^_r_^1^ | _s_^0^_r_^0^ | _s_^0^_r_^3^ | _s_^0^_r_^2^ | _s_^0^_r_^1^
+| _s_^1^_r_^1^ | _s_^1^_r_^1^ | _s_^1^_r_^0^ | _s_^1^_r_^3^ | _s_^1^_r_^2^ | _s_^0^_r_^1^ | _s_^0^_r_^0^ | _s_^0^_r_^3^ | _s_^0^_r_^2^
+| _s_^1^_r_^2^ | _s_^1^_r_^2^ | _s_^1^_r_^1^ | _s_^1^_r_^0^ | _s_^1^_r_^3^ | _s_^0^_r_^2^ | _s_^0^_r_^1^ | _s_^0^_r_^0^ | _s_^0^_r_^3^
+| _s_^1^_r_^3^ | _s_^1^_r_^3^ | _s_^1^_r_^2^ | _s_^1^_r_^1^ | _s_^1^_r_^0^ | _s_^0^_r_^3^ | _s_^0^_r_^2^ | _s_^0^_r_^1^ | _s_^0^_r_^0^
+|===
+
+[cols="1", options="autowidth"]
+.内部自己同型
+|===
+| (_s_^1^_r_^1^) (_s_^0^_r_^0^) (_s_^1^_r_^1^)^-1^ = (_s_^1^_r_^1^) (_s_^0^_r_^0^) (_s_^-1^_r{sp}_^-1^) = _s_^0^_r_^0^ = _e_
+| (_s_^1^_r_^1^) (_s_^0^_r_^1^) (_s_^1^_r_^1^)^-1^ = (_s_^1^_r_^1^) (_s_^0^_r_^1^) (_s_^-1^_r{sp}_^-1^) = _s_^0^_r_^1^
+| (_s_^1^_r_^1^) (_s_^0^_r_^2^) (_s_^1^_r_^1^)^-1^ = (_s_^1^_r_^1^) (_s_^0^_r_^2^) (_s_^-1^_r{sp}_^-1^) = _s_^0^_r_^2^
+| (_s_^1^_r_^1^) (_s_^0^_r_^3^) (_s_^1^_r_^1^)^-1^ = (_s_^1^_r_^1^) (_s_^0^_r_^3^) (_s_^-1^_r{sp}_^-1^) = _s_^0^_r_^3^
+
+| (_s_^1^_r_^1^) (_s_^1^_r_^0^) (_s_^1^_r_^1^)^-1^ = (_s_^1^_r_^1^) (_s_^0^_r_^0^) (_s_^-1^_r{sp}_^-1^) = _s_^1^_r_^0^
+| (_s_^1^_r_^1^) (_s_^1^_r_^1^) (_s_^1^_r_^1^)^-1^ = (_s_^1^_r_^1^) (_s_^0^_r_^1^) (_s_^-1^_r{sp}_^-1^) = _s_^1^_r_^1^
+| (_s_^1^_r_^1^) (_s_^1^_r_^2^) (_s_^1^_r_^1^)^-1^ = (_s_^1^_r_^1^) (_s_^0^_r_^2^) (_s_^-1^_r{sp}_^-1^) = _s_^1^_r_^2^
+| (_s_^1^_r_^1^) (_s_^1^_r_^3^) (_s_^1^_r_^1^)^-1^ = (_s_^1^_r_^1^) (_s_^0^_r_^3^) (_s_^-1^_r{sp}_^-1^) = _s_^1^_r_^3^
+|===
+
+外部自己同型
+a = {_sr_^0^, _sr_^1^, _sr_^2^, _sr_^3^}, a^3^,
+b = (_r_^1^, _r_^3^)(_s_, _sr_^1^)(_sr_^2^, _sr_^3^)
+c = (_r_^1^, _r_^3^)(_s_, _sr_^3^)(_sr_^1^, _sr_^2^)
+
+Aut(_D_~4~) = {_r_^0^,}

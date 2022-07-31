@@ -1,0 +1,146 @@
+:icons: font
+
+:bl: pass:p[ +]
+
+ifeval::["{backend}" != "pdf"]
+:table_options: options="autowidth"
+endif::[]
+ifeval::["{backend}" == "pdf"]
+:table_options:
+endif::[]
+
+:cap_A: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">A</span><span style="font-size: 20%;"> </span>]
+:cap_B: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">B</span><span style="font-size: 20%;"> </span>]
+:cap_C: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">C </span>]
+:cap_D: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">D </span>]
+:cap_E: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">E </span>]
+:cap_F: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">F </span>]
+:cap_G: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">G </span>]
+:cap_P: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">P</span><span style="font-size: 20%;"> </span>]
+:cap_Q: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">Q</span><span style="font-size: 20%;"> </span>]
+:cap_S: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">S</span><span style="font-size: 20%;"> </span>]
+:cap_T: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">T</span><span style="font-size: 20%;"> </span>]
+:cap_W: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">W </span>]
+:cap_X: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">X </span>]
+:cap_Y: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">Y </span>]
+:cap_Z: pass:[<span style="font-family: 'century'; font-style: italic; font-size: 110%;">Z </span>]
+
+:a: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">a</span>]
+:b: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">b</span>]
+:c: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">c</span>]
+:d: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">d</span>]
+:e: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">e</span>]
+:f: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">f</span>]
+:g: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">g</span>]
+:h: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">h</span>]
+:i: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">i</span>]
+:j: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">j</span>]
+:k: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">k</span>]
+:l: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">l</span>]
+:m: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">m</span>]
+:n: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">n</span>]
+:o: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">o</span>]
+:p: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">p</span>]
+:q: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">q</span>]
+:r: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">r</span>]
+:s: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">s</span>]
+:t: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">t</span>]
+:u: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">u</span>]
+:v: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">v</span>]
+:w: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">w</span>]
+:x: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">x</span>]
+:y: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">y</span>]
+:z: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">z</span>]
+
+:cap_delta: pass:q[__&#916;__]
+:cap_lambda: &#923;
+:cap_omega: pass:q[__&#937;__]
+
+// http://tm.root-n.com/misc:negative_circled_digit
+// ❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+:negative_circled_01: ❶
+:negative_circled_02: ❷
+:negative_circled_03: ❸
+:alpha: pass:q[__&#945;__]
+:beta: pass:q[__&#946;__]
+:gamma: pass:q[__&#947;__]
+:delta: pass:q[__&#948;__]
+:epsilon: pass:q[__&#1013;__]
+:varepsilon: pass:q[__&#949;__]
+:theta: pass:q[__&#952;__]
+:lambda: pass:q[__&#955;__]
+:mu: pass:q[__&#956;__]
+:rho: pass:q[__&#961;__]
+:sigma: pass:q[__&#963;__]
+:tau: pass:q[__&#964;__]
+:phi: pass:q[__&#981;__]
+:varphi: pass:q[__&#966;__]
+:chi: pass:q[__&#967;__]
+:psi: pass:q[__&#968;__]
+:omega: pass:q[__&#969;__]
+
+ifeval::["{backend}" != "pdf"]
+:CC: &#8450;
+:FF: &#120125;
+:NN: ℕ
+:QQ: &#8474;
+:RR: &#8477;
+:ZZ: ℤ
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+:CC: pass:q[**C**]
+:FF: pass:q[**F**]
+:NN: pass:q[**N**]
+:QQ: pass:q[**Q**]
+:RR: pass:q[**R**]
+:ZZ: pass:q[**Z**]
+endif::[]
+
+:infty: &#8734;
+
+:minus: −
+:xx: ×
+:oplus: ⊕
+:forall: ∀
+:exists: ∃
+:cap: ∩
+:cup: ∪
+:isin: ∈
+:ni: ∋
+:neq: ≠
+:emptyset: ∅
+:subset: ⊂
+:supset: ⊃
+:sube: ⊆
+:supe: ⊇
+:isomorphic: ≅
+:leq: &#8804;
+:setminus: &#x2216;
+
+ifeval::["{backend}" != "pdf"]
+:sim: &#8764;
+:circ: ∘
+:cdot: &#8901;
+:le: &#8804;
+:ge: &#8805;
+:implies: pass:q[```⟹```]
+:impliedby: pass:q[```⟸```]
+:iff: pass:q[```⟺```]
+:qed: ∎
+:vdots: ⋮
+endif::[]
+
+ifeval::["{backend}" == "pdf"]
+:sim: ～
+:cdot: ·
+:le: ≦
+:ge: ≧
+// :circ: o
+:circ: ∘
+:implies: =>
+:impliedby: <=
+:iff: pass:q[```⇔```]
+:qed: ■
+:vdots: :
+endif::[]
