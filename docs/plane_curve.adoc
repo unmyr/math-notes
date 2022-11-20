@@ -1,0 +1,119 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::attrs.adoc[]
+
+== Plane curve
+
+=== Arc Length Parameter of circle
+
+* implicit function to parametric +
+(1, 0) から(0, 1)までの区間 latexmath:[\lbrack 0, \frac{\pi}{2} \rbrack] で弧長パラメータを考える場合、_t_ に対して _x_ は単調減少し、 _y_ は単調増加する。これを踏まえて、計算を簡単にするため(For brevity)に、 _y_ をパラメータ _t_ と関連付ける。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+x^2 + y^2 &= r^2 \\
+x^2 &= r^2 - y^2 \\
+x &= \pm \sqrt{r^2 - y^2} \\
+\end{aligned}
+++++
+
+* parametric form of a circle +
+It traverses the circle counter-clockwise.
++
+[stem,latexmath]
+++++
+\boldsymbol{p}(t) =
+\begin{pmatrix} x(t) \\ y(t) \end{pmatrix} = 
+\begin{pmatrix} \sqrt{r^2 - t^2} \\ t\end{pmatrix}
+++++
+
+* The tangent at the point
++
+[stem,latexmath]
+++++
+\frac{d \boldsymbol{p}}{dt}(t) =
+\begin{pmatrix} \frac{dx}{dt}(t) \\ \frac{dy}{dt}(t) \end{pmatrix} = 
+\begin{pmatrix} -\frac{t}{\sqrt{r^2 - t^2}} \\ 1 \end{pmatrix}
+++++
+
+* Arc Length Parameter of a circle
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\left.s(t)\right|_{0 \leq t < r} &= \int_{0}^{t}\sqrt{\left(\frac{dx}{dt}(t)\right)^2 + \left(\frac{dy}{dt}(t)\right)^2} \, dt \\
+&= \int_{0}^{t}\sqrt{\frac{t^2}{r^2 - t^2} + 1} \, dt
+ = \int_{0}^{t}\sqrt{\frac{t^2 + r^2 - t^2}{r^2 - t^2}} \, dt
+ = \int_{0}^{t}\sqrt{\frac{r^2}{r^2 - t^2}} \, dt \\
+&= \int_{0}^{t}\frac{1}{\sqrt{1 - \left(\frac{t}{r}\right)^2}} \, dt \\
+\end{aligned}
+++++
+
+ここで、 latexmath:[0 \leq t < r]に対して latexmath:[\frac{t}{r}=\sin \theta]とおくと、
+latexmath:[\theta]の定義域は latexmath:[0 \leq \theta < \frac{\pi}{2}]で、
+latexmath:[\theta = \arcsin\frac{t}{r}]より、積分区間は latexmath:[\left\lbrack 0(=\arcsin\frac{0}{r}), \arcsin\frac{t}{r} \right\rbrack]となる。
+
+[stem,latexmath]
+++++
+\frac{dt}{d\theta}(\theta)
+= r\cos\theta
+++++
+
+[stem,latexmath]
+++++
+\begin{aligned}
+s(t)
+&= \int_{0}^{t}\frac{1}{\sqrt{1 - \left(\frac{t}{r}\right)^2}} \, dt \\
+&= \int_{0}^{t}\frac{1}{\sqrt{1 - \sin^2\theta}} \, \frac{dt}{d \theta}d\theta \\
+&= \int_{0}^{\arcsin\frac{t}{r}}\frac{1}{\sqrt{\cos^2\theta}} \, (r\cos\theta) d\theta \\
+&= r \int_{0}^{\arcsin\frac{t}{r}}\frac{\cos\theta}{| \cos\theta |} \, d\theta
+ = r \int_{0}^{\arcsin\frac{t}{r}} 1 \, d\theta \\
+&= r \left[ \theta \right]_{0}^{\arcsin\frac{t}{r}}
+ = r \arcsin\frac{t}{r} \\
+\end{aligned}
+++++
+
+これで弧長パラメータが定まった。 _t_ について解くと次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+                           s &= r\arcsin\left(\frac{t}{r}\right) \\
+                 \frac{s}{r} &= \arcsin\left(\frac{t}{r}\right) \\
+\sin\left(\frac{s}{r}\right) &= \frac{t}{r} \\
+                        t(s) &= r\sin\left(\frac{s}{r}\right) \\
+\end{aligned}
+++++
+
+* parametric form of a circle
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\boldsymbol{p}(t(s))
+&= \begin{pmatrix} x(t(s)) \\ y(t(s)) \end{pmatrix}
+ = \begin{pmatrix} \sqrt{r^2 - t(s)^2} \\ t(s) \end{pmatrix}
+ = \begin{pmatrix} r\cos\frac{s}{r} \\ r\sin\frac{s}{r} \end{pmatrix} \\
+\end{aligned}
+++++
+
+* Parameterize latexmath:[\boldsymbol{p}] with the arc length parameter latexmath:[s].
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\boldsymbol{p}(s(t)) &= \begin{pmatrix} r\cos\frac{s(t)}{r} \\ r\sin\frac{s(t)}{r}\end{pmatrix} \\
+\end{aligned}
+++++

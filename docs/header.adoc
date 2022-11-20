@@ -1,2 +1,3 @@
 <<index.adoc#,Index>> {vbar}
+<<plane_curve.adoc#,Plane curve>> {vbar}
 <<group.adoc#,Group>> +

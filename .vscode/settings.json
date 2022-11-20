@@ -2,6 +2,9 @@
   "cSpell.words": [
     "abelian",
     "adocbuild",
+    "arccos",
+    "arcsin",
+    "boldsymbol",
     "canastro",
     "dicyclic",
     "fixedsize",
@@ -16,6 +19,7 @@
     "nodesep",
     "nonabelian",
     "peaceiris",
+    "pmatrix",
     "rankdir",
     "ranksep",
     "semidirect",
