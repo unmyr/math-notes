@@ -248,8 +248,8 @@ _p_ { _e_, _p_ } _p_^-1^ = _p_ { _e_, _p_ } _p_ = { _e_, _p_ } _p_ = { _e_, _p_ 
 _q_ { _e_, _p_ } _q_^-1^ = _q_ { _e_, _p_ } _q_ = { _q_, _r_ } _q_ = { _e_, _p_ } +
 _r_ { _e_, _p_ } _r_^{sp}-1^ = _r_ { _e_, _p_ } _r_ = { _r_, _q_ } _r_ = { _e_, _p_ }
 
-{cap_omega} = { { _e_, _p_ }, { _e_, _q_ }, { _e_, _r_ } } +
-{cap_delta}{cap_omega} = { { _e_ } }
+{upper_omega} = { { _e_, _p_ }, { _e_, _q_ }, { _e_, _r_ } } +
+{upper_delta}{upper_omega} = { { _e_ } }
 
 ===== 行列の例
 A: X軸の鏡映反転, B: Y軸の鏡映反転, C: A,Bの合成 について、 +
@@ -451,7 +451,7 @@ It turns out there are 3 abelian groups and 2 nonabelian groups.
 * normal subgroups: N={ { _e_ }, {_e_, _x_^2^}, {_e_, _x_, _x_^2^, _x_^3^}}
 * subgroups: H={ { _e_ }, {_e_, _x_^2^}, {_e_, _x_, _x_^2^, _x_^3^},
   {_e_, _y_, _x_^2^, _x_^2^_y_}, {_e_, _xy_, _x_^2^, _x_^3^_y_}, _G_ }
-* center of quaternion group: Z(_G_) = {{z} {isin} {cap_G} {vbar} {z}{g} = {g}{z} ({forall}{g}{isin}{cap_g}) } = {_e_, _x_^2^}
+* center of quaternion group: Z(_G_) = {{z} {isin} {upper_G} {vbar} {z}{g} = {g}{z} ({forall}{g}{isin}{upper_g}) } = {_e_, _x_^2^}
 * ex. N={_e_, _x_, _x_^2^, _x_^3^} {cap} H={_e_, _xy_, _x_^2^, _x_^3^_y_} = {_e_, _x_^2^} {neq} { _e_ }
 
 .The multiplication table (order 8; Q8)
