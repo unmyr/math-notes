@@ -248,8 +248,8 @@ _p_ { _e_, _p_ } _p_^-1^ = _p_ { _e_, _p_ } _p_ = { _e_, _p_ } _p_ = { _e_, _p_ 
 _q_ { _e_, _p_ } _q_^-1^ = _q_ { _e_, _p_ } _q_ = { _q_, _r_ } _q_ = { _e_, _p_ } +
 _r_ { _e_, _p_ } _r_^{sp}-1^ = _r_ { _e_, _p_ } _r_ = { _r_, _q_ } _r_ = { _e_, _p_ }
 
-{upper_omega} = { { _e_, _p_ }, { _e_, _q_ }, { _e_, _r_ } } +
-{upper_delta}{upper_omega} = { { _e_ } }
+{upper_Omega} = { { _e_, _p_ }, { _e_, _q_ }, { _e_, _r_ } } +
+{upper_Delta}{upper_Omega} = { { _e_ } }
 
 ===== 行列の例
 A: X軸の鏡映反転, B: Y軸の鏡映反転, C: A,Bの合成 について、 +

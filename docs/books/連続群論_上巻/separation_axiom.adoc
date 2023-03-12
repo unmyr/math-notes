@@ -41,7 +41,7 @@ include::../../attrs.adoc[]
 
 ==== ウリゾーンの補題の証明
 
-{upper_R}において、開集合{upper_G}~{r}~ からなる有限系 {upper_sigma}~{n}~ を次のように定める。
+{upper_R}において、開集合{upper_G}~{r}~ からなる有限系 {upper_Sigma}~{n}~ を次のように定める。
 
 [stem,latexmath]
 ++++
@@ -58,7 +58,7 @@ include::../../attrs.adoc[]
 
 また、 {upper_G}~r~ {supset} {upper_E}、かつ {upper_G}~1~ {supset} {upper_F}を満たすように、{upper_G}~0~={upper_E}, {upper_G}~1~={upper_R} と定義する。
 
-* n = 1 のとき、{upper_sigma}~1~ = {{upper_G}~½~} と {upper_sigma}~1~ の要素はただ一つとなる。 +
+* n = 1 のとき、{upper_Sigma}~1~ = {{upper_G}~½~} と {upper_Sigma}~1~ の要素はただ一つとなる。 +
 閉集合 {upper_E}, {upper_F} に対して、空間{upper_R}は正規であるから、{upper_E} {subset} {upper_G}, {upper_F} {subset} {upper_H}, {upper_G}{cap}{upper_H}={emptyset}を満たす開集合が存在する。この{upper_G}を latexmath:[G_{\frac{1}{2}}]、{upper_H}= latexmath:[R \setminus \text{Cl}(G_{\frac{1}{2}})] とすると正規となっている。
 
 ** 条件a の確認 +
@@ -81,7 +81,7 @@ image::Urysohn_n_2.png[]
 ** {r}=1/4のとき、閉集合{upper_E}={upper_E}、それと交わらない閉集合を latexmath:[F_{\frac{1}{4}} = R \setminus \text{Cl}(G_{\frac{1}{2}})] とする
 ** {r}=3/4のとき、閉集合{upper_E}=Cl({upper_G}~½~)、それと交わらない閉集合を latexmath:[F_{\frac{3}{4}} = F]とする
 
-以降は、数学的帰納法により {upper_sigma}~{n}~(n {ge} 1) が既に構成されていると仮定し、 {upper_sigma}~{n}+1~ の場合に構成できることを示す。
+以降は、数学的帰納法により {upper_Sigma}~{n}~(n {ge} 1) が既に構成されていると仮定し、 {upper_Sigma}~{n}+1~ の場合に構成できることを示す。
 
 latexmath:[r=\frac{q}{2^{n+1}}]とおくと、{q}が偶数({q}=2{p})の場合は、latexmath:[G_r \in \Sigma_n]となり、開集合 latexmath:[G_r] は既に作られている。
 次に {q}=2{p}+1とおく。
@@ -92,10 +92,10 @@ latexmath:[s=\frac{p}{2^n}], latexmath:[t=\frac{p+1}{2^n}] とおく。
 * {s} = 0 のときは、{upper_G}~{t}~ は既に作られている。閉集合 {upper_E}~{r}~ = {upper_E}、 {upper_F}~{r}~ = latexmath:[R \setminus G_t]とすれば、 {upper_E} {subset} {upper_G}~{t}~となるため、互いに交わらない閉集合である。
 * {t} = 1 のときは、 {upper_G}~{s}~ は既に作られている。閉集合 {upper_E}~{r}~ = Cl({upper_G}~{s}~)、 {upper_F}~{r}~ = {upper_F} とすれば、 互いに交わらない閉集合である。
 
-上記のように {upper_sigma}~{n}+1~ が構成できる。
+上記のように {upper_Sigma}~{n}+1~ が構成できる。
 
 以下、テキストの内容は理解できたので省略
 
-* {upper_sigma}~{n}+1~ が条件 a を満たすこと
-* {upper_sigma}~{n}+1~ が条件 b を満たすこと
+* {upper_Sigma}~{n}+1~ が条件 a を満たすこと
+* {upper_Sigma}~{n}+1~ が条件 b を満たすこと
 * {f}({x})の連続性

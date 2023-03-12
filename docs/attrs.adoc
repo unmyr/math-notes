@@ -54,10 +54,10 @@ endif::[]
 :y: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">y</span>]
 :z: pass:[<span style="font-family: 'Georgia'; font-style: italic; font-size: 110%;">z</span>]
 
-:upper_delta: pass:[<span style="font-family: 'Georgia'; font-style: normal; font-size: 120%;">&#916;</span>]
-:upper_lambda: pass:[<span style="font-family: 'Georgia'; font-style: normal; font-size: 110%;">&#923;</span>]
-:upper_sigma: pass:[<span style="font-family: 'Georgia'; font-style: normal; font-size: 110%;">&#931;</span>]
-:upper_omega: pass:[<span style="font-family: 'Georgia'; font-style: normal; font-size: 110%;">&#937;</span>]
+:upper_Delta: pass:[<span style="font-family: 'Georgia'; font-style: normal; font-size: 130%;">&#916;</span>]
+:upper_Lambda: pass:[<span style="font-family: 'Georgia'; font-style: normal; font-size: 110%;">&#923;</span>]
+:upper_Sigma: pass:[<span style="font-family: 'Georgia'; font-style: normal; font-size: 120%;">&#931;</span>]
+:upper_Omega: pass:[<span style="font-family: 'Georgia'; font-style: normal; font-size: 120%;">&#937;</span>]
 
 // http://tm.root-n.com/misc:negative_circled_digit
 // ❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
