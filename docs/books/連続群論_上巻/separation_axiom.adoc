@@ -1,0 +1,101 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== Separation axiom (分離公理)
+
+=== 連続群論 上巻 §12. 分離の公理 p69-p74
+.Definition 18 (p70)
+****
+. 空間 {upper_R} の相異なる任意の2点 {a}, {b} に対して、{a}{isin}{upper_G}, {b}{isin}{upper_H}になるような、互いに交わらない開集合 {upper_G}, {upper_H} が存在する。この公理はこれを始めて掲げた人の名によって Hausdorff の分離の公理と呼ばれ、これを満たす空間{upper_R}を *Hausdorff空間* という。
+. 空間 {upper_R} の任意の点 {a}、およびこれを含まない任意の閉集合 {upper_B} に対して、{a}{isin}{upper_G}, {upper_B}{subset}{upper_H}となるような、互いに交わらない開集合 {upper_G}, {upper_H} が存在する。この公理を満たす空間を *正則* という。
+. 空間 {upper_R} の任意の点 {a}、およびこれを含まない任意の閉集合 {upper_B} に対して、{upper_R}上で定義された連続な実数値関数 {f} で、すべての {x}{isin}{upper_R} に対して、0{le}{f}({x}){le}1 であって、{f}({a}) = 0 であり、また {x}{isin}{upper_B} に対しては {f}({x}) = 1 となるものが存在する。この公理を満たす空間{upper_R}を *完全正則* という。
+. 空間{upper_R}の相交わらない任意の2閉集合{upper_A}, {upper_B}に対して、{upper_A}{subset}{upper_G}, {upper_B}{subset}{upper_H}なる互いに交わらない開集合{upper_G}, {upper_H}が存在する。この公理を満たす空間{upper_R}を *正規* であるという。
+****
+
+.Urysohn's lemma (ウリゾーンの補題)
+****
+正規空間の互いに交わらぬ任意の2閉集合{upper_E}, {upper_F}に対し、{upper_R}上に与えられた連続な実数値関数で、すべての{x}{isin}{upper_R}に対して 0{le}{f}({x}){le}1, {x}{isin}{upper_E} に対しては、{f}({x}) = 0 であり、また {x}{isin}{upper_F} に対しては {f}({x}) = 1 となるものが存在する。
+****
+
+==== 2(正則) ⇒ 1(Hausdorff空間)
+空間{upper_R}が正則であれば、空間 {upper_R} の任意の点 {a}に対して、これを含まない閉集合{upper_B}に対して、{a}{isin}{upper_G}, {upper_B}{subset}{upper_H}となるような、互いに交わらない開集合 {upper_G}, {upper_H} が存在する。{b}{isin}{upper_B}となるように{b}を取れば、Hausdorff空間の条件を満たす。
+
+==== 3(完全正則) ⇒ 2(正則)
+空間{upper_R}が完全正則であることから、{f}^-1^(0)={a}、{f}^-1^(1)={x}{isin}{upper_B}となるものが存在し、{a}{notin}{upper_B}となるようにとれる。
+
+{f}:{upper_R} -> [0, 1]は連続写像であるから、例えば、{f}({upper_R})上の開集合 latexmath:[I_a = \left\lbrack 0, \frac{1}{2}\right)], latexmath:[I_b = \left(\frac{1}{2}, 1\right\rbrack]に対して、完全原像 latexmath:[G = f^{-1}(\left\lbrack 0, \frac{1}{2}\right))], latexmath:[H = f^{-1}(\left(\frac{1}{2}, 1\right\rbrack)] は同様に開集合となる。latexmath:[I_a \cap I_b = \emptyset]であるから、同様に latexmath:[G \cap H = \emptyset]となる。
+
+{f}({a})(=0){subset}{f}({upper_G}) より {a}{isin}{upper_G} であり、{f}({upper_B})(=1){subset}{f}({upper_H}) より {upper_B}{subset}{upper_H} となるため、正則空間の条件を満たす。
+
+==== ウリゾーンの補題の証明
+
+{upper_R}において、開集合{upper_G}~{r}~ からなる有限系 {upper_sigma}~{n}~ を次のように定める。
+
+[stem,latexmath]
+++++
+\Sigma_n = \left\{G_{\frac{q}{2^n}} \middle| q=1, 2, \cdots, (2^{n}-1) \right\}
+++++
+
+ただし、次の条件を満たす。
+
+[loweralpha]
+. {upper_E}{subset}{upper_G}~{r}~ で、*Cl*({upper_G}~{r}~)は {upper_F} と交わらない
+. latexmath:[r^{\prime} < r^{\prime\prime}]に対しては latexmath:[\text{Cl}(G_{r^{\prime}}) \subset G_{r^{\prime\prime}}]
+
+//^
+
+また、 {upper_G}~r~ {supset} {upper_E}、かつ {upper_G}~1~ {supset} {upper_F}を満たすように、{upper_G}~0~={upper_E}, {upper_G}~1~={upper_R} と定義する。
+
+* n = 1 のとき、{upper_sigma}~1~ = {{upper_G}~½~} と {upper_sigma}~1~ の要素はただ一つとなる。 +
+閉集合 {upper_E}, {upper_F} に対して、空間{upper_R}は正規であるから、{upper_E} {subset} {upper_G}, {upper_F} {subset} {upper_H}, {upper_G}{cap}{upper_H}={emptyset}を満たす開集合が存在する。この{upper_G}を latexmath:[G_{\frac{1}{2}}]、{upper_H}= latexmath:[R \setminus \text{Cl}(G_{\frac{1}{2}})] とすると正規となっている。
+
+** 条件a の確認 +
+要素が一つで latexmath:[r=\frac{1}{2}]の確認となる。
+{upper_E} {subset} latexmath:[G_{\frac{1}{2}}]であり、かつ{upper_F}を含む{upper_H}の補集合は latexmath:[R \setminus H=\text{Cl}(G_{\frac{1}{2}})] となるから、条件aを満たす。
+
+** 条件b の確認
+*** {upper_G}~½~は、{upper_G}~0~ と {upper_G}~½~ に対して、{upper_E}は閉集合であるから、{upper_G}~0~=Cl({upper_G}~0~)となる。ゆえに、{upper_G}~½~ {supset} {upper_E} = Cl({upper_E})=Cl({upper_G}~0~) より、条件を満たす。
+*** {upper_G}~½~は、{upper_G}~½~ と {upper_G}~1~ に対して、{upper_G}~1~ = {upper_R} {supset} {upper_G}~½~ より、条件を満たす。
++
+image::Urysohn_n_1.png[]
+
+* n = 2 のとき、 latexmath:[\Sigma_2 = \left\{ G_{\frac{1}{4}}, G_{\frac{1}{2}}, G_{\frac{3}{4}} \right\}]となる。n=1の場合より、{upper_E} {subset} latexmath:[G_{\frac{1}{2}}] {subset} Cl({upper_G}~½~) {subset} latexmath:[R \setminus F]となる。条件a, bを満たすように、 {upper_G}~¼~ と {upper_G}~¾~ を定義する。
++
+--
+image::Urysohn_n_2.png[]
+--
+次のように閉集合を定義すると、条件a, 条件b を満たすように構成できる
+
+** {r}=1/4のとき、閉集合{upper_E}={upper_E}、それと交わらない閉集合を latexmath:[F_{\frac{1}{4}} = R \setminus \text{Cl}(G_{\frac{1}{2}})] とする
+** {r}=3/4のとき、閉集合{upper_E}=Cl({upper_G}~½~)、それと交わらない閉集合を latexmath:[F_{\frac{3}{4}} = F]とする
+
+以降は、数学的帰納法により {upper_sigma}~{n}~(n {ge} 1) が既に構成されていると仮定し、 {upper_sigma}~{n}+1~ の場合に構成できることを示す。
+
+latexmath:[r=\frac{q}{2^{n+1}}]とおくと、{q}が偶数({q}=2{p})の場合は、latexmath:[G_r \in \Sigma_n]となり、開集合 latexmath:[G_r] は既に作られている。
+次に {q}=2{p}+1とおく。
+
+latexmath:[s=\frac{p}{2^n}], latexmath:[t=\frac{p+1}{2^n}] とおく。
+
+* {s} {isin} (0, 1), {t} {isin} (0, 1) のとき、{upper_G}~{s}~, {upper_G}~{t}~は既に作られている。閉集合 {upper_E}~{r}~ = Cl({upper_G}~{s}~)、{upper_F}~{r}~ = latexmath:[R \setminus G_t]とすれば、Cl({upper_G}~{r}~) {subset} {upper_G}~{t}~ となるため、互いに交わらない閉集合である。
+* {s} = 0 のときは、{upper_G}~{t}~ は既に作られている。閉集合 {upper_E}~{r}~ = {upper_E}、 {upper_F}~{r}~ = latexmath:[R \setminus G_t]とすれば、 {upper_E} {subset} {upper_G}~{t}~となるため、互いに交わらない閉集合である。
+* {t} = 1 のときは、 {upper_G}~{s}~ は既に作られている。閉集合 {upper_E}~{r}~ = Cl({upper_G}~{s}~)、 {upper_F}~{r}~ = {upper_F} とすれば、 互いに交わらない閉集合である。
+
+上記のように {upper_sigma}~{n}+1~ が構成できる。
+
+以下、テキストの内容は理解できたので省略
+
+* {upper_sigma}~{n}+1~ が条件 a を満たすこと
+* {upper_sigma}~{n}+1~ が条件 b を満たすこと
+* {f}({x})の連続性

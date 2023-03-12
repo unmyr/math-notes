@@ -1,3 +1,4 @@
 <<index.adoc#,Index>> {vbar}
+<<books/index.adoc#,Books>> {vbar}
 <<plane_curve.adoc#,Plane curve>> {vbar}
 <<group.adoc#,Group>> +

@@ -16,17 +16,21 @@
     "infty",
     "latexmath",
     "leveloffset",
+    "loweralpha",
     "nodesep",
     "nonabelian",
     "peaceiris",
     "pmatrix",
     "rankdir",
     "ranksep",
+    "rparen",
     "semidirect",
     "semigroup",
     "tailport",
     "textbf",
     "tonynv",
+    "Urysohn",
+    "Urysohn's",
     "vdots"
   ]
 }

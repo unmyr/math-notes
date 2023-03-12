@@ -1,0 +1,2 @@
+<<index.adoc#,Index>> {vbar}
+<<separation_axiom.adoc#,Separation axiom>> +
