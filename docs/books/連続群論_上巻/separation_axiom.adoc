@@ -59,8 +59,9 @@ include::../../attrs.adoc[]
 また、 {upper_G}~r~ {supset} {upper_E}、かつ {upper_G}~1~ {supset} {upper_F}を満たすように、{upper_G}~0~={upper_E}, {upper_G}~1~={upper_R} と定義する。
 
 * n = 1 のとき、{upper_Sigma}~1~ = {{upper_G}~½~} と {upper_Sigma}~1~ の要素はただ一つとなる。 +
-閉集合 {upper_E}, {upper_F} に対して、空間{upper_R}は正規であるから、{upper_E} {subset} {upper_G}, {upper_F} {subset} {upper_H}, {upper_G}{cap}{upper_H}={emptyset}を満たす開集合が存在する。この{upper_G}を latexmath:[G_{\frac{1}{2}}]、{upper_H}= latexmath:[R \setminus \text{Cl}(G_{\frac{1}{2}})] とすると正規となっている。
-
+閉集合 {upper_E}, {upper_F} に対して、空間{upper_R}は正規であるから、{upper_E} {subset} {upper_G}, {upper_F} {subset} {upper_H}, {upper_G}{cap}{upper_H}={emptyset}を満たす開集合{upper_G}, {upper_H}が存在する。この開集合{upper_G}, {upper_H}を latexmath:[G_{\frac{1}{2}}]、latexmath:[H_{\frac{1}{2}}]とする。なお、 {upper_H}~½~ {supset} {upper_F} であり{upper_G}~½~を含まないので、その補集合 latexmath:[R \setminus H_{\frac{1}{2}}] は{upper_G}~½~を含む閉集合となる。一方で{upper_G}~½~を含む最小の閉集合は Cl({upper_G}~½~)であるから、 {upper_E} {subset} {upper_G}~½~ {subset} Cl({upper_G}~½~){subset} latexmath:[\underbrace{R \setminus H_{\frac{1}{2}}}_{\text{closed set}}]{subset}latexmath:[\underbrace{R \setminus F}_{\text{open set}}]となる。
++
+--
 ** 条件a の確認 +
 要素が一つで latexmath:[r=\frac{1}{2}]の確認となる。
 {upper_E} {subset} latexmath:[G_{\frac{1}{2}}]であり、かつ{upper_F}を含む{upper_H}の補集合は latexmath:[R \setminus H=\text{Cl}(G_{\frac{1}{2}})] となるから、条件aを満たす。
@@ -68,7 +69,7 @@ include::../../attrs.adoc[]
 ** 条件b の確認
 *** {upper_G}~½~は、{upper_G}~0~ と {upper_G}~½~ に対して、{upper_E}は閉集合であるから、{upper_G}~0~=Cl({upper_G}~0~)となる。ゆえに、{upper_G}~½~ {supset} {upper_E} = Cl({upper_E})=Cl({upper_G}~0~) より、条件を満たす。
 *** {upper_G}~½~は、{upper_G}~½~ と {upper_G}~1~ に対して、{upper_G}~1~ = {upper_R} {supset} {upper_G}~½~ より、条件を満たす。
-+
+--
 image::Urysohn_n_1.png[]
 
 * n = 2 のとき、 latexmath:[\Sigma_2 = \left\{ G_{\frac{1}{4}}, G_{\frac{1}{2}}, G_{\frac{3}{4}} \right\}]となる。n=1の場合より、{upper_E} {subset} latexmath:[G_{\frac{1}{2}}] {subset} Cl({upper_G}~½~) {subset} latexmath:[R \setminus F]となる。条件a, bを満たすように、 {upper_G}~¼~ と {upper_G}~¾~ を定義する。
