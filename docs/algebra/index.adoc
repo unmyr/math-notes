@@ -1,0 +1,71 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+include::header.adoc[]
+
+include::../attrs.adoc[]
+
+== Algebra notes
+
+=== Factorization (因数分解)
+
+[stem,latexmath]
+++++
+\begin{cases}
+a^3 + b^3 = (a+b)(a^2 - ab + b^2) \\
+a^3 - b^3 = (a-b)(a^2 + ab + b^2) \\
+\end{cases}
+++++
+
+[stem,latexmath]
+++++
+\begin{cases}
+a^3 + 3a^2b + 3ab^2 + b^3 = (a+b)^3 \\
+a^3 - 3a^2b + 3ab^2 - b^3 = (a-b)^3 \\
+\end{cases}
+++++
+
+=== Direct sum (直和)
+
+==== Examples of direct sum
+
+Suppose that {upper_U}={ latexmath:[\vec{v_1}] } and {upper_W}={ latexmath:[\vec{v_2}], latexmath:[\vec{v_3}] } is a subspace of vector space {upper_V} with a basis {latexmath:[\vec{v_1}], latexmath:[\vec{v_2}], latexmath:[\vec{v_3}]}.
+then {upper_V} = {upper_U}{oplus}{upper_W}.
+
+[stem,latexmath]
+++++
+a_{1}\vec{v_1} + a_{2}\vec{v_2} + a_{3}\vec{v_3} (\in V)
+++++
+
+==== Non-direct sum example
+以下のようにする。
+[stem,latexmath]
+++++
+\begin{array}{lcccll}
+v_{xy} & = & \alpha_{x} \vec{e_x} & + & \alpha_{y} \vec{e_y} & \\
+v_{yz} & = &                      &   & \beta_{y} \vec{e_y} & + \beta_{z} \vec{e_z} \\
+\end{array}
+++++
+
+[stem,latexmath]
+++++
+\begin{array}{lcccll}
+w_{xy} & = & \alpha_{x} \vec{e_x} & + & (\alpha_{y} - \gamma_{y}) \vec{e_y} & \\
+w_{yz} & = &                      &   & (\beta_{y}  + \gamma_{y})\vec{e_y}  & + \beta_{z} \vec{e_z} \\
+\end{array}
+++++
+
+上記について、latexmath:[\gamma_{y} \neq 0] であるとき、latexmath:[v_{xy} \neq w_{xy}] かつ、latexmath:[v_{yz} \neq w_{yz}] である。
+
+しかし、次のように同じ latexmath:[V_{xyz}] を二通りの表し方で表現できてしまう。
+[stem,latexmath]
+++++
+\begin{array}{lccclcll}
+V_{xyz} & = & v_{xy} + v_{yz} & = & \alpha_{x} \vec{e_x} & + & (\alpha_{y} + \beta_{y}) \vec{e_y} & + \beta_{z} \vec{e_z} \\
+        & = & w_{xy} + w_{yz} & = & \alpha_{x} \vec{e_x} & + & (\alpha_{y} - \gamma_{y}) \vec{e_y} + (\beta_{y} + \gamma_{y})\vec{e_y} & + \beta_{z} \vec{e_z} \\
+\end{array}
+++++
