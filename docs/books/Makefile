@@ -12,6 +12,7 @@ HTML_LIST=\
 $(DIST_SUBDIR)/index.html
 
 SUB_TARGETS=\
+数学セミナー \
 連続群論_上巻
 
 .PHONY: adoc $(SUB_TARGETS)
