@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
     "abelian",
+    "adoc",
     "adocbuild",
     "arccos",
     "arcsin",
@@ -11,6 +12,7 @@
     "graphviz",
     "hasse",
     "headport",
+    "ifndef",
     "imagesdir",
     "impliedby",
     "infty",
@@ -28,6 +30,7 @@
     "semigroup",
     "tailport",
     "textbf",
+    "toclevels",
     "tonynv",
     "Urysohn",
     "Urysohn's",

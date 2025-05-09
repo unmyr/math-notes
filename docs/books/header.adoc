@@ -1,2 +1,3 @@
 <<index.adoc#,Index>> {vbar}
+<<数学セミナー/index.adoc#,数学セミナー>> {vbar}
 <<連続群論_上巻/index.adoc#,連続群論 上巻>> +
