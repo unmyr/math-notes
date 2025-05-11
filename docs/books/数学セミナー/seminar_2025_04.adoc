@@ -301,16 +301,31 @@ zを消去する。
 
 0 &= (1 + x^2)(x^2 - 3)(x^2 - 5 - 2\sqrt{5})(x^2 - 5 + 2\sqrt{5}) \cdot
      \frac{
-        (x^2 - 23 + 2 \cdot 5^{\frac{3}{2}} + \frac{\sqrt{4080 - 1824 \sqrt{5}}}{2})
-        (x^2 - 23 + 2 \cdot 5^{\frac{3}{2}} - \frac{\sqrt{4080 - 1824 \sqrt{5}}}{2})
-        (x^2 - 23 - 2 \cdot 5^{\frac{3}{2}} + \frac{\sqrt{4080 + 1824 \sqrt{5}}}{2})
-        (x^2 - 23 - 2 \cdot 5^{\frac{3}{2}} - \frac{\sqrt{4080 + 1824 \sqrt{5}}}{2})
+        (x^2 - 23 + 10 \sqrt{5} + 2 \sqrt{255 - 114 \sqrt{5}})
+        (x^2 - 23 + 10 \sqrt{5} - 2 \sqrt{255 - 114 \sqrt{5}})
+        (x^2 - 23 - 10 \sqrt{5} +  2 \sqrt{255 + 114 \sqrt{5}})
+        (x^2 - 23 - 10 \sqrt{5} -  2 \sqrt{255 + 114 \sqrt{5}})
      }{4 (x^4 - 6x^2 + 1)^2(x^8 - 28 x^6 + 70 x^4 - 28 x^2 + 1)} \\
 
 \end{align*}
 ++++
 
 image::seminar_2025_04_notes3_graph.png[]
+
+[stem,latexmath]
+++++
+\begin{align*}
+x^8 - 92 x^6 + 134 x^4 - 28 x^2 + 1
+&= (x^4 + 9 - 46x^2)^2 - \left(20 \sqrt{5} x^2 - 4 \sqrt{5}\right)^2 \\
+&= (x^4 + 9 - 46x^2 + 20 \sqrt{5} x^2 - 4 \sqrt{5})
+     (x^4 + 9 - 46x^2 - 20 \sqrt{5} x^2 + 4 \sqrt{5}) \\
+& = 
+    (x^2 - 23 + 10 \sqrt{5} + 2 \sqrt{255 - 114 \sqrt{5}})
+    (x^2 - 23 + 10 \sqrt{5} - 2 \sqrt{255 - 114 \sqrt{5}})
+    (x^2 - 23 - 10 \sqrt{5} + 2 \sqrt{255 + 114 \sqrt{5}})
+    (x^2 - 23 - 10 \sqrt{5} - 2 \sqrt{255 + 114 \sqrt{5}}) \\
+&\end{align*}
+++++
 
 === Notes 4: Verification
 
