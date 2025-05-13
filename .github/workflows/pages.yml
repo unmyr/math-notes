@@ -21,25 +21,25 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+
     - name: Get build container
       id: adocbuild
-      uses: tonynv/asciidoctor-action@master
+      uses: tonynv/asciidoctor-action@v2
       with:
           program: "cd docs && make adoc"
+
     - name: Build with Jekyll
       uses: actions/jekyll-build-pages@v1
       with:
         source: ./dist
         destination: ./_site
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
 
   # Deployment job
   deploy:
     needs: build
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
