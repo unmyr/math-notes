@@ -41,7 +41,7 @@ include::../../attrs.adoc[]
 
 === Notes 1: {f}{nbsp} = {e} の解
 
-{f}{nbsp}^4^ = {e} ということであるから、{f}={f}を満たす場合も解に含まれる。 +
+{f}{nbsp}^4^ = {e} ということであるから、{f}={e}を満たす場合も解に含まれる。 +
 以下を計算をすると、 ({x},{nbsp}{y},{nbsp}{z},{nbsp}{w})={ (0, 0, 0, 0), (±{i}, ±{i}, ±{i}, ±{i}) }も解であると分かる。
 
 [stem,latexmath]
@@ -68,7 +68,14 @@ include::../../attrs.adoc[]
 
 === Notes 2: {f}{nbsp}^2^ = {e} の解
 
-{f}{nbsp}^4^ = {e} ということであるから、{f}={f}{nbsp}^2^ を満たす場合も解に含まれる。 +
+{f}{nbsp}^4^ = {e} ということであるから、次の関係も解の候補になる。
+
+* {f}{nbsp}^2^ = {e}
+* {f} = {f}{nbsp}^-1^
+
+==== Notes 2-1: {f}{nbsp}^2^ = {e} の解
+
+{f}{nbsp}^4^ = {e} ということであるから、{e}={f}{nbsp}^2^ を満たす場合も解に含まれる。 +
 以下を計算をすると、 ({x},{nbsp}{y},{nbsp}{z},{nbsp}{w})=(±√3, ∓√3, ±√3, ∓√3) も解であると分かる。
 
 [stem,latexmath]
@@ -125,9 +132,28 @@ include::../../attrs.adoc[]
 \end{align*}
 ++++
 
+==== Notes 2-2: {f} = {f}{nbsp}^-1^ の解
+
+別の考え方として -(-x) = x と考えると、次のように解の候補を見いだせる。
+
+[stem,latexmath]
+++++
+\begin{align*}
+\frac{2x}{1-x^2} &= -x \\
+2x &= -x (1 - x^2) \\
+0 &= x (x^2 - 3) \\
+x &= \{0, \pm\sqrt{3}\}
+\end{align*}
+++++
+
 === Notes 3: {f}{nbsp}^4^ = {e}の解
 
-かきかけ。
+{f}{nbsp}^4^ = {e} ということであるから、次の関係も解の候補になる。
+
+* {f}{nbsp}^4^ = {e}
+* {f}{nbsp}^2^ = {f}{nbsp}^-2^
+
+==== Notes 3-1: {f}{nbsp}^4^ = {e} の解
 以下の式より、対称性を考慮して、同様の式を導出する。
 
 [stem,latexmath]
@@ -327,12 +353,38 @@ x^8 - 92 x^6 + 134 x^4 - 28 x^2 + 1
 &\end{align*}
 ++++
 
+==== Notes 3-2: {f}{nbsp}^2^ = {f}{nbsp}^-1^ の解
+
+別の考え方として -(-x) = x と考えると、次のように解の候補を見いだせる。
+
+[stem,latexmath]
+++++
+\begin{cases}
+\frac{2x}{1 - x^2} = y \\
+\frac{2y}{1 - y^2} = z \\
+\frac{2z}{1 - z^2} = w \\
+\frac{2w}{1 - w^2} = x \\
+\end{cases}
+++++
+
+[stem,latexmath]
+++++
+\begin{align*}
+z\left.\right|_{z=-x}
+&= \frac{2y}{1 - y^2} \\
+&= \frac{4 x \left(1 - x^{2}\right)}{x^{4} - 6 x^{2} + 1} \\
+-x &= \frac{4 x \left(1 - x^{2}\right)}{x^{4} - 6 x^{2} + 1} \\
+0 &= \frac{x \left(x^{4} - 10 x^{2} + 5\right)}{x^{4} - 6 x^{2} + 1} \\
+0 &= \frac{x \left(x^{2} - 5 - 2 \sqrt{5}\right) \left(x^{2} - 5 + 2 \sqrt{5}\right)}{\left(x^{2} - 2 x - 1\right) \left(x^{2} + 2 x - 1\right)} \\
+\end{align*}
+++++
+
 === Notes 4: Verification
 
 There are 17 solutions, of which 0 are trivial.
 
 [source,python]
-.seminar_2025_04.py
+.seminar_2025_04_verify.py
 ----
 import cmath
 import math
@@ -433,7 +485,7 @@ f(-0.2130)=-0.4462, f^2=-1.1144, f^3=+9.2135, f^4=-0.2197, error=0.0067+0.0000j
 
 === Notes 5: Solve using SymPy
 [source,python]
-.seminar_2025_04_solve.py
+.seminar_2025_04_solve_f_4_eq_id.py
 ----
 import sympy
 
