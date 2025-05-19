@@ -9,7 +9,9 @@ def format_latex_array(left_hand, solutions):
     return (
         "\\begin{array}{ll}\n"
         f"{left_hand}" + " = \\{ & \\\\\n"
-        "  \\begin{array}{l}\n" + ", \\\\\n".join(latex_solutions) + "\\\\ \n  \\end{array} \\\\ \n"
+        "  \\begin{array}{ll}\n"
+        + ", \\\\\n".join(latex_solutions)
+        + "\\\\ \n  \\end{array} \\\\ \n"
         "\\} & \\\\\n"
         "\\end{array}"
     )
@@ -42,7 +44,7 @@ def main() -> None:
     try:
         # Factor all the polynomials
         x_out = sympy.factor(x - x_w.subs(w, w_z).subs(z, z_y).subs(y, y_x))
-        print_adoc_latexmath_content("Factored result: _f_^4^=e", f"0 = {sympy.latex(x_out)}")
+        print_adoc_latexmath_content("Factored result: _f_{nbsp}^4^=e", f"0 = {sympy.latex(x_out)}")
 
         # Solve the equation using solve
         solution_solve = sympy.solve(x_out, x, domain=sympy.S.Complexes)
