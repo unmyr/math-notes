@@ -406,24 +406,48 @@ def print_adoc_latexmath_content(title, content):
 def main() -> None:
     """Run main."""
     # Define symbolic variables
-    x = sympy.symbols("x")
+    x, y = sympy.symbols("x y")
     sympy.init_printing(use_unicode=True)
 
     # Define polynomials
-    y_of_x = (2 * x) / (1 - x**2)  # Polynomial: (2x₀)/(1 - x²)
-    z_of_y = (2 * y_of_x) / (1 - y_of_x**2)  # Polynomial: (2y)/(1 - y²)
+    y_of_x = (2 * x) / (1 - x**2)  # Polynomial: (2x)/(1 - x²)
+    z_of_y = (2 * y) / (1 - y**2)  # Polynomial: (2y)/(1 - y²)
 
     try:
-        # calculate z(x)
-        simplified_z_of_x = sympy.simplify(z_of_y.subs(y_of_x, y_of_x))
+        z_of_x = sympy.simplify(z_of_y.subs(y, y_of_x))
+
+        # Factor the polynomial: z = (2y)/(1 - y²), y = (2x)/(1 - x²), z=x
+        z_eq_plus_x_eq = sympy.factor(x - z_of_x)
+        z_eq_plus_x_solved = sympy.solveset(z_eq_plus_x_eq, x, domain=sympy.S.Complexes)
         print_adoc_latexmath_content(
-            "Simplified result: f^2^", f"0 = z(x) = {sympy.latex(simplified_z_of_x)}"
+            "Factored result: _f_^2^=e",
+            "\n".join(
+                [
+                    "\\begin{align*}",
+                    "z\\left.\\right|_{z=x} &= " + f"{sympy.latex(sympy.factor(z_of_x))}" + " \\\\",
+                    f"0 &= {sympy.latex(z_eq_plus_x_eq)} \\\\",
+                    f"x &= {sympy.latex(z_eq_plus_x_solved)} \\\\",
+                    "\\end{align*}",
+                ]
+            ),
         )
 
-        # solve the equation
-        simplified_eq = sympy.factor(x + simplified_z_of_x, deep=True, extension=sympy.sqrt(5))
+        # Factor the polynomial: z = (2y)/(1 - y²), y = (2x)/(1 - x²), z=-x
+        z_eq_minus_x_eq = sympy.factor(x + z_of_x)
+        z_eq_minus_x_solved = sympy.solveset(z_eq_minus_x_eq, x, domain=sympy.S.Complexes)
         print_adoc_latexmath_content(
-            "Simplified result: f^2^=f^-1^", f"0 = x + z(x) = {sympy.latex(simplified_eq)}"
+            "Factored result: _f_^2^=_f_{nbsp}^-1^",
+            "\n".join(
+                [
+                    "\\begin{align*}",
+                    "z\\left.\\right|_{z=-x} &= "
+                    + f"{sympy.latex(sympy.factor(z_of_y.subs(y, y_of_x)))}"
+                    + " \\\\",
+                    f"0 &= {sympy.latex(z_eq_minus_x_eq)} \\\\",
+                    f"x &= {sympy.latex(z_eq_minus_x_solved)} \\\\",
+                    "\\end{align*}",
+                ]
+            ),
         )
 
     except Exception as e:
@@ -437,7 +461,7 @@ if __name__ == "__main__":
 ----
 
 [latexmath]
-.Factored result: f{nbsp}^2^=e
+.Factored result: _f_^2^=e
 ++++
 \begin{align*}
 z\left.\right|_{z=x} &= - \frac{4 x \left(x - 1\right) \left(x + 1\right)}{\left(x^{2} - 2 x - 1\right) \left(x^{2} + 2 x - 1\right)} \\
@@ -447,7 +471,7 @@ x &= \left\{0, - \sqrt{3}, \sqrt{3}, - i, i\right\} \\
 ++++
 
 [latexmath]
-.Factored result: f{nbsp}^2^=f{nbsp}^-1^
+.Factored result: _f_^2^=_f_{nbsp}^-1^
 ++++
 \begin{align*}
 z\left.\right|_{z=-x} &= - \frac{4 x \left(x - 1\right) \left(x + 1\right)}{\left(x^{2} - 2 x - 1\right) \left(x^{2} + 2 x - 1\right)} \\
@@ -462,15 +486,17 @@ x &= \left\{0, - \sqrt{5 - 2 \sqrt{5}}, \sqrt{5 - 2 \sqrt{5}}, - \sqrt{2 \sqrt{5
 import sympy
 
 
-def format_latex_array(solutions):
+def format_latex_array(left_hand, solutions):
     """
     Format a list of solutions into a LaTeX array for display.
     """
-    latex_solutions = ["    " + sympy.latex(sol) for sol in solutions]
+    latex_solutions = ["    & " + sympy.latex(sol) for sol in solutions]
     return (
-        "x = \\left\\{\n"
-        "  \\begin{array}{c}\n" + ", \\\\\n".join(latex_solutions) + "\n  \\end{array}\n"
-        "\\right\\}"
+        "\\begin{array}{ll}\n"
+        f"{left_hand}" + " = \\{ & \\\\\n"
+        "  \\begin{array}{l}\n" + ", \\\\\n".join(latex_solutions) + "\\\\ \n  \\end{array} \\\\ \n"
+        "\\} & \\\\\n"
+        "\\end{array}"
     )
 
 
@@ -501,16 +527,18 @@ def main() -> None:
     try:
         # Factor all the polynomials
         x_out = sympy.factor(x - x_w.subs(w, w_z).subs(z, z_y).subs(y, y_x))
-        print_adoc_latexmath_content("Factored result: f^4^=e", f"0 = {sympy.latex(x_out)}")
+        print_adoc_latexmath_content("Factored result: _f_^4^=e", f"0 = {sympy.latex(x_out)}")
 
         # Solve the equation using solve
         solution_solve = sympy.solve(x_out, x, domain=sympy.S.Complexes)
-        print_adoc_latexmath_content("Solution using solve", format_latex_array(solution_solve))
+        print_adoc_latexmath_content(
+            "Solution using solve", format_latex_array("x", solution_solve)
+        )
 
         # Solve the equation using solveset
         solution_solveset = sympy.solveset(x_out, x, domain=sympy.S.Complexes)
         print_adoc_latexmath_content(
-            "Solution using solveset", format_latex_array(solution_solveset)
+            "Solution using solveset", format_latex_array("x", solution_solveset)
         )
 
     except Exception as e:
@@ -524,7 +552,7 @@ if __name__ == "__main__":
 ----
 
 [latexmath]
-.Factored result: f^4^=e
+.Factored result: _f_^4^=e
 ++++
 0 = \frac{x \left(x^{2} - 3\right) \left(x^{2} + 1\right) \left(x^{4} - 10 x^{2} + 5\right) \left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1\right)}{\left(x^{8} - 8 x^{7} - 28 x^{6} + 56 x^{5} + 70 x^{4} - 56 x^{3} - 28 x^{2} + 8 x + 1\right) \left(x^{8} + 8 x^{7} - 28 x^{6} - 56 x^{5} + 70 x^{4} + 56 x^{3} - 28 x^{2} - 8 x + 1\right)}
 ++++
@@ -532,53 +560,57 @@ if __name__ == "__main__":
 [latexmath]
 .Solution using solve
 ++++
-x = \left\{
-  \begin{array}{c}
-    0, \\
-    - \sqrt{3}, \\
-    \sqrt{3}, \\
-    - i, \\
-    i, \\
-    - \sqrt{5 - 2 \sqrt{5}}, \\
-    \sqrt{5 - 2 \sqrt{5}}, \\
-    - \sqrt{2 \sqrt{5} + 5}, \\
-    \sqrt{2 \sqrt{5} + 5}, \\
-    - \sqrt{- 10 \sqrt{5} - 2 \sqrt{3} \sqrt{85 - 38 \sqrt{5}} + 23}, \\
-    \sqrt{- 10 \sqrt{5} - 2 \sqrt{3} \sqrt{85 - 38 \sqrt{5}} + 23}, \\
-    - \sqrt{- 10 \sqrt{5} + 2 \sqrt{3} \sqrt{85 - 38 \sqrt{5}} + 23}, \\
-    \sqrt{- 10 \sqrt{5} + 2 \sqrt{3} \sqrt{85 - 38 \sqrt{5}} + 23}, \\
-    - \sqrt{10 \sqrt{5} + 23 + 2 \sqrt{3} \sqrt{38 \sqrt{5} + 85}}, \\
-    \sqrt{10 \sqrt{5} + 23 + 2 \sqrt{3} \sqrt{38 \sqrt{5} + 85}}, \\
-    - \sqrt{- 2 \sqrt{3} \sqrt{38 \sqrt{5} + 85} + 10 \sqrt{5} + 23}, \\
-    \sqrt{- 2 \sqrt{3} \sqrt{38 \sqrt{5} + 85} + 10 \sqrt{5} + 23}
-  \end{array}
-\right\}
+\begin{array}{ll}
+x = \{ & \\
+  \begin{array}{l}
+    & 0, \\
+    & - \sqrt{3}, \\
+    & \sqrt{3}, \\
+    & - i, \\
+    & i, \\
+    & - \sqrt{5 - 2 \sqrt{5}}, \\
+    & \sqrt{5 - 2 \sqrt{5}}, \\
+    & - \sqrt{2 \sqrt{5} + 5}, \\
+    & \sqrt{2 \sqrt{5} + 5}, \\
+    & - \sqrt{- 10 \sqrt{5} - 2 \sqrt{3} \sqrt{85 - 38 \sqrt{5}} + 23}, \\
+    & \sqrt{- 10 \sqrt{5} - 2 \sqrt{3} \sqrt{85 - 38 \sqrt{5}} + 23}, \\
+    & - \sqrt{- 10 \sqrt{5} + 2 \sqrt{3} \sqrt{85 - 38 \sqrt{5}} + 23}, \\
+    & \sqrt{- 10 \sqrt{5} + 2 \sqrt{3} \sqrt{85 - 38 \sqrt{5}} + 23}, \\
+    & - \sqrt{10 \sqrt{5} + 23 + 2 \sqrt{3} \sqrt{38 \sqrt{5} + 85}}, \\
+    & \sqrt{10 \sqrt{5} + 23 + 2 \sqrt{3} \sqrt{38 \sqrt{5} + 85}}, \\
+    & - \sqrt{- 2 \sqrt{3} \sqrt{38 \sqrt{5} + 85} + 10 \sqrt{5} + 23}, \\
+    & \sqrt{- 2 \sqrt{3} \sqrt{38 \sqrt{5} + 85} + 10 \sqrt{5} + 23}\\ 
+  \end{array} \\ 
+\} & \\
+\end{array}
 ++++
 
 [latexmath]
 .Solution using solveset
 ++++
-x = \left\{
-  \begin{array}{c}
-    0, \\
-    i, \\
-    \sqrt{3}, \\
-    - i, \\
-    - \sqrt{3}, \\
-    \operatorname{CRootOf} {\left(x^{4} - 10 x^{2} + 5, 0\right)}, \\
-    \operatorname{CRootOf} {\left(x^{4} - 10 x^{2} + 5, 1\right)}, \\
-    \operatorname{CRootOf} {\left(x^{4} - 10 x^{2} + 5, 2\right)}, \\
-    \operatorname{CRootOf} {\left(x^{4} - 10 x^{2} + 5, 3\right)}, \\
-    \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 0\right)}, \\
-    \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 1\right)}, \\
-    \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 2\right)}, \\
-    \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 3\right)}, \\
-    \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 4\right)}, \\
-    \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 5\right)}, \\
-    \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 6\right)}, \\
-    \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 7\right)}
-  \end{array}
-\right\}
+\begin{array}{ll}
+x = \{ & \\
+  \begin{array}{l}
+    & 0, \\
+    & i, \\
+    & \sqrt{3}, \\
+    & - i, \\
+    & - \sqrt{3}, \\
+    & \operatorname{CRootOf} {\left(x^{4} - 10 x^{2} + 5, 0\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{4} - 10 x^{2} + 5, 1\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{4} - 10 x^{2} + 5, 2\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{4} - 10 x^{2} + 5, 3\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 0\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 1\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 2\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 3\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 4\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 5\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 6\right)}, \\
+    & \operatorname{CRootOf} {\left(x^{8} - 92 x^{6} + 134 x^{4} - 28 x^{2} + 1, 7\right)}\\ 
+  \end{array} \\ 
+\} & \\
+\end{array}
 ++++
 
 === Notes 5: Verification
