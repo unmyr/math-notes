@@ -10,6 +10,7 @@ include $(DOC_ROOT)/asciidoc.mk
 HTML_LIST=\
 $(DIST_DIR)/group.html \
 $(DIST_DIR)/plane_curve.html \
+$(DIST_DIR)/ml.html \
 $(DIST_DIR)/index.html
 
 SUB_TARGETS=\

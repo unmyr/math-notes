@@ -1,0 +1,112 @@
+== Machine Learning Concepts
+:stem: latexmath
+
+=== Introduction
+
+入力の集合 latexmath:[X=\{(0, 0), (0, 1), (1, 0), (1, 1)\}] に対して、推論結果は latexmath:[\{s((0, 0)), s((0, 1)), s((1, 0)), s((1, 0))\}]は推論結果の集合になる。属するクラスは、 latexmath:[c_1(x)=\{x \in \{x_0, x_3\} \to 0, x \in \{x_1, x_2\} \to 1\}]とする。
+
+このとき、損失関数 L に対して、次の力学系を考える。
+
+[stem,latexmath]
+++++
+\frac{\mathrm{d} w_i}{\mathrm{d}t} = -\frac{\partial L}{\partial w_i}
+++++
+
+=== MSEの場合
+
+Loss関数にMean Squared Error (MSE)を使用した場合は、次のように定義する。
+
+[stem,latexmath]
+++++
+L_{MSE} = \frac{1}{2|X|}\sum_{x \in X}(s(x) - c(x))^2
+++++
+
+latexmath:[s(x)]を次のように定義する。
+
+[stem,latexmath]
+++++
+s(x)=\sigma(w_0 \cdot 1 + w_1 \cdot x_1 + \cdots + w_n \cdot x_n)
+++++
+
+latexmath:[L_{MSE}]は、xついての合計なのでもはやxの関数ではなく、 latexmath:[w] の関数になる
+
+[stem,latexmath]
+++++
+L_{MSE}(w) = \frac{1}{2|X|}\sum_{x \in X}(s(x) - c(x))^2
+++++
+
+2層の場合、次のようになる。
+[stem,latexmath]
+++++
+\begin{aligned}
+f_1(x) &= f_a(F_{1,0} \cdot 1 + F_{1,1} \cdot x_1 + \cdots + F_{1,n} \cdot x_n) \\
+f_2(x) &= f_a(F_{2,0} \cdot 1 + F_{2,1} \cdot x_1 + \cdots + F_{2,n} \cdot x_n) \\
+& \vdots \\
+f_k(x) &= f_a(F_{k,0} \cdot 1 + F_{k,1} \cdot x_1 + \cdots + F_{k,n} \cdot x_n) \\
+\end{aligned}
+++++
+
+[stem,latexmath]
+++++
+\begin{aligned}
+g_1(x) &= g_a(G_{1,0} \cdot 1 + G_{1,1} \cdot f_1(x) + \cdots + G_{1,k} \cdot f_k(x)) \\
+g_2(x) &= g_a(G_{2,0} \cdot 1 + G_{2,1} \cdot f_1(x) + \cdots + G_{2,k} \cdot f_k(x)) \\
+& \vdots \\
+g_m(x) &= g_a(G_{m,0} \cdot 1 + G_{m,1} \cdot f_1(x) + \cdots + G_{m,k} \cdot f_k(x)) \\
+\end{aligned}
+++++
+
+latexmath:[w_i (1 \le i \le k)]を基底として勾配を計算すると次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{\partial L_{MSE}}{\partial G_{m,i}} &= \frac{1}{|X|}\sum_{x \in X}(g_m(x) - c_m(x))\frac{\partial g_m(x)}{\partial G_{m,i}} \\
+&= \frac{1}{|X|}\sum_{x \in X}(g_m(x) - c_m(x))\frac{\partial g_a(G_{m,0} \cdot 1 + G_{m,1} \cdot f_1(x) + \cdots + G_{m,k} \cdot f_k(x))}{\partial (G_{m,0} \cdot 1 + G_{m,1} \cdot f_1(x) + \cdots + G_{m,k} \cdot f_k(x))}\frac{\partial (G_{m,0} \cdot 1 + G_{m,1} \cdot f_1(x) + \cdots + G_{m,k} \cdot f_k(x))}{\partial G_{m,i}} \\
+&= \frac{1}{|X|}\sum_{x \in X}(g_m(x) - c_m(x))\frac{\partial g_a(g_a^{-1} \circ g_m(x))}{\partial (g_a^{-1} \circ g_m(x))} f_i(x) \\
+\end{aligned}
+++++
+
+次にMSEを損失関数にした力学系を考える。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{\mathrm{d} G_{m,i}}{\mathrm{d}t} &= -\frac{\partial L_{MSE}}{\partial G_{m,i}} \\
+&= -\frac{1}{|X|}\sum_{x \in X}(g_m(x) - c_m(x))g_a^{\prime}(g_a^{-1} \circ g_m(x)) f_i(x) \\
+\end{aligned}
+++++
+
+latexmath:[g_a=\mathrm{identity}]とすると、latexmath:[g_a^{\prime}=1]となるので、次のようになる。
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{\mathrm{d} G_{m,i}}{\mathrm{d}t} &= -\frac{1}{|X|}\sum_{x \in X}(g_m(x) - c_m(x)) f_i(x) \\
+\end{aligned}
+++++
+
+
+
+latexmath:[\sigma(u)=\frac{1}{1 + e^{-u}}]とすると微分は次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\sigma^\prime(u)
+&= -\frac{1}{(1 + e^{-u})^2} \cdot e^{-u} \cdot (-1) \\
+&= \sigma(u) \frac{1}{1 + e^{-u}} \cdot (-1 + 1 + e^{-u}) \\
+&= \sigma(u) \cdot (-\frac{1}{1 + e^{-u}} + 1) \\
+&= \sigma(u)(1 - \sigma(u)) \\
+\end{aligned}
+++++
+
+MSEを損失関数にした力学系に代入すると次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{\mathrm{d} w_i}{\mathrm{d}t} &= -\frac{\partial L_{MSE}}{\partial w_i} \\
+&= -\frac{1}{|X|}\sum_{x \in X}(\sigma(u) - c(x))\sigma^{\prime}(u) x_i \\
+&= -\frac{1}{|X|}\sum_{x \in X}(\sigma(u) - c(x))\sigma(u)(1 - \sigma(u)) x_i \\
+\end{aligned}
+++++
