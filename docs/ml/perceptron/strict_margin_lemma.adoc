@@ -1,0 +1,105 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== Strict Margin Lemma
+
+パーセプトロンの収束定理の補題の証明を示す。
+
+パターン集合を次のように定義する。latexmath:[Y_0, Y_1]は有限集合で、latexmath:[Y_0 \cup Y_1 = Y]である。
+さらに、latexmath:[Y_1]は正例の集合、latexmath:[Y_0]は負例の集合であるとする。
+[stem,latexmath]
+++++
+\begin{aligned}
+\forall y \in Y_1: v^t y = v_0+v_1 y_1 + \cdots + v_n y_n \ge 0 \\
+\forall y \in Y_0: v^t y = v_0+v_1 y_1 + \cdots + v_n y_n \lt 0
+\end{aligned}
+++++
+
+Lemma 1. ある正定数 latexmath:[\gamma > 0]が存在して、すべての latexmath:[y \in Y]に対して、次の不等式が成り立つ。
+[stem,latexmath]
+++++
+\begin{aligned}
+\forall y \in Y_1: v^t y \gt +\gamma \\
+\forall y \in Y_0: v^t y \lt -\gamma
+\end{aligned}
+++++
+
+=== 証明
+この補題は、パターン集合が線形分離可能であることから、次のようにして証明できる。
+パターン集合が線形分離可能であることから、次のようなベクトル latexmath:[w]が存在する。
+[stem,latexmath]
+++++
+\begin{aligned}
+\forall y \in Y_1: w^t y \gt 0 \\
+\forall y \in Y_0: w^t y \lt 0
+\end{aligned}
+++++
+
+パーセプトロンの標準的な設定では、latexmath:[Y_0]とlatexmath:[Y_1]は有限集合であり、最小値と最大値が存在することに注意する。
+ここで、正例側・負例側でそれぞれ「一番境界に近い点」を見る：
+[stem,latexmath]
+++++
+\begin{aligned}
+\hat{y}_1 = \arg\min_{y \in Y_1} w^t y \\
+\hat{y}_0 = \arg\max_{y \in Y_0} w^t y
+\end{aligned}
+++++
+
+このとき、次の不等式が成り立つ。
+[stem,latexmath]
+++++
+\begin{aligned}
+w^t \hat{y}_1 \gt w^t \hat{y}_0
+\end{aligned}
+++++
+
+ここで、次のように定数 latexmath:[\gamma_0]と latexmath:[\gamma_1]を定義する
+[stem,latexmath]
+++++
+\begin{aligned}
+\gamma_0 = w^t \hat{y}_0, \quad \gamma_1 = w^t \hat{y}_1
+\end{aligned} 
+++++
+
+符号の情報から、latexmath:[\gamma_1 > 0]であり、latexmath:[\gamma_0 < 0]であることがわかる。
+さらに、latexmath:[\gamma_1 - \gamma_0 > 0]であることもわかる。
+このとき、次のように定数 latexmath:[\gamma]を定義する。
+[stem,latexmath]
+++++
+\begin{aligned}
+\gamma = \min\{\gamma_1, -\gamma_0\}
+\end{aligned}
+++++
+このとき、latexmath:[\gamma > 0]であることがわかる。
+さらに、すべての latexmath:[y \in Y_1]に対して、次の不等式が成り立つ。
+[stem,latexmath]
+++++
+\begin{aligned}
+w^t y \ge w^t \hat{y}_1 = \gamma_1 \ge \gamma
+\end{aligned}
+++++
+同様に、すべての latexmath:[y \in Y_0]に対して、次の不等式が成り立つ。
+[stem,latexmath]
+++++
+\begin{aligned}
+w^t y \le w^t \hat{y}_0 = \gamma_0 \le -\gamma
+\end{aligned}
+++++
+
+よって
+latexmath:[\forall y \in Y_1: w^t y \ge \gamma, \forall y \in Y_0: w^t y \le -\gamma]となる。
+
+これで補題は証明された。
+□

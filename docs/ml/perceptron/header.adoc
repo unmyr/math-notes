@@ -1,2 +1,3 @@
 <<index.adoc#,Index>> {vbar}
-<<loss_and_gradient_dynamics.adoc#,Loss and Gradient>> +
+<<loss_and_gradient_dynamics.adoc#,Loss and Gradient>> {vbar}
+<<strict_margin_lemma.adoc#,Strict Margin Lemma>> +

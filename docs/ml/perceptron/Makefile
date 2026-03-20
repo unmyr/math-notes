@@ -10,7 +10,8 @@ include $(DOC_ROOT)/asciidoc.mk
 
 HTML_LIST=\
 $(DIST_SUBDIR)/index.html \
-$(DIST_SUBDIR)/loss_and_gradient_dynamics.html
+$(DIST_SUBDIR)/loss_and_gradient_dynamics.html \
+$(DIST_SUBDIR)/strict_margin_lemma.html
 
 SUB_TARGETS=
 
