@@ -1,0 +1,2 @@
+<<index.adoc#,Index>> {vbar}
+<<loss_and_gradient_dynamics.adoc#,Loss and Gradient>> +

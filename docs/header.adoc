@@ -2,5 +2,5 @@
 <<algebra/index.adoc#,Algebra>> {vbar}
 <<books/index.adoc#,Books>> {vbar}
 <<plane_curve.adoc#,Plane curve>> {vbar}
-<<ml.adoc#,Machine learning>> {vbar}
+<<ml/index.adoc#,Machine learning>> {vbar}
 <<group.adoc#,Group>> +
