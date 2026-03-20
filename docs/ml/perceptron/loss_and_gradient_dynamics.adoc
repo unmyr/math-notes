@@ -1,5 +1,20 @@
-== Machine Learning Concepts
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
 :stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== Machine Learning Concepts
+このセクションでは、機械学習の基本的な概念を紹介する。
 
 === Introduction
 
