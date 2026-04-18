@@ -25,11 +25,20 @@ include::../../attrs.adoc[]
 
 ここでは便宜上、各パターン latexmath:[y] は latexmath:[(n+1)] 次元の拡張ベクトルで、バイアス成分 latexmath:[y_0=1] を含むものとする。
 他の成分は latexmath:[0\le y_i\le 1] と仮定する。
-これらに対して
-latexmath:[S_y := \sum_{i=0}^n y_i]
-と定め、さらに
-latexmath:[S_{\max} := \max_{y\in Y} S_y]
-を導入する。今回の簡単化仮定では latexmath:[1 \le S_y \le n+1] であり、したがって latexmath:[S_{\max} \le n+1] が成り立つが、以後の議論は一般の上界 latexmath:[S_{\max}] に対して行う。
+
+これらに対して、次のように定義する。
+[stem,latexmath]
+++++
+S_y := \sum_{i=0}^n y_i
+++++
+
+さらに、最大値を次のように定義する。
+[stem,latexmath]
+++++
+S_{\max} := \max_{y\in Y} S_y
+++++
+
+上の仮定により latexmath:[1 \le S_y \le n+1] であり、したがって latexmath:[S_{\max} \le n+1] が成り立つ。以後の議論は一般の上界 latexmath:[S_{\max}] に対して行う。
 
 [stem,latexmath]
 ++++
