@@ -24,8 +24,12 @@ include::../../attrs.adoc[]
 *NOTE*
 
 ここでは便宜上、各パターン latexmath:[y] は latexmath:[(n+1)] 次元の拡張ベクトルで、バイアス成分 latexmath:[y_0=1] を含むものとする。
-さらに他の成分については latexmath:[0\le y_i\le 1] と仮定する（必要ならば一般の有界性 latexmath:[|y_i|\le R] として置き換え可能）。
-この仮定により latexmath:[\sum_{i=0}^n y_i\ge 1] および latexmath:[\sum_{i=0}^n y_i\le n+1] が成り立つ。
+他の成分は latexmath:[0\le y_i\le 1] と仮定する。
+これらに対して
+latexmath:[S_y := \sum_{i=0}^n y_i]
+と定め、さらに
+latexmath:[S_{\max} := \max_{y\in Y} S_y]
+を導入する。今回の簡単化仮定では latexmath:[1 \le S_y \le n+1] であり、したがって latexmath:[S_{\max} \le n+1] が成り立つが、以後の議論は一般の上界 latexmath:[S_{\max}] に対して行う。
 
 [stem,latexmath]
 ++++
@@ -73,7 +77,7 @@ k
 ++++
 \begin{cases}
 v_{+} &= v + 2a(1, \cdots, 1)^t \\
-a &= \frac{k - v^t\hat{y}_0}{4(n+1)} \\
+a &= \displaystyle\frac{k - v^t\hat{y}_0}{4S_{\max}} \\
 \end{cases}
 ++++
 
@@ -81,15 +85,15 @@ a &= \frac{k - v^t\hat{y}_0}{4(n+1)} \\
 [stem,latexmath]
 ++++
 \begin{aligned}
-a &= \frac{k - v^t\hat{y}_0}{4(n+1)} \\
-4(n+1)a &= k - v^t\hat{y}_0 \\
-v^t\hat{y}_0 &= k - 4(n+1)a
+a &= \frac{k - v^t\hat{y}_0}{4S_{\max}} \\
+4S_{\max}a &= k - v^t\hat{y}_0 \\
+v^t\hat{y}_0 &= k - 4S_{\max}a
 \end{aligned}
 ++++
 
-latexmath:[Y_1] の場合は次のように示す。まず latexmath:[y\in Y_1] ならば latexmath:[v^t y\ge v^t\hat{y}_1>k] である。したがって、latexmath:[S_y:=\sum_{i=0}^n y_i\ge1] を用いると
+latexmath:[Y_1] の場合は次のように示す。まず latexmath:[y\in Y_1] ならば latexmath:[v^t y\ge v^t\hat{y}_1>k] である。したがって、latexmath:[S_y:=\sum_{i=0}^n y_i\ge1] を用いると次のようになる。
 [stem,latexmath]
-+++
+++++
 \begin{aligned}
 v_{+}^t y
 &= (v + 2a(1, \cdots, 1)^t)^t y \\
@@ -98,30 +102,30 @@ v_{+}^t y
 &> k + 2a \\
 &> k + a.
 \end{aligned}
-+++
+++++
 
-一方 latexmath:[y\in Y_0] の場合は latexmath:[v^t y\le v^t\hat{y}_0] であり、latexmath:[S_y\le n+1] を用いて
+一方 latexmath:[y\in Y_0] の場合は latexmath:[v^t y\le v^t\hat{y}_0] であり、一般の上界 latexmath:[S_{\max}] を用いると次のようになる。
 [stem,latexmath]
-+++
+++++
 \begin{aligned}
 v_{+}^t y
 &= v^t y + 2aS_y \\
-&\le v^t\hat{y}_0 + 2a(n+1) \\
-&= k -4(n+1)a + 2a(n+1) \\
-&= k -2(n+1)a \\
+&\le v^t\hat{y}_0 + 2aS_{\max} \\
+&= k -4S_{\max}a + 2aS_{\max} \\
+&= k -2S_{\max}a \\
 &< k - a.
 \end{aligned}
-+++
+++++
 
 以上より、次のようなlatexmath:[a]において、パターン集合が線形分離可能である前提より、補題を満たす。
 [stem,latexmath]
 ++++
 \begin{aligned}
 a
-&= \frac{k - v^t\hat{y}_0}{4(n+1)} \\
-&= \frac{\left(v^t\hat{y}_0 + \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}\right) - v^t\hat{y}_0}{4(n+1)} \\
-&= \frac{\frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}}{4(n+1)} \\
-&= \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{8(n+1)} \\
+&= \frac{k - v^t\hat{y}_0}{4S_{\max}} \\
+&= \frac{\left(v^t\hat{y}_0 + \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}\right) - v^t\hat{y}_0}{4S_{\max}} \\
+&= \frac{\frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}}{4S_{\max}} \\
+&= \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{8S_{\max}} \\
 \end{aligned}
 ++++
 
