@@ -85,8 +85,8 @@ k
 [stem,latexmath]
 ++++
 \begin{cases}
-v_{+} &= v + 2a(1, \cdots, 1)^t \\
-a &= \displaystyle\frac{k - v^t\hat{y}_0}{4S_{\max}} \\
+v_{+} &= v + a(1, \cdots, 1)^t \\
+a &= \displaystyle\frac{k - v^t\hat{y}_0}{1 + S_{\max}} \\
 \end{cases}
 ++++
 
@@ -94,9 +94,9 @@ a &= \displaystyle\frac{k - v^t\hat{y}_0}{4S_{\max}} \\
 [stem,latexmath]
 ++++
 \begin{aligned}
-a &= \frac{k - v^t\hat{y}_0}{4S_{\max}} \\
-4S_{\max}a &= k - v^t\hat{y}_0 \\
-v^t\hat{y}_0 &= k - 4S_{\max}a
+a &= \frac{k - v^t\hat{y}_0}{1 + S_{\max}} \\
+ (1 + S_{\max})a &= k - v^t\hat{y}_0 \\
+v^t\hat{y}_0 &= k - (1 + S_{\max})a
 \end{aligned}
 ++++
 
@@ -105,10 +105,9 @@ latexmath:[Y_1] の場合は次のように示す。まず latexmath:[y\in Y_1] 
 ++++
 \begin{aligned}
 v_{+}^t y
-&= (v + 2a(1, \cdots, 1)^t)^t y \\
-&= v^t y + 2aS_y \\
-&\ge v^t\hat{y}_1 + 2a \\
-&> k + 2a \\
+&= (v + a(1, \cdots, 1)^t)^t y \\
+&= v^t y + aS_y \\
+&\ge v^t\hat{y}_1 + a \\
 &> k + a.
 \end{aligned}
 ++++
@@ -118,11 +117,10 @@ v_{+}^t y
 ++++
 \begin{aligned}
 v_{+}^t y
-&= v^t y + 2aS_y \\
-&\le v^t\hat{y}_0 + 2aS_{\max} \\
-&= k -4S_{\max}a + 2aS_{\max} \\
-&= k -2S_{\max}a \\
-&< k - a.
+&= v^t y + aS_y \\
+&\le v^t\hat{y}_0 + aS_{\max} \\
+&= k - (1 + S_{\max})a + aS_{\max} \\
+&= k - a.
 \end{aligned}
 ++++
 
@@ -131,10 +129,10 @@ v_{+}^t y
 ++++
 \begin{aligned}
 a
-&= \frac{k - v^t\hat{y}_0}{4S_{\max}} \\
-&= \frac{\left(v^t\hat{y}_0 + \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}\right) - v^t\hat{y}_0}{4S_{\max}} \\
-&= \frac{\frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}}{4S_{\max}} \\
-&= \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{8S_{\max}} \\
+&= \frac{k - v^t\hat{y}_0}{1 + S_{\max}} \\
+&= \frac{\left(v^t\hat{y}_0 + \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}\right) - v^t\hat{y}_0}{1 + S_{\max}} \\
+&= \frac{\frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}}{1 + S_{\max}} \\
+&= \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2(1 + S_{\max})} \\
 \end{aligned}
 ++++
 
