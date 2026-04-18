@@ -19,6 +19,14 @@ include::../../attrs.adoc[]
 
 パターン集合を次のように定義する。latexmath:[Y_0, Y_1]は有限集合で、latexmath:[Y_0 \cup Y_1 = Y]である。
 さらに、latexmath:[Y_1]は正例の集合、latexmath:[Y_0]は負例の集合であるとする。
+
+// Mathematical formulas cannot be used in [NOTE].
+*NOTE*
+
+ここでは便宜上、各パターン latexmath:[y] は latexmath:[(n+1)] 次元の拡張ベクトルで、バイアス成分 latexmath:[y_0=1] を含むものとする。
+さらに他の成分については latexmath:[0\le y_i\le 1] と仮定する（必要ならば一般の有界性 latexmath:[|y_i|\le R] として置き換え可能）。
+この仮定により latexmath:[\sum_{i=0}^n y_i\ge 1] および latexmath:[\sum_{i=0}^n y_i\le n+1] が成り立つ。
+
 [stem,latexmath]
 ++++
 \begin{aligned}
@@ -41,30 +49,31 @@ Lemma 1. ある正定数 latexmath:[a > 0]が存在して、すべての latexma
 [stem,latexmath]
 ++++
 \begin{aligned}
-\hat{y}_1 = \arg\min_{y \in Y_1} w^t y \\
-\hat{y}_0 = \arg\max_{y \in Y_0} w^t y
+\hat{y}_1 = \arg\min_{y \in Y_1} v^t y \\
+\hat{y}_0 = \arg\max_{y \in Y_0} v^t y
 \end{aligned}
 ++++
 
-パターン集合が線形分離可能であることから、latexmath:[w^t \hat{y}_0 \lt w^t \hat{y}_1]を満たす 重みベクトルlatexmath:[w]が存在する。
-latexmath:[w^t \hat{y}_0 \lt k \lt w^t \hat{y}_1]を満たす実数latexmath:[k]が存在する。このような latexmath:[k] を考えるのはこの補題を定めたテキストの問題設定に欠陥があるからである。
-具体的には、latexmath:[y, v] が latexmath:[\forall y \in Y_1: v^t y = v_0 + v_1 y_1 + \cdots + v_n y_n = 0]の時も線形分離の条件を満たすが、一方で latexmath:[a > 0]を満たすようなマージンが存在しない。しかし、latexmath:[v_0]の選び方により、latexmath:[\forall y \in Y_1: v^t y = v_0 + v_1 y_1 + \cdots + v_n y_n \gt 0]となるようなlatexmath:[v_0]を選ぶこともできる。
-そのため、 latexmath:[\forall y \in Y_1: v^t y = v_0 + v_1 y_1 + \cdots + v_n y_n \gt 0]と問題設定を変えても、便宜上 latexmath:[k]を設定したとしても、結論には影響はない。具体的な latexmath:[k] は、以下のように定めることができ、最終的にマージンlatexmath:[a]はlatexmath:[k]を使わずに表現できる。
+パターン集合が線形分離可能であることから、ある重みベクトル latexmath:[v] が存在して
+latexmath:[v^t\hat{y}_0 < v^t\hat{y}_1]
+を満たす。ここで、便宜的にスカラー latexmath:[k] を
+latexmath:[k := \frac{v^t\hat{y}_1 + v^t\hat{y}_0}{2}]
+と定める（したがって latexmath:[v^t\hat{y}_0 < k < v^t\hat{y}_1] が成り立つ）。latexmath:[k] を導入するのは議論を簡潔にするためであり、最終的に得られるマージン latexmath:[a] は latexmath:[k] に依らず表現される。
 [stem,latexmath]
 ++++
 \begin{aligned}
 k
-&= \hat{y}_0 + \frac{\hat{y}_1 - \hat{y}_0}{2} \\
-&= \frac{\hat{y}_1 + \hat{y}_0}{2} \\
+&= v^t \hat{y}_0 + \frac{v^t \hat{y}_1 - v^t \hat{y}_0}{2} \\
+&= \frac{v^t \hat{y}_1 + v^t \hat{y}_0}{2} \\
 \end{aligned}
 ++++
 
-上記を満たす latexmath:[w]について、次のように定める。
+上記を満たす latexmath:[v]について、次のように定める。
 [stem,latexmath]
 ++++
 \begin{cases}
-w_{+} &= w + 2a(1, \cdots, 1)^t \\
-a &= \frac{k - w^t\hat{y}_0}{4(m+1)} \\
+v_{+} &= v + 2a(1, \cdots, 1)^t \\
+a &= \frac{k - v^t\hat{y}_0}{4(n+1)} \\
 \end{cases}
 ++++
 
@@ -72,42 +81,47 @@ a &= \frac{k - w^t\hat{y}_0}{4(m+1)} \\
 [stem,latexmath]
 ++++
 \begin{aligned}
-a &= \frac{k - w^t\hat{y}_0}{4(m+1)} \\
-4(m+1)a &= k - w^t\hat{y}_0 \\
-w^t\hat{y}_0 &= k - 4(m+1)a
+a &= \frac{k - v^t\hat{y}_0}{4(n+1)} \\
+4(n+1)a &= k - v^t\hat{y}_0 \\
+v^t\hat{y}_0 &= k - 4(n+1)a
 \end{aligned}
 ++++
 
-latexmath:[y \in Y_1]のとき、次のようにマージン latexmath:[a]より大きいことが示される。
+latexmath:[Y_1] の場合は次のように示す。まず latexmath:[y\in Y_1] ならば latexmath:[v^t y\ge v^t\hat{y}_1>k] である。したがって、latexmath:[S_y:=\sum_{i=0}^n y_i\ge1] を用いると
 [stem,latexmath]
-++++
++++
 \begin{aligned}
-w_{+}^t y
-&= (w + 2a(1, \cdots, 1)^t)^t y \\
-&= w^t y + 2a(y_0 + y_1 + \cdots + y_m) \ge w^t y + 2a \gt w^t y + a \gt k + a \\ 
+v_{+}^t y
+&= (v + 2a(1, \cdots, 1)^t)^t y \\
+&= v^t y + 2aS_y \\
+&\ge v^t\hat{y}_1 + 2a \\
+&> k + 2a \\
+&> k + a.
 \end{aligned}
-++++
++++
 
-latexmath:[y \in Y_0]のとき、次のようにマージン latexmath:[-a]より小さいことが示される。
+一方 latexmath:[y\in Y_0] の場合は latexmath:[v^t y\le v^t\hat{y}_0] であり、latexmath:[S_y\le n+1] を用いて
 [stem,latexmath]
-++++
++++
 \begin{aligned}
-w_{+}^t y
-&= (w + 2a(1, \cdots, 1)^t)^t y \\
-&= w^t y + 2a(y_0 + y_1 + \cdots + y_m) \\
-&\le w^t y + 2a(m + 1) \le w^t\hat{y}_0 + 2a(m + 1) = k - 4(m+1)a + 2a(m + 1) = k - 2(m + 1)a \lt k - a
+v_{+}^t y
+&= v^t y + 2aS_y \\
+&\le v^t\hat{y}_0 + 2a(n+1) \\
+&= k -4(n+1)a + 2a(n+1) \\
+&= k -2(n+1)a \\
+&< k - a.
 \end{aligned}
-++++
++++
 
 以上より、次のようなlatexmath:[a]において、パターン集合が線形分離可能である前提より、補題を満たす。
 [stem,latexmath]
 ++++
 \begin{aligned}
 a
-&= \frac{k - w^t\hat{y}_0}{4(m+1)} \\
-&= \frac{\left(w^t\hat{y}_0 + \frac{w^t\hat{y}_1 - w^t\hat{y}_0}{2}\right) - w^t\hat{y}_0}{4(m+1)} \\
-&= \frac{\frac{w^t\hat{y}_1 - w^t\hat{y}_0}{2}}{4(m+1)} \\
-&= \frac{w^t\hat{y}_1 - w^t\hat{y}_0}{8(m+1)} \\
+&= \frac{k - v^t\hat{y}_0}{4(n+1)} \\
+&= \frac{\left(v^t\hat{y}_0 + \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}\right) - v^t\hat{y}_0}{4(n+1)} \\
+&= \frac{\frac{v^t\hat{y}_1 - v^t\hat{y}_0}{2}}{4(n+1)} \\
+&= \frac{v^t\hat{y}_1 - v^t\hat{y}_0}{8(n+1)} \\
 \end{aligned}
 ++++
 
