@@ -1,6 +1,7 @@
 <<index.adoc#,Index>> {vbar}
 <<algebra/index.adoc#,Algebra>> {vbar}
 <<books/index.adoc#,Books>> {vbar}
+<<differential-geometry/index.adoc#,Differential geometry>> {vbar}
 <<plane_curve.adoc#,Plane curve>> {vbar}
 <<ml/index.adoc#,Machine learning>> {vbar}
 <<group.adoc#,Group>> +
