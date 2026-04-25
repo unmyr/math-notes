@@ -11,8 +11,7 @@ include $(DOC_ROOT)/asciidoc.mk
 HTML_LIST=\
 $(DIST_SUBDIR)/index.html
 
-SUB_TARGETS=\
-perceptron
+SUB_TARGETS=
 
 .PHONY: adoc $(SUB_TARGETS)
 
