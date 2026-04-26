@@ -187,17 +187,6 @@ The unit sphere S^2^ can be expressed as:
 x^2 + y^2 + z^2 = 1
 ++++
 
-// A point (x, y, z) on the unit sphere S^2^ can be parametrized using spherical coordinates as follows:
-
-// [stem,latexmath]
-// ++++
-// \begin{aligned}
-// x(\theta, \phi) &= \sin\theta \cos\phi \\
-// y(\theta, \phi) &= \sin\theta \sin\phi \\
-// z(\theta, \phi) &= \cos\theta
-// \end{aligned}
-// ++++
-
 To cover the sphere S^2^, we can consider the following two charts:
 [stem,latexmath]
 ++++
