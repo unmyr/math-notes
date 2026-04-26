@@ -9,6 +9,7 @@ DST_IMAGES_DIR=$(DIST_SUBDIR)/$(IMAGES_DIR)
 include $(DOC_ROOT)/asciidoc.mk
 
 HTML_LIST=\
+$(DIST_SUBDIR)/atlas.html \
 $(DIST_SUBDIR)/index.html
 
 SUB_TARGETS=
