@@ -178,3 +178,148 @@ The transition map is infinitely differentiable on latexmath:[t \ne 0], so it is
 
 したがって (_U_~1~, _phi_~1~) と (_U_~2~, _phi_~2~) は S^1^ の C^∞^ アトラスを構成する。 +
 Thus, (_U_~1~, _phi_~1~) and (_U_~2~, _phi_~2~) form an atlas of S^1^.
+
+==== Example: Atlas of the unit sphere S^2^ (stereographic projection) 
+
+The unit sphere S^2^ can be expressed as:
+[stem,latexmath]
+++++
+x^2 + y^2 + z^2 = 1
+++++
+
+// A point (x, y, z) on the unit sphere S^2^ can be parametrized using spherical coordinates as follows:
+
+// [stem,latexmath]
+// ++++
+// \begin{aligned}
+// x(\theta, \phi) &= \sin\theta \cos\phi \\
+// y(\theta, \phi) &= \sin\theta \sin\phi \\
+// z(\theta, \phi) &= \cos\theta
+// \end{aligned}
+// ++++
+
+To cover the sphere S^2^, we can consider the following two charts:
+[stem,latexmath]
+++++
+\begin{aligned}
+U_N &=  S^2\setminus\left\{(0, 0, -1)\right\}
+ \\
+U_S &=  S^2\setminus\left\{(0, 0, 1)\right\} \\
+\end{aligned}
+++++
+
+座標関数（ステレオ投影） +
+Coordinate functions (stereographic projection)
+
+Chart N: _U_~N~: projection from the north pole
+[stem,latexmath]
+++++
+\begin{aligned}
+\phi_N(x, y, z): U_N \to \mathbb{R}^2, \quad \phi_N (x, y, z) \mapsto \left(\frac{x}{1 + z}, \frac{y}{1 + z}\right) = (u_N, v_N)
+\end{aligned}
+++++
+
+Chart S: _U_~S~: projection from the south pole
+[stem,latexmath]
+++++
+\begin{aligned}
+\phi_S(x, y, z): U_S \to \mathbb{R}^2, \quad \phi_S (x, y, z) \mapsto \left(\frac{x}{1 - z}, \frac{y}{1 - z}\right) = (u_S, v_S)
+\end{aligned}
+++++
+
+変換関数 +
+Transition function
+
+重なり _U_~N~ ∩ _U_~S~ 上で次の u~N~, u~S~ を計算する。 +
+Calculate the following u~N~, u~S~ on the overlapping region _U_~N~ ∩ _U_~S~.
+
+次の式から、最終的に _u_~S~, _v_~S~ を消去して x(_u_~N~),y(_u_~N~),z(_u_~N~)を求める。 +
+From the following equations, eliminate _u_~S~, _v_~S~ and find x(_u_~N~),y(_u_~N~),z(_u_~N~).
+
+[stem,latexmath]
+++++
+\begin{equation}
+(u_N, v_N) = \left(\frac{x}{1 + z}, \frac{y}{1 + z} \right) \tag{1}\label{tag_R3_north_map_uv}
+\end{equation}
+++++
+
+[stem,latexmath]
+++++
+\begin{equation}
+(u_S, v_S) = \left(\frac{x}{1 - z}, \frac{y}{1 - z} \right) \tag{2}\label{tag_R3_south_map_uv}
+\end{equation}
+++++
+
+[stem,latexmath]
+++++
+\begin{equation}
+x^2 + y^2 + z^2 = 1 \tag{3}\label{tag_x2_y2_z2_1}
+\end{equation}
+++++
+
+latexmath:[\eqref{tag_R3_north_map_uv}] と _x_^2^ + _y_^2^ + _z_^2^ = 1 latexmath:[\eqref{tag_x2_y2_z2_1}] から、_u_~N~, _v_~N~ の関係を導き出す。 +
+From latexmath:[\eqref{tag_R3_north_map_uv}] and _x_^2^ + _y_^2^ + _z_^2^ = 1 latexmath:[\eqref{tag_x2_y2_z2_1}], derive the relationship between _u_~N~ and _v_~N~.
+[stem,latexmath]
+++++
+\begin{aligned}
+x^2 + y^2 + z^2 &= 1, & z \ne \pm 1 \\
+\left\{u_N (1 + z)\right\}^2 + \left\{v_N (1 + z)\right\}^2 + z^2 &= 1, & z \ne \pm 1 \\
+\left\{u_N (1 + z)\right\}^2 + \left\{v_N (1 + z)\right\}^2 &= 1 - z^2, & z \ne \pm 1 \\
+u_N^2 + v_N^2 &= \frac{1 - z^2}{(1 + z)^2}, & z \ne \pm 1 \\
+u_N^2 + v_N^2 &= \frac{1 - z}{1 + z}, & z \ne \pm 1 \\
+\end{aligned}
+++++
+
+あとで、この結果を用いる。 +
+We will use this result later.
+
+[stem,latexmath]
+++++
+\begin{equation}
+u_N^2 + v_N^2 = \frac{1 - z}{1 + z} \tag{6}\label{tag_R3_norm_of_phi_n}
+\end{equation}
+++++
+
+球面上の点 _p_(_x_, _y_, _z_)について、 latexmath:[\phi_N(x, y, z) = (u_N, v_N)]のとき、 
+逆写像は latexmath:[\eqref{tag_R3_north_map_uv}]より、次のように表すことができる。 +
+For a point _p_(_x_, _y_, _z_) on the sphere, when latexmath:[\phi_N(x, y, z) = (u_N, v_N)], the inverse map can be expressed as follows from latexmath:[\eqref{tag_R3_north_map_uv}].
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\phi_N^{-1}(u_N, v_N) &\to (x, y, z) \\
+\phi_N^{-1}(u_N, v_N) &= \left(u_N (1 + z), v_N (1 + z), z \right) \\
+\end{aligned}
+++++
+
+latexmath:[\eqref{tag_R3_south_map_uv}] から、
+latexmath:[\phi_S(x, y, z) = \left(\frac{x}{1 - z},\frac{y}{1 - z}\right)]となるから、変換関数は次のように整理することができる。 +
+From latexmath:[\eqref{tag_R3_south_map_uv}], since latexmath:[\phi_S(x, y, z) = \left(\frac{x}{1 - z},\frac{y}{1 - z}\right)], the transition function can be rearranged as follows.
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\left(\phi_S (x, y, z) \circ \phi_N^{-1}\right)(u_N, v_N)
+&= \phi_S (\phi_N^{-1}(u_N, v_N)) \\
+&= \phi_S (u_N (1 + z), v_N (1 + z), z) \\
+&= \left.
+  \left( \frac{x}{1 - z}, \frac{x}{1 - z} \right)
+\right|_{(u_N (1 + z), v_N (1 + z), z)} \\
+&= \left( \frac{u_N (1 + z)}{1 - z}, \frac{v_N (1 + z)}{1 - z} \right) \\
+&= \frac{1 + z}{1 - z}(u_N, v_N) \\
+\end{aligned}
+++++
+
+さらに、latexmath:[\eqref{tag_R3_norm_of_phi_n}] から、最終的に次のような形になる。 +
+Furthermore, from latexmath:[\eqref{tag_R3_norm_of_phi_n}], it can be expressed in the following form.
+[stem,latexmath]
+++++
+\begin{aligned}
+\left(\phi_S (x, y, z) \circ \phi_N^{-1}\right)(u_N, v_N)
+&= \frac{1 + z}{1 - z}(u_N, v_N) \\
+&= \left(\frac{u_N}{u_N^2 + v_N^2}, \frac{v_N}{u_N^2 + v_N^2}\right) \\
+\end{aligned}
+++++
+
+変換関数は、 latexmath:[(u_N, v_N) \ne (0, 0)]上で滑らかとなる。 +
+The transition function is smooth on latexmath:[(u_N, v_N) \ne (0, 0)].
