@@ -312,3 +312,75 @@ Furthermore, from latexmath:[\eqref{tag_R3_norm_of_phi_n}], it can be expressed 
 
 変換関数は、 latexmath:[(u_N, v_N) \ne (0, 0)]上で滑らかとなる。 +
 The transition function is smooth on latexmath:[(u_N, v_N) \ne (0, 0)].
+
+==== Example: Real projective line RP^1^
+To cover the real projective line RP^1^, we can consider the following two charts:
+[stem,latexmath]
+++++
+\begin{aligned}
+U_1 &=  RP^1\setminus\left\{[0:1]\right\} = \left\{[x:y] \mid y \ne 0\right\} \\
+U_2 &=  RP^1\setminus\left\{[1:0]\right\} = \left\{[x:y] \mid x \ne 0\right\} \\
+\end{aligned}
+++++
+
+座標関数 +
+Coordinate functions
+Chart 1: _U_~1~: a map from RP^1^ with the point [0:1] removed
+[stem,latexmath]
+++++
+\begin{aligned}
+\phi_1: U_1 \to \mathbb{R}, \quad \phi_1 ([x:y]) \mapsto \frac{x}{y}
+\end{aligned}
+++++
+
+Chart 2: _U_~2~: a map from RP^1^ with the point [1:0] removed
+[stem,latexmath]
+++++
+\begin{aligned}
+\phi_2: U_2 \to \mathbb{R}, \quad \phi_2 ([x:y]) \mapsto \frac{y}{x}
+\end{aligned}
+++++
+
+逆写像は次のように表すことができる。 +
+The inverse map can be expressed as follows.
+[stem,latexmath]
+++++
+\begin{aligned}
+\phi_1^{-1}: \mathbb{R} \to U_1, \quad \phi_1^{-1}(t) = [t:1]
+\end{aligned}
+++++
+
+変換関数 +
+Transition function
+[stem,latexmath]
+++++
+\begin{aligned}
+\phi_2 \circ \phi_1^{-1}: \phi_1(U_1 \cap U_2) \to \phi_2(U_1 \cap U_2)
+\end{aligned}
+++++
+
+重なり _U_~1~ ∩ _U_~2~ 上で次の t を計算する。 +
+Calculate the following t on the overlapping region _U_~1~ ∩ _U_~2~.
+[stem,latexmath]
+++++
+\begin{aligned}
+t = \phi_1([x:y])
+\end{aligned}
+++++
+次の式から、最終的に _t_ を消去して latexmath:[\lbrack x:y \rbrack] を求める。 +
+From the following equations, eliminate _t_ and find latexmath:[\lbrack x:y \rbrack].
+[stem,latexmath]
+++++
+\begin{aligned}
+t &= \frac{x}{y} \\
+\phi_1^{-1}(t) &= [t:1] \\
+\phi_2 \circ \phi_1^{-1}(t) &= \phi_2([t:1]) = \frac{1}{t} \\
+\end{aligned}
+++++
+
+連続性の確認 +
+Check the continuity.
+遷移写像は latexmath:[t \ne 0]上で無限回微分可能であるため、連続である。 +
+The transition map is infinitely differentiable on latexmath:[t \ne 0], so it is continuous.
+したがって (_U_~1~, _phi_~1~) と (_U_~2~, _phi_~2~) は RP^1^ の C^∞^ アトラスを構成する。 +
+Thus, (_U_~1~, _phi_~1~) and (_U_~2~, _phi_~2~) form an atlas of RP^1^.
