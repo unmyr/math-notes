@@ -14,7 +14,8 @@ include::../attrs.adoc[]
 === Constructing an atlas
 An atlas is a collection of charts that provide local coordinate systems. A chart is a map that supplies a local coordinate system. An atlas plays an important role in understanding the structure of surfaces and manifolds.
 
-==== Example: circle S^1^
+==== Example: Atlas of the unit circle S^1^ (the real 1-dimensional projective line)
+
 A point (x, y) on the unit circle S^1^ can be expressed as:
 [stem,latexmath]
 ++++
