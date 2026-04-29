@@ -1,0 +1,28 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== 微分幾何入門 第一章
+
+=== 問題1.7
+_T_^2^ に適当なアトラスを定めよ
+
+=== 問題1.10
+問::
+多様体としての開区間I=(-pi/2, pi/2)とRが微分同相であることを示せ。 +
+(I ⊂ R は開区間(a,b)であればなんでもよいことも簡単にわかる)
+
+**回答**
+
+latexmath:[f: I\to \mathbb{R}]の写像に対して、 latexmath:[f(\theta \in I) = \tan\theta]を考えると、__I__から__R__への微分同相写像であることがわかる。
