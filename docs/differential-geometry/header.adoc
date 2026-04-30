@@ -1,2 +1,2 @@
 <<index.adoc#,Index>> {vbar}
-<<atlas.adoc#,Atlas>> +
+<<atlas.adoc#,Atlas>>(<<atlas_s1_transition.adoc#,S^1^>>, <<atlas_s2_stereographic.adoc#,S^2^(Stereographic)>>,<<atlas_rp1.adoc#,RP^1^>>) +

@@ -1,0 +1,176 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+
+include::header.adoc[]
+
+:stem: latexmath
+include::../attrs.adoc[]
+
+endif::[]
+
+== Example: Atlas of the unit circle S^1^ (the real 1-dimensional projective line)
+
+A point (x, y) on the unit circle S^1^ can be expressed as:
+[stem,latexmath]
+++++
+S^1 = \left\{(x, y) \mid x^2 + y^2 = 1 \right\}
+++++
+
+To cover the circle S^1^ above, we can consider the following two charts:
+[stem,latexmath]
+++++
+\begin{aligned}
+U_1 &=  S^1\setminus\left\{(0, 1)\right\}
+ \\
+U_2 &=  S^1\setminus\left\{(0, -1)\right\} \\
+\end{aligned}
+++++
+
+Both are open sets on the circle, and obviously _U_~1~ {cup} _U_~2~ = _S_^1^.
+
+These charts provide local coordinate systems as follows.
+
+Chart 1: _U_~1~: a map from S^1^ with the north pole (0, 1) removed
+
+[stem,latexmath]
+++++
+\phi_1: U_1 \to \mathbb{R}, \quad \phi_1 (x, y) \mapsto \frac{x}{1-y}
+++++
+
+Chart 2: _U_~2~: a map from S^1^ with the south pole (0, -1) removed
+
+[stem,latexmath]
+++++
+\phi_2: U_2 \to \mathbb{R}, \quad \phi_2 (x, y) \mapsto \frac{x}{1+y}
+++++
+
+Transition function (transition map between charts)
+
+[stem,latexmath]
+++++
+\phi_2 \circ \phi_1^{-1}: \phi_1(U_1 \cap U_2) \to \phi_2(U_1 \cap U_2)
+++++
+
+重なり _U_~1~ ∩ _U_~2~ 上で次の s,t を計算する。 +
+Calculate the following s and t on the overlapping region _U_~1~ ∩ _U_~2~.
+
+[stem,latexmath]
+++++
+t=\phi_1(x, y), \quad s = \phi_2(x, y)
+++++
+
+次の式から、最終的に _s_ を消去して latexmath:[x(t), y(t)] を求める。 +
+From the following equations, eliminate _s_ and find latexmath:[x(t), y(t)].
+// Equation 1
+[stem,latexmath]
+++++
+\begin{equation}
+t(x,y) = \frac{x}{1-y} \tag{1}\label{tag_t_xy}
+\end{equation}
+++++
+
+// Equation 2
+[stem,latexmath]
+++++
+\begin{equation}
+s(x,y) = \frac{x}{1+y} \tag{2}\label{tag_s_xy}
+\end{equation}
+++++
+
+// Equation 3
+[stem,latexmath]
+++++
+\begin{equation}
+x^2 + y^2 = 1 \tag{3}\label{tag_x2_y2_1}
+\end{equation}
+++++
+
+latexmath:[\eqref{tag_t_xy}] と latexmath:[\eqref{tag_s_xy}] から、 _x_ を消去して、次のように式を整理できる。 +
+From latexmath:[\eqref{tag_t_xy}] and latexmath:[\eqref{tag_s_xy}], eliminate _x_ and rearrange the equation as follows.
+
+[stem,latexmath]
+++++
+\begin{aligned}
+t(1 - y) = x,\quad& s(1 + y)=x \\
+t(1 - y) &= s(1 + y) \\
+t - ty &= s + sy \\
+(s + t)y &= t - s \\
+y &= \frac{t - s}{t + s} \\
+\end{aligned}
+++++
+
+latexmath:[\eqref{tag_t_xy}] と latexmath:[\eqref{tag_s_xy}] から、 _y_ を消去して、次のように式を整理できる。 +
+From latexmath:[\eqref{tag_t_xy}] and latexmath:[\eqref{tag_s_xy}], eliminate _y_ and rearrange the equation as follows.
+[stem,latexmath]
+++++
+\begin{aligned}
+t(1 - y) = x,\quad& s(1 + y)=x \\
+t - ty = x,\quad& s + sy = x \\
+t - x = ty,\quad& sy = x - s \\ 
+st - sx = sty,\quad& sty = tx - st \\
+st - sx &= tx - st \\
+(s + t)x &= 2st \\
+x &= \frac{2st}{s + t} \\
+\end{aligned}
+++++
+
+_x_^2^ + _y_^2^ = 1 latexmath:[\eqref{tag_x2_y2_1}] から、_s_, _t_ の関係を導き出す。
+[stem,latexmath]
+++++
+\begin{aligned}
+x^2 + y^2 &= 1, s\ne 0, t\ne 0 \\
+\left(\frac{2st}{s + t}\right)^2 + \left(\frac{t - s}{t + s}\right)^2 &= 1, s\ne 0, t\ne 0 \\
+4s^2t^2 + (t - s)^2 &= (t + s)^2, s\ne 0, t\ne 0 \\
+0 &= (t + s)^2 - (t - s)^2 - 4s^2t^2, s\ne 0, t\ne 0 \\
+0 &= (t + s + t - s)(t + s - t + s) - 4s^2t^2, s\ne 0, t\ne 0 \\
+0 &= 2t \cdot 2s - 4s^2t^2, s\ne 0, t\ne 0 \\
+0 &= st(1 - st), s\ne 0, t\ne 0 \\
+st &= 1 \\
+\end{aligned}
+++++
+
+_x_(_s_,_t_) と _y_(_s_,_t_) から _s_ を消去して、次のように式を整理できる。 +
+From _x_(_s_,_t_) and _y_(_s_,_t_), eliminate _s_ and rearrange the equation as follows.
+
+[stem,latexmath]
+++++
+\begin{aligned}
+x &= \frac{2st}{s + t} = \frac{2}{\frac{1}{t} + t} = \frac{2t}{t^2 + 1} \\
+y &= \frac{t - s}{t + s} = \frac{t - \frac{1}{t}}{t + \frac{1}{t}} = \frac{t^2 - 1}{t^2 + 1} \\
+\end{aligned}
+++++
+
+逆写像を使って次のように表すことができる。 +
+Using the inverse map, it can be expressed as follows.
+[stem,latexmath]
+++++
+\begin{aligned}
+x &= \frac{2t}{t^2 + 1} \\
+y &= \frac{t^2 - 1}{t^2 + 1}
+\end{aligned}
+++++
+
+変換関数(transition map)は次のように表すことができる。 +
+The transition function can be expressed as follows.
+[stem,latexmath]
+++++
+\begin{aligned}
+\phi_2(x(t), y(t)) \circ \phi_1^{-1}(t)
+&= \left. \frac{x(t)}{1 + y(t)} \right|_{x(t)=\frac{2t}{t^2 + 1}, y(t)=\frac{t^2 - 1}{t^2 + 1}} \\
+&= \frac{\frac{2t}{t^2 + 1}}{1 + \frac{t^2 - 1}{t^2 + 1}} \\
+&= \frac{2t}{t^2 +1 + t^2 - 1} \\
+&= \frac{2t}{2t^2} \\
+&= \frac{1}{t} \\
+\end{aligned}
+++++
+
+連続性の確認 +
+Check the continuity.
+
+遷移写像は latexmath:[t \ne 0]上で無限回微分可能であるため、連続である。 +
+The transition map is infinitely differentiable on latexmath:[t \ne 0], so it is continuous.
+
+したがって (_U_~1~, _phi_~1~) と (_U_~2~, _phi_~2~) は S^1^ の C^∞^ アトラスを構成する。 +
+Thus, (_U_~1~, _phi_~1~) and (_U_~2~, _phi_~2~) form an atlas of S^1^.
