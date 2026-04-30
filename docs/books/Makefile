@@ -28,6 +28,9 @@ mkdir_and_copy:
 $(DIST_SUBDIR)/%.html: %.adoc $(DOC_ROOT)/attrs.adoc header.adoc
 	asciidoctor --trace $(AD_OPTS_HTML5_ROUGE) -o "$@" "$<"
 
+微分幾何入門:
+	(cd $@ && make adoc)
+
 数学セミナー:
 	(cd $@ && make adoc)
 
