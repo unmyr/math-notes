@@ -30,3 +30,45 @@ _T_^2^ に適当なアトラスを定めよ
 **回答**
 
 latexmath:[f: I\to \mathbb{R}]の写像に対して、 latexmath:[f(\theta \in I) = \tan\theta]を考えると、__I__から__R__への微分同相写像であることがわかる。
+
+=== 問題1.12 (p21)
+問::
+例1.8では、latexmath:[\boldsymbol{r}_{(1)}(t)]に沿った接ベクトルが latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\phi}]、latexmath:[\boldsymbol{r}_{(2)}(t)]に沿った接ベクトルが latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\theta}]であることを確認せよ。
+
+* 点 _p_ を通る緯線 latexmath:[\boldsymbol{r}_{(1)}(t) := (x^1(t), x^2(t), x^3(t)) = (\sin\theta_0 \cos t, \sin\theta_0 \sin t, \cos \theta_0)]
+* 点 _p_ を通る経線 latexmath:[\boldsymbol{r}_{(2)}(t) := (x^1(t), x^2(t), x^3(t)) = (\sin t \cos\phi_0, \sin t \sin\phi_0, \cos t)]
+
+*回答*
+
+まず、latexmath:[\boldsymbol{r}_{(1)}(t)]、および latexmath:[\boldsymbol{r}_{(2)}(t)] に沿った接ベクトルを求める。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{\boldsymbol{r}_{(1)}}{dt}
+&= \left(\frac{dx^1(t)}{dt}, \frac{dx^2(t)}{dt}, \frac{dx^3(t)}{dt} \right) \\
+&= \left(-\sin\theta_0\sin t, \sin\theta_0\cos t, 0 \right) \\
+\end{aligned}
+++++
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{\boldsymbol{r}_{(2)}}{dt}
+&= \left(\frac{dx^1(t)}{dt}, \frac{dx^2(t)}{dt}, \frac{dx^3(t)}{dt} \right) \\
+&= \left(\cos t \cos\phi_0, \cos t \sin\phi_0, -\sin t \right) \\
+\end{aligned}
+++++
+
+続いて、 latexmath:[\boldsymbol{r}=(\sin\theta \cos\phi, \sin\theta \sin\phi, \cos\theta)]  偏微分を行う。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{d\boldsymbol{\boldsymbol{r}}(\theta, \phi)}{dt}
+&= \frac{d\theta}{dt}\frac{\partial\boldsymbol{r}}{\partial\theta} + \frac{d\phi}{dt}\frac{\partial\boldsymbol{r}}{\partial\phi} \\
+&= \frac{d\theta}{dt}(\cos\theta \cos\phi, \cos\theta \sin\phi, -\sin\theta) + \frac{d\phi}{dt}(-\sin\theta \sin\phi, \sin\theta \cos\phi, 0) \\
+\end{aligned}
+++++
+
+この式から、最終的に、 latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\phi}]、latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\theta}]であることがわかる。
