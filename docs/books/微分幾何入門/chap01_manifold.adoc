@@ -17,7 +17,7 @@ include::../../attrs.adoc[]
 
 === 問題1.6
 問:: 2次元球面(単位球面)
-latexmath:[S^2 = \{(\cos \phi \sin \theta, \sin \phi \sin \theta, \cos \theta) \in \mathbb{R}^3 | 0 \leq \phi \leq 2\pi, 0 \leq \theta \leq 2\pi\}]に対して、座標近傍 latexmath:[(U_i, \phi_i)]を latexmath:[(\cos \phi \sin \theta, \sin \phi \sin \theta, \cos \theta) \mapsto (\phi, \theta)]となるよう適当な開被覆で覆ってアトラスを構成せよ。また変換関数、 latexmath:[\Psi_{ij}も求めよ]
+latexmath:[S^2 = \{(\cos \phi \sin \theta, \sin \phi \sin \theta, \cos \theta) \in \mathbb{R}^3 | 0 \leq \phi \leq \pi, 0 \leq \theta \leq 2\pi\}]に対して、座標近傍 latexmath:[(U_i, \phi_i)]を latexmath:[(\cos \phi \sin \theta, \sin \phi \sin \theta, \cos \theta) \mapsto (\phi, \theta)]となるよう適当な開被覆で覆ってアトラスを構成せよ。また変換関数、 latexmath:[\Psi_{ij}も求めよ]
 
 === 問題1.7
 _T_^2^ に適当なアトラスを定めよ
