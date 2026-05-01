@@ -17,7 +17,7 @@ include::../../attrs.adoc[]
 
 === 問題1.6
 問:: 2次元球面(単位球面)
-latexmath:[S^2 = \{(\cos \phi \sin \theta, \sin \phi \sin \theta, \cos \theta) \in \mathbb{R}^3 | 0 \leq \phi \leq \pi, 0 \leq \theta \leq 2\pi\}]に対して、座標近傍 latexmath:[(U_i, \phi_i)]を latexmath:[(\cos \phi \sin \theta, \sin \phi \sin \theta, \cos \theta) \mapsto (\phi, \theta)]となるよう適当な開被覆で覆ってアトラスを構成せよ。また変換関数、 latexmath:[\Psi_{ij}も求めよ]
+latexmath:[S^2 = \{(\cos \varphi \sin \theta, \sin \varphi \sin \theta, \cos \theta) \in \mathbb{R}^3 | 0 \leq \varphi \leq \pi, 0 \leq \theta \leq 2\pi\}]に対して、座標近傍 latexmath:[(U_i, \varphi_i)]を latexmath:[(\cos \varphi \sin \theta, \sin \varphi \sin \theta, \cos \theta) \mapsto (\varphi, \theta)]となるよう適当な開被覆で覆ってアトラスを構成せよ。また変換関数、 latexmath:[\Psi_{ij}も求めよ]
 
 === 問題1.7
 _T_^2^ に適当なアトラスを定めよ
@@ -33,10 +33,10 @@ latexmath:[f: I\to \mathbb{R}]の写像に対して、 latexmath:[f(\theta \in I
 
 === 問題1.12 (p21)
 問::
-例1.8では、latexmath:[\boldsymbol{r}_{(1)}(t)]に沿った接ベクトルが latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\phi}]、latexmath:[\boldsymbol{r}_{(2)}(t)]に沿った接ベクトルが latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\theta}]であることを確認せよ。
+例1.8では、latexmath:[\boldsymbol{r}_{(1)}(t)]に沿った接ベクトルが latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\varphi}]、latexmath:[\boldsymbol{r}_{(2)}(t)]に沿った接ベクトルが latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\theta}]であることを確認せよ。
 
 * 点 _p_ を通る緯線 latexmath:[\boldsymbol{r}_{(1)}(t) := (x^1(t), x^2(t), x^3(t)) = (\sin\theta_0 \cos t, \sin\theta_0 \sin t, \cos \theta_0)]
-* 点 _p_ を通る経線 latexmath:[\boldsymbol{r}_{(2)}(t) := (x^1(t), x^2(t), x^3(t)) = (\sin t \cos\phi_0, \sin t \sin\phi_0, \cos t)]
+* 点 _p_ を通る経線 latexmath:[\boldsymbol{r}_{(2)}(t) := (x^1(t), x^2(t), x^3(t)) = (\sin t \cos\varphi_0, \sin t \sin\varphi_0, \cos t)]
 
 *回答*
 
@@ -56,19 +56,19 @@ latexmath:[f: I\to \mathbb{R}]の写像に対して、 latexmath:[f(\theta \in I
 \begin{aligned}
 \frac{d\boldsymbol{r}_{(2)}}{dt}(t)
 &= \left(\frac{dx^1(t)}{dt}, \frac{dx^2(t)}{dt}, \frac{dx^3(t)}{dt} \right) \\
-&= \left(\cos t \cos\phi_0, \cos t \sin\phi_0, -\sin t \right) \\
+&= \left(\cos t \cos\varphi_0, \cos t \sin\varphi_0, -\sin t \right) \\
 \end{aligned}
 ++++
 
-続いて、 latexmath:[\boldsymbol{r}(\theta, \phi)=(\sin\theta \cos\phi, \sin\theta \sin\phi, \cos\theta)]  偏微分を行う。
+続いて、 latexmath:[\boldsymbol{r}(\theta, \varphi)=(\sin\theta \cos\varphi, \sin\theta \sin\varphi, \cos\theta)]  偏微分を行う。
 
 [stem,latexmath]
 ++++
 \begin{aligned}
-\frac{d\boldsymbol{r}(\theta, \phi)}{dt}
-&= \frac{d\theta}{dt}\frac{\partial\boldsymbol{r}}{\partial\theta} + \frac{d\phi}{dt}\frac{\partial\boldsymbol{r}}{\partial\phi} \\
-&= \frac{d\theta}{dt}(\cos\theta \cos\phi, \cos\theta \sin\phi, -\sin\theta) + \frac{d\phi}{dt}(-\sin\theta \sin\phi, \sin\theta \cos\phi, 0) \\
+\frac{d\boldsymbol{r}(\theta, \varphi)}{dt}
+&= \frac{d\theta}{dt}\frac{\partial\boldsymbol{r}}{\partial\theta} + \frac{d\varphi}{dt}\frac{\partial\boldsymbol{r}}{\partial\varphi} \\
+&= \frac{d\theta}{dt}(\cos\theta \cos\varphi, \cos\theta \sin\varphi, -\sin\theta) + \frac{d\varphi}{dt}(-\sin\theta \sin\varphi, \sin\theta \cos\varphi, 0) \\
 \end{aligned}
 ++++
 
-この式から、最終的に、 latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\phi}]、latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\theta}]であることがわかる。
+この式から、最終的に、 latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\varphi}]、latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\theta}]であることがわかる。
