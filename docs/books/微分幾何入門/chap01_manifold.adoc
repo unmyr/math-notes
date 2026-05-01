@@ -45,7 +45,7 @@ latexmath:[f: I\to \mathbb{R}]の写像に対して、 latexmath:[f(\theta \in I
 [stem,latexmath]
 ++++
 \begin{aligned}
-\frac{\boldsymbol{r}_{(1)}}{dt}
+\frac{d\boldsymbol{r}_{(1)}}{dt}(t)
 &= \left(\frac{dx^1(t)}{dt}, \frac{dx^2(t)}{dt}, \frac{dx^3(t)}{dt} \right) \\
 &= \left(-\sin\theta_0\sin t, \sin\theta_0\cos t, 0 \right) \\
 \end{aligned}
@@ -54,18 +54,18 @@ latexmath:[f: I\to \mathbb{R}]の写像に対して、 latexmath:[f(\theta \in I
 [stem,latexmath]
 ++++
 \begin{aligned}
-\frac{\boldsymbol{r}_{(2)}}{dt}
+\frac{d\boldsymbol{r}_{(2)}}{dt}(t)
 &= \left(\frac{dx^1(t)}{dt}, \frac{dx^2(t)}{dt}, \frac{dx^3(t)}{dt} \right) \\
 &= \left(\cos t \cos\phi_0, \cos t \sin\phi_0, -\sin t \right) \\
 \end{aligned}
 ++++
 
-続いて、 latexmath:[\boldsymbol{r}=(\sin\theta \cos\phi, \sin\theta \sin\phi, \cos\theta)]  偏微分を行う。
+続いて、 latexmath:[\boldsymbol{r}(\theta, \phi)=(\sin\theta \cos\phi, \sin\theta \sin\phi, \cos\theta)]  偏微分を行う。
 
 [stem,latexmath]
 ++++
 \begin{aligned}
-\frac{d\boldsymbol{\boldsymbol{r}}(\theta, \phi)}{dt}
+\frac{d\boldsymbol{r}(\theta, \phi)}{dt}
 &= \frac{d\theta}{dt}\frac{\partial\boldsymbol{r}}{\partial\theta} + \frac{d\phi}{dt}\frac{\partial\boldsymbol{r}}{\partial\phi} \\
 &= \frac{d\theta}{dt}(\cos\theta \cos\phi, \cos\theta \sin\phi, -\sin\theta) + \frac{d\phi}{dt}(-\sin\theta \sin\phi, \sin\theta \cos\phi, 0) \\
 \end{aligned}
