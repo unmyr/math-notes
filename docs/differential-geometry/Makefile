@@ -11,6 +11,7 @@ include $(DOC_ROOT)/asciidoc.mk
 HTML_LIST=\
 $(DIST_SUBDIR)/atlas_rp1.html \
 $(DIST_SUBDIR)/atlas_s1_transition.html \
+$(DIST_SUBDIR)/atlas_s2_angular_coords.html \
 $(DIST_SUBDIR)/atlas_s2_stereographic.html \
 $(DIST_SUBDIR)/atlas.html \
 $(DIST_SUBDIR)/index.html

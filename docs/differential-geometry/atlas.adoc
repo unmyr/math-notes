@@ -16,5 +16,6 @@ An atlas is a collection of charts that provide local coordinate systems. A char
 
 .Examples
 * <<atlas_s1_transition.adoc#,Atlas of the unit circle S^1^ (the real 1-dimensional projective line)>>
+* <<atlas_s2_angular_coords.adoc#,Atlas of the unit sphere S^2^ (angular coordinates)>>
 * <<atlas_s2_stereographic.adoc#,Atlas of the unit sphere S^2^ (stereographic projection)>>
 * <<atlas_rp1.adoc#,Atlas of the real projective line RP^1^>>

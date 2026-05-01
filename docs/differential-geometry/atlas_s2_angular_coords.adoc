@@ -1,0 +1,222 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+
+include::header.adoc[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+:stem: latexmath
+include::../attrs.adoc[]
+
+endif::[]
+
+== Example: Atlas of the unit sphere S^2^ (angular coordinates)
+NOTE:: WIP
+
+The unit sphere S^2^ can be expressed with angular coordinates (theta, phi) as:
+[stem,latexmath]
+++++
+S^2 = \{(\cos \phi \sin \theta, \sin \phi \sin \theta, \cos \theta) \in \mathbb{R}^3 | 0 \leq \phi \leq \pi, 0 \leq \theta \leq 2\pi\}
+++++
+
+To cover the sphere S^2^, we can consider the following two charts:
+[stem,latexmath]
+++++
+\begin{aligned}
+U_1 &=  S^2 \setminus \left\{ x^2 + z^2 = 1 \mid 0 \leq x \leq 1, -1 \leq z \leq 1 \right\} \\
+U_2 &=  S^2 \setminus \left\{ x^2 + y^2 = 1 \mid -1 \leq x \leq 0, -1 \leq y \leq 1 \right\} \\
+\end{aligned}
+++++
+
+image::atlas_s2_angular_coords.png[]
+
+=== 座標関数 (Coordinate functions)
+
+[stem,latexmath]
+++++
+\begin{aligned}
+f_1(x, y, z): U_1 \to \mathbb{R}^2, & \quad f_1 (x, y, z) \mapsto \left(\begin{cases}
+\arctan2(x, y) & \text{if } \arctan2(y, x) \geq 0 \\
+\arctan2(x, y) + 2 \pi & \text{if } \arctan2(y, x) < 0
+\end{cases}, \arccos z\right) = (\phi_1, \theta_1) \\
+f_2(x, y, z): U_2 \to \mathbb{R}^2, & \quad f_2 (x, y, z) \mapsto \left(\begin{cases}
+\arctan2(-x, z) & \text{if } \arctan2(z, -x) \geq 0 \\
+\arctan2(-x, z) + 2 \pi & \text{if } \arctan2(z, -x) < 0
+\end{cases}, \arccos y\right) = (\phi_2, \theta_2) \\
+\end{aligned}
+++++
+
+検算する
+
+* latexmath:[f_2 \left.(x, y, z)\right|_{(-1, 0, 0)} = (0, \frac{\pi}{2})= (\phi_2, \theta_2)]
+* latexmath:[f_2 \left.(x, y, z)\right|_{(0, 0, 1)} =  (\frac{\pi}{2}, \frac{\pi}{2})= (\phi_2, \theta_2)]
+
+// arctan2(x, y)は、Pythonのmath.atan2(y, x)に対応する。 +
+// arctan2(x, y) corresponds to math.atan2(y, x) in Python.
+
+[source,python]
+----
+import math
+
+if __name__ == "__main__":
+    print("phi1 and theta1:")
+    print("Rotation around the z-axis and polar angle")
+    points = [(1, 0, 0), (0, 1, 0), (-1, 0, 0), (0, -1, 0)]
+    f_1 = lambda x, y, z: (math.atan2(y, x) if math.atan2(y, x) >=0 else math.atan2(y, x) + 2 * math.pi, math.acos(z))
+    for x, y, z in points:
+        phi_1, theta_1 = f_1(x, y, z)
+        print(f"Point ({x:2.0f}, {y:2.0f}, {z:2.0f}) has an angle of phi1: {phi_1 / math.pi * 180:+4.0f} degrees, theta1: {theta_1 / math.pi * 180:+4.0f} degrees")
+
+    print("Rotation around the y-axis and polar angle")
+    points = [(0, 0, 1), (1, 0, 0), (0, 0, -1)]
+    for x, y, z in points:
+        phi_1, theta_1 = f_1(x, y, z)
+        print(f"Point ({x:2.0f}, {y:2.0f}, {z:2.0f}) has an angle of phi1: {phi_1 / math.pi * 180:+4.0f} degrees, theta1: {theta_1 / math.pi * 180:+4.0f} degrees")
+    print("")
+
+    print("phi2 and theta2: Rotation around the y-axis and polar angle")
+    f_2 = lambda x, y, z: (math.atan2(z, -x) if math.atan2(z, -x) >= 0 else math.atan2(z, -x) + 2 * math.pi, math.acos(y))
+    points = [(-1, 0, 0), (0, 0, 1), (1, 0, 0), (0, 0, -1)]
+    for x, y, z in points:
+        phi_2, theta_2 = f_2(x, y, z)
+        print(f"Point ({x:2.0f}, {y:2.0f}, {z:2.0f}) has an angle of phi2: {phi_2 / math.pi * 180:+4.0f} degrees, theta2: {theta_2 / math.pi * 180:+4.0f} degrees")
+
+    print("Rotation around the z-axis and polar angle")
+    points = [(0, 1, 0), (-1, 0, 0), (0, -1, 0)]
+    for x, y, z in points:
+        phi_2, theta_2 = f_2(x, y, z)
+        print(f"Point ({x:2.0f}, {y:2.0f}, {z:2.0f}) has an angle of phi2: {phi_2 / math.pi * 180:+4.0f} degrees, theta2: {theta_2 / math.pi * 180:+4.0f} degrees")
+    print("")
+----
+
+[source,plaintext]
+----
+phi1 and theta1:
+Rotation around the z-axis and polar angle
+Point ( 1,  0,  0) has an angle of phi1:   +0 degrees, theta1:  +90 degrees
+Point ( 0,  1,  0) has an angle of phi1:  +90 degrees, theta1:  +90 degrees
+Point (-1,  0,  0) has an angle of phi1: +180 degrees, theta1:  +90 degrees
+Point ( 0, -1,  0) has an angle of phi1: +270 degrees, theta1:  +90 degrees
+Rotation around the y-axis and polar angle
+Point ( 0,  0,  1) has an angle of phi1:   +0 degrees, theta1:   +0 degrees
+Point ( 1,  0,  0) has an angle of phi1:   +0 degrees, theta1:  +90 degrees
+Point ( 0,  0, -1) has an angle of phi1:   +0 degrees, theta1: +180 degrees
+
+phi2 and theta2: Rotation around the y-axis and polar angle
+Point (-1,  0,  0) has an angle of phi2:   +0 degrees, theta2:  +90 degrees
+Point ( 0,  0,  1) has an angle of phi2:  +90 degrees, theta2:  +90 degrees
+Point ( 1,  0,  0) has an angle of phi2: +180 degrees, theta2:  +90 degrees
+Point ( 0,  0, -1) has an angle of phi2: +270 degrees, theta2:  +90 degrees
+Rotation around the z-axis and polar angle
+Point ( 0,  1,  0) has an angle of phi2:   +0 degrees, theta2:   +0 degrees
+Point (-1,  0,  0) has an angle of phi2:   +0 degrees, theta2:  +90 degrees
+Point ( 0, -1,  0) has an angle of phi2:   +0 degrees, theta2: +180 degrees
+----
+
+
+=== 変換関数 (Transition function)
+
+[stem,latexmath]
+++++
+\begin{aligned}
+f_1^{-1}(\phi_1, \theta_1) & \mapsto (\cos \phi_1 \sin \theta_1, \sin \phi_1 \sin \theta_1, \cos \theta_1) \\
+f_2^{-1}(\phi_2, \theta_2) & \mapsto (\cos (\phi_2 + \pi) \sin \theta_2, \cos \theta_2, \sin (-\phi_2 + \pi) \sin \theta_2) \\
+&= (-\cos \phi_2 \sin \theta_2, \cos \theta_2, \sin \phi_2 \sin \theta_2) \\
+\end{aligned}
+++++
+
+検算する
+
+* latexmath:[\left.(\phi_2, \theta_2)\right|_{(0, \frac{\pi}{2})} = (-1, 0, 0)]
+* latexmath:[\left.(\phi_2, \theta_2)\right|_{(\frac{\pi}{2}, \frac{\pi}{2})} = (0, 0, 1)]
+
+[source,python]
+----
+import math
+
+if __name__ == "__main__":
+    print("phi1 and theta1:")
+    print("Rotation around the z-axis and polar angle")
+    points_on_angle_coords = [(0, math.pi/2), (math.pi/2, math.pi/2), (math.pi, math.pi/2), (3*math.pi/2, math.pi/2)]
+    f_1_inv = lambda phi_1, theta_1: (math.cos(phi_1) * math.sin(theta_1), math.sin(phi_1) * math.sin(theta_1), math.cos(theta_1))
+    for phi_1, theta_1 in points_on_angle_coords:
+        x, y, z = f_1_inv(phi_1, theta_1)
+        print(f"Point ({phi_1 / math.pi * 180:+4.0f} degrees, {theta_1 / math.pi * 180:+4.0f} degrees) -> ({x:2.0f}, {y:2.0f}, {z:2.0f})")
+
+    print("Rotation around the y-axis and polar angle")
+    points_on_angle_coords = [(0, 0), (0, math.pi/2), (0, math.pi)]
+    for phi_1, theta_1 in points_on_angle_coords:
+        x, y, z = f_1_inv(phi_1, theta_1)
+        print(f"Point ({phi_1 / math.pi * 180:+4.0f} degrees, {theta_1 / math.pi * 180:+4.0f} degrees) -> ({x:2.0f}, {y:2.0f}, {z:2.0f})")
+    print("")
+
+    print("phi2 and theta2: Rotation around the y-axis and polar angle")
+    print("Rotation around the y-axis and polar angle")
+    points_on_angle_coords = [(0, math.pi/2), (math.pi/2, math.pi/2), (math.pi, math.pi/2), (3*math.pi/2, math.pi/2)]
+    f_2_inv = lambda phi_2, theta_2: (math.cos(phi_2 + math.pi) * math.sin(theta_2), math.cos(theta_2), math.sin(-phi_2 + math.pi) * math.sin(theta_2))
+    for phi_2, theta_2 in points_on_angle_coords:
+        x, y, z = f_2_inv(phi_2, theta_2)
+        print(f"Point ({phi_2 / math.pi * 180:+4.0f} degrees, {theta_2 / math.pi * 180:+4.0f} degrees) -> ({x:2.0f}, {y:2.0f}, {z:2.0f})")
+    print("Rotation around the z-axis and polar angle")
+    points_on_angle_coords = [(0, 0), (0, math.pi/2), (0, math.pi)]
+    for phi_2, theta_2 in points_on_angle_coords:
+        x, y, z = f_2_inv(phi_2, theta_2)
+        print(f"Point ({phi_2 / math.pi * 180:+4.0f} degrees, {theta_2 / math.pi * 180:+4.0f} degrees) -> ({x:2.0f}, {y:2.0f}, {z:2.0f})")
+    print("")
+----
+
+[source,plaintext]
+----
+$ python3 s2.py 
+phi1 and theta1:
+Rotation around the z-axis and polar angle
+Point (  +0 degrees,  +90 degrees) -> ( 1,  0,  0)
+Point ( +90 degrees,  +90 degrees) -> ( 0,  1,  0)
+Point (+180 degrees,  +90 degrees) -> (-1,  0,  0)
+Point (+270 degrees,  +90 degrees) -> (-0, -1,  0)
+Rotation around the y-axis and polar angle
+Point (  +0 degrees,   +0 degrees) -> ( 0,  0,  1)
+Point (  +0 degrees,  +90 degrees) -> ( 1,  0,  0)
+Point (  +0 degrees, +180 degrees) -> ( 0,  0, -1)
+
+phi2 and theta2: Rotation around the y-axis and polar angle
+Rotation around the y-axis and polar angle
+Point (  +0 degrees,  +90 degrees) -> (-1,  0,  0)
+Point ( +90 degrees,  +90 degrees) -> (-0,  0,  1)
+Point (+180 degrees,  +90 degrees) -> ( 1,  0,  0)
+Point (+270 degrees,  +90 degrees) -> ( 0,  0, -1)
+Rotation around the z-axis and polar angle
+Point (  +0 degrees,   +0 degrees) -> (-0,  1,  0)
+Point (  +0 degrees,  +90 degrees) -> (-1,  0,  0)
+----
+
+上記より、 _U_~1~ ∩ _U_~2~ 上の変換関数は次のように表される。 +
+From the above, the transition function on _U_~1~ ∩ _U_~2~ can be expressed as follows.
+
+[stem,latexmath]
+++++
+\begin{aligned}
+f_2 \circ f_1^{-1}(\phi_1, \theta_1) &= f_2 (f_1^{-1}(\phi_1, \theta_1)) \\
+&= f_2 (\cos \phi_1 \sin \theta_1, \sin \phi_1 \sin \theta_1, \cos \theta_1) \\
+&= \left(\begin{cases}
+\arctan2(\cos \theta_1, -\cos \phi_1 \sin \theta_1) & \text{if } \arctan2(-\cos \phi_1 \sin \theta_1, \cos \theta_1) \geq 0 \\
+\arctan2(\cos \theta_1, -\cos \phi_1 \sin \theta_1) + 2 \pi & \text{if } \arctan2(-\cos \phi_1 \sin \theta_1, \cos \theta_1) < 0
+\end{cases}, \arccos (\sin \phi_1 \sin \theta_1)) \right) \\
+\end{aligned}
+++++
+
+[stem,latexmath]
+++++
+\begin{aligned}
+f_1 \circ f_2^{-1}(\phi_2, \theta_2) &= f_1 (f_2^{-1}(\phi_2, \theta_2)) \\
+&= f_1 (-\cos \phi_2 \sin \theta_2, \cos \theta_2, \sin \phi_2 \sin \theta_2) \\
+&= \left(\begin{cases}
+\arctan2(\cos \theta_2, -\cos \phi_2 \sin \theta_2) & \text{if } \arctan2(-\cos \phi_2 \sin \theta_2, \cos \theta_2) \geq 0 \\
+\arctan2(\cos \theta_2, -\cos \phi_2 \sin \theta_2) + 2 \pi & \text{if } \arctan2(-\cos \phi_2 \sin \theta_2, \cos \theta_2) < 0
+\end{cases}, \arccos (\sin \phi_2 \sin \theta_2)) \right) \\
+\end{aligned}
+++++
