@@ -1,0 +1,91 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+endif::[]
+
+include::header.adoc[]
+
+:stem: latexmath
+include::../attrs.adoc[]
+
+== 接ベクトルと接ベクトル束 (Tangent vectors and tangent bundles)
+Equation of the sphere:
+[stem,latexmath]
+++++
+x^2 + y^2 + z^2 = 1
+++++
+
+Using spherical coordinates, it can be parametrized as:
+[stem,latexmath]
+++++
+\begin{aligned}
+x(\theta, \phi) &= \sin\theta \cos\phi \\
+y(\theta, \phi) &= \sin\theta \sin\phi \\
+z(\theta, \phi) &= \cos\theta
+\end{aligned}
+++++
+
+Differentiating gives:
+[stem,latexmath]
+++++
+\begin{aligned}
+dx &= x_\theta d \theta + x_\phi d\phi = \cos\theta \cos\phi \, d\theta - \sin\theta \sin\phi \, d\phi \\
+dy &= y_\theta d \theta + y_\phi d\phi = \cos\theta \sin\phi \, d\theta + \sin\theta \cos\phi \, d\phi \\
+dz &= z_\theta d \theta + z_\phi d\phi = -\sin\theta \, d\theta
+\end{aligned}
+++++
+
+In matrix form, this becomes:
+[stem,latexmath]
+++++
+\begin{aligned}
+\begin{pmatrix}
+dx \\
+dy \\
+dz
+\end{pmatrix}
+&=
+\begin{pmatrix}
+x_\theta & x_\phi \\
+y_\theta & y_\phi \\
+z_\theta & z_\phi
+\end{pmatrix}
+\begin{pmatrix}
+d\theta \\
+d\phi
+\end{pmatrix}
+= \begin{pmatrix}
+\cos\theta \cos\phi & -\sin\theta \sin\phi \\
+\cos\theta \sin\phi & \sin\theta \cos\phi \\
+-\sin\theta & 0
+\end{pmatrix}
+\begin{pmatrix}
+d\theta \\
+d\phi
+\end{pmatrix}
+\end{aligned}
+++++
+
+This matrix is called the Jacobian matrix, representing the differential of the coordinate transformation. The determinant of the Jacobian matrix expresses the local scaling of the coordinate transformation.
+
+NOTE: 正しさを検証中 (Verification in progress)
+
+Next, consider a 1-form. A 1-form is a linear function that acts on vector fields. For example, consider the following 1-form:
+[stem,latexmath]
+++++
+\begin{aligned}
+\omega &= A dx + B dy + C dz \\
+&= \left(\frac{\delta A}{\delta \theta} d\theta + \frac{\delta A}{\delta \phi} d\phi \right) + \left(\frac{\delta B}{\delta \theta} d\theta + \frac{\delta B}{\delta \phi} d\phi \right) + \left(\frac{\delta C}{\delta \theta} d\theta + \frac{\delta C}{\delta \phi} d\phi \right) \\
+&= \left(\frac{\delta A}{\delta \theta} + \frac{\delta B}{\delta \theta} + \frac{\delta C}{\delta \theta}\right) d\theta + \left(\frac{\delta A}{\delta \phi} + \frac{\delta B}{\delta \phi} + \frac{\delta C}{\delta \phi}\right) d\phi \\
+&= (A x_\theta + B y_\theta + C z_\theta) d\theta + (A x_\phi + B y_\phi + C z_\phi) d\phi
+\end{aligned}
+++++
+
+NOTE: 正しさを検証中 (Verification in progress)
+
+Substituting the above expressions gives:
+[stem,latexmath]
+++++
+\omega = (A x_\theta + B y_\theta + C z_\theta) d\theta + (A x_\phi + B y_\phi + C z_\phi) d\phi
+++++
