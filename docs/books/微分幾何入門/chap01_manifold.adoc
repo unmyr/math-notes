@@ -15,14 +15,20 @@ include::../../attrs.adoc[]
 
 == 微分幾何入門 第一章
 
-=== 問題1.6
+=== 問題1.6 (p8)
 問:: 2次元球面(単位球面)
 latexmath:[S^2 = \{(\cos \varphi \sin \theta, \sin \varphi \sin \theta, \cos \theta) \in \mathbb{R}^3 | 0 \leq \varphi \leq \pi, 0 \leq \theta \leq 2\pi\}]に対して、座標近傍 latexmath:[(U_i, \varphi_i)]を latexmath:[(\cos \varphi \sin \theta, \sin \varphi \sin \theta, \cos \theta) \mapsto (\varphi, \theta)]となるよう適当な開被覆で覆ってアトラスを構成せよ。また変換関数、 latexmath:[\Psi_{ij}も求めよ]
 
-=== 問題1.7
-_T_^2^ に適当なアトラスを定めよ
+=== 問題1.7 (p12)
+問:: _T_^2^ に適当なアトラスを定めよ
 
-=== 問題1.10
+=== 問題1.8 (p13)
+問:: 実射影空間の構成で、 latexmath;[x=ay]であるとき latexmath:[x \sim y]としたが、この関係が同値関係であること示せ。
+
+=== 問題1.9 (p13)
+問:: latexmath:[\mathbb{R}P^2]がどのような図形になるか考えよ
+
+=== 問題1.10 (p14)
 問::
 多様体としての開区間I=(-pi/2, pi/2)とRが微分同相であることを示せ。 +
 (I ⊂ R は開区間(a,b)であればなんでもよいことも簡単にわかる)
@@ -30,6 +36,9 @@ _T_^2^ に適当なアトラスを定めよ
 **回答**
 
 latexmath:[f: I\to \mathbb{R}]の写像に対して、 latexmath:[f(\theta \in I) = \tan\theta]を考えると、__I__から__R__への微分同相写像であることがわかる。
+
+=== 問題1.11 (p19)
+問:: 多様体M上の曲線 _I_ → _M_ とそれを含む座標近傍 latexmath:[(U_i, \varphi_i)]、latexmath:[\varphi_i: U_i \to V_i \subset \mathbb{R}^m]を考える。 _M_ 上の関数 latexmath:[f: M \to \mathbb{R}]に対して、 latexmath:[\frac{df}{ft}]は座標の取り方によらないことを示せ。すなわち、曲線のパラメータを latexmath:[t \in I]とし、曲線上の点 _p_ の座標を latexmath:[\varphi_i(p(t)) = (x^1(t),\cdots,x^m(t))]としても、 latexmath:[\varphi_i^{\prime}(p(t)) = (y^1(t),\cdots,y^m(t))]としても、どちらで計算しても同じであることを示せ
 
 === 問題1.12 (p21)
 問::
