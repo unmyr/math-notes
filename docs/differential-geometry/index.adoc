@@ -11,3 +11,10 @@ include::../attrs.adoc[]
 
 == Differential geometry
 This section contains notes on differential geometry, which is the study of smooth manifolds and their properties. It covers topics such as tangent spaces, vector fields, differential forms, and curvature.
+
+点 _p_ を通る緯線 latexmath:[\boldsymbol{r}_{(1)}(t) := (x^1(t), x^2(t), x^3(t)) = (\sin \theta_0 \cos t, \sin \theta_0 \sin t, \cos \theta_0)] に沿った位置ベクトルの変化の割合は、点pで緯線に接する接ベクトルになる。
+
+[stem,latexmath]
+++++
+\frac{\boldsymbol{r}_{(1)}}{dt} = \left(\frac{dx^1(t)}{dt}, \frac{dx^2(t)}{dt}, \frac{dx^3(t)}{dt} \right)
+++++

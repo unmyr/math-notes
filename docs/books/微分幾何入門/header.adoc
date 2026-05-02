@@ -1,2 +1,2 @@
-<<index.adoc#,Index>> {vbar}
+<<../index.adoc#,Index>> {vbar}
 <<chap01_manifold.adoc#,Chapter 1>> +
