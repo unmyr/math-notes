@@ -113,5 +113,23 @@ endif::[]
 +
 という関係が座標変換で変化しないことを確かめよ。
 
+**回答**
+
+別の座標 _y_ において双対ペアリングを計算すると、双線形性から、次の結果が得られる。
+[stem,latexmath]
+++++
+\begin{aligned}
+\left\langle d y^{\mu}, \frac{\partial}{\partial y^{\nu}} \right\rangle 
+&= \left\langle
+  \frac{\partial y^{\mu}}{\partial x^{\tau}} d x^{\tau},
+  \frac{\partial x^{\rho}}{\partial y^{\nu}} \frac{\partial}{\partial x^\rho}
+\right\rangle
+ = \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\rho}}{\partial y^{\nu}} \left\langle d x^{\tau}, \frac{\partial}{\partial x^\rho} \right\rangle \\
+&= \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\rho}}{\partial y^{\nu}} \delta_{\rho}^{\tau} \\
+&= \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\tau}}{\partial y^{\nu}} \\
+&= \delta_{\nu}^{\mu}
+\end{aligned}
+++++
+
 === 問題1.16 (p33)
 問:: latexmath:[\mathbb{R}^2]のある点 _p_ での接空間 latexmath:[T_p \mathbb{R}^2]の基底を latexmath:[\displaystyle\frac{\partial}{\partial x},\frac{\partial}{\partial y}]とし、余接空間 latexmath:[T_p^{*} \mathbb{R}^2]の基底を _dx_, _dy_ とするとき、それらを使い latexmath:[T_p \mathbb{R}^2 \otimes T_p^{*} \mathbb{R}^2]の基底を示せ。
