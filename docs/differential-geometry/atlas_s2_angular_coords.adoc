@@ -39,7 +39,7 @@ image::atlas_s2_angular_coords.png[]
 
 === 座標関数 (Coordinate functions)
 
-latexmath:[U_1] 上の座標関数 f_1 は、z軸を中心とした回転を表す極角 latexmath:[\theta_1] と、x-y 平面における回転を表す方位角 latexmath:[\phi_1] を用いて定義する。方位角は開区間 latexmath:[(0, 2\pi)] において定義することで一対一の写像となる。latexmath:[U_2] 上の座標関数 f_2 は、y軸を中心とした回転を表す極角 latexmath:[\theta_2] と、x-z 平面における回転を表す方位角 latexmath:[\phi_2] を用いて定義し、方位角は開区間 latexmath:[(0, 2\pi)] において定義することで一対一の写像となる。
+latexmath:[U_1] 上の座標関数 latexmath:[f_1]は、z軸を中心とした回転を表す極角 latexmath:[\theta_1] と、x-y 平面における回転を表す方位角 latexmath:[\phi_1] を用いて定義する。方位角は開区間 latexmath:[(0, 2\pi)] において定義することで一対一の写像となる。latexmath:[U_2] 上の座標関数 latexmath:[f_2]は、y軸を中心とした回転を表す極角 latexmath:[\theta_2] と、x-z 平面における回転を表す方位角 latexmath:[\phi_2] を用いて定義し、方位角は開区間 latexmath:[(0, 2\pi)] において定義することで一対一の写像となる。
 
 [stem,latexmath]
 ++++
@@ -51,7 +51,7 @@ f_2(x, y, z): U_2 \to \mathbb{R}^2, & \quad f_2 (x, y, z) \mapsto  \left(\arg((-
 
 === 変換関数 (Transition function)
 
-まず、座標関数の逆関数を求める。latexmath:[U_1] 上の座標関数 f_1 の逆関数は、z軸を中心とした回転を表す極角 latexmath:[\theta_1] と、x-y 平面における回転を表す方位角 latexmath:[\phi_1] を用いて、次のように表される。latexmath:[U_2] 上の座標関数 f_2 の逆関数は、y軸を中心とした回転を表す極角 latexmath:[\theta_2] と、x-z 平面における回転を表す方位角 latexmath:[\phi_2] を用いて、次のように表される。
+まず、座標関数の逆関数を求める。latexmath:[U_1] 上の座標関数 latexmath:[f_1]の逆関数は、z軸を中心とした回転を表す極角 latexmath:[\theta_1] と、x-y 平面における回転を表す方位角 latexmath:[\phi_1] を用いて、次のように表される。latexmath:[U_2] 上の座標関数 latexmath:[f_2]の逆関数は、y軸を中心とした回転を表す極角 latexmath:[\theta_2] と、x-z 平面における回転を表す方位角 latexmath:[\phi_2] を用いて、次のように表される。
 
 [stem,latexmath]
 ++++
