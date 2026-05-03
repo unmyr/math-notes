@@ -133,3 +133,33 @@ endif::[]
 
 === 問題1.16 (p33)
 問:: latexmath:[\mathbb{R}^2]のある点 _p_ での接空間 latexmath:[T_p \mathbb{R}^2]の基底を latexmath:[\displaystyle\frac{\partial}{\partial x},\frac{\partial}{\partial y}]とし、余接空間 latexmath:[T_p^{*} \mathbb{R}^2]の基底を _dx_, _dy_ とするとき、それらを使い latexmath:[T_p \mathbb{R}^2 \otimes T_p^{*} \mathbb{R}^2]の基底を示せ。
+
+回答::
+接空間の基底と余接空間の基底をテンソル積を行う。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+T_p \mathbb{R}^2 \otimes T_p^{*} \mathbb{R}^2
+&= (a_{1} \frac{\partial}{\partial x} + b_{1} \frac{\partial}{\partial y}) \otimes (a_{2} dx + b_{2} dy) \\
+&= a_{1} \frac{\partial}{\partial x} \otimes a_{2} dx
+  + a_{1} \frac{\partial}{\partial x} \otimes b_{2} dy
+  + b_{1} \frac{\partial}{\partial y} \otimes a_{2} dx
+  + b_{1} \frac{\partial}{\partial y} \otimes b_{2} dy \\
+&= a_{1} a_{2} \frac{\partial}{\partial x} \otimes  dx
+  + a_{1} b_{2} \frac{\partial}{\partial x} \otimes  dy
+  + b_{1} a_{2} \frac{\partial}{\partial y} \otimes  dx
+  + b_{1} b_{2} \frac{\partial}{\partial y} \otimes  dy \\
+\end{aligned}
+++++
++
+結果、次のような基底が得られる。
+[stem,latexmath]
+++++
+\left\{
+  \frac{\partial}{\partial x} \otimes d x,
+  \frac{\partial}{\partial x} \otimes d y,
+  \frac{\partial}{\partial y} \otimes d x,
+  \frac{\partial}{\partial y} \otimes d y
+\right\}
+++++
