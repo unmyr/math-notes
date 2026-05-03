@@ -77,7 +77,7 @@ From the above, the transition function on _U_~1~ ∩ _U_~2~ can be expressed as
 
 === 変換関数が _C_^∞^級であることの確認 (Checking that the transition function is _C_^∞^)
 変換関数の各成分は三角関数・arg・arccos の合成である。
-これらはそれぞれ _U_~1~ ∩ _U_~2~ の定義域で _C_^∞^ 級であるため、変換関数は _C_^∞^ 級である。
+これらはそれぞれ _U_~1~ ∩ _U_~2~ の定義域で _C_^∞^ 級であるため、変換関数は _C_^∞^ 級である。 +
 Each component of the transition function is a composition of trigonometric functions, arg, and arccos. Since these are all _C_^∞^ on the domain of _U_~1~ ∩ _U_~2~, the transition function is _C_^∞^.
 
 実際に、確認すると次のようになる。 +
