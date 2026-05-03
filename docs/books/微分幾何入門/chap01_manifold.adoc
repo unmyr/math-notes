@@ -9,6 +9,10 @@ ifndef::imagesdir[]
 :imagesdir: images
 endif::[]
 
+ifeval::["{backend}" == "html5"]
+pass:[<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>]
+endif::[]
+
 include::header.adoc[]
 
 include::../../attrs.adoc[]
@@ -81,3 +85,20 @@ latexmath:[f: I\to \mathbb{R}]の写像に対して、 latexmath:[f(\theta \in I
 ++++
 
 この式から、最終的に、 latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\varphi}]、latexmath:[\displaystyle\frac{d}{dt}=\frac{\partial}{\partial\theta}]であることがわかる。
+
+=== 問題1.13 (p25)
+問:: 同値関係と同値類の定義を思い出し、上の関係(p24-p25 定義1.4)が同値関係であることを確かめよ
+
+=== 問題1.14 (p25)
+latexmath:[M=\mathbb{R}]上で定義されたベクトル場 latexmath:[X=x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}]の様子を図示せよ。
+
+ifeval::["{backend}" == "html5"]
+**ベクトル場 X = x ∂/∂y - y ∂/∂x**
+[pass]
+++++
+<div id="chap01_01_14_vector_field_plot_area"><!-- Plotly chart will be drawn inside this DIV --></div>
+<script>
+include::js/chap01_01_14_vector_field.js[]
+</script>
+++++
+endif::[]
