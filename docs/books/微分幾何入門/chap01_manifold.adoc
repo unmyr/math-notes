@@ -113,9 +113,9 @@ endif::[]
 +
 という関係が座標変換で変化しないことを確かめよ。
 
-**回答**
-
+回答::
 別の座標 _y_ において双対ペアリングを計算すると、双線形性から、次の結果が得られる。
++
 [stem,latexmath]
 ++++
 \begin{aligned}
@@ -127,6 +127,46 @@ endif::[]
  = \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\rho}}{\partial y^{\nu}} \left\langle d x^{\tau}, \frac{\partial}{\partial x^\rho} \right\rangle \\
 &= \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\rho}}{\partial y^{\nu}} \delta_{\rho}^{\tau} \\
 &= \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\tau}}{\partial y^{\nu}} \\
+&= \delta_{\nu}^{\mu}
+\end{aligned}
+++++
++
+アインシュタインの縮約記法を使わない場合は、次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\left\langle d y^{\mu}, \frac{\partial}{\partial y^{\nu}} \right\rangle
+&= \left\langle
+  \sum_{\tau=1}^n \frac{\partial y^{\mu}}{\partial x^{\tau}} d x^{\tau},
+  \sum_{\rho=1}^n \frac{\partial x^{\rho}}{\partial y^{\nu}} \frac{\partial}{\partial x^\rho}
+\right\rangle \\
+&= \sum_{\tau=1}^n \sum_{\rho=1}^n \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\rho}}{\partial y^{\nu}} \left\langle d x^{\tau}, \frac{\partial}{\partial x^\rho} \right\rangle \\
+&= \sum_{\tau=1}^n \sum_{\rho=1}^n \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\rho}}{\partial y^{\nu}} \delta_{\rho}^{\tau} \\
+\end{aligned}
+++++
++
+ここで latexmath:[\delta_{\rho}^{\tau}]はクロネッカーのデルタで、latexmath:[\rho]と latexmath:[\tau]が等しいときに1、そうでないときに0になる関数である。これを使うと、latexmath:[\rho] の和が消え、一本の和になります：
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\left\langle d y^{\mu}, \frac{\partial}{\partial y^{\nu}} \right\rangle
+&= \sum_{\tau=1}^n \sum_{\rho=1}^n \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\rho}}{\partial y^{\nu}} \delta_{\rho}^{\tau} \\
+&= \sum_{\tau=1}^n \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\tau}}{\partial y^{\nu}} \\
+\end{aligned}
+++++
++
+最後にヤコビ行列とその逆行列の積（チェーンルール）よりこの和は単位行列の成分になります。
+latexmath:[\nu]と latexmath:[\mu]についてもアインシュタインの縮約記法が使われていて、省略せずに書くと偏微分の方向微分と異なる成分が消えて、次のようになります。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\left\langle d y^{\mu}, \frac{\partial}{\partial y^{\nu}} \right\rangle
+&= \sum_{\tau=1}^n \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\tau}}{\partial y^{\nu}} 
+  = \sum_{\mu=1}^n \sum_{\nu=1}^n \sum_{\tau=1}^n \frac{\partial y^{\mu}}{\partial x^{\tau}} \frac{\partial x^{\tau}}{\partial y^{\nu}} \\
+&= \sum_{\mu=1}^n \sum_{\nu=1}^n \frac{\partial y^{\mu}}{\partial y^{\nu}} \\
 &= \delta_{\nu}^{\mu}
 \end{aligned}
 ++++
