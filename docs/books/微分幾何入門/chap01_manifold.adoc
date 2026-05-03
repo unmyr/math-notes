@@ -89,7 +89,7 @@ latexmath:[f: I\to \mathbb{R}]の写像に対して、 latexmath:[f(\theta \in I
 === 問題1.13 (p25)
 問:: 同値関係と同値類の定義を思い出し、上の関係(p24-p25 定義1.4)が同値関係であることを確かめよ
 
-=== 問題1.14 (p25)
+=== 問題1.14 (p27)
 latexmath:[M=\mathbb{R}]上で定義されたベクトル場 latexmath:[X=x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}]の様子を図示せよ。
 
 ifeval::["{backend}" == "html5"]
@@ -102,3 +102,16 @@ include::js/chap01_01_14_vector_field.js[]
 </script>
 ++++
 endif::[]
+
+=== 問題1.15 (p31)
+問:: 座標の取り方に依存しない双対ペアリングの概念が定まるには、双対な基底の間の関係が座標の取り方によらない必要がある。余接ベクトルXと接ベクトルYに対する双線形写像 latexmath:[<X,Y> \in \mathbb{R}]を考えたとき、
++
+[stem,latexmath]
+++++
+\left\langle d x^{\mu}, \frac{\partial}{\partial x^{\nu}} \right\rangle = \delta_{\nu}^{\mu}
+++++
++
+という関係が座標変換で変化しないことを確かめよ。
+
+=== 問題1.16 (p33)
+問:: latexmath:[\mathbb{R}^2]のある点 _p_ での接空間 latexmath:[T_p \mathbb{R}^2]の基底を latexmath:[\displaystyle\frac{\partial}{\partial x},\frac{\partial}{\partial y}]とし、余接空間 latexmath:[T_p^{*} \mathbb{R}^2]の基底を _dx_, _dy_ とするとき、それらを使い latexmath:[T_p \mathbb{R}^2 \otimes T_p^{*} \mathbb{R}^2]の基底を示せ。
