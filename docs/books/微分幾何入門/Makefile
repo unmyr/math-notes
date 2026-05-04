@@ -10,6 +10,7 @@ include $(DOC_ROOT)/asciidoc.mk
 
 HTML_LIST=\
 $(DIST_SUBDIR)/chap01_manifold.html \
+$(DIST_SUBDIR)/chap02_differential_form.html \
 $(DIST_SUBDIR)/index.html
 
 SUB_TARGETS=

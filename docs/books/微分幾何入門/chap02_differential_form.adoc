@@ -1,0 +1,52 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== 微分幾何入門 第二章
+
+演習問題の解法の理解を深めるための覚書です。
+
+=== 問題2.1 (p36)
+問(1):: ベクトル da=(da^1^, da^2^), db=(db^1^, db^2^)に対して |da^1^ db^2^ - da^2^ db^1^| が平行四辺形の面積であることを示せ
+
+問(2):: latexmath:[\boldsymbol{x}=(1, 2), \boldsymbol{y}=(2, 3)]の作る平行四辺形の面積を求めよ
+
+=== 問題2.2 (p37)
+問:: 式(2.1)の絶対値がユークリッド空間内のベクトル _du_=(_du_^1^, _du_^2^, _du_^3^), _dv_=(_dv_^1^, _dv_^2^, _dv_^3^), _dw_=(_dw_^1^, _dw_^2^, _dw_^3^)が作る平行六面体の体積を与えることを示せ
+
+=== 問題2.3 (p42)
+.性質(i)
+****
+奇数回入れ替えると -1 倍、偶数回入れ替えても符号は変わらない。
+[stem,latexmath]
+++++
+dx^{\mu_1} \wedge \cdots dx^{\mu_k} = \text{sgn}
+\begin{pmatrix}
+1 & \cdots & k \\
+\sigma(1) & \cdots & \sigma(k) \\
+\end{pmatrix}
+dx^{\mu_{\sigma(1)}} \wedge \cdots dx^{\mu_{\sigma(k)}}
+++++
+****
+
+問:: 性質(i)を示せ
+
+=== 問題2.4 (p43)
+問:: latexmath:[\mathbb{R}^3]の場合に latexmath:[\Omega^1, \Omega^2, \Omega^3]の基底を _dx_, _dy_, _dz_ を用いて表せ
+
+=== 問題2.5 (p43)
+問:: latexmath:[\mathbb{R}^m]の場合に latexmath:[\Omega^k (0 \le k \le m)]の次元を求めよ
+
+=== 問題2.6 (p43)
+問:: latexmath:[\mathbb{R}^4]の座標を (_x_^1^, _x_^2^, _x_^3^, _x_^4^)とし、1-形式から 4-形式の基底を _dx_^1^, _dx_^2^, _dx_^3^, _dx_^4^ を用いて書き出せ
