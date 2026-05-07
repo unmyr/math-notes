@@ -120,3 +120,79 @@ latexmath:[\displaystyle m \choose k]次元となる。
 &= -3 dx^1 \wedge dx^2 \wedge dx^3 \\
 \end{aligned}
 ++++
+
+=== 問題2.8 (p46)
+問:: 任意の2階のテンソルの成分 _T_~_μν_~ について、以下の問に答えよ。
+
+(1)::: latexmath:[T_{\mu\nu} = A_{\mu\nu} + B_{\mu\nu}] で _A_ は対称 (latexmath:[A_{\mu\nu} = A_{\nu\mu}])、 _B_ は反対称 (latexmath:[B_{\mu\nu} = -B_{\nu\mu}])とできることを示せ。
+
+(2)::: 反対称行列と対称行列の積のトレースは0。すなわち、 latexmath:[A_{\nu\mu} B_{\mu\nu} = A_{\mu\nu} B_{\mu\nu} = 0]を示せ。
+
+解答::
+(1):::
+latexmath:[T_{\nu\mu} = A_{\nu\mu} + B_{\nu\mu} = A_{\mu\nu} - B_{\mu\nu}]であるから、
+latexmath:[A_{\mu\nu}]を消去して latexmath:[B_{\mu\nu}]を表すと次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+T_{\mu\nu} &= A_{\mu\nu} + B_{\mu\nu} \\
+T_{\mu\nu} - T_{\nu\mu} &= A_{\mu\nu} + B_{\mu\nu} - A_{\mu\nu} + B_{\mu\nu} \\
+T_{\mu\nu} - T_{\nu\mu} &= 2 B_{\mu\nu} \\
+B_{\mu\nu} &= \frac{T_{\mu\nu} - T_{\nu\mu}}{2} \\
+\end{aligned}
+++++
++
+同様に、 latexmath:[B_{\mu\nu}]を消去して latexmath:[A_{\mu\nu}]を表すと次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+T_{\mu\nu} &= A_{\mu\nu} + B_{\mu\nu} \\
+T_{\mu\nu} + T_{\nu\mu} &= A_{\mu\nu} + B_{\mu\nu} + A_{\mu\nu} - B_{\mu\nu} \\
+T_{\mu\nu} + T_{\nu\mu} &= 2 A_{\mu\nu} \\
+A_{\mu\nu} &= \frac{T_{\mu\nu} + T_{\nu\mu}}{2}
+\end{aligned}
+++++
+
+(2)::: テキストの解答 +
+latexmath:[A_{\mu\nu}B_{\mu\nu} = \frac{1}{2}(A_{\mu\nu}B_{\mu\nu} + A_{\mu\nu}B_{\mu\nu}) = \frac{1}{2}(A_{\mu\nu}B_{\mu\nu} + A_{\nu\mu}B_{\nu\mu})]で、最後の等式は第二項の添え字の名前で入れ替えた。和をとっている添え字が latexmath:[\mu]やlatexmath:[\nu]であることには意味がないので、付け替えられる。 latexmath:[A_{\mu\nu} = A_{\nu\mu}, B_{\mu\nu} = - B_{\nu\mu}]を第二項に代入すると、
++
+[stem,latexmath]
+++++
+\frac{A_{\mu\nu}B_{\mu\nu} + A_{\nu\mu}B_{\nu\mu}}{2}
+= \frac{A_{\mu\nu}B_{\mu\nu} - A_{\mu\nu}B_{\mu\nu}}{2}
+++++
++
+なので示された。
+
+(2):::
+まず、latexmath:[A_{\mu\nu}]の成分は、次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+A_{\mu\nu} &= \sum_{\mu=1}^{2}\sum_{\nu=1}^{2} A_{\mu\nu} dx^{\mu} \wedge dx^{\nu} \\
+&= A_{11} dx^1 \wedge dx^1 + A_{12} dx^1 \wedge dx^2 \\
+&+ A_{21} dx^2 \wedge dx^1 + A_{22} dx^2 \wedge dx^2 \\
+&= (A_{21} - A_{12}) dx^1 \wedge dx^2 \\
+\end{aligned}
+++++
++
+同様に、 latexmath:[A_{\nu\mu}]の成分を計算する。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+A_{\nu\mu}
+&= \sum_{\nu=1}^{2}\sum_{\mu=1}^{2} A_{\nu\mu} dx^{\nu} \wedge dx^{\mu} \\
+&= - \sum_{\nu=1}^{2}\sum_{\mu=1}^{2} A_{\nu\mu} dx^{\mu} \wedge dx^{\nu} \\
+&= - A_{11} dx^1 \wedge dx^1 - A_{21} dx^1 \wedge dx^2 \\
+&\quad - A_{12} dx^2 \wedge dx^1 - A_{22} dx^2 \wedge dx^2 \\
+&= (A_{12} - A_{21}) dx^1 \wedge dx^2 = -A_{\mu\nu} \\
+\end{aligned}
+++++
++
+上記より、 latexmath:[A_{\mu\nu} = -A_{\nu\mu}]、かつ latexmath:[A_{\mu\nu} = A_{\nu\mu}]が成立するのは、 latexmath:[A_{\mu\nu} = 0]となる。
++
+以上より、反対称行列と対称行列の積 latexmath:[A_{\nu\mu} B_{\mu\nu} = A_{\mu\nu} B_{\mu\nu} = 0] となる。
