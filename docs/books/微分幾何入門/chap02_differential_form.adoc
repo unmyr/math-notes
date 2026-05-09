@@ -261,18 +261,18 @@ S:=\sum_{\mu_1=1}^n\cdots\sum_{\mu_k=1}^n A_{\mu_1\cdots\mu_k}B_{\mu_1\cdots\mu_
 \end{aligned}
 ++++
 +
-こで任意の多重添え字 \(\alpha\) に対し、\(\alpha'\) を \(\mu_1\) と \(\mu_i\) を入れ替えた多重添え字とする（\(i\) は固定された 2 ≤ i ≤ k）。すると全和を \(\alpha\) とその入れ替え \(\alpha'\) のペアで見ると、
-第二項の和は 1 と _i_ (2≤ _i_ ≤ _k_) を入れ替えても変わらない。
+ここで任意の多重添え字 \(\alpha\) に対し、\(\alpha'\) を \(\mu_1\) と \(\mu_i\) を入れ替えた多重添え字 \(\alpha^\prime=(\mu_i,\cdots, \mu_1, \cdots,\mu_k)\) とする（\(i\) は固定された 2 ≤ _i_ ≤ k）。すると全和を \(\alpha\) とその入れ替え \(\alpha'\) のペアで見ると、
+第二項の2つ目のΣの和は 1 と _i_ (2≤ _i_ ≤ _k_) を入れ替えても変わらない。
 +
 [stem,latexmath]
 ++++
 \begin{aligned}
 \sum_{\alpha} A_{\alpha}B_{\alpha}
-&= \sum_{\alpha} \frac{A_{\alpha}B_{\alpha}}{2} + \sum_{\alpha} \frac{A_{\alpha\prime}B_{\alpha\prime}}{2}
+&= \sum_{\alpha} \frac{A_{\alpha}B_{\alpha}}{2} + \sum_{\alpha} \frac{A_{\alpha^\prime}B_{\alpha^\prime}}{2}
 \end{aligned}
 ++++
 +
-対称性と反対称性より \(A_{\alpha'}=A_{\alpha}\) および \(B_{\alpha'}=-B_{\alpha}\) だから、打ち消し合って 0 になる。
+対称性と反対称性より \(A_{\alpha'}=A_{\alpha}\) および \(B_{\alpha'}=-B_{\alpha}\) だから、符号が反転し打ち消し合って 0 になる。
 +
 [stem,latexmath]
 ++++
