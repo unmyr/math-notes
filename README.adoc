@@ -1,1 +1,11 @@
 == Math notes
+
+=== About custom instructions
+
+Custom instructions let you define workspace-specific guidance that Copilot automatically applies when you work in this project. You can use custom instructions to specify formatting rules, coding conventions, or any other guidelines that you want Copilot to follow when generating suggestions for this repository.
+
+For more information about custom instructions, see the official documentation:
+https://code.visualstudio.com/docs/copilot/customization/custom-instructions[Use custom instructions in VS Code].
+
+.Workspace scoped instructions
+* `.github/instructions/*.instructions.md`
