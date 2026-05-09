@@ -194,7 +194,7 @@ A_{\mu\nu}B_{\mu\nu}=a_{11}b_{11}+a_{12}b_{12}+a_{21}b_{21}+a_{22}b_{22},\\
 対称行列 latexmath:[A^{T}=A] と反対称行列 latexmath:[B^{T}=-B] の場合には
 latexmath:[A_{\mu\nu}B_{\mu\nu}=\mathrm{tr}(A^{T}B)=\mathrm{tr}(AB)=0] となり、上の添え字入れ替えによる証明と整合します。
 
-(2):::
+(2) 独力の解答1(trを使用):::
 行列の積 _AB_ に対して、latexmath:[\mathrm{tr}(A)=\mathrm{tr}(A^T)]、latexmath:[(AB)^T = B^T A^T]、 対称行列 _A_ の転置 latexmath:[A^T=A]、および反対称行列 _B_ の転置 latexmath:[B^T=-B]の関係より、次のようになる。
 +
 [stem,latexmath]
@@ -203,3 +203,38 @@ latexmath:[A_{\mu\nu}B_{\mu\nu}=\mathrm{tr}(A^{T}B)=\mathrm{tr}(AB)=0] となり
 ++++
 +
 上記、および  latexmath:[A^T=A]  より latexmath:[\mathrm{tr}(AB)=\mathrm{tr}(A^T B)=0]となる。
+
+(2) 独力の解答2(アインシュタインの縮約記法のよる和から求める):::
+テキストの解答の解答をかみ砕いて回答を作成する。 +
+latexmath:[A_{\nu\mu} B_{\mu\nu} = \sum_{\mu,\nu} A_{\nu\mu} B_{\mu\nu}]であることを意識して添え字の操作を行う。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+A_{\nu\mu} B_{\mu\nu}
+&= \sum_{\mu,\nu} A_{\nu\mu} B_{\mu\nu} \\
+&= \sum_{\mu,\nu} \left(\frac{A_{\nu\mu} B_{\mu\nu}}{2} + \frac{A_{\nu\mu} B_{\mu\nu}}{2}\right)  \\
+&= \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} + \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} \\
+\end{aligned}
+++++
++
+第二項の和は latexmath:[\mu, \nu]を入れ替えても結果はは同じとなる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} + \sum_{\mu,\nu} \frac{A_{\mu\nu} B_{\nu\mu}}{2} \\
+\end{aligned}
+++++
++
+latexmath:[A_{\mu\nu} = A_{\nu\mu}] と latexmath:[B_{\mu\nu} = -B_{\nu\mu}]を適用すると、合計値は 0 となる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} - \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} \\
+&= 0
+\end{aligned}
+++++
++
+同様に latexmath:[A_{\mu\nu} = A_{\nu\mu}] から latexmath:[A_{\mu\nu} B_{\mu\nu} = 0]となる。
