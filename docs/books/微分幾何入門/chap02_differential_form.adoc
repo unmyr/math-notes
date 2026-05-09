@@ -158,7 +158,7 @@ A_{\mu\nu} &= \frac{T_{\mu\nu} + T_{\nu\mu}}{2}
 \end{aligned}
 ++++
 
-(2)::: テキストの解答 +
+(2) テキストの解答:::
 latexmath:[A_{\mu\nu}B_{\mu\nu} = \frac{1}{2}(A_{\mu\nu}B_{\mu\nu} + A_{\mu\nu}B_{\mu\nu}) = \frac{1}{2}(A_{\mu\nu}B_{\mu\nu} + A_{\nu\mu}B_{\nu\mu})]で、最後の等式は第二項の添え字の名前で入れ替えた。和をとっている添え字が latexmath:[\mu]やlatexmath:[\nu]であることには意味がないので、付け替えられる。 latexmath:[A_{\mu\nu} = A_{\nu\mu}, B_{\mu\nu} = - B_{\nu\mu}]を第二項に代入すると、
 +
 [stem,latexmath]
@@ -168,6 +168,31 @@ latexmath:[A_{\mu\nu}B_{\mu\nu} = \frac{1}{2}(A_{\mu\nu}B_{\mu\nu} + A_{\mu\nu}B
 ++++
 +
 なので示された。
+
+補足 (2)テキストの解答:::
+テキストの式に補足します。二重縮約 latexmath:[A_{\mu\nu}B_{\mu\nu}] は
++
+[stem,latexmath]
+++++
+A_{\mu\nu}B_{\mu\nu}=\sum_{\mu=1}^n\sum_{\nu=1}^n A_{\mu\nu}B_{\mu\nu}=\mathrm{tr}(A^{T}B)
+++++
++
+となり、一般には latexmath:[\mathrm{tr}(AB)=A_{\mu\nu}B_{\nu\mu}] とは異なります。具体例（n=2）で示すと、
++
+[stem,latexmath]
+++++
+A=\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix},\quad
+B=\begin{pmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{pmatrix}
+++++
++
+[stem,latexmath]
+++++
+A_{\mu\nu}B_{\mu\nu}=a_{11}b_{11}+a_{12}b_{12}+a_{21}b_{21}+a_{22}b_{22},\\
+\mathrm{tr}(AB)=a_{11}b_{11}+a_{12}b_{21}+a_{21}b_{12}+a_{22}b_{22}.
+++++
++
+対称行列 latexmath:[A^{T}=A] と反対称行列 latexmath:[B^{T}=-B] の場合には
+latexmath:[A_{\mu\nu}B_{\mu\nu}=\mathrm{tr}(A^{T}B)=\mathrm{tr}(AB)=0] となり、上の添え字入れ替えによる証明と整合します。
 
 (2):::
 行列の積 _AB_ に対して、latexmath:[\mathrm{tr}(A)=\mathrm{tr}(A^T)]、latexmath:[(AB)^T = B^T A^T]、 対称行列 _A_ の転置 latexmath:[A^T=A]、および反対称行列 _B_ の転置 latexmath:[B^T=-B]の関係より、次のようになる。
