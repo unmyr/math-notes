@@ -309,9 +309,101 @@ d(x^2 y^3 \, dx + x^2 \cos y \, dy)
 (3)::: 2-形式の外微分 latexmath:[d(x^2 y^4 dx \wedge dy)=0]にとなる。
 
 === 問題2.11 (p52)
-問:: latexmath:[\mathbb{R}^3]の1-形式 latexmath:[\omega = y^2 \sin x \cos z \, dx + y dy,\ \xi = x dz]に対して、以下の計算をせよ。
+問:: latexmath:[\mathbb{R}^3]の1-形式 latexmath:[\omega = y^2 \sin x \cos z \, dx + y \, dy,\ \xi = x \, dz]に対して、以下の計算をせよ。
 (1)::: 符号付きライプニッツ則を用いて、 latexmath:[d(\omega \wedge \xi)]を求めよ。
 (2)::: 直接計算で latexmath:[dd\omega]が0になることを示せ。
+
+解答::
+(1) 符号付きライプニッツ則を用いて、 latexmath:[d(\omega \wedge \xi)]を求めよ。::: 
++
+[stem,latexmath]
+++++
+\begin{aligned}
+d(\omega \wedge \xi)
+&= d\omega \wedge \xi + (-1)^3 \omega \wedge d\xi \\
+&= d(y^2 \sin x \cos z \, dx + y \, dy) \wedge (x \, dz) - (y^2 \sin x \cos z \, dx + y \, dy) \wedge d(x \, dz) \\
+&= x \left\{d(y^2 \sin x \cos z \, dx) + d(y \, dy)\right\} \wedge dz \\
+& - (y^2 \sin x \cos z \, dx + y \, dy) \wedge \left\{\left(\frac{\partial x}{\partial x}dx + \frac{\partial x}{\partial y}dy + \frac{\partial x}{\partial z}dz \right) \wedge dz \right\} \\
+&= x \left\{
+   \left(
+      \frac{\partial y^2 \sin x \cos z}{\partial x} \, dx
+   + \frac{\partial y^2 \sin x \cos z}{\partial y} \, dy
+   + \frac{\partial y^2 \sin x \cos z}{\partial z} \, dz
+   \right) \wedge dx
+   + \left(
+      \frac{\partial y}{\partial x}dx
+   + \frac{\partial y}{\partial y}dy
+   + \frac{\partial y}{\partial z}dz
+   \right) \wedge dy
+\right\} \wedge dz \\
+& - (y^2 \sin x \cos z \, dx + y \, dy) \wedge \left\{\left(\frac{\partial x}{\partial x}dx + \frac{\partial x}{\partial y}dy + \frac{\partial x}{\partial z}dz \right) \wedge dz \right\} \\
+&= x \left(
+      \frac{\partial y^2 \sin x \cos z}{\partial y} \, dy \wedge dx
+   + \frac{\partial y^2 \sin x \cos z}{\partial z} \, dz \wedge dx
+   + \frac{\partial y}{\partial x} \, dx \wedge dy
+   + \frac{\partial y}{\partial z} \, dz \wedge dy
+\right) \wedge dz \\
+& - (y^2 \sin x \cos z \, dx + y \, dy) \wedge \left(\frac{\partial x}{\partial x} \, dx \wedge dz + \frac{\partial x}{\partial y} \, dy \wedge dz  \right) \\
+&= x \left\{(2y \sin x \cos z) \, dy \wedge \, dx - (y^2 \sin x \sin z) \, dz \wedge dx \right\} \wedge dz
+   - (y^2 \sin x \cos z \, dx + y \, dy) \wedge dx \wedge dz \\
+&= x(2y \sin x \cos z) \, dy \wedge \, dx \wedge dz - y \, dy \wedge dx \wedge dz \\
+&= -2xy \sin x \cos z \, dx \wedge \, dy \wedge dz + y \, dx \wedge dy \wedge dz \\
+&= (-2xy \sin x \cos z + y)\, dx \wedge \, dy \wedge dz
+\end{aligned}
+++++
+
+(2)直接計算で latexmath:[dd\omega]が0になることを示せ。:::
+\(dd\omega\)を展開すると次のようになる。 \(\omega\)は _C_^2^ 級で連続であるから、 \(dd\omega=0\)となる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+dd(\omega) &= d(d\omega) \\
+&= d\left(
+   \frac{\partial \omega}{\partial x} \, dx
+   + \frac{\partial \omega}{\partial y} \, dy
+   + \frac{\partial \omega}{\partial z} \, dz
+\right) \\
+&= d\left(\frac{\partial \omega}{\partial x} \, dx \right)
+  + d\left(\frac{\partial \omega}{\partial y} \, dy \right)
+  + d\left(\frac{\partial \omega}{\partial z} \, dz \right) \\
+&= d\left(\frac{\partial \omega}{\partial x} \right) \wedge dx
+  + d\left(\frac{\partial \omega}{\partial y} \right) \wedge dy
+  + d\left(\frac{\partial \omega}{\partial z} \right) \wedge dz \\
+&=
+\left(
+      \frac{\partial}{\partial x} \frac{\partial \omega}{\partial x} \, dx
+   +  \frac{\partial}{\partial y} \frac{\partial \omega}{\partial x} \, dy
+   +  \frac{\partial}{\partial z} \frac{\partial \omega}{\partial x} \, dz
+\right) \wedge dx \\
+& + \left(
+      \frac{\partial}{\partial x} \frac{\partial \omega}{\partial y} \, dx
+   + \frac{\partial}{\partial y} \frac{\partial \omega}{\partial y} \, dy
+   + \frac{\partial}{\partial z} \frac{\partial \omega}{\partial y} \, dz
+\right) \wedge dy \\
+& + \left(
+      \frac{\partial}{\partial x} \frac{\partial \omega}{\partial z} \, dx
+   + \frac{\partial}{\partial y} \frac{\partial \omega}{\partial z} \, dy
+   + \frac{\partial}{\partial z} \frac{\partial \omega}{\partial z} \, dz
+\right) \wedge dz \\
+&= \frac{\partial^2 \omega}{\partial y \partial x} \, dy \wedge dx
+   + \frac{\partial^2 \omega}{\partial z \partial x} \, dz \wedge dx
+   + \frac{\partial^2 \omega}{\partial x \partial y} \, dx \wedge dy
+   + \frac{\partial^2 \omega}{\partial z \partial y} \, dz \wedge dy
+   + \frac{\partial^2 \omega}{\partial x \partial z} \, dx \wedge dz
+   + \frac{\partial^2 \omega}{\partial y \partial z} \, dy \wedge dz \\
+&=
+\left(
+   \frac{\partial^2 \omega}{\partial x \partial y} - \frac{\partial^2 \omega}{\partial y \partial x}
+\right) \, dx \wedge dy
++ \left(
+   \frac{\partial^2 \omega}{\partial y \partial z} - \frac{\partial^2 \omega}{\partial z \partial y}
+\right) \, dy \wedge dz
++ \left(
+   \frac{\partial^2 \omega}{\partial z \partial x} - \frac{\partial^2 \omega}{\partial x \partial z}
+\right) \, dz \wedge dx \\
+\end{aligned}
+++++
 
 === 問題2.12 (p54)
 問:: 式(2.12)を示せ。
