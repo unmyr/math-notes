@@ -288,6 +288,26 @@ S:=\sum_{\mu_1=1}^n\cdots\sum_{\mu_k=1}^n A_{\mu_1\cdots\mu_k}B_{\mu_1\cdots\mu_
 (2)::: 1-形式の外微分 latexmath:[d(x^2 y^3 dx + x^2 \cos y dy)]
 (3)::: 2-形式の外微分 latexmath:[d(x^2 y^4 dx \wedge dy)]
 
+解答::
+(1)::: 0-形式の外微分 latexmath:[d(x^2 y^3) = 2x y^3 dx + 3 x^2 y^3 dy]
+(2)::: 1-形式の外微分 latexmath:[d(x^2 y^3 dx + x^2 \cos y dy)]について計算する。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+d(x^2 y^3 \, dx + x^2 \cos y \, dy)
+&= d(x^2 y^3 \, dx) + d(x^2 \cos y \, dy) \\
+&= \left\{\frac{\partial x^2 y^3}{\partial x}dx + \frac{\partial x^2 y^3}{\partial y}dy \right\} \wedge dx
+  + \left\{\frac{\partial x^2 \cos y}{\partial x}dx + \frac{\partial x^2 \cos y}{\partial y}dy \right\} \wedge dy \\
+&= \frac{\partial x^2 y^3}{\partial y}dy \wedge dx
+  + \frac{\partial x^2 \cos y}{\partial x}dx \wedge dy \\
+&= (3 x^2 y^2) dy \wedge dx + (2x \cos y) dx \wedge dy \\
+&= (-3 x^2 y^2  + 2x \cos y) dx \wedge dy \\
+\end{aligned}
+++++
+
+(3)::: 2-形式の外微分 latexmath:[d(x^2 y^4 dx \wedge dy)=0]にとなる。
+
 === 問題2.11 (p52)
 問:: latexmath:[\mathbb{R}^3]の1-形式 latexmath:[\omega = y^2 \sin x \cos z \, dx + y dy,\ \xi = x dz]に対して、以下の計算をせよ。
 (1)::: 符号付きライプニッツ則を用いて、 latexmath:[d(\omega \wedge \xi)]を求めよ。
