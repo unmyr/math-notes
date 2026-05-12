@@ -405,6 +405,24 @@ dd(\omega) &= d(d\omega) \\
 \end{aligned}
 ++++
 
+(2)直接計算で latexmath:[dd\omega]が0になることを示せ。:::
+別解。具体的に偏微分してゼロになることを確認します。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+dd(\omega) &= d(d\omega) = d(d(y^2 \sin x \cos z \, dx + y \, dy))\\
+&= d((y^2 \cos x \cos z \, dx + 2y \sin x \cos z \, dy - y^2 \sin x \sin z \, dz) \wedge dx + (1 \cdot dy) \wedge dy) \\
+&= d(2y \sin x \cos z \, dy \wedge dx - y^2 \sin x \sin z \, dz \wedge dx) \\
+&= d(- 2y \sin x \cos z \, dx \wedge dy + y^2 \sin x \sin z \, dx \wedge dz) \\
+&= (- 2y \cos x \cos z \, dx - 2 \sin x \cos z \, dy + 2y \sin x \sin z \, dz) \wedge dx \wedge dy \\
+& + (- y^2 \cos x \sin z \, dx + 2y \sin x \sin z \, dy + y^2 \sin x \cos z \, dz) \wedge dx \wedge dz \\
+&= 2y \sin x \sin z \, dz \wedge dx \wedge dy + 2y \sin x \sin z \, dy \wedge dx \wedge dz \\
+&= 2y \sin x \sin z \, dx \wedge dy \wedge dz - 2y \sin x \sin z \, dx \wedge dy \wedge dz \\
+&= 0 \\
+\end{aligned}
+++++
+
 === 問題2.12 (p54)
 問:: 式(2.12)を示せ。
 
