@@ -423,6 +423,67 @@ dd(\omega) &= d(d\omega) = d(d(y^2 \sin x \cos z \, dx + y \, dy))\\
 \end{aligned}
 ++++
 
+=== 2.2.5 局所座標を用いない定義 (p52,p53,p54)
+
+latexmath:[\displaystyle \omega=\frac{1}{2}\omega_{\mu\nu} d x^\mu \wedge d x^\nu]と二つのベクトル場 latexmath:[\displaystyle X_1 = X_1^{\nu}\frac{\partial}{\partial x^\nu}, X_2 = X_2^{\nu} \frac{\partial}{\partial x^\nu}]に対して、双対ペアリングが双線形写像であることを使う。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\omega(X_1, X_2) 
+&= \frac{1}{2}\omega_{\mu\nu} \; d x^\mu \wedge d x^\nu \left(X_1^{\rho} \frac{\partial}{\partial x^\rho}, X_2^{\tau} \frac{\partial}{\partial x^\tau} \right) \\
+&= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} \; d x^\mu \wedge d x^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}\right) \\
+\end{aligned}
+++++
+
+ここで、テンソル積の定義から latexmath:[dx^\mu \wedge dx^\nu = dx^\mu \otimes dx^\nu - dx^\nu \otimes dx^\mu]であり、合わせてテンソル積の評価 latexmath:[(\alpha \otimes \beta)(X, Y) = \alpha (X) \beta (Y)]であるから、次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+d x^\mu \wedge d x^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}\right)
+&= dx^\mu \otimes dx^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}\right) - dx^\nu \otimes dx^\mu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}\right) \\
+&=
+  dx^\mu \left(\frac{\partial}{\partial x^\rho}\right)
+  dx^\nu \left(\frac{\partial}{\partial x^\tau}\right)
+- dx^\nu \left(\frac{\partial}{\partial x^\rho}\right)
+  dx^\mu \left(\frac{\partial}{\partial x^\tau}\right) \\
+\end{aligned}
+++++
+
+双対基底より、latexmath:[dx^\mu \left(\frac{\partial}{\partial x^\rho}\right) = \delta_\rho^\mu], latexmath:[dx^\nu \left(\frac{\partial}{\partial x^\tau}\right) = \delta_\tau^\nu] だから、次のようになる。
+
+[stem,latexmath]
+++++
+d x^\mu \wedge d x^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}\right)
+= \delta_\rho^\mu \delta_\tau^\nu - \delta_\rho^\nu \delta_\tau^\mu \\
+++++
+
+ここまでを元の式に代入すると、次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\omega(X_1, X_2) 
+&= \frac{1}{2}\omega_{\mu\nu} \; d x^\mu \wedge d x^\nu \left(X_1^{\rho} \frac{\partial}{\partial x^\rho}, X_2^{\tau} \frac{\partial}{\partial x^\tau}\right) \\
+&= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} \; d x^\mu \wedge d x^\nu (\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}) \\
+&= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} (\delta_\rho^\mu \delta_\tau^\nu - \delta_\rho^\nu \delta_\tau^\mu) \\
+&= \frac{1}{2}\omega_{\mu\nu} ( X_1^{\mu} X_2^{\nu} - X_1^{\nu} X_2^{\mu}) \\
+\end{aligned}
+++++
+
+2形式の成分は反対称であるから、次のものが導き出される。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\omega(X_1, X_2) 
+&= \frac{1}{2}\omega_{\mu\nu} (X_1^{\mu} X_2^{\nu} + X_1^{\mu} X_2^{\nu}) \\
+&= \omega_{\mu\nu}X_1^{\mu} X_2^{\nu}
+\end{aligned}
+++++
+
+
 === 問題2.12 (p54)
 問:: 式(2.12)を示せ。
 
