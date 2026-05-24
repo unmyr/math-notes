@@ -1,0 +1,158 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== 微分幾何入門 第二章: 2.2 外積と外微分 › 2.2.4 外微分 (p49-p52)
+演習問題の解法の理解を深めるための覚書です。
+
+=== 問題2.10 (p50)
+問:: latexmath:[\mathbb{R}^2]上で定義された微分形式について、以下を計算せよ。
+(1)::: 0-形式の外微分 latexmath:[d(x^2 y^3)]
+(2)::: 1-形式の外微分 latexmath:[d(x^2 y^3 dx + x^2 \cos y dy)]
+(3)::: 2-形式の外微分 latexmath:[d(x^2 y^4 dx \wedge dy)]
+
+解答::
+(1)::: 0-形式の外微分 latexmath:[d(x^2 y^3) = 2x y^3 dx + 3 x^2 y^3 dy]
+(2)::: 1-形式の外微分 latexmath:[d(x^2 y^3 dx + x^2 \cos y dy)]について計算する。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+d(x^2 y^3 \, dx + x^2 \cos y \, dy)
+&= d(x^2 y^3 \, dx) + d(x^2 \cos y \, dy) \\
+&= \left\{\frac{\partial x^2 y^3}{\partial x}dx + \frac{\partial x^2 y^3}{\partial y}dy \right\} \wedge dx
+  + \left\{\frac{\partial x^2 \cos y}{\partial x}dx + \frac{\partial x^2 \cos y}{\partial y}dy \right\} \wedge dy \\
+&= \frac{\partial x^2 y^3}{\partial y}dy \wedge dx
+  + \frac{\partial x^2 \cos y}{\partial x}dx \wedge dy \\
+&= (3 x^2 y^2) dy \wedge dx + (2x \cos y) dx \wedge dy \\
+&= (-3 x^2 y^2  + 2x \cos y) dx \wedge dy \\
+\end{aligned}
+++++
+
+(3)::: 2-形式の外微分 latexmath:[d(x^2 y^4 dx \wedge dy)=0]にとなる。
+
+=== 問題2.11 (p52)
+問:: latexmath:[\mathbb{R}^3]の1-形式 latexmath:[\omega = y^2 \sin x \cos z \, dx + y \, dy,\ \xi = x \, dz]に対して、以下の計算をせよ。
+(1)::: 符号付きライプニッツ則を用いて、 latexmath:[d(\omega \wedge \xi)]を求めよ。
+(2)::: 直接計算で latexmath:[dd\omega]が0になることを示せ。
+
+解答::
+(1) 符号付きライプニッツ則を用いて、 latexmath:[d(\omega \wedge \xi)]を求めよ。::: 
++
+[stem,latexmath]
+++++
+\begin{aligned}
+d(\omega \wedge \xi)
+&= d\omega \wedge \xi + (-1)^3 \omega \wedge d\xi \\
+&= d(y^2 \sin x \cos z \, dx + y \, dy) \wedge (x \, dz) - (y^2 \sin x \cos z \, dx + y \, dy) \wedge d(x \, dz) \\
+&= x \left\{d(y^2 \sin x \cos z \, dx) + d(y \, dy)\right\} \wedge dz \\
+& - (y^2 \sin x \cos z \, dx + y \, dy) \wedge \left\{\left(\frac{\partial x}{\partial x}dx + \frac{\partial x}{\partial y}dy + \frac{\partial x}{\partial z}dz \right) \wedge dz \right\} \\
+&= x \left\{
+   \left(
+      \frac{\partial y^2 \sin x \cos z}{\partial x} \, dx
+   + \frac{\partial y^2 \sin x \cos z}{\partial y} \, dy
+   + \frac{\partial y^2 \sin x \cos z}{\partial z} \, dz
+   \right) \wedge dx
+   + \left(
+      \frac{\partial y}{\partial x}dx
+   + \frac{\partial y}{\partial y}dy
+   + \frac{\partial y}{\partial z}dz
+   \right) \wedge dy
+\right\} \wedge dz \\
+& - (y^2 \sin x \cos z \, dx + y \, dy) \wedge \left\{\left(\frac{\partial x}{\partial x}dx + \frac{\partial x}{\partial y}dy + \frac{\partial x}{\partial z}dz \right) \wedge dz \right\} \\
+&= x \left(
+      \frac{\partial y^2 \sin x \cos z}{\partial y} \, dy \wedge dx
+   + \frac{\partial y^2 \sin x \cos z}{\partial z} \, dz \wedge dx
+   + \frac{\partial y}{\partial x} \, dx \wedge dy
+   + \frac{\partial y}{\partial z} \, dz \wedge dy
+\right) \wedge dz \\
+& - (y^2 \sin x \cos z \, dx + y \, dy) \wedge \left(\frac{\partial x}{\partial x} \, dx \wedge dz + \frac{\partial x}{\partial y} \, dy \wedge dz  \right) \\
+&= x \left\{(2y \sin x \cos z) \, dy \wedge \, dx - (y^2 \sin x \sin z) \, dz \wedge dx \right\} \wedge dz
+   - (y^2 \sin x \cos z \, dx + y \, dy) \wedge dx \wedge dz \\
+&= x(2y \sin x \cos z) \, dy \wedge \, dx \wedge dz - y \, dy \wedge dx \wedge dz \\
+&= -2xy \sin x \cos z \, dx \wedge \, dy \wedge dz + y \, dx \wedge dy \wedge dz \\
+&= (-2xy \sin x \cos z + y)\, dx \wedge \, dy \wedge dz
+\end{aligned}
+++++
+
+(2)直接計算で latexmath:[dd\omega]が0になることを示せ。:::
+\(dd\omega\)を展開すると次のようになる。 \(\omega\)は _C_^2^ 級で連続であるから、 \(dd\omega=0\)となる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+dd(\omega) &= d(d\omega) \\
+&= d\left(
+   \frac{\partial \omega}{\partial x} \, dx
+   + \frac{\partial \omega}{\partial y} \, dy
+   + \frac{\partial \omega}{\partial z} \, dz
+\right) \\
+&= d\left(\frac{\partial \omega}{\partial x} \, dx \right)
+  + d\left(\frac{\partial \omega}{\partial y} \, dy \right)
+  + d\left(\frac{\partial \omega}{\partial z} \, dz \right) \\
+&= d\left(\frac{\partial \omega}{\partial x} \right) \wedge dx
+  + d\left(\frac{\partial \omega}{\partial y} \right) \wedge dy
+  + d\left(\frac{\partial \omega}{\partial z} \right) \wedge dz \\
+&=
+\left(
+      \frac{\partial}{\partial x} \frac{\partial \omega}{\partial x} \, dx
+   +  \frac{\partial}{\partial y} \frac{\partial \omega}{\partial x} \, dy
+   +  \frac{\partial}{\partial z} \frac{\partial \omega}{\partial x} \, dz
+\right) \wedge dx \\
+& + \left(
+      \frac{\partial}{\partial x} \frac{\partial \omega}{\partial y} \, dx
+   + \frac{\partial}{\partial y} \frac{\partial \omega}{\partial y} \, dy
+   + \frac{\partial}{\partial z} \frac{\partial \omega}{\partial y} \, dz
+\right) \wedge dy \\
+& + \left(
+      \frac{\partial}{\partial x} \frac{\partial \omega}{\partial z} \, dx
+   + \frac{\partial}{\partial y} \frac{\partial \omega}{\partial z} \, dy
+   + \frac{\partial}{\partial z} \frac{\partial \omega}{\partial z} \, dz
+\right) \wedge dz \\
+&= \frac{\partial^2 \omega}{\partial y \partial x} \, dy \wedge dx
+   + \frac{\partial^2 \omega}{\partial z \partial x} \, dz \wedge dx
+   + \frac{\partial^2 \omega}{\partial x \partial y} \, dx \wedge dy
+   + \frac{\partial^2 \omega}{\partial z \partial y} \, dz \wedge dy
+   + \frac{\partial^2 \omega}{\partial x \partial z} \, dx \wedge dz
+   + \frac{\partial^2 \omega}{\partial y \partial z} \, dy \wedge dz \\
+&=
+\left(
+   \frac{\partial^2 \omega}{\partial x \partial y} - \frac{\partial^2 \omega}{\partial y \partial x}
+\right) \, dx \wedge dy
++ \left(
+   \frac{\partial^2 \omega}{\partial y \partial z} - \frac{\partial^2 \omega}{\partial z \partial y}
+\right) \, dy \wedge dz
++ \left(
+   \frac{\partial^2 \omega}{\partial z \partial x} - \frac{\partial^2 \omega}{\partial x \partial z}
+\right) \, dz \wedge dx \\
+\end{aligned}
+++++
+
+(2)直接計算で latexmath:[dd\omega]が0になることを示せ。:::
+別解。具体的に偏微分してゼロになることを確認します。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+dd(\omega) &= d(d\omega) = d(d(y^2 \sin x \cos z \, dx + y \, dy))\\
+&= d((y^2 \cos x \cos z \, dx + 2y \sin x \cos z \, dy - y^2 \sin x \sin z \, dz) \wedge dx + (1 \cdot dy) \wedge dy) \\
+&= d(2y \sin x \cos z \, dy \wedge dx - y^2 \sin x \sin z \, dz \wedge dx) \\
+&= d(- 2y \sin x \cos z \, dx \wedge dy + y^2 \sin x \sin z \, dx \wedge dz) \\
+&= (- 2y \cos x \cos z \, dx - 2 \sin x \cos z \, dy + 2y \sin x \sin z \, dz) \wedge dx \wedge dy \\
+& + (- y^2 \cos x \sin z \, dx + 2y \sin x \sin z \, dy + y^2 \sin x \cos z \, dz) \wedge dx \wedge dz \\
+&= 2y \sin x \sin z \, dz \wedge dx \wedge dy + 2y \sin x \sin z \, dy \wedge dx \wedge dz \\
+&= 2y \sin x \sin z \, dx \wedge dy \wedge dz - 2y \sin x \sin z \, dx \wedge dy \wedge dz \\
+&= 0 \\
+\end{aligned}
+++++

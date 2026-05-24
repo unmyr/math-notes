@@ -1,0 +1,86 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== 微分幾何入門 第二章: 2.2 外積と外微分 (p38-p57) › 2.2.2 微分形式の性質 (p41-p44)
+演習問題の解法の理解を深めるための覚書です。
+
+=== 問題2.3 (p42)
+.性質(i)
+****
+奇数回入れ替えると -1 倍、偶数回入れ替えても符号は変わらない。
+[stem,latexmath]
+++++
+dx^{\mu_1} \wedge \cdots dx^{\mu_k} = \text{sgn}
+\begin{pmatrix}
+1 & \cdots & k \\
+\sigma(1) & \cdots & \sigma(k) \\
+\end{pmatrix}
+dx^{\mu_{\sigma(1)}} \wedge \cdots dx^{\mu_{\sigma(k)}}
+++++
+****
+
+問:: 性質(i)を示せ
+
+==== 問題2.4 (p43)
+問:: latexmath:[\mathbb{R}^3]の場合に latexmath:[\Omega^1], latexmath:[\Omega^2], latexmath:[\Omega^3]の基底を _dx_, _dy_, _dz_ を用いて表せ
+
+解答::
++
+* latexmath:[\Omega^1 = \left\{dx, dy, dz \right\}]
+* latexmath:[\Omega^2 = \left\{dx \wedge dy, dy\wedge dz, dz \wedge dx \right\}]
+* latexmath:[\Omega^3 = \left\{dx \wedge dy \wedge dz \right\}]
+
+=== 問題2.5 (p43)
+問:: latexmath:[\mathbb{R}^m]の場合に latexmath:[\Omega^k (0 \le k \le m)]の次元を求めよ
+
+解答::
+latexmath:[\displaystyle m \choose k]次元となる。
+
+=== 問題2.6 (p43)
+問:: latexmath:[\mathbb{R}^4]の座標を (_x_^1^, _x_^2^, _x_^3^, _x_^4^)とし、1-形式から 4-形式の基底を _dx_^1^, _dx_^2^, _dx_^3^, _dx_^4^ を用いて書き出せ
+
+解答::
++
+* 1-形式: latexmath:[\left\{dx^1, dx^2, dx^3, dx^4 \right\}] +
+   latexmath:[\displaystyle {4 \choose 1} = 4]個の基底がある
+* 2-形式: latexmath:[\left\{dx^1 \wedge dx^2, dx^1 \wedge dx^3, dx^1 \wedge dx^4, dx^2 \wedge dx^3, dx^2 \wedge dx^4, dx^3 \wedge dx^4 \right\}] +
+   latexmath:[\displaystyle {4 \choose 2} = \frac{4 \cdot 3}{2} = 6]個の基底がある
+* 3-形式: latexmath:[\left\{dx^1 \wedge dx^2 \wedge dx^3, dx^1 \wedge dx^2 \wedge dx^4, dx^1 \wedge dx^3 \wedge dx^4, dx^2 \wedge dx^3 \wedge dx^4 \right\}] +
+   latexmath:[\displaystyle {4 \choose 3} = \frac{4 \cdot 3 \cdot 2}{3 \cdot 2 \cdot 1} = 4]個の基底がある
+* 4-形式: latexmath:[\left\{dx^1 \wedge dx^2 \wedge dx^3 \wedge dx^4 \right\}] +
+   latexmath:[\displaystyle {4 \choose 4}]より、1個の基底がある
+
+=== 問題2.7 (p44)
+問:: latexmath:[\mathbb{R}^3]上で以下を計算せよ
+
+(1)::: latexmath:[2dx^1 \wedge dx^2 + dx^2 \wedge dx^1]
+(2)::: latexmath:[dx^1 \wedge dx^2 \wedge dx^3 - dx^2 \wedge dx^3 \wedge dx^1]
+(3)::: latexmath:[dx^3 \wedge (dx^2 \wedge dx^1 - dx^3 \wedge dx^2 - 2 dx^1 \wedge dx^2)]
+
+解答::
+(1)::: latexmath:[dx^1 \wedge dx^2]
+(2)::: 0
+(3):::
++
+[stem,latexmath]
+++++
+\begin{aligned}
+& dx^3 \wedge (dx^2 \wedge dx^1 - dx^3 \wedge dx^2 - 2 dx^1 \wedge dx^2) \\
+&= dx^3 \wedge (-dx^1 \wedge dx^2 + dx^2 \wedge dx^3 - 2 dx^1 \wedge dx^2) \\
+&= dx^3 \wedge (-3 dx^1 \wedge dx^2 + dx^2 \wedge dx^3) \\
+&= -3 dx^3 \wedge dx^1 \wedge dx^2 + dx^3 \wedge dx^2 \wedge dx^3 \\
+&= -3 dx^1 \wedge dx^2 \wedge dx^3 \\
+\end{aligned}
+++++

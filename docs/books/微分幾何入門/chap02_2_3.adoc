@@ -1,0 +1,178 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== 微分幾何入門 第二章: 2.2 外積と外微分 › 2.2.3 関数を係数に持つ微分形式 (p44-p49)
+演習問題の解法の理解を深めるための覚書です。
+
+=== 問題2.8 (p46)
+問:: 任意の2階のテンソルの成分 _T_~_μν_~ について、以下の問に答えよ。
+
+(1)::: latexmath:[T_{\mu\nu} = A_{\mu\nu} + B_{\mu\nu}] で _A_ は対称 (latexmath:[A_{\mu\nu} = A_{\nu\mu}])、 _B_ は反対称 (latexmath:[B_{\mu\nu} = -B_{\nu\mu}])とできることを示せ。
+
+(2)::: 反対称行列と対称行列の積のトレースは0。すなわち、 latexmath:[A_{\nu\mu} B_{\mu\nu} = A_{\mu\nu} B_{\mu\nu} = 0]を示せ。
+
+解答::
+latexmath:[\omega = \sum_{\mu}^n\sum_{\nu}^n T_{\mu\nu} dx_{\mu} \otimes dx_{\nu} \to T \in M_{n,n}(\mathbb{R})]のように、2-形式のテンソル成分を行列に対応付ける。
+
+(1)の解答:::
+テキストの答えに対して計算過程を示します。 +
+latexmath:[T_{\nu\mu} = A_{\nu\mu} + B_{\nu\mu} = A_{\mu\nu} - B_{\mu\nu}]であるから、
+latexmath:[A_{\mu\nu}]を消去して latexmath:[B_{\mu\nu}]を表すと次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+T_{\mu\nu} &= A_{\mu\nu} + B_{\mu\nu} \\
+T_{\mu\nu} - T_{\nu\mu} &= A_{\mu\nu} + B_{\mu\nu} - A_{\mu\nu} + B_{\mu\nu} \\
+T_{\mu\nu} - T_{\nu\mu} &= 2 B_{\mu\nu} \\
+B_{\mu\nu} &= \frac{T_{\mu\nu} - T_{\nu\mu}}{2} \\
+\end{aligned}
+++++
++
+同様に、 latexmath:[B_{\mu\nu}]を消去して latexmath:[A_{\mu\nu}]を表すと次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+T_{\mu\nu} &= A_{\mu\nu} + B_{\mu\nu} \\
+T_{\mu\nu} + T_{\nu\mu} &= A_{\mu\nu} + B_{\mu\nu} + A_{\mu\nu} - B_{\mu\nu} \\
+T_{\mu\nu} + T_{\nu\mu} &= 2 A_{\mu\nu} \\
+A_{\mu\nu} &= \frac{T_{\mu\nu} + T_{\nu\mu}}{2}
+\end{aligned}
+++++
+
+(2) テキストの解答:::
+latexmath:[A_{\mu\nu}B_{\mu\nu} = \frac{1}{2}(A_{\mu\nu}B_{\mu\nu} + A_{\mu\nu}B_{\mu\nu}) = \frac{1}{2}(A_{\mu\nu}B_{\mu\nu} + A_{\nu\mu}B_{\nu\mu})]で、最後の等式は第二項の添え字の名前で入れ替えた。和をとっている添え字が latexmath:[\mu]やlatexmath:[\nu]であることには意味がないので、付け替えられる。 latexmath:[A_{\mu\nu} = A_{\nu\mu}, B_{\mu\nu} = - B_{\nu\mu}]を第二項に代入すると、
++
+[stem,latexmath]
+++++
+\frac{A_{\mu\nu}B_{\mu\nu} + A_{\nu\mu}B_{\nu\mu}}{2}
+= \frac{A_{\mu\nu}B_{\mu\nu} - A_{\mu\nu}B_{\mu\nu}}{2}
+++++
++
+なので示された。
+
+補足 (2)テキストの解答:::
+テキストの式に補足します。二重縮約 latexmath:[A_{\mu\nu}B_{\mu\nu}] は
++
+[stem,latexmath]
+++++
+A_{\mu\nu}B_{\mu\nu}=\sum_{\mu=1}^n\sum_{\nu=1}^n A_{\mu\nu}B_{\mu\nu}=\mathrm{tr}(A^{T}B)
+++++
++
+となり、一般には latexmath:[\mathrm{tr}(AB)=A_{\mu\nu}B_{\nu\mu}] とは異なります。具体例（n=2）で示すと、
++
+[stem,latexmath]
+++++
+A=\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix},\quad
+B=\begin{pmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{pmatrix}
+++++
++
+[stem,latexmath]
+++++
+A_{\mu\nu}B_{\mu\nu}=a_{11}b_{11}+a_{12}b_{12}+a_{21}b_{21}+a_{22}b_{22},\\
+\mathrm{tr}(AB)=a_{11}b_{11}+a_{12}b_{21}+a_{21}b_{12}+a_{22}b_{22}.
+++++
++
+対称行列 latexmath:[A^{T}=A] と反対称行列 latexmath:[B^{T}=-B] の場合には
+latexmath:[A_{\mu\nu}B_{\mu\nu}=\mathrm{tr}(A^{T}B)=\mathrm{tr}(AB)=0] となり、上の添え字入れ替えによる証明と整合します。
+
+(2) 独力の解答1(trを使用):::
+行列の積 _AB_ に対して、latexmath:[\mathrm{tr}(A)=\mathrm{tr}(A^T)]、latexmath:[(AB)^T = B^T A^T]、 対称行列 _A_ の転置 latexmath:[A^T=A]、および反対称行列 _B_ の転置 latexmath:[B^T=-B]の関係より、次のようになる。
++
+[stem,latexmath]
+++++
+\mathrm{tr}(AB) = \mathrm{tr}((AB)^T) = \mathrm{tr}(B^T A^T) = \mathrm{tr}(B^T A) = \mathrm{tr}((-B) A) = -\mathrm{tr}(BA)
+++++
++
+上記、および  latexmath:[A^T=A]  より latexmath:[\mathrm{tr}(AB)=\mathrm{tr}(A^T B)=0]となる。
+
+(2) 独力の解答2(アインシュタインの縮約記法のよる和から求める):::
+テキストの解答の解答をかみ砕いて回答を作成する。 +
+latexmath:[A_{\nu\mu} B_{\mu\nu} = \sum_{\mu,\nu} A_{\nu\mu} B_{\mu\nu}]であることを意識して添え字の操作を行う。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+A_{\nu\mu} B_{\mu\nu}
+&= \sum_{\mu,\nu} A_{\nu\mu} B_{\mu\nu} \\
+&= \sum_{\mu,\nu} \left(\frac{A_{\nu\mu} B_{\mu\nu}}{2} + \frac{A_{\nu\mu} B_{\mu\nu}}{2}\right)  \\
+&= \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} + \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} \\
+\end{aligned}
+++++
++
+第二項の和は latexmath:[\mu, \nu]を入れ替えても結果はは同じとなる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} + \sum_{\mu,\nu} \frac{A_{\mu\nu} B_{\nu\mu}}{2} \\
+\end{aligned}
+++++
++
+latexmath:[A_{\mu\nu} = A_{\nu\mu}] と latexmath:[B_{\mu\nu} = -B_{\nu\mu}]を適用すると、合計値は 0 となる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} - \sum_{\mu,\nu} \frac{A_{\nu\mu} B_{\mu\nu}}{2} \\
+&= 0
+\end{aligned}
+++++
++
+同様に latexmath:[A_{\mu\nu} = A_{\nu\mu}] から latexmath:[A_{\mu\nu} B_{\mu\nu} = 0]となる。
+
+=== 問題2.9 (p46)
+
+問:: _k_ 階のテンソルの基底を latexmath:[e^{\mu_1}\otimes\cdots\otimes e^{\mu_k}] とし、スカラーである係数を latexmath:[A_{\mu_1\cdots\mu_k}B_{\mu_1\cdots\mu_k}]として、 _k_ 階の対称テンソル latexmath:[A = A_{\mu_1\cdots\mu_k} e^{\mu_1}\otimes\cdots\otimes e_{\mu_k}]と _k_ 階反対称テンソル latexmath:[B = B_{\mu_1\cdots\mu_k} e^{\mu_1}\otimes\cdots\otimes e_{\mu_k}]が与えられたとする。これらの縮約は 0 であることを示せ。つまり、   latexmath:[A_{\mu_1\cdots\mu_k}]がどの2つの添え字の入れ替えでも等しい数を与えるとし、 latexmath:[B_{\mu_1\cdots\mu_k}]がどの二つの添え字の入れ替えでも符号が反転する数を与えるとするとき、この積をとり、すべての添え字で和をとったものが 0 であること latexmath:[A_{\mu_1 \cdots \mu_k}B_{\mu_1 \cdots \mu_k} = 0] を示せ。
+
+解答::
+まず総和を明示する。記号を簡潔にするために多重添え字を\(\alpha=(\mu_1,\dots,\mu_k)\) と書く。係数の縮約は次のように定義する。
++
+[stem,latexmath]
+++++
+S:=\sum_{\mu_1=1}^n\cdots\sum_{\mu_k=1}^n A_{\mu_1\cdots\mu_k}B_{\mu_1\cdots\mu_k}=\sum_{\alpha}A_{\alpha}B_{\alpha}
+++++
++
+続いて、和を2分割する。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\sum_{\alpha} A_{\alpha}B_{\alpha}
+&= \sum_{\alpha} \frac{A_{\alpha}B_{\alpha}}{2} + \sum_{\alpha} \frac{A_{\alpha}B_{\alpha}}{2}
+\end{aligned}
+++++
++
+ここで任意の多重添え字 \(\alpha\) に対し、\(\alpha'\) を \(\mu_1\) と \(\mu_i\) を入れ替えた多重添え字 \(\alpha^\prime=(\mu_i,\cdots, \mu_1, \cdots,\mu_k)\) とする（\(i\) は固定された 2 ≤ _i_ ≤ k）。すると全和を \(\alpha\) とその入れ替え \(\alpha'\) のペアで見ると、
+第二項の2つ目のΣの和は 1 と _i_ (2≤ _i_ ≤ _k_) を入れ替えても変わらない。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\sum_{\alpha} A_{\alpha}B_{\alpha}
+&= \sum_{\alpha} \frac{A_{\alpha}B_{\alpha}}{2} + \sum_{\alpha} \frac{A_{\alpha^\prime}B_{\alpha^\prime}}{2}
+\end{aligned}
+++++
++
+対称性と反対称性より \(A_{\alpha'}=A_{\alpha}\) および \(B_{\alpha'}=-B_{\alpha}\) だから、符号が反転し打ち消し合って 0 になる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\sum_{\alpha} A_{\alpha}B_{\alpha}
+&= \sum_{\alpha} \frac{A_{\alpha}B_{\alpha}}{2} - \sum_{\alpha} \frac{A_{\alpha}B_{\alpha}}{2} = 0
+\end{aligned}
+++++
