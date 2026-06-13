@@ -18,3 +18,33 @@ This section contains notes on differential geometry, which is the study of smoo
 ++++
 \frac{\boldsymbol{r}_{(1)}}{dt} = \left(\frac{dx^1(t)}{dt}, \frac{dx^2(t)}{dt}, \frac{dx^3(t)}{dt} \right)
 ++++
+
+=== 円周 _S_^1^ で学ぶ接ベクトルと座標ベクトルの橋渡し
+
+単位円周
+latexmath:[ S^1={(\cos\theta,\sin\theta)\mid \theta\in\mathbb R/2\pi\mathbb Z} ] をとり、
+パラメータ表示 latexmath:[ \gamma(\theta)=(\cos\theta,\sin\theta) ]を考える。
+点 latexmath:[p(\theta_0)=\gamma(\theta_0)]は _S_^1^ 上の点である。
+
+点 latexmath:[p=\gamma(\theta_0)] における接空間 latexmath:[T_p S^1] は 1 次元で、その基底は
+ latexmath:[\gamma^\prime(\theta) = (- \sin\theta, \cos\theta) ]で与えられる。
+
+R^2^ 上の座標ベクトル場 \(\partial x\), \(\partial y\) を用いると、次のように表すことができる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{d \gamma}{d \theta}
+&= \frac{d x(\theta)}{d \theta} \left.\frac{\partial}{\partial x}\right|_{\gamma(\theta)}
+   +\frac{d y(\theta)}{d \theta} \left.\frac{\partial}{\partial y}\right|_{\gamma(\theta)} \\
+&= -\sin\theta \left.\frac{\partial}{\partial x}\right|_{\gamma(\theta)}
+   + \cos\theta \left.\frac{\partial}{\partial y}\right|_{\gamma(\theta)} \\
+\end{aligned}
+++++
+
+続いて、以下の標準同一視を用いれば、latexmath:[\frac{d \gamma}{d \theta}(\theta) \leftrightarrow (-\sin\theta, \cos\theta)]となる。
+
+[stem,latexmath]
+++++
+\left.\frac{\partial}{\partial x}\right|_{(x,y)} = (1,0),\quad \left.\frac{\partial}{\partial y}\right|_{(x,y)} = (0,1)
+++++
