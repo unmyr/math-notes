@@ -176,3 +176,18 @@ S:=\sum_{\mu_1=1}^n\cdots\sum_{\mu_k=1}^n A_{\mu_1\cdots\mu_k}B_{\mu_1\cdots\mu_
 &= \sum_{\alpha} \frac{A_{\alpha}B_{\alpha}}{2} - \sum_{\alpha} \frac{A_{\alpha}B_{\alpha}}{2} = 0
 \end{aligned}
 ++++
+
+=== 例 2.5
+
+latexmath:[\mathbb{R}^2]上で latexmath:[(x, y) \mapsto (r, \theta)]と極座標に変換した場合の計算は以下のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+dx \wedge dy
+&= d(r \cos\theta) \wedge d(r \sin\theta) \\
+&= ((dr)\cos\theta - r \sin\theta\, d \theta) \wedge ((dr)\sin\theta + r \cos\theta\, d \theta) \\
+&= r \cos^2 \theta \, d r \wedge d\theta - r \sin^2\theta \, d\theta \wedge dr \\
+&= r \, dr \wedge d \theta \\
+\end{aligned}
+++++
