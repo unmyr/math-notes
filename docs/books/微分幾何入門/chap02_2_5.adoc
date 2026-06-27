@@ -206,5 +206,120 @@ dx^{\sigma(\mu_3)} \left(\frac{\partial}{\partial x^{\nu_3}}\right) \\
 === 問題2.12 (p54)
 問:: 式(2.12)を示せ。
 
+解答::
+k-形式 latexmath:[\displaystyle \omega=\frac{1}{k!}\omega_{\mu_1 \cdot \mu_k} d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k}]に対して、 _k_ 個のベクトル場 latexmath:[\displaystyle X_i = X_i^\nu \frac{\partial}{\partial x^\nu}\, (i=1,2,\cdots,k)]から、双対ペアリングを多重線形写像に拡張した関数を得られる。
++
+[stem,latexmath]
+++++
+\omega(X_1,\cdots,X_k)=\frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} \; d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k} \left(X_1^{\nu_1}\frac{\partial}{\partial x^{\nu_1}}, \cdots, X_k^{\nu_k}\frac{\partial}{\partial x^{\nu_k}}\right)
+++++
+ここで、テンソル積の定義から k-形式は次のように定義できる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+dx^{\mu_1} \wedge \cdots \wedge dx^{\mu_3}
+&:= \sum_{\sigma \in S_k}\mathrm{sgn}
+\begin{pmatrix}
+\mu_1 & \cdots & \mu_k \\
+\sigma(\mu_1) & \cdots & \sigma(\mu_k) \\ 
+\end{pmatrix}
+dx^{\sigma(\mu_1)} \otimes \cdots \otimes dx^{\sigma(\mu_3)} \\
+\end{aligned}
+++++
+合わせてテンソル積の評価 latexmath:[(\mu_1 \otimes \cdots \otimes \mu_k)(X_1, \cdots, X_k) = \mu_1 (X_1) \cdots \mu_k(X_k)]であるから、次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+& dx^{\mu_1} \wedge \cdots \wedge dx^{\mu_k}
+\, \left(
+  \frac{\partial}{\partial x^{\nu_1}},
+  \cdots,
+  \frac{\partial}{\partial x^{\nu_k}}
+\right) \\
+&= \sum_{\sigma \in S_k}\mathrm{sgn}
+\begin{pmatrix}
+\mu_1 & \cdots & \mu_k \\
+\sigma(\mu_1) & \cdots & \sigma(\mu_k) \\ 
+\end{pmatrix}
+\,
+dx^{\sigma(\mu_1)} \otimes \cdots \otimes dx^{\sigma(\mu_3)} \, \left(
+  \frac{\partial}{\partial x^{\nu_1}},
+  \cdots,
+  \frac{\partial}{\partial x^{\nu_k}}
+\right) \\
+&= \sum_{\sigma \in S_k}\mathrm{sgn}
+\begin{pmatrix}
+\mu_1 & \cdots & \mu_k \\
+\sigma(\mu_1) & \cdots & \sigma(\mu_k) \\ 
+\end{pmatrix}
+\,
+dx^{\sigma(\mu_1)} \left(\frac{\partial}{\partial x^{\nu_1}}\right)
+\cdots
+dx^{\sigma(\mu_k)} \left(\frac{\partial}{\partial x^{\nu_k}}\right) \\
+&= \sum_{\sigma \in S_k}\mathrm{sgn}
+\begin{pmatrix}
+\mu_1 & \cdots & \mu_k \\
+\sigma(\mu_1) & \cdots & \sigma(\mu_k) \\ 
+\end{pmatrix}
+\, \delta_{\nu_1}^{\sigma(\mu_1)} \cdots \delta_{\nu_k}^{\sigma(\mu_k)}
+\end{aligned}
+++++
+ここまでを元の式に代入すると、次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+\omega(X_1,\cdots,X_k)
+&=\frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} \; d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k} \left(X_1^{\nu_1}\frac{\partial}{\partial x^{\nu_1}}, \cdots, X_1^{\nu_k}\frac{\partial}{\partial x^{\nu_k}}\right) \\
+&= \frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} \; d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k} \left(X_1^{\nu_1} \frac{\partial}{\partial x^{\nu_1}}, \cdots, X_k^{\nu_k} \frac{\partial}{\partial x^{\nu_k}} \right) \\
+&= \frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} X_1^{\nu_1} \cdots X_k^{\nu_k} \; d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k} \left( \frac{\partial}{\partial x^{\nu_1}}, \cdots, \frac{\partial}{\partial x^{\nu_k}} \right) \\
+&= \frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} X_1^{\nu_1} \cdots X_k^{\nu_k} \;
+\sum_{\sigma \in S_k}\mathrm{sgn}
+\begin{pmatrix}
+\mu_1 & \cdots & \mu_k \\
+\sigma(\mu_1) & \cdots & \sigma(\mu_k) \\ 
+\end{pmatrix}
+\delta^{\sigma(\mu_1)}_{\nu_1} \cdots \delta^{\sigma(\mu_k)}_{\nu_k} \\
+&= \frac{1}{k!}
+\sum_{\sigma \in S_k}\mathrm{sgn}
+\begin{pmatrix}
+\mu_1 & \cdots & \mu_k \\
+\sigma(\mu_1) & \cdots & \sigma(\mu_k) \\ 
+\end{pmatrix}
+\omega_{\mu_1 \cdots \mu_k} X_1^{\sigma(\mu_1)} \cdots X_k^{\sigma(\mu_k)} \\
+&= \frac{1}{k!}\sum_{\sigma\in S_k}\mathrm{sgn}(\sigma)\,\omega_{\mu_1 \cdots \mu_k}\,X_1^{\sigma(\mu_1)} \cdots X_k^{\sigma(\mu_k)} \\
+\end{aligned}
+++++
+ここで、添字置換を行う
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{1}{k!}\sum_{\sigma\in S_k}\mathrm{sgn}(\sigma^{-1})\omega_{\sigma(\mu_1)\cdots\sigma(\mu_k)}\,X_1^{\mu_1} \cdots X_k^{\mu_k} \\
+\end{aligned}
+++++
+ここで完全反対称性を仮定すると、latexmath:[\omega_{\sigma(\mu_1) \cdots \sigma(\mu_k)} = \mathrm{sgn}(\sigma)\omega_{\mu_1 \cdots \mu_k}]であり、latexmath:[\mathrm{sgn}(\sigma^{-1}) = \mathrm{sgn}(\sigma)]から:
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{1}{k!}\sum_{\sigma\in S_k}\mathrm{sgn}(\sigma^{-1}) \, \mathrm{sgn}(\sigma) \, \omega_{\mu_1 \cdots \mu_k} \,X_1^{\mu_1} \cdots X_k^{\mu_k} \\
+&= \frac{1}{k!}\sum_{\sigma\in S_k}\mathrm{sgn}(\sigma) \, \mathrm{sgn}(\sigma) \, \omega_{\mu_1 \cdots \mu_k} \,X_1^{\mu_1} \cdots X_k^{\mu_k} \\
+&= \frac{1}{k!}\sum_{\sigma\in S_k} \omega_{\mu_1 \cdots \mu_k} \,X_1^{\mu_1} \cdots X_k^{\mu_k} \\
+\end{aligned}
+++++
+\(\sigma\)の項が消えたので、\(S_k\)の和となる(latexmath:[|S_k|=k!]となることに注意する):
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{1}{k!}|S_k| \omega_{\mu_1 \cdots \mu_k} \,X_1^{\mu_1} \cdots X_k^{\mu_k} \\
+&= \omega_{\mu_1 \cdots \mu_k} \,X_1^{\mu_1} \cdots X_k^{\mu_k} \\
+\end{aligned}
+++++
+以上より、式(2.12)が示された。
+
 === 問題2.13 (p56)
 問:: 座標を使った外微分の定義(2.9)が、上の座標を用いない外微分の定義式(2.13)を満たすことを示せ。
