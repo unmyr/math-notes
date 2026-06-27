@@ -272,7 +272,7 @@ dx^{\sigma(\mu_k)} \left(\frac{\partial}{\partial x^{\nu_k}}\right) \\
 ++++
 \begin{aligned}
 \omega(X_1,\cdots,X_k)
-&=\frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} \; d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k} \left(X_1^{\nu_1}\frac{\partial}{\partial x^{\nu_1}}, \cdots, X_1^{\nu_k}\frac{\partial}{\partial x^{\nu_k}}\right) \\
+&=\frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} \; d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k} \left(X_1^{\nu_1}\frac{\partial}{\partial x^{\nu_1}}, \cdots, X_k^{\nu_k}\frac{\partial}{\partial x^{\nu_k}}\right) \\
 &= \frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} \; d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k} \left(X_1^{\nu_1} \frac{\partial}{\partial x^{\nu_1}}, \cdots, X_k^{\nu_k} \frac{\partial}{\partial x^{\nu_k}} \right) \\
 &= \frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} X_1^{\nu_1} \cdots X_k^{\nu_k} \; d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k} \left( \frac{\partial}{\partial x^{\nu_1}}, \cdots, \frac{\partial}{\partial x^{\nu_k}} \right) \\
 &= \frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} X_1^{\nu_1} \cdots X_k^{\nu_k} \;
