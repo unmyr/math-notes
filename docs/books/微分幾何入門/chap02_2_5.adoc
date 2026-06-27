@@ -109,18 +109,23 @@ dx^{\sigma(\mu_1)} \otimes dx^{\sigma(\mu_2)} \otimes dx^{\sigma(\mu_3)} \\
 [stem,latexmath]
 ++++
 \begin{aligned}
-dx^{\mu_1} \wedge dx^{\mu_2} \wedge dx^{\mu_3}
+& dx^{\mu_1} \wedge dx^{\mu_2} \wedge dx^{\mu_3}
 \, \left(
-  \frac{\partial}{\partial \nu_1},
-  \frac{\partial}{\partial \nu_2},
-  \frac{\partial}{\partial \nu_3}
-\right)
+  \frac{\partial}{\partial x^{\nu_1}},
+  \frac{\partial}{\partial x^{\nu_2}},
+  \frac{\partial}{\partial x^{\nu_3}}
+\right) \\
 &= \sum_{\sigma \in S_3}\mathrm{sgn}
 \begin{pmatrix}
 \mu_1 & \mu_2 & \mu_3 \\
 \sigma(\mu_1) & \sigma(\mu_2) & \sigma(\mu_3) \\ 
 \end{pmatrix}
-dx^{\sigma(\mu_1)} \otimes dx^{\sigma(\mu_2)} \otimes dx^{\sigma(\mu_3)} \\
+dx^{\sigma(\mu_1)} \otimes dx^{\sigma(\mu_2)} \otimes dx^{\sigma(\mu_3)}
+\, \left(
+  \frac{\partial}{\partial x^{\nu_1}},
+  \frac{\partial}{\partial x^{\nu_2}},
+  \frac{\partial}{\partial x^{\nu_3}}
+\right) \\
 &= \sum_{\sigma \in S_3}\mathrm{sgn}
 \begin{pmatrix}
 \mu_1 & \mu_2 & \mu_3 \\
