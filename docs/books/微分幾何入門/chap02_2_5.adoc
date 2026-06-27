@@ -165,39 +165,38 @@ dx^{\sigma(\mu_3)} \left(\frac{\partial}{\partial x^{\nu_3}}\right) \\
 \end{pmatrix}
 \omega_{\mu_1\mu_2\mu_3} X_1^{\sigma(\mu_1)} X_2^{\sigma(\mu_2)} X_3^{\sigma(\mu_3)} \\
 &= \frac{1}{3!}\sum_{\sigma\in S_3}\mathrm{sgn}(\sigma)\,\omega_{\mu_1\mu_2\mu_3}\,X_1^{\sigma(\mu_1)}X_2^{\sigma(\mu_2)}X_3^{\sigma(\mu_3)} \\
-&= \frac{1}{3!}\sum_{\sigma\in S_3}\omega_{\sigma(\mu_1)\sigma(\mu_2)\sigma(\mu_3)}\,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \quad(\text{index relabelling }\mu_i\mapsto\sigma(\mu_i))\\
-&= \frac{1}{3!}\sum_{\sigma\in S_3}\omega_{\mu_1\mu_2\mu_3}\,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \quad(\omega\ \text{is antisymmetric})\\
-&= \omega_{\mu_1\mu_2\mu_3}\,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3}
 \end{aligned}
 ++++
 
-ここで、最後の等式は、添え字に対する完全反対称の性質をもつため、次のようになる。
+ここで、添字置換を行う(index relabelling latexmath:[\mu_i\mapsto\sigma(\mu_i)]):
 
 [stem,latexmath]
 ++++
 \begin{aligned}
-&= \frac{1}{3!}
-\left\{
-   \omega_{\mu_1\mu_2\mu_3} X_1^{\sigma(\mu_1)} X_2^{\sigma(\mu_2)} X_3^{\sigma(\mu_3)}
-- \omega_{\mu_1\mu_3\mu_2} X_1^{\sigma(\mu_1)} X_2^{\sigma(\mu_3)} X_3^{\sigma(\mu_2)} \\
-- \omega_{\mu_2\mu_1\mu_3} X_1^{\sigma(\mu_2)} X_2^{\sigma(\mu_1)} X_3^{\sigma(\mu_3)}
-+ \omega_{\mu_2\mu_3\mu_1} X_1^{\sigma(\mu_2)} X_2^{\sigma(\mu_3)} X_3^{\sigma(\mu_1)} \\
-+ \omega_{\mu_3\mu_1\mu_2} X_1^{\sigma(\mu_3)} X_2^{\sigma(\mu_1)} X_3^{\sigma(\mu_2)}
-- \omega_{\mu_3\mu_2\mu_1} X_1^{\sigma(\mu_3)} X_2^{\sigma(\mu_2)} X_3^{\sigma(\mu_1)}
-\right\} \\
-&= \frac{1}{3!}
-\left\{
-   \omega_{\mu_1\mu_2\mu_3} X_1^{\sigma(\mu_1)} X_2^{\sigma(\mu_2)} X_3^{\sigma(\mu_3)}
-+ \omega_{\mu_1\mu_2\mu_3} X_1^{\sigma(\mu_1)} X_2^{\sigma(\mu_2)} X_3^{\sigma(\mu_3)} \\
-+ \omega_{\mu_1\mu_2\mu_3} X_1^{\sigma(\mu_1)} X_2^{\sigma(\mu_2)} X_3^{\sigma(\mu_3)}
-+ \omega_{\mu_2\mu_3\mu_1} X_1^{\sigma(\mu_2)} X_2^{\sigma(\mu_3)} X_3^{\sigma(\mu_1)} \\
-+ \omega_{\mu_3\mu_1\mu_2} X_1^{\sigma(\mu_3)} X_2^{\sigma(\mu_1)} X_3^{\sigma(\mu_2)}
-+ \omega_{\mu_1\mu_2\mu_3} X_1^{\sigma(\mu_1)} X_2^{\sigma(\mu_2)} X_3^{\sigma(\mu_3)}
-\right\} \\
-&= \omega_{\mu_1\mu_2\mu_3} X_1^{\sigma(\mu_1)} X_2^{\sigma(\mu_2)} X_3^{\sigma(\mu_3)}
+&= \frac{1}{3!}\sum_{\sigma\in S_3}\mathrm{sgn}(\sigma^{-1})\omega_{\sigma(\mu_1)\sigma(\mu_2)\sigma(\mu_3)}\,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
 \end{aligned}
 ++++
 
+ここで完全反対称性を仮定すると、latexmath:[\omega_{\sigma(\mu_1)\sigma(\mu_2)\sigma(\mu_3)} = \mathrm{sgn}(\sigma)\omega_{\mu_1 \mu_2 \mu_3}]であり、latexmath:[\mathrm{sgn}(\sigma^{-1}) = \mathrm{sgn}(\sigma)]から:
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{1}{3!}\sum_{\sigma\in S_3}\mathrm{sgn}(\sigma^{-1}) \, \mathrm{sgn}(\sigma) \, \omega_{\mu_1 \mu_2 \mu_3} \,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
+&= \frac{1}{3!}\sum_{\sigma\in S_3}\mathrm{sgn}(\sigma) \, \mathrm{sgn}(\sigma) \, \omega_{\mu_1 \mu_2 \mu_3} \,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
+&= \frac{1}{3!}\sum_{\sigma\in S_3} \omega_{\mu_1 \mu_2 \mu_3} \,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
+\end{aligned}
+++++
+
+\(\sigma\)の項が消えたので、\(S_3\)の和となる(latexmath:[|S_3|=3!]となることに注意する):
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{1}{3!}|S_3| \omega_{\mu_1 \mu_2 \mu_3} \,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
+&= \omega_{\mu_1 \mu_2 \mu_3} \,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
+\end{aligned}
+++++
 
 === 問題2.12 (p54)
 問:: 式(2.12)を示せ。
