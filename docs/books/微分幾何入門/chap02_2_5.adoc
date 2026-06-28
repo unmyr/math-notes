@@ -321,5 +321,29 @@ dx^{\sigma(\mu_k)} \left(\frac{\partial}{\partial x^{\nu_k}}\right) \\
 ++++
 以上より、式(2.12)が示された。
 
+=== 外微分の極座標を用いない定義 (p56)
+
+[stem,latexmath]
+++++
+\begin{align}
+& (d\omega)(X_1,\cdots,X_{k+1}) \\
+&\quad = \sum_{i=1}^{k+1}(-1)^{i+1} X_i(\omega(X_1,\cdots,\hat{X}_i, \cdots, X_{k+1})) \\
+&\quad\quad - \sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1} \omega(\lbrack X_i, X_j \rbrack,\cdots,\hat{X}_i, \cdots, \hat{X}_j, \cdots, X_{k+1}) \tag{2.13} \label{eqn_2_13}
+\end{align}
+++++
+
+.記法の補足
+* latexmath:[\hat{X}_i]とあるのは、latexmath:[X_i]だけ除くことを意味している
+* latexmath:[\lbrack X_i, X_j \rbrack]は、ベクトル場の交換子積で latexmath:[\lbrack X, Y \rbrack = XY - YX]と定義する
+
+.1-形式の場合
+====
+latexmath:[X_i(\omega(X_2))]は、双対ペアリングで作られたスカラー関数 latexmath:[\omega(X_2)]に微分作用素としてのベクトル場 \(X_1\)が作用して得られたスカラー関数となる
+[stem,latexmath]
+++++
+d\omega(X_1,X_2) = X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1, X_2 \rbrack)
+++++
+====
+
 === 問題2.13 (p56)
 問:: 座標を使った外微分の定義(2.9)が、上の座標を用いない外微分の定義式(2.13)を満たすことを示せ。
