@@ -30,13 +30,14 @@ d \omega
 
 === 問題2.10 (p50)
 問:: latexmath:[\mathbb{R}^2]上で定義された微分形式について、以下を計算せよ。
-(1)::: 0-形式の外微分 latexmath:[d(x^2 y^3)]
-(2)::: 1-形式の外微分 latexmath:[d(x^2 y^3 \, dx + x^2 \cos y \, dy)]
-(3)::: 2-形式の外微分 latexmath:[d(x^2 y^4 \, dx \wedge dy)]
+(1) 0-形式の外微分::: latexmath:[d(x^2 y^3)]
+(2) 1-形式の外微分::: latexmath:[d(x^2 y^3 \, dx + x^2 \cos y \, dy)]
+(3) 2-形式の外微分::: latexmath:[d(x^2 y^4 \, dx \wedge dy)]
 
 解答::
-(1)::: 0-形式の外微分 latexmath:[d(x^2 y^3) = 2x y^3 \, dx + 3 x^2 y^3 \, dy]
-(1) 0-形式の外微分(別解: 定義2.4を用いて展開する):::
+(1) 0-形式の外微分::: latexmath:[d(x^2 y^3) = 2x y^3 \, dx + 3 x^2 y^3 \, dy]
+(1) 0-形式の外微分:::
+(別解: 定義2.4を用いて展開する) +
 \(\omega = x^2 y^3\) とし、定義2.4を 0-形式に適用する。
 +
 [stem,latexmath]
@@ -66,7 +67,7 @@ d\omega
 \end{aligned}
 ++++
 
-(2)::: 1-形式の外微分 latexmath:[d(x^2 y^3 \, dx + x^2 \cos y \, dy)]について計算する。
+(2) 1-形式の外微分::: latexmath:[d(x^2 y^3 \, dx + x^2 \cos y \, dy)]について計算する。
 +
 [stem,latexmath]
 ++++
@@ -82,7 +83,7 @@ d(x^2 y^3 \, dx + x^2 \cos y \, dy)
 \end{aligned}
 ++++
 
-(3)::: 2-形式の外微分 latexmath:[d(x^2 y^4 \, dx \wedge dy)=0]にとなる。
+(3) 2-形式の外微分::: latexmath:[d(x^2 y^4 \, dx \wedge dy)=0]にとなる。
 
 === 問題2.11 (p52)
 問:: latexmath:[\mathbb{R}^3]の1-形式 latexmath:[\omega = y^2 \sin x \cos z \, dx + y \, dy,\ \xi = x \, dz]に対して、以下の計算をせよ。
