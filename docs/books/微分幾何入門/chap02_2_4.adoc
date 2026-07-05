@@ -83,6 +83,60 @@ d(x^2 y^3 \, dx + x^2 \cos y \, dy)
 \end{aligned}
 ++++
 
+(2) 1-形式の外微分:::
+(別解: 定義2.4を用いて展開する) +
+\(\omega = x^2 y^3 \, dx + x^2 \cos y \, dy\)、\(\omega_1 = x^2 y^3\)、および \(\omega_2 = x^2 \cos y\) とし、定義2.4を 1-形式に適用する。なお、\(\omega_{\mu}\) は係数関数であり、\(\omega_1, \omega_2\) に対応する。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+d\omega
+&= d (\omega_{\mu} \, dx^{\mu})\\
+&= \frac{\partial \omega_{\mu}}{\partial x^{\nu}} \, d x^{\nu} \wedge d x^{\mu} \\
+&= \frac{\partial \omega_1}{\partial x^1} \, d x^1 \wedge d x^1
+  + \frac{\partial \omega_2}{\partial x^1} \, d x^1 \wedge d x^2 
+  + \frac{\partial \omega_1}{\partial x^2} \, d x^2 \wedge d x^1
+  + \frac{\partial \omega_2}{\partial x^2} \, d x^2 \wedge d x^2 \\
+\end{aligned}
+++++
++
+ウェッジ積の反対称性により、\(dx^1 \wedge dx^1 = dx^2 \wedge dx^2 = 0\) だから、残るのは2項だけである。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{\partial \omega_2}{\partial x^1} \, d x^1 \wedge d x^2 
+  + \frac{\partial \omega_1}{\partial x^2} \, d x^2 \wedge d x^1 \\
+\end{aligned}
+++++
++
+ウェッジ積の反対称性により、添え字を入れ替えると符号が反転することを踏まえて、添え字を揃えると次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \left(\frac{\partial \omega_2}{\partial x^1} - \frac{\partial \omega_1}{\partial x^2}\right) \, d x^1 \wedge d x^2 \\
+\end{aligned}
+++++
++
+ここで、座標を \(x^1 = x, x^2 = y\) と取ると、\(dx^1 = dx\) および \(dx^2 = dy\) となる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \left(\frac{\partial \omega_2}{\partial x} - \frac{\partial \omega_1}{\partial y}\right) \, dx \wedge dy \\
+\end{aligned}
+++++
++
+これらの偏微分を計算すると、結果は次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= (-3 x^2 y^2  + 2x \cos y) \, dx \wedge dy
+\end{aligned}
+++++
+
 (3) 2-形式の外微分::: latexmath:[d(x^2 y^4 \, dx \wedge dy)=0]にとなる。
 
 === 問題2.11 (p52)
