@@ -137,7 +137,53 @@ d\omega
 \end{aligned}
 ++++
 
-(3) 2-形式の外微分::: latexmath:[d(x^2 y^4 \, dx \wedge dy)=0]にとなる。
+(3) 2-形式の外微分::: ウェッジ積の反対称性により、latexmath:[d(x^2 y^4 \, dx \wedge dy)=0]となることを示す。
++
+\(x^2 y^4 \, dx \wedge dy\)、\(\omega_{1 2} = x^2 y^4, \, \omega_{2 1}= -\omega_{1 2}, \, \omega_{1 1}=\omega_{2 2}=0\) とし、定義2.4を 2-形式に適用する。なお、\(\omega_{\mu_1\mu_2}\) は係数関数であり、\(\omega_{1 2}\) などに対応する。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+d\omega
+&= d \left(\frac{1}{2} \omega_{\mu_1\mu_2} \, dx^{\mu_1} \wedge dx^{\mu_2}\right) \\
+&= \frac{\partial \omega_{\mu_1\mu_2}}{\partial x^{\nu}} \, d x^{\nu} \wedge d x^{\mu_1} \wedge d x^{\mu_2} \\
+\end{aligned}
+++++
++
+まず、\(\mu \in\{1, 2\}\)、具体的には\(\mu=1\), \(\mu=2\)に対してアインシュタイン縮約記法を展開すると次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{\partial \omega_{1 1}}{\partial x^\nu} \, d x^{\nu} \wedge d x^1 \wedge d x^1
+  + \frac{\partial \omega_{1 2}}{\partial x^\nu} \, d x^{\nu} \wedge d x^1 \wedge d x^2 
+  + \frac{\partial \omega_{2 1}}{\partial x^\nu} \, d x^{\nu} \wedge d x^2 \wedge d x^1
+  + \frac{\partial \omega_{2 2}}{\partial x^\nu} \, d x^{\nu} \wedge d x^2 \wedge d x^2 \\
+\end{aligned}
+++++
++
+ウェッジ積の反対称性により、\(dx^1 \wedge dx^1 = dx^2 \wedge dx^2 = 0\) だから、残るのは2項だけである。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{\partial \omega_{1 2}}{\partial x^\nu} \, d x^{\nu} \wedge d x^1 \wedge d x^2 
+  + \frac{\partial \omega_{2 1}}{\partial x^\nu} \, d x^{\nu} \wedge d x^2 \wedge d x^1 \\
+\end{aligned}
+++++
++
+\(\nu \in\{1, 2\}\)、具体的には\(\nu=1\), \(\nu=2\)に対してアインシュタイン縮約記法を展開し、最終的にウェッジ積の反対称性により、\(dx^1 \wedge dx^1 \wedge dx^2 = 0\)、\(dx^2 \wedge dx^1 \wedge dx^1 = 0\) など、すべての項に同じ因子が含まれるため 0 になる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{\partial \omega_{1 2}}{\partial x^1} \, d x^1 \wedge d x^1 \wedge d x^2 
+  + \frac{\partial \omega_{1 2}}{\partial x^2} \, d x^2 \wedge d x^1 \wedge d x^2 \\
+& + \frac{\partial \omega_{2 1}}{\partial x^1} \, d x^1 \wedge d x^2 \wedge d x^1
+  + \frac{\partial \omega_{2 1}}{\partial x^2} \, d x^2 \wedge d x^2 \wedge d x^1 \\
+&= 0
+\end{aligned}
+++++
 
 === 問題2.11 (p52)
 問:: latexmath:[\mathbb{R}^3]の1-形式 latexmath:[\omega = y^2 \sin x \cos z \, dx + y \, dy,\ \xi = x \, dz]に対して、以下の計算をせよ。
