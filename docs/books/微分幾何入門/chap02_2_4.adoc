@@ -16,6 +16,18 @@ include::../../attrs.adoc[]
 == 微分幾何入門 第二章: 2.2 外積と外微分 › 2.2.4 外微分 (p49-p52)
 演習問題の解法の理解を深めるための覚書です。
 
+=== 定義2.4
+局所座標を使い、各点 _p_ の近傍で定義される _k_-形式 latexmath:[\displaystyle \omega = \frac{1}{k!}\omega_{\mu_1\cdots\mu_k} dx_{\mu_1} \wedge \cdots \wedge dx_{\mu_k}]に対して、(_k_+1)形式\(d\omega\)を外微分(exterior derivative) latexmath:[d: \Omega^k(M) \to \Omega^{k+1}(M)]を定義する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+d \omega
+&:= d\left(\frac{1}{k!}\omega_{\mu_1\cdots\mu_k}\right) \wedge dx_{\mu_1} \wedge \cdots \wedge dx_{\mu_k} \\
+&= \frac{1}{k!} \frac{\partial \omega_{\mu_1\cdots\mu_k}}{\partial x^{\nu}} d x^{\nu} \wedge dx_{\mu_1} \wedge \cdots \wedge dx_{\mu_k} \\
+\end{aligned}
+++++
+
 === 問題2.10 (p50)
 問:: latexmath:[\mathbb{R}^2]上で定義された微分形式について、以下を計算せよ。
 (1)::: 0-形式の外微分 latexmath:[d(x^2 y^3)]
@@ -24,6 +36,36 @@ include::../../attrs.adoc[]
 
 解答::
 (1)::: 0-形式の外微分 latexmath:[d(x^2 y^3) = 2x y^3 \, dx + 3 x^2 y^3 \, dy]
+(1) 0-形式の外微分(別解: 定義2.4を用いて展開する):::
+\(\omega = x^2 y^3\) とし、定義2.4を 0-形式に適用する。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+d\omega
+&= d\left(\frac{1}{0!} \omega \right) \\
+&= \frac{\partial \omega}{\partial x^{\nu}} d x^{\nu} \\
+&= \frac{\partial \omega}{\partial x^1} d x^1 + \frac{\partial \omega}{\partial x^2} d x^2 \\
+\end{aligned}
+++++
+ここで、座標を \(x^1 = x, x^2 = y\) と取ると、\(dx^1 = dx\) および \(dx^2 = dy\) となる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{\partial \omega}{\partial x} d x + \frac{\partial \omega}{\partial y} d y \\
+\end{aligned}
+++++
++
+これらの偏微分を計算すると、結果は次のようになる。
++
+[stem,latexmath]
+++++
+\begin{aligned}
+&= 2x y^3 \, dx + 3 x^2 y^3 \, dy
+\end{aligned}
+++++
+
 (2)::: 1-形式の外微分 latexmath:[d(x^2 y^3 \, dx + x^2 \cos y \, dy)]について計算する。
 +
 [stem,latexmath]
