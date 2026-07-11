@@ -182,13 +182,20 @@ dx^{\sigma(\mu_3)} \left(\frac{\partial}{\partial x^{\nu_3}}\right) \\
 \end{aligned}
 ++++
 
-ここで完全反対称性を仮定すると、latexmath:[\omega_{\sigma(\mu_1)\sigma(\mu_2)\sigma(\mu_3)} = \mathrm{sgn}(\sigma)\omega_{\mu_1 \mu_2 \mu_3}]であり、latexmath:[\mathrm{sgn}(\sigma^{-1}) = \mathrm{sgn}(\sigma)]から:
+置換の偶奇は逆元を取っても変わらないので、 latexmath:[\mathrm{sgn}(\sigma^{-1})=\mathrm{sgn}(\sigma)] が成り立つ。実際、符号写像 latexmath:[\mathrm{sgn}: S_n \to \{\pm1\}]は準同型であり latexmath:[\mathrm{sgn}(\sigma^{-1})=\mathrm{sgn}(\sigma)^{-1}]である。また、latexmath:[\mathrm{sgn}(\sigma) \in \{\pm 1\}]であり、latexmath:[\{\pm 1\}]は乗法に関する二元群である。この群では、latexmath:[1 \cdot 1 = 1]、 latexmath:[(-1) \cdot (-1) = 1]であり、つまり任意の latexmath:[a \in \{-1, 1\}]に対して latexmath:[a \cdot a = 1]であり、 latexmath:[a^{-1} = a]が成り立つ。ここで latexmath:[a=\mathrm{sgn}(\sigma)]とすれば、 latexmath:[\mathrm{sgn}(\sigma)^{-1}=\mathrm{sgn}(\sigma)]となる。つまり、 latexmath:[\mathrm{sgn}(\sigma^{-1})=\mathrm{sgn}(\sigma)^{-1}=\mathrm{sgn}(\sigma)]である。
 
 [stem,latexmath]
 ++++
 \begin{aligned}
-&= \frac{1}{3!}\sum_{\sigma\in S_3}\mathrm{sgn}(\sigma^{-1}) \, \mathrm{sgn}(\sigma) \, \omega_{\mu_1 \mu_2 \mu_3} \,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
-&= \frac{1}{3!}\sum_{\sigma\in S_3}\mathrm{sgn}(\sigma) \, \mathrm{sgn}(\sigma) \, \omega_{\mu_1 \mu_2 \mu_3} \,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
+&= \frac{1}{3!}\sum_{\sigma\in S_3}\mathrm{sgn}(\sigma)\omega_{\sigma(\mu_1)\sigma(\mu_2)\sigma(\mu_3)}\,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
+\end{aligned}
+++++
+
+ここで完全反対称性より、 latexmath:[\omega_{\mu_1 \mu_2 \mu_3} = \mathrm{sgn}(\sigma) \omega_{\sigma(\mu_1)\sigma(\mu_2)\sigma(\mu_3)}]であるから:
+
+[stem,latexmath]
+++++
+\begin{aligned}
 &= \frac{1}{3!}\sum_{\sigma\in S_3} \omega_{\mu_1 \mu_2 \mu_3} \,X_1^{\mu_1}X_2^{\mu_2}X_3^{\mu_3} \\
 \end{aligned}
 ++++
