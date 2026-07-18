@@ -21,11 +21,11 @@ include::../../attrs.adoc[]
 
 [stem,latexmath]
 ++++
-\begin{aligned}
+\begin{align}
 d \omega
 &:= d\left(\frac{1}{k!}\omega_{\mu_1\cdots\mu_k}\right) \wedge dx_{\mu_1} \wedge \cdots \wedge dx_{\mu_k} \\
-&= \frac{1}{k!} \frac{\partial \omega_{\mu_1\cdots\mu_k}}{\partial x^{\nu}} d x^{\nu} \wedge dx_{\mu_1} \wedge \cdots \wedge dx_{\mu_k} \\
-\end{aligned}
+&= \frac{1}{k!} \frac{\partial \omega_{\mu_1\cdots\mu_k}}{\partial x^{\nu}} d x^{\nu} \wedge dx_{\mu_1} \wedge \cdots \wedge dx_{\mu_k} \tag{2.9} \label{def_2_9} \\
+\end{align}
 ++++
 
 === 問題2.10 (p50)
@@ -299,3 +299,4 @@ dd(\omega) &= d(d\omega) = d(d(y^2 \sin x \cos z \, dx + y \, dy))\\
 &= 0 \\
 \end{aligned}
 ++++
+

@@ -335,7 +335,7 @@ dx^{\sigma(\mu_k)} \left(\frac{\partial}{\partial x^{\nu_k}}\right) \\
 \begin{align}
 & (d\omega)(X_1,\cdots,X_{k+1}) \\
 &\quad = \sum_{i=1}^{k+1}(-1)^{i+1} X_i(\omega(X_1,\cdots,\hat{X}_i, \cdots, X_{k+1})) \\
-&\quad\quad - \sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1} \omega(\lbrack X_i, X_j \rbrack,\cdots,\hat{X}_i, \cdots, \hat{X}_j, \cdots, X_{k+1}) \tag{2.13} \label{eqn_2_13}
+&\quad\quad - \sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1} \omega(\lbrack X_i, X_j \rbrack,\cdots,\hat{X}_i, \cdots, \hat{X}_j, \cdots, X_{k+1}) \tag{2.13} \label{def_2_13}
 \end{align}
 ++++
 
@@ -353,4 +353,4 @@ d\omega(X_1,X_2) = X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1, X_2
 ====
 
 === 問題2.13 (p56)
-問:: 座標を使った外微分の定義(2.9)が、上の座標を用いない外微分の定義式(2.13)を満たすことを示せ。
+問:: 座標を使った外微分の <<chap02_2_4.adoc#mjx-eqn-def_2_9,定義(2.9)>> が、上の座標を用いない外微分の定義式 latexmath:[\eqref{def_2_13}] を満たすことを示せ。
