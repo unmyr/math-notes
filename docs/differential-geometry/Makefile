@@ -15,6 +15,7 @@ $(DIST_SUBDIR)/atlas_s2_angular_coords.html \
 $(DIST_SUBDIR)/atlas_s2_stereographic.html \
 $(DIST_SUBDIR)/atlas.html \
 $(DIST_SUBDIR)/tangent_vectors.html \
+$(DIST_SUBDIR)/vector_field_commutator.html \
 $(DIST_SUBDIR)/index.html
 
 SUB_TARGETS=

@@ -1,0 +1,349 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+endif::[]
+
+include::header.adoc[]
+
+:stem: latexmath
+include::../attrs.adoc[]
+
+== ベクトル場と交換子積
+
+外微分の局所座標を用いない定義に入る前段階として、ベクトル場の交換子 (Lie bracket) を手計算で見ておくと理解しやすい。ここでは、まず一般形を示し、そのあといくつかの具体例を計算する。
+
+=== 1. 交換子積の定義
+
+ベクトル場
+[stem,latexmath]
+++++
+X = a(x,y)\frac{\partial}{\partial x} + b(x,y)\frac{\partial}{\partial y},
+\qquad
+Y = c(x,y)\frac{\partial}{\partial x} + d(x,y)\frac{\partial}{\partial y}
+++++
+
+上記に対して、交換子積を次のように定義する。
+
+[stem,latexmath]
+++++
+\lbrack X,Y \rbrack(f) := X(Yf) - Y(Xf)
+++++
+
+なお、滑らかな関数 latexmath:[f]に対して、成分 latexmath:[X^{\mu}] をもつベクトル場 latexmath:[X=X^\mu\partial_\mu] と、成分 latexmath:[Y^{\nu}] をもつ別のベクトル場 latexmath:[Y=Y^\nu\partial_\nu] があると、交換子は次のように計算できる。ここでは、同じ添字が二度出る項は和を表す（アインシュタインの縮約記法）として扱う。最後の等式では、ライプニッツ則を用いた。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\lbrack X,Y \rbrack(f)
+&:= X(Yf)-Y(Xf) \\
+&= X^{\mu} \partial_{\mu}(Y^{\nu}\partial_{\nu}f)
+   - Y^{\nu} \partial_{\nu}(X^{\mu}\partial_{\mu}f) \\
+&= X^{\mu}\left( (\partial_{\mu}Y^{\nu})\partial_{\nu}f + Y^{\nu}\partial_{\mu}\partial_{\nu}f \right)
+   - Y^{\nu}\left( (\partial_{\nu}X^{\mu})\partial_{\mu}f + X^{\mu}\partial_{\nu}\partial_{\mu}f \right).
+\end{aligned}
+++++
+
+と定める。これもまた微分作用素であり、ベクトル場として書き直すことができる。
+滑らかな関数に対して作用することとすると、 latexmath:[\partial_\mu \partial_\nu = \partial_\nu \partial_\mu]であるから、二階偏微分の項は打ち消して次のようになる。
+[stem,latexmath]
+++++
+\begin{aligned}
+\lbrack X,Y \rbrack
+&= X^{\mu}(\partial_{\mu}Y^{\nu})\partial_{\nu}
+   - Y^{\nu}(\partial_{\nu}X^{\mu})\partial_{\mu}.
+\end{aligned}
+++++
+
+成分を展開すると
+[stem,latexmath]
+++++
+\begin{aligned}
+& =
+   \left\{X^1 (\partial_1 Y^1) + X^2 (\partial_2 Y^1) \right\} \partial_1
++ \left\{X^1(\partial_1 Y^2) + X^2(\partial_2 Y^2) \right\} \partial_2 \\
+& - \left\{Y^1(\partial_1 X^1) + Y^2(\partial_2 X^1) \right\} \partial_1
+- \left\{Y^1(\partial_1 X^2) + Y^2(\partial_2 X^2) \right\} \partial_2 \\
+& =
+   \left\{X^1 (\partial_1 Y^1) + X^2 (\partial_2 Y^1) - Y^1(\partial_1 X^1) - Y^2(\partial_2 X^1) \right\} \partial_1 \\
+&+ \left\{X^1(\partial_1 Y^2) + X^2(\partial_2 Y^2) - Y^1(\partial_1 X^2) - Y^2(\partial_2 X^2) \right\} \partial_2 \\
+&=
+\left(
+ a\frac{\partial c}{\partial x}+b\frac{\partial c}{\partial y}
+-c\frac{\partial a}{\partial x}-d\frac{\partial a}{\partial y}
+\right)\frac{\partial}{\partial x}
++
+\left(
+ a\frac{\partial d}{\partial x}+b\frac{\partial d}{\partial y}
+-c\frac{\partial b}{\partial x}-d\frac{\partial b}{\partial y}
+\right)\frac{\partial}{\partial y} \\
+\end{aligned}
+++++
+
+となる。交換子は、二つのベクトル場が「どれだけ非可換か」を測る量である。
+
+=== 2. 平行移動と回転の非可換性
+
+まず、\(x\) 方向の平行移動を表すベクトル場
+[stem,latexmath]
+++++
+T := \frac{\partial}{\partial x}
+++++
+
+と、原点周りの回転を表すベクトル場
+[stem,latexmath]
+++++
+R := -y\frac{\partial}{\partial x} + x\frac{\partial}{\partial y}
+++++
+
+を考える。
+このとき、各成分との関係は次のようになる。
+
+* latexmath:[T=\sum_{\mu \in \{1, 2\}} T^{\mu} \partial_{\mu}] に対して、各成分は latexmath:[T^1= 1, T^2= 0]
+* latexmath:[R=\sum_{\nu \in \{1, 2\}} R^{\nu} \partial_{\nu}] に対して、各成分は latexmath:[R^1= -y, R^2= x]
+
+これに対し、交換子を計算する
+[stem,latexmath]
+++++
+\begin{aligned}
+\lbrack T,R \rbrack (f)
+& = T^{\mu}(\partial_{\mu} R^{\nu}) \partial_{\nu} f - R^{\nu}(\partial_{\nu} T^{\mu})\partial_{\mu} f \\
+\end{aligned}
+++++
+
+latexmath:[T^{\mu}] の各成分は定数だから、 latexmath:[\partial_{\nu} T^{\mu} = 0]
+となり、latexmath:[R^{\nu}(\partial_{\nu} T^{\mu})]の項が消えて、次のようになる。
+
+[stem,latexmath]
+++++
+= T^{\mu}(\partial_{\mu} R^{\nu}) \partial_{\nu} f
+++++
+
+latexmath:[\mu \in \{1, 2\}], latexmath:[\nu \in \{1, 2\}]の成分を展開すると次のようになる。
+
+[stem,latexmath]
+++++
+\require{cancel}
+\begin{aligned}
+& =
+   (T^1 \partial_1 R^1 + \cancelto{0}{T^2} \partial_2 R^1) \partial_1 f
++ (T^1 \partial_1 R^2 + \cancelto{0}{T^2} \partial_2 R^2) \partial_2 f \\
+& = (1 \cdot \partial_1 R^1 ) \partial_1 f + (1 \cdot \partial_1 R^2 ) \partial_2 f \\
+& = (1 \cdot \partial_x (-y)) \partial_x f + (1 \cdot \partial_x \, x) \partial_y f \\
+\end{aligned}
+++++
+
+latexmath:[\partial_x (-y) = 0, \partial_x \, x = 1]であるから、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& = (1 \cdot 0) \partial_x f + (1 \cdot 1) \partial_y f \\
+& = \frac{\partial f}{\partial y} \\
+\end{aligned}
+++++
+
+したがって
+[stem,latexmath]
+++++
+[T,R] = \frac{\partial}{\partial y}
+++++
+
+である。つまり、平行移動と回転は一般には可換ではなく、順序を入れ替えると別の方向の平行移動が現れる。
+
+=== 3. スケーリングとの可換性と非可換性
+
+次に、原点からの同次拡大を表すベクトル場
+[stem,latexmath]
+++++
+D := x\frac{\partial}{\partial x} + y\frac{\partial}{\partial y}
+++++
+
+を考える。
+
+まず、回転場 \(R\) との交換子を計算すると
+[stem,latexmath]
+++++
+\begin{aligned}
+\lbrack D,R \rbrack (f)
+& = D^{\mu}(\partial_{\mu} R^{\nu}) \partial_{\nu} f - R^{\nu}(\partial_{\nu} D^{\mu})\partial_{\mu} f \\
+\end{aligned}
+++++
+
+ここで、成分は
+[stem,latexmath]
+++++
+D^{1}=x,
+\quad D^{2}=y,
+\quad R^{1}=-y,
+\quad R^{2}=x,
+\qquad
+\partial_{1}=\partial_{x},\ \partial_{2}=\partial_{y}
+++++
+
+である。したがって、二つの項を順に展開すると次のようになる。
+
+まず、前半の項から計算すると
+[stem,latexmath]
+++++
+\begin{aligned}
+D^{\mu}(\partial_{\mu} R^{\nu}) \partial_{\nu} f
+&= (D^{1}(\partial_{1} R^{1}) + D^{2}(\partial_{2} R^{1})) \partial_{1} f
+  + (D^{1}(\partial_{1} R^{2}) + D^{2}(\partial_{2} R^{2})) \partial_{2} f \\
+&= (D^{1}(\partial_{x} R^{1}) + D^{2}(\partial_{y} R^{1})) \partial_{x} f
+   + (D^{1}(\partial_{x} R^{2}) + D^{2}(\partial_{y} R^{2})) \partial_{y} f \\
+&= (D^{1}(\partial_{x} (-y)) + D^{2}(\partial_{y} (-y))) \partial_{x} f
+   + (D^{1}(\partial_{x} x) + D^{2}(\partial_{y} x)) \partial_{y} f \\
+&= (D^{1} \cdot 0 + D^{2} \cdot (-1)) \partial_{x} f + (D^{1} \cdot 1 + D^{2} \cdot 0) \partial_{y} f \\
+&= - D^{2} \partial_{x} f + D^{1} \partial_{y} f \\
+&= (- y) \partial_{x} + x \partial_{y}
+\end{aligned}
+++++
+
+次に、後半の項を計算すると
+[stem,latexmath]
+++++
+\begin{aligned}
+R^{\nu} (\partial_{\nu} D^{\mu}) \partial_{\mu} f
+&= R^{\nu} (\partial_{\nu} D^{1}) \partial_{1} f + R^{\nu} (\partial_{\nu} D^{2}) \partial_{2} f \\
+&= (R^{1} (\partial_{1} D^{1}) + R^{2} (\partial_{2} D^{1})) \partial_{1} f
+  + (R^{1} (\partial_{1} D^{2}) + R^{2} (\partial_{2} D^{2})) \partial_{2} f \\
+&= (R^{1} (\partial_{x} x) + R^{2} (\partial_{y} x)) \partial_{x} f
+  + (R^{1} (\partial_{x} y) + R^{2} (\partial_{y} y)) \partial_{y} f \\
+&= (R^{1} \cdot 1 + R^{2} \cdot 0) \partial_{x} f + (R^{1} \cdot 0 + R^{2} \cdot 1) \partial_{y} f \\
+&= R^{1} \partial_{x} f + R^{2} \partial_{y} f  = R^{\nu}\partial_{\nu} f \\
+&= (- y) \partial_{x} + x \partial_{y}
+\end{aligned}
+++++
+
+両方の項が同じ結果を与えるので、元の式では
+[stem,latexmath]
+++++
+\lbrack D,R \rbrack (f) = 0
+++++
+
+なので
+[stem,latexmath]
+++++
+\lbrack D,R \rbrack = 0
+++++
+
+である。すなわち、スケーリングと回転は可換である。
+
+一方で、平行移動場 \(T=\partial_x\) との交換子は、latexmath:[T^1= 1, T^2= 0, \partial_{\mu} T^{\nu} = 0]、および latexmath:[D^1=x, D^2=y] なので、
+latexmath:[\partial_{1} D^{1}=1,\ \partial_{2} D^{2}=1,\ \partial_{1} D^{2}=\partial_{2} D^{1}=0] である。したがって、
+latexmath:[T^{\nu}(\partial_{\nu} D^{\mu})\partial_{\mu} f = T^{1}(\partial_{1} D^{1})\partial_{1} f + T^{1}(\partial_{1} D^{2})\partial_{2} f = \partial_{x} f]
+を踏まえて、
+[stem,latexmath]
+++++
+\begin{aligned}
+\lbrack D,T \rbrack (f)
+&= D(T f) - T(D f) \\
+& = D^{\mu}(\partial_{\mu} T^{\nu}) \partial_{\nu} f - T^{\nu}(\partial_{\nu} D^{\mu})\partial_{\mu} f \\
+&= D^{\mu} \cdot 0 \cdot \partial_{\nu} f - T^{\nu} \partial_{\nu} f \\
+&= 0 - \partial_{x} f \\
+&=-\frac{\partial f}{\partial x}
+\end{aligned}
+++++
+
+なので
+[stem,latexmath]
+++++
+[D,T] = -T
+++++
+
+である。つまり、スケーリングは平行移動とは可換ではない。
+
+=== 4. せん断を含む線形変換の交換子
+
+線形変換の生成するベクトル場でも、交換子を手で計算できる。たとえば、\(x\) 方向のせん断を表す
+[stem,latexmath]
+++++
+S_1 := x\frac{\partial}{\partial y}
+++++
+
+と、\(y\) 方向のせん断を表す
+[stem,latexmath]
+++++
+S_2 := y\frac{\partial}{\partial x}
+++++
+
+を考える。計算すると次のようになる。
+[stem,latexmath]
+++++
+\begin{aligned}
+\lbrack S_1,S_2 \rbrack (f)
+&= x\frac{\partial}{\partial y} \left(y\frac{\partial f}{\partial x}\right)
+  - y\frac{\partial}{\partial x} \left(x\frac{\partial f}{\partial y}\right) \\
+&= x
+   \left\{
+      \left(\frac{\partial}{\partial y} y\right) \frac{\partial f}{\partial x}
+      + y \left(\frac{\partial}{\partial y} \frac{\partial f}{\partial x}\right)
+   \right\}
+  - y
+   \left\{
+      \left(\frac{\partial}{\partial x} x\right) \frac{\partial f}{\partial y}
+      + x \left(\frac{\partial}{\partial x} \frac{\partial f}{\partial y}\right)
+   \right\} \\
+&= x \cdot 1 \cdot \frac{\partial f}{\partial x}
+   - y \cdot 1 \cdot \frac{\partial f}{\partial y}
+   + x y \left(\frac{\partial}{\partial y} \frac{\partial f}{\partial x}\right)
+   - x y \left(\frac{\partial}{\partial x} \frac{\partial f}{\partial y}\right)
+\end{aligned}
+++++
+
+\(f\)は滑らかな関数と仮定しているから、
+latexmath:[\frac{\partial}{\partial y}\frac{\partial f}{\partial x}
+= \frac{\partial}{\partial x}\frac{\partial f}{\partial y}]
+となり、二階偏微分の項は打ち消して
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\lbrack S_1,S_2 \rbrack (f)
+&= x\frac{\partial f}{\partial x} - y\frac{\partial f}{\partial y}.
+\end{aligned}
+++++
+
+したがって
+[stem,latexmath]
+++++
+[S_1,S_2] = x\frac{\partial}{\partial x}-y\frac{\partial}{\partial y}
+++++
+
+である。ここで見えるように、せん断同士の交換子は再び線形なベクトル場になり、同次拡大の方向へ寄与する。
+
+=== 5. 回転生成子のリー代数構造
+
+三次元空間の回転を表す生成子を
+[stem,latexmath]
+++++
+J_x := y\frac{\partial}{\partial z}-z\frac{\partial}{\partial y},
+\qquad
+J_y := z\frac{\partial}{\partial x}-x\frac{\partial}{\partial z},
+\qquad
+J_z := x\frac{\partial}{\partial y}-y\frac{\partial}{\partial x}
+++++
+
+とおく。直接計算すると
+[stem,latexmath]
+++++
+[J_x,J_y]=J_z,
+\qquad
+[J_y,J_z]=J_x,
+\qquad
+[J_z,J_x]=J_y
+++++
+
+となる。これは三次元回転群のリー代数 \(\mathfrak{so}(3)\) の基本関係であり、交換子が回転の「角速度の合成」を表すことを示している。
+
+=== 6. まとめ
+
+交換子積は、二つのベクトル場がどれだけ「同時に動けないか」を測る量である。特に、
+
+- 平行移動と回転は非可換である。
+- スケーリングと回転は可換であるが、スケーリングと平行移動は非可換である。
+- せん断同士の交換子は別の線形変換を生む。
+- 回転生成子はリー代数の典型例を与える。
+
+という事実は、外微分や微分形式の座標を使わない定義を理解するための重要な土台となる。
