@@ -325,17 +325,145 @@ J_y := z\frac{\partial}{\partial x}-x\frac{\partial}{\partial z},
 J_z := x\frac{\partial}{\partial y}-y\frac{\partial}{\partial x}
 ++++
 
-とおく。直接計算すると
+とおく。直接計算すると、今回の定義のもとでは
 [stem,latexmath]
 ++++
-[J_x,J_y]=J_z,
+[J_x,J_y]=-J_z,
 \qquad
-[J_y,J_z]=J_x,
+[J_y,J_z]=-J_x,
 \qquad
-[J_z,J_x]=J_y
+[J_z,J_x]=-J_y
 ++++
 
-となる。これは三次元回転群のリー代数 \(\mathfrak{so}(3)\) の基本関係であり、交換子が回転の「角速度の合成」を表すことを示している。
+となる。これは三次元回転群のリー代数の基本関係の一つであり、符号の向きは生成子の定義の取り方に依存する。
+
+演習のため、実際に上記となるかを計算してみる。まず、各生成子の成分を確認すると、
+[stem,latexmath]
+++++
+J_x = y\frac{\partial}{\partial z} - z\frac{\partial}{\partial y}
+= J_x^{1}\frac{\partial}{\partial x} + J_x^{2}\frac{\partial}{\partial y} + J_x^{3}\frac{\partial}{\partial z},
+\qquad
+J_x^{1}=0,
+\quad J_x^{2}=-z,
+\quad J_x^{3}=y,
+++++
+
+[stem,latexmath]
+++++
+J_y = z\frac{\partial}{\partial x} - x\frac{\partial}{\partial z}
+= J_y^{1}\frac{\partial}{\partial x} + J_y^{2}\frac{\partial}{\partial y} + J_y^{3}\frac{\partial}{\partial z},
+\qquad
+J_y^{1}=z,
+\quad J_y^{2}=0,
+\quad J_y^{3}=-x,
+++++
+
+[stem,latexmath]
+++++
+J_z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}
+= J_z^{1}\frac{\partial}{\partial x} + J_z^{2}\frac{\partial}{\partial y} + J_z^{3}\frac{\partial}{\partial z},
+\qquad
+J_z^{1}=-y,
+\quad J_z^{2}=x,
+\quad J_z^{3}=0.
+++++
+
+このとき、交換子は
+[stem,latexmath]
+++++
+\begin{aligned}
+\lbrack J_x,J_y \rbrack (f)
+&= J_x^{\mu}(\partial_{\mu}J_y^{\nu})\partial_{\nu} f
+   - J_y^{\nu}(\partial_{\nu}J_x^{\mu})\partial_{\mu} f
+\end{aligned}
+++++
+
+として計算できる。ここでは座標を \(x,y,z\) とみなして、
+latexmath:[\partial_1 = \partial_x,\ \partial_2 = \partial_y,\ \partial_3 = \partial_z]
+と対応させる。したがって、添字の和は latexmath:[\mu,\nu \in \{1,2,3\}] として取る。
+
+ここで、前半の項を計算すると、次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+J_x^{\mu}(\partial_{\mu}J_y^{\nu})\partial_{\nu} f
+&= \left\{J_x^{1}(\partial_{1}J_y^{1}) + J_x^{2}(\partial_{2}J_y^{1}) + J_x^{3}(\partial_{3}J_y^{1})\right\}\partial_{1} f \\
+& + \left\{J_x^{1}(\partial_{1}J_y^{2}) + J_x^{2}(\partial_{2}J_y^{2}) + J_x^{3}(\partial_{3}J_y^{2})\right\}\partial_{2} f \\
+& + \left\{J_x^{1}(\partial_{1}J_y^{3}) + J_x^{2}(\partial_{2}J_y^{3}) + J_x^{3}(\partial_{3}J_y^{3})\right\}\partial_{3} f \\
+&= \left\{0 \cdot (\partial_{x} z)      + J_x^{2}(\partial_{y} z)     + J_x^{3}(\partial_{z} z)\right\}\partial_{x} f \\
+& + \left\{0 \cdot (\partial_{x} \, 0) + J_x^{2}(\partial_{y} \, 0) + J_x^{3}(\partial_{z} \, 0)\right\}\partial_{y} f \\
+& + \left\{0 \cdot (\partial_{x} (-x)) + J_x^{2}(\partial_{y} (-x)) + J_x^{3}(\partial_{z} (-x))\right\}\partial_{z} f \\
+&= \left\{J_x^{2} \cdot 0 + J_x^{3} \cdot 1 \right\}\partial_{x} f
+   + \left\{J_x^{2} \cdot 0 + J_x^{3} \cdot 0 \right\}\partial_{y} f
+   + \left\{J_x^{2} \cdot 0 + J_x^{3} \cdot 0 \right\}\partial_{z} f \\
+&= J_x^{3} \partial_{x} f \\
+&= - J_z^{1} \partial_{x} f \\
+\end{aligned}
+++++
+
+続いて後半の項を計算すると次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+J_y^{\nu}(\partial_{\nu}J_x^{\mu})\partial_{\mu} f
+&= \left\{J_y^{1}(\partial_{1}J_x^{1}) + J_y^{2}(\partial_{2}J_x^{1}) + J_y^{3}(\partial_{3}J_x^{1})\right\} \partial_{1} f \\
+&+ \left\{J_y^{1}(\partial_{1}J_x^{2}) + J_y^{2}(\partial_{2}J_x^{2}) + J_y^{3}(\partial_{3}J_x^{2})\right\} \partial_{2} f \\
+&+ \left\{J_y^{1}(\partial_{1}J_x^{3}) + J_y^{2}(\partial_{2}J_x^{3}) + J_y^{3}(\partial_{3}J_x^{3})\right\} \partial_{3} f \\
+&= \left\{J_y^{1}(\partial_{x} \, 0) + 0 \cdot (\partial_{y} \, 0) + J_y^{3}(\partial_{z} \, 0)\right\} \partial_{x} f \\
+&+ \left\{J_y^{1}(\partial_{x} (-z)) + 0 \cdot (\partial_{y} (-z)) + J_y^{3}(\partial_{z} (-z))\right\} \partial_{y} f \\
+&+ \left\{J_y^{1}(\partial_{x} y)    + 0 \cdot (\partial_{y} y)     + J_y^{3}(\partial_{z} y)\right\} \partial_{z} f \\
+&= \left\{J_y^{1} \cdot 0 + J_y^{3} \cdot 0 \right\} \partial_{x} f
+  + \left\{J_y^{1} \cdot 0 + J_y^{3} \cdot (-1) \right\} \partial_{y} f
+  + \left\{J_y^{1} \cdot 0 + J_y^{3} \cdot 0 \right\} \partial_{z} f \\
+&= - J_y^{3} \partial_{y} f \\
+&= J_z^{2} \partial_{y} f \\
+\end{aligned}
+++++
+
+上記の結果を代入すると、次のように整理できる。
+[stem,latexmath]
+++++
+\begin{aligned}
+\lbrack J_x,J_y \rbrack (f)
+&= -J_z^{1} \partial_{x} f - J_z^{2} \partial_{y} f.
+\end{aligned}
+++++
+
+ここで、\(J_z\) の成分表示は
+[stem,latexmath]
+++++
+J_z = J_z^{1}\partial_{x} + J_z^{2}\partial_{y} + J_z^{3}\partial_{z}
+++++
+
+である。さらに、latexmath:[J_z^{3}=0] なので、latexmath:[J_z^{3}\partial_{z}f = 0] を加えても値は変わらない。したがって、
+[stem,latexmath]
+++++
+\begin{aligned}
+-J_z^{1} \partial_{x} f - J_z^{2} \partial_{y} f
+&= -J_z^{1} \partial_{x} f - J_z^{2} \partial_{y} f - J_z^{3}\partial_{z}f \\
+&= -J_z(f).
+\end{aligned}
+++++
+
+ゆえに
+[stem,latexmath]
+++++
+\lbrack J_x,J_y \rbrack = -J_z
+++++
+
+ここで、latexmath:[J_x,J_y,J_z] の定義は latexmath:[x,y,z] を巡回的に入れ替えた形になっている。したがって、latexmath:[\lbrack J_x,J_y\rbrack] の計算と同じ手順を、latexmath:[J_x,J_y,J_z] の名前を巡回的に置き換えることで、 latexmath:[\lbrack J_y,J_z \rbrack] と latexmath:[\lbrack J_z,J_x \rbrack] も同様に導くことができる。
+
+[stem,latexmath]
+++++
+\lbrack J_y,J_z \rbrack = -J_x
+++++
+
+[stem,latexmath]
+++++
+\lbrack J_z,J_x \rbrack = -J_y
+++++
 
 === 6. まとめ
 
