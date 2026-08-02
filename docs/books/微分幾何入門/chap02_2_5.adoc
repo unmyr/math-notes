@@ -67,16 +67,105 @@ d x^\mu \wedge d x^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\
 \end{aligned}
 ++++
 
-2形式の成分は反対称であるから、次のものが導き出される。
+後半の項のダミー添字を latexmath:[\mu \leftrightarrow \nu]の入れ替えを行うと、
 
 [stem,latexmath]
 ++++
 \begin{aligned}
-\omega(X_1, X_2) 
-&= \frac{1}{2}\omega_{\mu\nu} (X_1^{\mu} X_2^{\nu} + X_1^{\mu} X_2^{\nu}) \\
-&= \omega_{\mu\nu}X_1^{\mu} X_2^{\nu}
+&= \frac{1}{2}\omega_{\mu\nu} ( X_1^{\mu} X_2^{\nu} - X_1^{\nu} X_2^{\mu}) \\
+&= \frac{1}{2} ( \omega_{\mu\nu} X_1^{\mu} X_2^{\nu} - \omega_{\nu\mu} X_1^{\mu} X_2^{\nu}) \\
 \end{aligned}
 ++++
+
+2-形式の係数の反対称性 latexmath:[\omega_{\nu\mu} = - \omega_{\mu\nu}]を使うと第二項の符号が反転し、これで二項が同じになり latexmath:[\frac{1}{2}]が消えて、次の結果が得られる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{1}{2} ( \omega_{\mu\nu} X_1^{\mu} X_2^{\nu} + \omega_{\mu\nu} X_1^{\mu} X_2^{\nu}) \\
+&= \omega_{\mu\nu} X_1^{\mu} X_2^{\nu} \\
+\end{aligned}
+++++
+
+====  2-形式の例(p53): sgnを使う場合
+
+合わせてテンソル積の評価 latexmath:[(\alpha \otimes \beta)(X, Y) = \alpha (X) \beta (Y)]であるから、次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& dx^{\mu} \wedge dx^{\nu}
+\, \left(
+  \frac{\partial}{\partial x^{\rho}},
+  \frac{\partial}{\partial x^{\tau}}
+\right) \\
+&= \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu \\
+\sigma(\mu) & \sigma(\nu) \\ 
+\end{pmatrix}
+dx^{\sigma(\mu)} \otimes dx^{\sigma(\nu)}
+\, \left(
+  \frac{\partial}{\partial x^{\rho}},
+  \frac{\partial}{\partial x^{\tau}}
+\right) \\
+&= \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu \\
+\sigma(\mu) & \sigma(\nu) \\ 
+\end{pmatrix}
+dx^{\sigma(\mu)} \left(\frac{\partial}{\partial x^{\rho}}\right)
+dx^{\sigma(\nu)} \left(\frac{\partial}{\partial x^{\tau}}\right) \\
+&= \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu \\
+\sigma(\mu) & \sigma(\nu) \\ 
+\end{pmatrix}
+\delta^{\sigma(\mu)}_{\rho}
+\delta^{\sigma(\nu)}_{\tau} \\
+\end{aligned}
+++++
+
+ここまでを元の式に代入すると、次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\omega(X_1, X_2)
+&= \frac{1}{2}\omega_{\mu\nu} \; d x^\mu \wedge d x^\nu \left(X_1^{\rho} \frac{\partial}{\partial x^\rho}, X_2^{\tau} \frac{\partial}{\partial x^\tau}\right) \\
+&= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} \; d x^\mu \wedge d x^\nu (\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}) \\
+&= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu \\
+\sigma(\mu) & \sigma(\nu) \\ 
+\end{pmatrix}
+\delta^{\sigma(\mu)}_{\rho}
+\delta^{\sigma(\nu)}_{\tau} \\
+&= \frac{1}{2} \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu \\
+\sigma(\mu) & \sigma(\nu) \\ 
+\end{pmatrix}
+\omega_{\mu\nu} X_1^{\sigma(\mu)} X_2^{\sigma(\nu)} \\
+&= \frac{1}{2} \left(\omega_{\mu\nu} X_1^{\mu} X_2^{\nu} - \omega_{\nu\mu} X_1^{\nu} X_2^{\mu} \right) \\
+\end{aligned}
+++++
+
+2-形式の係数の反対称性 latexmath:[\omega_{\nu\mu} = - \omega_{\mu\nu}]を用いて第2項のダミー添字を latexmath:[\mu \leftrightarrow \nu]で入れ替えると、
+
+[stem,latexmath]
+++++
+\frac{1}{2} \left(\omega_{\mu\nu} X_1^{\mu} X_2^{\nu} - \omega_{\nu\mu} X_1^{\nu} X_2^{\mu} \right) 
+= \frac{1}{2} \left(\omega_{\mu\nu} X_1^{\mu} X_2^{\nu} + \omega_{\mu\nu} X_1^{\mu} X_2^{\nu} \right)
+++++
+
+以上より、
+
+[stem,latexmath]
+++++
+\omega(X_1, X_2) = \omega_{\mu\nu} X_1^{\mu} X_2^{\nu}.
+++++
+
 
 ====  3-形式の例(p53)
 3-形式 latexmath:[\displaystyle \omega=\frac{1}{3!}\omega_{\mu\nu\rho} d x^\mu \wedge d x^\nu \wedge d x^\rho]と3つのベクトル場 latexmath:[\displaystyle X_i = X_i^\nu \frac{\partial}{\partial x^\nu}\, (i=1,2,3)]から、双対ペアリングを多重線形写像に拡張した関数を得られる。
