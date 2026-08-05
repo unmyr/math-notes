@@ -61,7 +61,7 @@ d x^\mu \wedge d x^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\
 \begin{aligned}
 \omega(X_1, X_2) 
 &= \frac{1}{2}\omega_{\mu\nu} \; d x^\mu \wedge d x^\nu \left(X_1^{\rho} \frac{\partial}{\partial x^\rho}, X_2^{\tau} \frac{\partial}{\partial x^\tau}\right) \\
-&= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} \; d x^\mu \wedge d x^\nu (\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}) \\
+&= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} \; d x^\mu \wedge d x^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}\right) \\
 &= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} (\delta_\rho^\mu \delta_\tau^\nu - \delta_\rho^\nu \delta_\tau^\mu) \\
 &= \frac{1}{2}\omega_{\mu\nu} ( X_1^{\mu} X_2^{\nu} - X_1^{\nu} X_2^{\mu}) \\
 \end{aligned}
