@@ -13,6 +13,56 @@ include::../attrs.adoc[]
 
 外微分の局所座標を用いない定義に入る前段階として、ベクトル場の交換子 (Lie bracket) を手計算で見ておくと理解しやすい。ここでは、まず一般形を示し、そのあといくつかの具体例を計算する。
 
+=== 0. 前準備: 微分作用素の合成
+
+ベクトル場の合成 latexmath:[X_1 \circ X_2] は微分作用素として、局所座標 latexmath:[(x^1,\dots,x^n)] に対して、次のように表すことができる。
+
+以下の計算過程については、今後の演習や証明において必要になることもあり、省略記法と省略しない場合との対応関係の理解を高めるため、省略記法を使用せずに式変形し、省略記法と同じ結果になることを示す。
+
+[stem,latexmath]
+++++
+ X_1 = \sum_{\mu} X_{1}^{\mu}(x^1,\dots,x^n) \frac{\partial}{\partial x^{\mu}},\quad X_2 = \sum_{\nu} X_{2}^{\nu}(x^1,\dots,x^n) \frac{\partial}{\partial x^{\nu}}
+++++
+
+[stem,latexmath]
+++++
+\begin{aligned}
+X_1(X_2(f)) &= X_{1}\left(\sum_{\nu} X_{2}^{\nu}(x^1,\dots,x^n) \frac{\partial f}{\partial x^{\nu}}(x^1,\dots,x^n)\right) 
+\end{aligned}
+++++
+
+ここで、latexmath:[X_1] が微分作用素であることから、任意の関数 latexmath:[g] に対して latexmath:[X_1(g)=\sum_{\mu} X_1^{\mu}(x^1,\dots,x^n)\,\partial_{\mu}g] であり、ライプニッツ則を適用すると、次の結果が得られる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{\nu} X_{1}\left(X_{2}^{\nu}(x^1,\dots,x^n)\right) \frac{\partial f}{\partial x^{\nu}} (x^1,\dots,x^n)
+  + \sum_{\nu} X_{2}^{\nu}(x^1,\dots,x^n) \, X_{1}\left(\frac{\partial f}{\partial x^{\nu}}(x^1,\dots,x^n)\right) \\
+&= \sum_{\nu}
+     \left(\sum_{\mu} X_{1}^{\mu}(x^1,\dots,x^n) \frac{\partial X_{2}^{\nu}}{\partial x^{\mu}} (x^1,\dots,x^n) \right) \frac{\partial f}{\partial x^{\nu}} (x^1,\dots,x^n) \\
+&+ \sum_{\nu} X_{2}^{\nu}(x^1,\dots,x^n)
+     \left(\sum_{\mu} X_{1}^{\mu}(x^1,\dots,x^n) \frac{\partial^2 f}{\partial x^{\mu}\partial x^{\nu}}(x^1,\dots,x^n)\right) \\
+&= \sum_{\mu,\nu}
+     X_{1}^{\mu}(x^1,\dots,x^n) \frac{\partial X_{2}^{\nu}}{\partial x^{\mu}} (x^1,\dots,x^n) \frac{\partial f}{\partial x^{\nu}} (x^1,\dots,x^n) \\
+&+ \sum_{\mu,\nu} X_{2}^{\nu}(x^1,\dots,x^n) X_{1}^{\mu}(x^1,\dots,x^n)
+      \frac{\partial^2 f}{\partial x^{\mu}\partial x^{\nu}}(x^1,\dots,x^n) \\
+&= \sum_{\mu,\nu} X_{1}^{\mu}(x^1,\dots,x^n) \left(
+\frac{\partial X_{2}^{\nu}}{\partial x^{\mu}} (x^1,\dots,x^n) \frac{\partial f}{\partial x^{\nu}} (x^1,\dots,x^n)
++ X_{2}^{\nu}(x^1,\dots,x^n) \frac{\partial^2 f}{\partial x^{\mu}\partial x^{\nu}}(x^1,\dots,x^n)
+\right) \\
+\end{aligned}
+++++
+
+これをアインシュタイン縮約記法で表すと、次の表示が得られる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= X_{1}^{\mu} \left( (\partial_{\mu} X_{2}^{\nu}) \partial_{\nu} f + X_{2}^{\nu} \partial_{\mu} \partial_{\nu} f \right)\\
+\end{aligned}
+++++
+
+
 === 1. 交換子積の定義
 
 ベクトル場
