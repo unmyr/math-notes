@@ -133,7 +133,7 @@ dx^{\sigma(\nu)} \left(\frac{\partial}{\partial x^{\tau}}\right) \\
 \begin{aligned}
 \omega(X_1, X_2)
 &= \frac{1}{2}\omega_{\mu\nu} \; d x^\mu \wedge d x^\nu \left(X_1^{\rho} \frac{\partial}{\partial x^\rho}, X_2^{\tau} \frac{\partial}{\partial x^\tau}\right) \\
-&= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} \; d x^\mu \wedge d x^\nu (\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}) \\
+&= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} \; d x^\mu \wedge d x^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\partial x^\tau}\right) \\
 &= \frac{1}{2}\omega_{\mu\nu} X_1^{\rho} X_2^{\tau} \sum_{\sigma \in S_2}\mathrm{sgn}
 \begin{pmatrix}
 \mu & \nu \\
@@ -417,7 +417,7 @@ dx^{\sigma(\mu_k)} \left(\frac{\partial}{\partial x^{\nu_k}}\right) \\
 ++++
 以上より、式(2.12)が示された。
 
-=== 外微分の極座標を用いない定義 (p56)
+=== 外微分の局所座標を用いない定義 (p56)
 
 [stem,latexmath]
 ++++
