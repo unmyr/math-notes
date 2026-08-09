@@ -1,0 +1,135 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+endif::[]
+
+include::header.adoc[]
+
+:stem: latexmath
+include::../attrs.adoc[]
+
+// Notes: coordinate-free exterior derivative — 1-form and 2-form worked example
+== Examples of coordinate-free computations
+
+This note verifies that the coordinate expression of the exterior derivative
+for a 2-form agrees with the coordinate-free definition (see equation <<../books/微分幾何入門/chap02_2_5.adoc#mjx-eqn-def_2_13,定義(2.13)>>).
+
+=== 例1: 1-形式の場合
+
+まず、1-形式の座標非依存定義を確認する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+d\omega(X_1,X_2)
+&= (-1)^{1+1} X_1(\omega(X_2)) + (-1)^{1+2} X_2(\omega(X_1)) - (-1)^{1+2+1} \omega(\lbrack X_1,X_2 \rbrack) \\
+&= X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1,X_2 \rbrack)
+\end{aligned}
+++++
+
+ここで
+
+[stem,latexmath]
+++++
+\omega = \omega_{\mu} \, dx^{\mu}
+++++
+
+と書く。
+
+外微分の座標表示は
+
+[stem,latexmath]
+++++
+d\omega = d(\omega_{\mu} \, dx^{\mu}) = (\partial_{\nu} \omega_{\mu}) \, dx^{\nu} \wedge dx^{\mu}
+++++
+
+である。反対称性を明示すると
+
+[stem,latexmath]
+++++
+d\omega = \frac{1}{2}(\partial_{\nu} \omega_{\mu} - \partial_{\mu} \omega_{\nu}) \, dx^{\nu} \wedge dx^{\mu}.
+++++
+
+2つのベクトル場を
+
+[stem,latexmath]
+++++
+X_1 = X_1^{\rho_{1}} \frac{\partial}{\partial x^{\rho_{1}}}, \qquad
+X_2 = X_2^{\rho_{2}} \frac{\partial}{\partial x^{\rho_{2}}}
+++++
+
+とすると、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+d\omega(X_1,X_2)
+&= (\partial_{\nu} \omega_{\mu}) \, X_1^{\nu} X_2^{\mu} - (\partial_{\nu} \omega_{\mu}) \, X_1^{\mu} X_2^{\nu} \\
+&= (\partial_{\nu} \omega_{\mu} - \partial_{\mu} \omega_{\nu}) \, X_1^{\nu} X_2^{\mu}.
+\end{aligned}
+++++
+
+この結果を座標非依存定義から導出すると、項の対応が見える。
+
+[stem,latexmath]
+++++
+\omega(X_i) = \omega_{\mu} X_i^{\mu}
+++++
+
+より
+
+[stem,latexmath]
+++++
+\begin{aligned}
+X_1(\omega(X_2))
+&= X_1^{\nu} \partial_{\nu}(\omega_{\mu} X_2^{\mu}) \\
+&= X_1^{\nu}(\partial_{\nu} \omega_{\mu}) X_2^{\mu} + \omega_{\mu} X_1^{\nu} \partial_{\nu} X_2^{\mu}, \\
+\end{aligned}
+++++
+
+[stem,latexmath]
+++++
+\begin{aligned}
+X_2(\omega(X_1))
+&= X_2^{\nu} \partial_{\nu}(\omega_{\mu} X_1^{\mu}) \\
+&= X_2^{\nu}(\partial_{\nu} \omega_{\mu}) X_1^{\mu} + \omega_{\mu} X_2^{\nu} \partial_{\nu} X_1^{\mu}.
+\end{aligned}
+++++
+
+Lie 括弧の成分は
+
+[stem,latexmath]
+++++
+[X_1,X_2]^{\mu} = X_1^{\nu} \partial_{\nu} X_2^{\mu} - X_2^{\nu} \partial_{\nu} X_1^{\mu}
+++++
+
+だから
+
+[stem,latexmath]
+++++
+\omega(\lbrack X_1,X_2 \rbrack) = \omega_{\mu}(X_1^{\nu} \partial_{\nu} X_2^{\mu} - X_2^{\nu} \partial_{\nu} X_1^{\mu}).
+++++
+
+これらを座標非依存定義に代入すると、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1,X_2 \rbrack) \\
+&= X_1^{\nu}(\partial_{\nu} \omega_{\mu}) X_2^{\mu} - X_2^{\nu}(\partial_{\nu} \omega_{\mu}) X_1^{\mu} \\
+&\qquad + \omega_{\mu}(X_1^{\nu} \partial_{\nu} X_2^{\mu} - X_2^{\nu} \partial_{\nu} X_1^{\mu}) \\
+&\qquad - \omega_{\mu}(X_1^{\nu} \partial_{\nu} X_2^{\mu} - X_2^{\nu} \partial_{\nu} X_1^{\mu}) \\
+&= X_1^{\nu}(\partial_{\nu} \omega_{\mu}) X_2^{\mu} - X_2^{\nu}(\partial_{\nu} \omega_{\mu}) X_1^{\mu}.
+\end{aligned}
+++++
+
+最後に適切に添字を入れ替えると、
+
+[stem,latexmath]
+++++
+X_1^{\nu}(\partial_{\nu} \omega_{\mu}) X_2^{\mu} - X_2^{\nu}(\partial_{\nu} \omega_{\mu}) X_1^{\mu}
+= (\partial_{\nu} \omega_{\mu} - \partial_{\mu} \omega_{\nu}) X_1^{\nu} X_2^{\mu}.
+++++
+
+これで、座標式と座標非依存式が一致することが確認できる。
