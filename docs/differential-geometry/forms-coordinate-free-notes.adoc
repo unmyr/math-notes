@@ -9,7 +9,9 @@ include::header.adoc[]
 :stem: latexmath
 include::../attrs.adoc[]
 
-// Notes: coordinate-free exterior derivative — 1-form and 2-form worked example
+// 対象者: 初学者
+// このノートでは、座標式と座標非依存表現の対応を計算の過程まで追う
+// 省略記法や添え字の整理など、専門向けテキストでは省略されがちな計算の工夫を明示する
 == Examples of coordinate-free computations
 
 This note verifies that the coordinate expression of the exterior derivative
