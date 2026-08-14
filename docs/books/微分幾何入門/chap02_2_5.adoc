@@ -357,13 +357,13 @@ dx^{\sigma(\mu_3)} \left(\frac{\partial}{\partial x^{\nu_3}}\right) \\
 問:: 式(2.12)を示せ。
 
 解答::
-k-形式 latexmath:[\displaystyle \omega=\frac{1}{k!}\omega_{\mu_1 \cdot \mu_k} d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k}]に対して、 _k_ 個のベクトル場 latexmath:[\displaystyle X_i = X_i^\nu \frac{\partial}{\partial x^\nu}\, (i=1,2,\cdots,k)]から、双対ペアリングを多重線形写像に拡張した関数を得られる。
+k-形式 latexmath:[\displaystyle \omega=\frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} \, d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k}]に対して、 _k_ 個のベクトル場 latexmath:[\displaystyle X_i = X_i^\nu \frac{\partial}{\partial x^\nu}\, (i=1,2,\cdots,k)]から、双対ペアリングを多重線形写像に拡張した関数を得られる。
 +
 [stem,latexmath]
 ++++
 \omega(X_1,\cdots,X_k)=\frac{1}{k!}\omega_{\mu_1 \cdots \mu_k} \; d x^{\mu_1} \wedge \cdots \wedge d x^{\mu_k} \left(X_1^{\nu_1}\frac{\partial}{\partial x^{\nu_1}}, \cdots, X_k^{\nu_k}\frac{\partial}{\partial x^{\nu_k}}\right)
 ++++
-ここで、テンソル積の定義から k-形式は次のように定義できる。
+ここで、テンソル積の定義から _k_-形式は次のように定義できる。
 +
 [stem,latexmath]
 ++++
