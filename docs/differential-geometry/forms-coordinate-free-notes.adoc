@@ -249,7 +249,8 @@ X_3(\omega(X_1,X_2))
 \end{aligned}
 ++++
 
-最初の3成分の添え字を入れ替えて、latexmath:[X_1, X_2, X_3]の上の添え字を揃えると、次のようになる。
+同じモノミアル(単項式 (monomial); 同じ型の積の形、たとえば latexmath:[X_1^{\rho} X_2^{\mu} X_3^{\nu}])を含む項を比較できるように、添え字の順序を揃える。ここで 
+latexmath:[\rho], latexmath:[\mu], latexmath:[\nu]は、はダミー添字であり、総和 latexmath:[\sum_{\rho,\mu,\nu}]は省略されている。したがって、同じ総和の中で添字を交換しても式の値は変わらず、項をまとめるための書き換えとして扱える。
 
 [stem,latexmath]
 ++++
@@ -257,27 +258,6 @@ X_3(\omega(X_1,X_2))
 & (\partial_{\rho}\omega_{\mu\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
 - (\partial_{\rho}\omega_{\mu\nu}) X_1^{\mu} X_2^{\rho} X_3^{\nu}
 + (\partial_{\rho}\omega_{\mu\nu}) X_1^{\mu} X_2^{\nu} X_3^{\rho} \\
-&=
-(\partial_{\rho}\omega_{\mu\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
-- (\partial_{\mu}\omega_{\rho\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
-+ (\partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
-&=
-(\partial_{\rho}\omega_{\mu\nu}
- - (\partial_{\mu}\omega_{\rho\nu})
-  + (\partial_{\nu}\omega_{\rho\mu})) X_1^{\rho} X_2^{\mu} X_3^{\nu}
-\end{aligned}
-++++
-
-以上より、前半の項の和をまとめることができる。
-
-[stem,latexmath]
-++++
-\begin{aligned}
-& X_1(\omega(X_2,X_3)) - X_2(\omega(X_1,X_3)) + X_3(\omega(X_1,X_2)) \\
-&=
-(  \partial_{\rho}\omega_{\mu\nu}
- - \partial_{\mu}\omega_{\rho\nu}
- + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
 &\quad
  + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
  + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
@@ -286,7 +266,68 @@ X_3(\omega(X_1,X_2))
  - \omega_{\mu\nu} X_1^{\mu} X_2^{\rho} (\partial_{\rho} X_3^{\nu}) \\
 &\quad
  + \omega_{\mu\nu} (\partial_{\rho} X_1^{\mu}) X_2^{\nu} X_3^{\rho}
- + \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho}.
+ + \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho} \\
+&=
+(\partial_{\rho}\omega_{\mu\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
+- (\partial_{\mu}\omega_{\rho\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
++ (\partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
+&\quad
+ + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
+ + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
+&\quad
+ - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ - \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
+&\quad
+ + \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ + \omega_{\rho\mu} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu} \\
+&=
+(\partial_{\rho}\omega_{\mu\nu}
+ - (\partial_{\mu}\omega_{\rho\nu})
+  + (\partial_{\nu}\omega_{\rho\mu})) X_1^{\rho} X_2^{\mu} X_3^{\nu}\\
+&\quad
+ + \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
+&\quad
+ + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
+ + \omega_{\rho\mu} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu} \\
+&\quad
+ + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
+ - \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
+&=
+(\partial_{\rho}\omega_{\mu\nu}
+ - (\partial_{\mu}\omega_{\rho\nu})
+  - (\partial_{\nu}\omega_{\mu\rho})) X_1^{\rho} X_2^{\mu} X_3^{\nu}\\
+&\quad
+ - \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
+&\quad
+ + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
+ - \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu} \\
+&\quad
+ + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
+ - \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
+\end{aligned}
+++++
+
+以上より、前半の項の和を次のようにまとめることができた。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& X_1(\omega(X_2,X_3)) - X_2(\omega(X_1,X_3)) + X_3(\omega(X_1,X_2)) \\
+&=
+(\partial_{\rho}\omega_{\mu\nu}
+ - (\partial_{\mu}\omega_{\rho\nu})
+  - (\partial_{\nu}\omega_{\mu\rho})) X_1^{\rho} X_2^{\mu} X_3^{\nu}\\
+&\quad
+ - \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
+&\quad
+ + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
+ - \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu} \\
+&\quad
+ + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
+ - \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}).
 \end{aligned}
 ++++
 
@@ -334,13 +375,49 @@ Lie 括弧の成分は
  - \omega_{\mu\nu} (\partial_{\rho} X_1^{\mu}) X_2^{\nu} X_3^{\rho} \\
 &\quad
  - \omega_{\mu\nu} X_1^{\nu} X_2^{\rho} (\partial_{\rho} X_3^{\mu})
- + \omega_{\mu\nu} X_1^{\nu} (\partial_{\rho} X_2^{\mu}) X_3^{\rho}.
+ + \omega_{\mu\nu} X_1^{\nu} (\partial_{\rho} X_2^{\mu}) X_3^{\rho} \\
+\end{aligned}
+++++
+
+latexmath:[X_1^{\rho} X_2^{\mu} X_3^{\nu}]と同じ並び順になるように、添え字を入れ替えて、さらに反対称性 latexmath:[\omega_{\mu\nu} = -\omega_{\nu\mu}] を用いて同符号の項をまとめる。なお、ここでも 、総和 latexmath:[\sum_{\rho,\mu,\nu}]は省略されているので、添え字の入れ替えは問題なく行える。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&=
+ - \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
+ + \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}\\
+&\quad
+ + \omega_{\nu\mu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
+ - \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
+&\quad
+ - \omega_{\nu\rho} X_1^{\rho} X_2^{\rho} (\partial_{\rho} X_3^{\nu})
+ + \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu} \\
+&=
+ - \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ + \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
+&\quad
+ + \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
+ - \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu} \\
+&\quad
+ + \omega_{\nu\mu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
+ - \omega_{\nu\rho} X_1^{\rho} X_2^{\rho} (\partial_{\rho} X_3^{\nu}) \\
+ &=
+   \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ + \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
+&\quad
+ + \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
+ - \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu} \\
+&\quad
+ - \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
+ + \omega_{\rho\nu} X_1^{\rho} X_2^{\rho} (\partial_{\rho} X_3^{\nu}).
 \end{aligned}
 ++++
 
 ==== 3. 反対称性を使って相殺する
 
-ここでの目的は、微分項と Lie bracket 項が相殺して、 latexmath:[\partial\omega] の項だけが残ることを示すことである。添え字の順序が揃っていないと、同じ型の項を見分けられないので、まずはダミー添字を整列させてから、latexmath:[\omega_{\mu\nu} = - \omega_{\nu\mu}] を使って項をまとめる。これは、座標表現から見た「同じ項が互いに打ち消す」という操作を、座標非依存的に再現している。
+ここでの目的は、微分項と Lie bracket 項が相殺して、 latexmath:[\partial\omega] の項だけが残ることを示すことである。
+以下の通り、最終的に残るのは latexmath:[\partial_{\rho}\omega_{\mu\nu}] の項だけになる。
 
 [stem,latexmath]
 ++++
@@ -348,97 +425,31 @@ Lie 括弧の成分は
 &X_1(\omega(X_2,X_3))-X_2(\omega(X_1,X_3))+X_3(\omega(X_1,X_2))\\
 &\quad-\omega([X_1,X_2],X_3)+\omega([X_1,X_3],X_2)-\omega([X_2,X_3],X_1)\\
 &=
-(  \partial_{\rho}\omega_{\mu\nu}
- - \partial_{\mu}\omega_{\rho\nu}
- + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
+(\partial_{\rho}\omega_{\mu\nu}
+ - (\partial_{\mu}\omega_{\rho\nu})
+  - (\partial_{\nu}\omega_{\mu\rho})) X_1^{\rho} X_2^{\mu} X_3^{\nu}\\
+&\quad
+ - \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
 &\quad
  + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
- + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
-&\quad
- - \omega_{\mu\nu} (\partial_{\rho} X_1^{\mu}) X_2^{\rho} X_3^{\nu}
- - \omega_{\mu\nu} X_1^{\mu} X_2^{\rho} (\partial_{\rho} X_3^{\nu}) \\
-&\quad
- + \omega_{\mu\nu} (\partial_{\rho} X_1^{\mu}) X_2^{\nu} X_3^{\rho}
- + \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho} \\
-&\quad
- - \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
- + \omega_{\mu\nu} (\partial_{\rho} X_1^{\mu}) X_2^{\rho} X_3^{\nu} \\
-&\quad
- + \omega_{\mu\nu} X_1^{\rho} X_2^{\nu} (\partial_{\rho} X_3^{\mu})
- - \omega_{\mu\nu} (\partial_{\rho} X_1^{\mu}) X_2^{\nu} X_3^{\rho} \\
-&\quad
- - \omega_{\mu\nu} X_1^{\nu} X_2^{\rho} (\partial_{\rho} X_3^{\mu})
- + \omega_{\mu\nu} X_1^{\nu} (\partial_{\rho} X_2^{\mu}) X_3^{\rho} \\
-&=
-(  \partial_{\rho}\omega_{\mu\nu}
- - \partial_{\mu}\omega_{\rho\nu}
- + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
-&\quad
- + 0
- + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
-&\quad
- - 0
- - \omega_{\mu\nu} X_1^{\mu} X_2^{\rho} (\partial_{\rho} X_3^{\nu}) \\
-&\quad
- + 0
- + \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho} \\
-&\quad
- - 0
- + 0 \\
-&\quad
- + \omega_{\mu\nu} X_1^{\rho} X_2^{\nu} (\partial_{\rho} X_3^{\mu})
- - 0 \\
-&\quad
- - \omega_{\mu\nu} X_1^{\nu} X_2^{\rho} (\partial_{\rho} X_3^{\mu})
- + \omega_{\mu\nu} X_1^{\nu} (\partial_{\rho} X_2^{\mu}) X_3^{\rho} \\
-&=
-(  \partial_{\rho}\omega_{\mu\nu}
- - \partial_{\mu}\omega_{\rho\nu}
- + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
+ - \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu} \\
 &\quad
  + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
- - \omega_{\mu\nu} X_1^{\mu} X_2^{\rho} (\partial_{\rho} X_3^{\nu})
- + \omega_{\mu\nu} X_1^{\rho} X_2^{\nu} (\partial_{\rho} X_3^{\mu})
- - \omega_{\mu\nu} X_1^{\nu} X_2^{\rho} (\partial_{\rho} X_3^{\mu}) \\
+ - \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
 &\quad
- + \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho}
- + \omega_{\mu\nu} X_1^{\nu} (\partial_{\rho} X_2^{\mu}) X_3^{\rho} \\
-\end{aligned}
-++++
-
-latexmath:[X_1^{\rho} X_2^{\mu} X_3^{\nu}]と同じ並び順になるように、添え字を入れ替えて、さらに反対称性 latexmath:[\omega_{\mu\nu} = -\omega_{\nu\mu}] を用いて同符号の項をまとめると、最終的に残るのは latexmath:[\partial_{\rho}\omega_{\mu\nu}] の項だけである。
-
-[stem,latexmath]
-++++
-\begin{aligned}
-&=
-(  \partial_{\rho}\omega_{\mu\nu}
- - \partial_{\mu}\omega_{\rho\nu}
- + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
+ + \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ + \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
 &\quad
- + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
- - \omega_{\mu\nu} X_1^{\mu} X_2^{\rho} (\partial_{\rho} X_3^{\nu})
- + \omega_{\nu\mu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
- - \omega_{\nu\mu} X_1^{\mu} X_2^{\rho} (\partial_{\rho} X_3^{\nu}) \\
+ + \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
+ - \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu} \\
 &\quad
- + \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho}
- + \omega_{\nu\mu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho} \\
-&=
-(  \partial_{\rho}\omega_{\mu\nu}
- - \partial_{\mu}\omega_{\rho\nu}
- + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
-&\quad
- + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
- - \omega_{\mu\nu} X_1^{\mu} X_2^{\rho} (\partial_{\rho} X_3^{\nu})
  - \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
- + \omega_{\mu\nu} X_1^{\mu} X_2^{\rho} (\partial_{\rho} X_3^{\nu}) \\
-&\quad
- + \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho}
- - \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho} \\
+ + \omega_{\rho\nu} X_1^{\rho} X_2^{\rho} (\partial_{\rho} X_3^{\nu}) \\
 &=
 (  \partial_{\rho}\omega_{\mu\nu}
  - \partial_{\mu}\omega_{\rho\nu}
- + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\.
+ + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
 \end{aligned}
 ++++
 
