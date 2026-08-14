@@ -163,16 +163,47 @@ dx^{\sigma(\nu)} \left(\frac{\partial}{\partial x^{\tau}}\right) \\
 \sigma(\mu) & \sigma(\nu) \\ 
 \end{pmatrix}
 \omega_{\mu\nu} X_1^{\sigma(\mu)} X_2^{\sigma(\nu)} \\
-&= \frac{1}{2} \left(\omega_{\mu\nu} X_1^{\mu} X_2^{\nu} - \omega_{\nu\mu} X_1^{\nu} X_2^{\mu} \right) \\
 \end{aligned}
 ++++
 
-2-形式の係数の反対称性 latexmath:[\omega_{\nu\mu} = - \omega_{\mu\nu}]を用いて第2項のダミー添字を latexmath:[\mu \leftrightarrow \nu]で入れ替えると、
+ここで latexmath:[\mu], latexmath:[\nu]は、はダミー添字であり、総和 latexmath:[\sum_{\mu,\nu}]は省略されている。したがって、同じ総和の中で添字を交換しても式の値は変わらず、項をまとめるための書き換えとして扱える。
 
 [stem,latexmath]
 ++++
-\frac{1}{2} \left(\omega_{\mu\nu} X_1^{\mu} X_2^{\nu} - \omega_{\nu\mu} X_1^{\nu} X_2^{\mu} \right) 
-= \frac{1}{2} \left(\omega_{\mu\nu} X_1^{\mu} X_2^{\nu} + \omega_{\mu\nu} X_1^{\mu} X_2^{\nu} \right)
+\begin{aligned}
+&= \frac{1}{2} \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\sigma(\mu) & \sigma(\nu) \\
+\mu & \nu \\
+\end{pmatrix}
+\omega_{\sigma(\mu)\sigma(\nu)} X_1^{\mu} X_2^{\nu} \\
+\end{aligned}
+++++
+
+latexmath:[\mathrm{sgn}(\sigma^{-1})=\mathrm{sgn}(\sigma)^{-1}=\mathrm{sgn}(\sigma)]であるから、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{1}{2} \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu \\
+\sigma(\mu) & \sigma(\nu) \\
+\end{pmatrix}
+\omega_{\sigma(\mu)\sigma(\nu)} X_1^{\mu} X_2^{\nu} \\
+\end{aligned}
+++++
+
+ここで完全反対称性より、 latexmath:[\omega_{\mu\nu} = \mathrm{sgn}(\sigma) \omega_{\sigma(\mu) \sigma(\nu)}]であるから:
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \frac{1}{2} \sum_{\sigma \in S_2} \omega_{\mu\nu} X_1^{\mu} X_2^{\nu} \\
+&= \frac{1}{2} \omega_{\mu\nu} X_1^{\mu} X_2^{\nu} \sum_{\sigma \in S_2} 1 \\
+&= \frac{1}{2} \omega_{\mu\nu} X_1^{\mu} X_2^{\nu} |S_2| \\
+&= \omega_{\mu\nu} X_1^{\mu} X_2^{\nu} \\
+\end{aligned}
 ++++
 
 以上より、
