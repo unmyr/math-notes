@@ -89,6 +89,22 @@ d x^\mu \wedge d x^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\
 
 ====  2-形式の例(p53): sgnを使う場合
 
+テンソル積の定義から 2-形式 は、latexmath:[\mu \lt \nu]として、次のように定義される。ここでは 2次元基底 latexmath:[x^1], latexmath:[x^2] を固定しているので、latexmath:[\mu], latexmath:[\nu] は 1, 2 の値をとるラベルとして扱い、和の省略は明示的に「同じ添字が 2回現れるとき」のみ適用する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+dx^{\mu} \wedge dx^{\nu}
+&= dx^{\mu} \otimes dx^{\nu} - dx^{\sigma(\nu)} \otimes dx^{\mu} \\
+&= \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu \\
+\sigma(\mu) & \sigma(\nu) \\ 
+\end{pmatrix}
+dx^{\sigma(\mu)} \otimes dx^{\sigma(\nu)}
+\end{aligned}
+++++
+
 合わせてテンソル積の評価 latexmath:[(\alpha \otimes \beta)(X, Y) = \alpha (X) \beta (Y)]であるから、次のようになる。
 
 [stem,latexmath]
@@ -168,6 +184,27 @@ dx^{\sigma(\nu)} \left(\frac{\partial}{\partial x^{\tau}}\right) \\
 
 
 ====  3-形式の例(p53)
+
+テンソル積の定義から 3-形式 は、latexmath:[\mu \lt \nu \lt \rho]として、latexmath:[dx^{\mu} \wedge dx^{\nu} \wedge dx^{\rho}]を基底とした latexmath:[{m \choose 3}]次元のベクトル空間を考え、次のように定義される。ここでは 3次元基底 latexmath:[x^1], latexmath:[x^2], latexmath:[x^3] を固定しているので、latexmath:[\mu], latexmath:[\nu], latexmath:[\rho] は 1, 2, 3 の値をとるラベルとして扱い、和の省略は明示的に「同じ添字が 2回現れるとき」のみ適用する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+dx^{\mu} \wedge dx^{\nu} \wedge dx^{\rho}
+&=
+dx^{\mu} \otimes dx^{\nu} \otimes dx^{\rho} + dx^{\nu} \otimes dx^{\rho} \otimes dx^{\mu} \\
+&\quad + dx^{\rho} \otimes dx^{\mu} \otimes dx^{\nu} - dx^{\nu} \otimes dx^{\mu} \otimes dx^{\rho} \\
+&\quad - dx^{\mu} \otimes dx^{\rho} \otimes dx^{\nu} - dx^{\rho} \otimes dx^{\nu} \otimes dx^{\mu} \\
+&= \sum_{\sigma \in S_3}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu & \rho \\
+\sigma(\mu) & \sigma(\nu) & \sigma(\rho) \\ 
+\end{pmatrix}
+dx^{\sigma(\mu)} \otimes dx^{\sigma(\nu)} \otimes dx^{\sigma(\rho)}
+\end{aligned}
+++++
+
+
 3-形式 latexmath:[\displaystyle \omega=\frac{1}{3!}\omega_{\mu\nu\rho} d x^\mu \wedge d x^\nu \wedge d x^\rho]と3つのベクトル場 latexmath:[\displaystyle X_i = X_i^\nu \frac{\partial}{\partial x^\nu}\, (i=1,2,3)]から、双対ペアリングを多重線形写像に拡張した関数を得られる。
 
 [stem,latexmath]
@@ -176,20 +213,6 @@ dx^{\sigma(\nu)} \left(\frac{\partial}{\partial x^{\tau}}\right) \\
 \omega(X_1, X_2, X_3) 
 &= \frac{1}{3!}\omega_{\mu_1\mu_2\mu_3} \; d x^{\mu_1} \wedge d x^{\mu_2} \wedge d x^{\mu_3} \left(X_1^{\nu_1} \frac{\partial}{\partial x^{\nu_1}}, X_2^{\nu_2} \frac{\partial}{\partial x^{\nu_2}}, X_3^{\nu_3} \frac{\partial}{\partial x^{\nu_3}} \right) \\
 &= \frac{1}{3!}\omega_{\mu_1\mu_2\mu_3} X_1^{\nu_1} X_2^{\nu_2} X_3^{\nu_3} \; d x^{\mu_1} \wedge d x^{\mu_2} \wedge d x^{\mu_3} \left( \frac{\partial}{\partial x^{\nu_1}}, \frac{\partial}{\partial x^{\nu_2}}, \frac{\partial}{\partial x^{\nu_3}} \right) \\
-\end{aligned}
-++++
-
-ここで、テンソル積の定義から 3-形式は次のように定義できる。
-[stem,latexmath]
-++++
-\begin{aligned}
-dx^{\mu_1} \wedge dx^{\mu_2} \wedge dx^{\mu_3}
-&:= \sum_{\sigma \in S_3}\mathrm{sgn}
-\begin{pmatrix}
-\mu_1 & \mu_2 & \mu_3 \\
-\sigma(\mu_1) & \sigma(\mu_2) & \sigma(\mu_3) \\ 
-\end{pmatrix}
-dx^{\sigma(\mu_1)} \otimes dx^{\sigma(\mu_2)} \otimes dx^{\sigma(\mu_3)} \\
 \end{aligned}
 ++++
 
