@@ -95,7 +95,7 @@ d x^\mu \wedge d x^\nu \left(\frac{\partial}{\partial x^\rho}, \frac{\partial}{\
 ++++
 \begin{aligned}
 dx^{\mu} \wedge dx^{\nu}
-&= dx^{\mu} \otimes dx^{\nu} - dx^{\sigma(\nu)} \otimes dx^{\mu} \\
+&= dx^{\mu} \otimes dx^{\nu} - dx^{\nu} \otimes dx^{\mu} \\
 &= \sum_{\sigma \in S_2}\mathrm{sgn}
 \begin{pmatrix}
 \mu & \nu \\
