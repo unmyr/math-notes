@@ -157,7 +157,7 @@ X_1^{\nu}(\partial_{\nu} \omega_{\mu}) X_2^{\mu} - X_2^{\nu}(\partial_{\nu} \ome
 
 この計算のポイントは、まず各項を成分表示に戻し、次に同じ型の項を揃えてから、反対称性 latexmath:[\omega_{\mu\nu}=-\omega_{\nu\mu}] を使って相殺することにある。見落としやすいのは、項の比較ができるように添え字の順序を揃えるところである。
 
-==== 1. 方向微分項を展開する
+==== 1. 方向微分項 latexmath:[X_i(\omega(X_j,X_k))] を展開する
 
 [stem,latexmath]
 ++++
@@ -235,8 +235,8 @@ X_3(\omega(X_1,X_2))
  + \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho} \\
 &=
 (\partial_{\rho}\omega_{\mu\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
-- (\partial_{\rho}\omega_{\mu\nu}) X_1^{\mu} X_2^{\rho} X_3^{\nu}
-+ (\partial_{\rho}\omega_{\mu\nu}) X_1^{\mu} X_2^{\nu} X_3^{\rho} \\
+ - (\partial_{\rho}\omega_{\mu\nu}) X_1^{\mu} X_2^{\rho} X_3^{\nu}
+ + (\partial_{\rho}\omega_{\mu\nu}) X_1^{\mu} X_2^{\nu} X_3^{\rho} \\
 &\quad
  + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
  + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
@@ -255,22 +255,10 @@ latexmath:[\rho], latexmath:[\mu], latexmath:[\nu]は、はダミー添字であ
 [stem,latexmath]
 ++++
 \begin{aligned}
-& (\partial_{\rho}\omega_{\mu\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
-- (\partial_{\rho}\omega_{\mu\nu}) X_1^{\mu} X_2^{\rho} X_3^{\nu}
-+ (\partial_{\rho}\omega_{\mu\nu}) X_1^{\mu} X_2^{\nu} X_3^{\rho} \\
-&\quad
- + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
- + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
-&\quad
- - \omega_{\mu\nu} (\partial_{\rho} X_1^{\mu}) X_2^{\rho} X_3^{\nu}
- - \omega_{\mu\nu} X_1^{\mu} X_2^{\rho} (\partial_{\rho} X_3^{\nu}) \\
-&\quad
- + \omega_{\mu\nu} (\partial_{\rho} X_1^{\mu}) X_2^{\nu} X_3^{\rho}
- + \omega_{\mu\nu} X_1^{\mu} (\partial_{\rho} X_2^{\nu}) X_3^{\rho} \\
 &=
 (\partial_{\rho}\omega_{\mu\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
-- (\partial_{\mu}\omega_{\rho\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
-+ (\partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
+ - (\partial_{\mu}\omega_{\rho\nu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
+ + (\partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
 &\quad
  + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
  + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
@@ -283,7 +271,7 @@ latexmath:[\rho], latexmath:[\mu], latexmath:[\nu]は、はダミー添字であ
 &=
 (\partial_{\rho}\omega_{\mu\nu}
  - (\partial_{\mu}\omega_{\rho\nu})
-  + (\partial_{\nu}\omega_{\rho\mu})) X_1^{\rho} X_2^{\mu} X_3^{\nu}\\
+ + (\partial_{\nu}\omega_{\rho\mu})) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
 &\quad
  + \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
  - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
@@ -296,7 +284,7 @@ latexmath:[\rho], latexmath:[\mu], latexmath:[\nu]は、はダミー添字であ
 &=
 (\partial_{\rho}\omega_{\mu\nu}
  - (\partial_{\mu}\omega_{\rho\nu})
-  - (\partial_{\nu}\omega_{\mu\rho})) X_1^{\rho} X_2^{\mu} X_3^{\nu}\\
+ + (\partial_{\nu}\omega_{\rho\mu})) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
 &\quad
  - \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
  - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
@@ -318,7 +306,7 @@ latexmath:[\rho], latexmath:[\mu], latexmath:[\nu]は、はダミー添字であ
 &=
 (\partial_{\rho}\omega_{\mu\nu}
  - (\partial_{\mu}\omega_{\rho\nu})
-  - (\partial_{\nu}\omega_{\mu\rho})) X_1^{\rho} X_2^{\mu} X_3^{\nu}\\
+ + (\partial_{\nu}\omega_{\rho\mu})) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
 &\quad
  - \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
  - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
@@ -330,6 +318,9 @@ latexmath:[\rho], latexmath:[\mu], latexmath:[\nu]は、はダミー添字であ
  - \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}).
 \end{aligned}
 ++++
+
+==== 2. Lie括弧項の展開
+各 latexmath:[\omega(\lbrack X_i,X_j\rbrack,X_k)] の展開をします。
 
 Lie 括弧の成分は
 
@@ -427,7 +418,7 @@ latexmath:[X_1^{\rho} X_2^{\mu} X_3^{\nu}]と同じ並び順になるように�
 &=
 (\partial_{\rho}\omega_{\mu\nu}
  - (\partial_{\mu}\omega_{\rho\nu})
-  - (\partial_{\nu}\omega_{\mu\rho})) X_1^{\rho} X_2^{\mu} X_3^{\nu}\\
+ + (\partial_{\nu}\omega_{\rho\mu})) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
 &\quad
  - \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
  - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
@@ -449,7 +440,39 @@ latexmath:[X_1^{\rho} X_2^{\mu} X_3^{\nu}]と同じ並び順になるように�
 &=
 (  \partial_{\rho}\omega_{\mu\nu}
  - \partial_{\mu}\omega_{\rho\nu}
+ + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}.
+\end{aligned}
+++++
+
+_k_-形式への一般化した表現に書きかえる準備として、3次対称群 latexmath:[S_3 = \left\{(\rho, \mu, \nu), (\rho, \nu, \mu), (\mu, \rho, \nu), (\mu, \nu, \rho), (\nu, \rho, \mu), (\nu, \mu, \rho) \right\}]、および3次の置換を定める。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\sigma &= \begin{pmatrix}
+\rho & \mu & \nu \\
+\sigma(\rho) & \sigma(\mu) & \sigma(\nu) \\ 
+\end{pmatrix}
+\end{aligned}
+++++
+
+_k_-形式への一般化した表現に書きかえると、次の結果が得られる。
+
+ここで latexmath:[\omega_{\mu\nu}]は反対称なので、latexmath:[\mu = \nu]の項は 0で、非ゼロなのは latexmath:[(\rho, \mu, \nu)]が互いに異なる並びだけである。これらは 3! = 6 通りの順列に対応し、各順列に latexmath:[\mathrm{sgn}(\sigma)]をつけてまとめると、交代和の形になる。これは一般の _k_-形式における交代テンソルの表現の最初のイメージである。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+(  \partial_{\rho}\omega_{\mu\nu}
+ - \partial_{\mu}\omega_{\rho\nu}
+ + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu}
+&=
+\sum_{\rho,\mu,\nu} (  \partial_{\rho}\omega_{\mu\nu}
+ - \partial_{\mu}\omega_{\rho\nu}
  + \partial_{\nu}\omega_{\rho\mu}) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
+&=
+\sum_{\sigma \in S_3}\mathrm{sgn}(\sigma)
+\partial_{\sigma(\rho)}\omega_{\sigma(\mu)\sigma(\nu)} X_1^{\rho} X_2^{\mu} X_3^{\nu}.
 \end{aligned}
 ++++
 
