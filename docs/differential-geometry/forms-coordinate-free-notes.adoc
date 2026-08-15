@@ -72,6 +72,8 @@ d\omega(X_1,X_2)
 \end{aligned}
 ++++
 
+==== 1. 方向微分項 latexmath:[X_i(\omega(X_j,X_k))] を展開する
+
 この結果を座標非依存定義から導出すると、項の対応が見える。
 
 [stem,latexmath]
@@ -99,6 +101,8 @@ X_2(\omega(X_1))
 \end{aligned}
 ++++
 
+==== 2. Lie括弧項の展開
+
 Lie 括弧の成分は
 
 [stem,latexmath]
@@ -112,6 +116,8 @@ Lie 括弧の成分は
 ++++
 \omega(\lbrack X_1,X_2 \rbrack) = \omega_{\mu}(X_1^{\nu} \partial_{\nu} X_2^{\mu} - X_2^{\nu} \partial_{\nu} X_1^{\mu}).
 ++++
+
+==== 3. 反対称性を使って相殺する
 
 これらを座標非依存定義に代入すると、
 
@@ -135,6 +141,40 @@ X_1^{\nu}(\partial_{\nu} \omega_{\mu}) X_2^{\mu} - X_2^{\nu}(\partial_{\nu} \ome
 ++++
 
 これで、座標式と座標非依存式が一致することが確認できる。
+
+==== 4. 一般化した表現に書きかえる
+
+_k_-形式への一般化した表現に書きかえる準備として、2次対称群 latexmath:[S_2 = \left\{(\mu, \nu), (\nu, \mu)\right\}]、および2次の置換を定める。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\sigma &= \begin{pmatrix}
+\nu & \mu \\
+\sigma(\nu) & \sigma(\mu) \\ 
+\end{pmatrix}
+\end{aligned}
+++++
+
+_k_-形式への一般化した表現に書きかえると、次の結果が得られる。これは一般の _k_-形式における交代テンソルの表現の最初のイメージである。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1,X_2 \rbrack)
+&= (\partial_{\nu} \omega_{\mu} - \partial_{\mu} \omega_{\nu}) X_1^{\nu} X_2^{\mu} \\
+&=
+\sum_{\mu,\nu} (\partial_{\nu} \omega_{\mu} - \partial_{\mu} \omega_{\nu}) X_1^{\nu} X_2^{\mu} \\
+&=
+\sum_{\sigma \in S_2}\mathrm{sgn}(\sigma)
+\partial_{\sigma(\nu)} \omega_{\sigma(\mu)} X_1^{\nu} X_2^{\mu}.
+\end{aligned}
+++++
+
+.補足
+* latexmath:[\omega_{\mu}]自体は 1 個の添字しか持たないため、反対称性 latexmath:[\omega_{\mu} = -\omega_{\mu}]を根拠に 0 にできるわけではない。むしろ、外微分の評価式に現れる二項組 latexmath:[(\partial_{\nu} \omega_{\mu}, \partial_{\mu} \omega_{\nu})]は、引数の順序を交換すると符号が変わるので、交代和として整理される。
+* latexmath:[\sum_{\mu,\nu}] と latexmath:[\sum_{\sigma \in S_2}\mathrm{sgn}(\sigma)]との対応関係 +
+基底 latexmath:[x^{1}, x^{2}]に対する添え字の組 latexmath:[(\mu, \nu) \in \left\{(1, 1), (1, 2), (2, 1), (2, 2)\right\}]は4つの組み合わせがあるが、上記の通り、latexmath:[\mu = \nu]となる成分は 0 となる。非ゼロなのは latexmath:[(\mu, \nu)]が互いに異なる並びだけである。これらは 2! = 2 通りの順列に対応し、各順列に latexmath:[\mathrm{sgn}(\sigma)]をつけてまとめると、交代和の形になる。
 
 === 例2: 2-形式の場合
 
