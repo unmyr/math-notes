@@ -477,13 +477,13 @@ dx^{\sigma(\mu_k)} \left(\frac{\partial}{\partial x^{\nu_k}}\right) \\
 ++++
 \begin{align}
 & (d\omega)(X_1,\cdots,X_{k+1}) \\
-&\quad = \sum_{i=1}^{k+1}(-1)^{i+1} X_i(\omega(X_1,\cdots,\hat{X}_i, \cdots, X_{k+1})) \\
-&\quad\quad - \sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1} \omega(\lbrack X_i, X_j \rbrack,\cdots,\hat{X}_i, \cdots, \hat{X}_j, \cdots, X_{k+1}) \tag{2.13} \label{def_2_13}
+&\quad = \sum_{i=1}^{k+1}(-1)^{i+1} X_i(\omega(X_1,\cdots,\widehat{X_i}, \cdots, X_{k+1})) \\
+&\quad\quad - \sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1} \omega(\lbrack X_i, X_j \rbrack,\cdots,\widehat{X_i}, \cdots, \hat{X}_j, \cdots, X_{k+1}) \tag{2.13} \label{def_2_13}
 \end{align}
 ++++
 
 .記法の補足
-* latexmath:[\hat{X}_i]とあるのは、latexmath:[X_i]だけ除くことを意味している
+* latexmath:[\widehat{X_i}]とあるのは、latexmath:[X_i]だけ除くことを意味している
 * latexmath:[\lbrack X_i, X_j \rbrack]は、ベクトル場の交換子積で latexmath:[\lbrack X, Y \rbrack = XY - YX]と定義する
 
 .1-形式の場合
