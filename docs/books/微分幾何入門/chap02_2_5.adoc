@@ -497,3 +497,214 @@ d\omega(X_1,X_2) = X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1, X_2
 
 === 問題2.13 (p56)
 問:: 座標を使った外微分の <<chap02_2_4.adoc#mjx-eqn-def_2_9,定義(2.9)>> が、上の座標を用いない外微分の定義式 latexmath:[\eqref{def_2_13}] を満たすことを示せ。
+
+// TODO: テキストそのままなので、後で細部の論理を詳細化するつもり
+以下解答
+
+==== 1. 1-形式の微分を求める
+
+[stem,latexmath]
+++++
+\begin{aligned}
+d\omega(X_1,\cdots,X_{k+1})
+&= d \left(\frac{1}{k!}\omega_{\nu_1\cdots\nu_k}\right) \, \wedge d x^{\nu_1} \wedge d x^{\nu_2} \wedge \cdots \wedge d x^{\nu_k}
+\; \left(X_1^{\rho_1} \frac{\partial}{\partial x^{\rho_1}}, \cdots, X_{k+1}^{\rho_{k+1}} \frac{\partial}{\partial x^{\rho_{k+1}}} \right) \\
+&= \frac{1}{k!}\frac{\partial \omega_{\nu_1\cdots\nu_k}}{\partial x^{\mu}} \; d x^\mu \wedge d x^{\nu_1} \wedge d x^{\nu_2} \wedge \cdots \wedge d x^{\nu_k}
+\; \left(X_1^{\rho_1} \frac{\partial}{\partial x^{\rho_1}}, \cdots, X_{k+1}^{\rho_{k+1}} \frac{\partial}{\partial x^{\rho_{k+1}}} \right) \\
+&= 
+\frac{1}{k!}\frac{\partial \omega_{\nu_1\cdots\nu_k}}{\partial x^{\mu}} \; 
+\sum_{\sigma \in S_{k+1}}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_1 & \cdots & \nu_{k} \\
+\sigma(\mu) & \sigma(\nu_1) & \cdots & \sigma(\nu_k) \\ 
+\end{pmatrix}
+\,
+dx^{\sigma(\mu)} \otimes dx^{\sigma(\nu_1)} \otimes \cdots \otimes dx^{\sigma(\nu_k)}
+\; \left(X_1^{\rho_1} \frac{\partial}{\partial x^{\rho_1}}, \cdots, X_{k+1}^{\rho_{k+1}} \frac{\partial}{\partial x^{\rho_{k+1}}} \right) \\
+&= 
+\frac{1}{k!}\frac{\partial \omega_{\nu_1\cdots\nu_k}}{\partial x^{\mu}} \; 
+\sum_{\sigma \in S_{k+1}}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_1 & \cdots & \nu_{k} \\
+\sigma(\mu) & \sigma(\nu_1) & \cdots & \sigma(\nu_k) \\ 
+\end{pmatrix}
+\,
+dx^{\sigma(\mu)}\left(X_1^{\rho_1} \frac{\partial}{\partial x^{\rho_1}}\right)
+\otimes dx^{\sigma(\nu_1)}\left(X_2^{\rho_2} \frac{\partial}{\partial x^{\rho_2}}\right)
+\otimes \cdots
+\otimes dx^{\sigma(\nu_k)} \left(X_{k+1}^{\rho_{k+1}} \frac{\partial}{\partial x^{\rho_{k+1}}}\right) \\
+&= 
+\frac{1}{k!}\frac{\partial \omega_{\nu_1\cdots\nu_k}}{\partial x^{\mu}} \;
+X_1^{\rho_1} \cdots X_{k+1}^{\rho_{k+1}}
+\sum_{\sigma \in S_{k+1}}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_1 & \cdots & \nu_{k} \\
+\sigma(\mu) & \sigma(\nu_1) & \cdots & \sigma(\nu_k) \\ 
+\end{pmatrix}
+\,
+dx^{\sigma(\mu)}\left(\frac{\partial}{\partial x^{\rho_1}}\right)
+\otimes dx^{\sigma(\nu_1)}\left(\frac{\partial}{\partial x^{\rho_2}}\right)
+\otimes \cdots
+\otimes dx^{\sigma(\nu_k)} \left(\frac{\partial}{\partial x^{\rho_{k+1}}} \right) \\
+&= 
+\frac{1}{k!}\frac{\partial \omega_{\nu_1\cdots\nu_k}}{\partial x^{\mu}} \;
+X_1^{\rho_1} \cdots X_{k+1}^{\rho_{k+1}}
+\sum_{\sigma \in S_{k+1}}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_1 & \cdots & \nu_{k} \\
+\sigma(\mu) & \sigma(\nu_1) & \cdots & \sigma(\nu_k) \\ 
+\end{pmatrix}
+\,
+\delta_{\rho_1}^{\sigma(\mu)} \delta_{\rho_2}^{\sigma(\nu_1)} \cdots \delta_{\rho_{k+1}}^{\sigma(\nu_k)} \\
+&= 
+\frac{1}{k!}\frac{\partial \omega_{\nu_1\cdots\nu_k}}{\partial x^{\mu}}
+\sum_{\sigma \in S_{k+1}}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_1 & \cdots & \nu_{k} \\
+\sigma(\mu) & \sigma(\nu_1) & \cdots & \sigma(\nu_k) \\ 
+\end{pmatrix}
+X_1^{\sigma(\mu)} X_2^{\sigma(\nu_1)} \cdots X_{k+1}^{\sigma(\nu_k)} \\
+&= 
+\frac{1}{k!}
+\sum_{\sigma \in S_{k+1}}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_1 & \cdots & \nu_{k} \\
+\sigma(\mu) & \sigma(\nu_1) & \cdots & \sigma(\nu_k) \\ 
+\end{pmatrix}
+\frac{\partial \omega_{\nu_1\cdots\nu_k}}{\partial x^{\mu}}
+X_1^{\sigma(\mu)} X_2^{\sigma(\nu_1)} \cdots X_{k+1}^{\sigma(\nu_k)} \\
+\end{aligned}
+++++
+
+ここで、添字置換を行う。
+[stem,latexmath]
+++++
+\begin{aligned}
+&= 
+\frac{1}{k!}
+\sum_{\sigma \in S_{k+1}}(\mathrm{sgn}\,\sigma^{-1})
+\frac{\partial \omega_{\sigma(\nu_1)\cdots\sigma(\nu_k)}}{\partial x^{\sigma(\mu)}}
+X_1^{\mu} X_2^{\nu_1} \cdots X_{k+1}^{\nu_k} \\
+\end{aligned}
+++++
+
+置換の偶奇は逆元を取っても変わらないので、 latexmath:[\mathrm{sgn}(\sigma^{-1})=\mathrm{sgn}(\sigma)] が成り立つので、次のように式変形できる。
+[stem,latexmath]
+++++
+\begin{align}
+&= 
+\sum_{\sigma \in S_{k+1}}(\mathrm{sgn}\,\sigma)
+\frac{1}{k!}
+\frac{\partial \omega_{\sigma(\nu_1)\cdots\sigma(\nu_k)}}{\partial x^{\sigma(\mu)}}
+X_1^{\mu} X_2^{\nu_1} \cdots X_{k+1}^{\nu_k} \tag{1-1} \label{ex_2_13_1_1} \\
+\end{align}
+++++
+
+==== 2. 座標非依存定義を分解する
+
+以下、前半の項 latexmath:[\eqref{ex_2_13_2_1}]と後半の項 latexmath:[\eqref{ex_2_13_2_2}]それぞれについて式を展開する。
+
+[stem,latexmath]
+++++
+\begin{align}
+& (d\omega)\left(X_1,\cdots,X_{k+1}\right) \\
+&\quad
+= \sum_{i=1}^{k+1}(-1)^{i+1} X_{i} \left(\omega \left(X_{1},\cdots,\widehat{X_{i}}, \cdots, X_{k+1}\right)\right) \tag{2-1} \label{ex_2_13_2_1} \\
+&\quad\quad
+- \sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1} \omega \left(\lbrack X_{i}, X_{j} \rbrack,\cdots,\widehat{X_{i}}, \cdots, \hat{X}_j, \cdots, X_{k+1}\right) \tag{2-2} \label{ex_2_13_2_2}
+\end{align}
+++++
+
+==== 3. 前半の項を展開する
+
+前半の項 latexmath:[\eqref{ex_2_13_2_1}]より、
+
+[stem,latexmath]
+++++
+\begin{align}
+&\sum_{i=1}^{k+1}(-1)^{i+1} X_i\left(\omega(X_{1},\cdots,\widehat{X_i}, \cdots, X_{k+1})\right) \\
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_i}\cdots\nu_{k+1}} X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_i}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \tag{3-1} \label{ex_2_13_3_1} \\
+&\quad
++ \sum_{i=1}^{k+1}(-1)^{i+1}
+    X_{i}^{\mu}\omega_{\nu_1\cdots\widehat{\nu_i}\cdots\nu_{k+1}}
+\sum_{j=1 ,j \ne i}^{k+1}
+    X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \left(\partial_{\mu} X_{j}^{\nu_j}\right) \cdots X_{k+1}^{\nu_{k+1}} \tag{3-2} \label{ex_2_13_3_2} \\
+\end{align}
+++++
+
+上記の latexmath:[\eqref{ex_2_13_3_1}]は、 latexmath:[\eqref{ex_2_13_1_1}]と同じである。
+続けて、 latexmath:[\eqref{ex_2_13_3_2}] の計算を行っていく。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& \sum_{i=1}^{k+1}(-1)^{i+1}
+    X_{i}^{\mu}\omega_{\nu_1\cdots\widehat{\nu_i}\cdots\nu_{k+1}}
+\sum_{j=1 ,j \ne i}^{k+1}
+    X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \left(\partial_{\mu} X_{j}^{\nu_j}\right) \cdots X_{k+1}^{\nu_{k+1}} \\
+&= \sum_{i,j=1, i \ne j}^{k+1}
+\left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right)
+\underline{\left(
+   (-1)^{i+1} \omega_{\nu_1\cdots\widehat{\nu_i}\cdots\nu_{k+1}}\left(X_{i}^{\mu} \partial_{\mu} X_{j}^{\nu_{j}}\right)
++ (-1)^{j+1} \omega_{\nu_1\cdots\widehat{\nu_j}\cdots\nu_{k+1}}\left(X_{j}^{\mu} \partial_{\mu} X_{i}^{\nu_{i}}\right)
+\right)}
+\end{aligned}
+++++
+
+latexmath:[\lbrack X_{i}, X_{j} \rbrack^{\nu} = X_{i}^{\mu}\partial_{\mu}X_{j}^{\nu} - X_{j}^{\mu}\partial_{\mu}X_{i}^{\nu}]であることや添え字の入れ替えで出る符号に注意すると、 latexmath:[i < j] のときは
+
+[stem,latexmath]
+++++
+(-1)^{i+1} \omega_{\nu_1\cdots\widehat{\nu_i}\cdots\nu_{j}\cdots\nu_{k+1}} \lbrack X_{i}, X_{j} \rbrack^{\nu_{j}}
+++++
+
+であり、latexmath:[j < i]のときは
+
+[stem,latexmath]
+++++
+(-1)^{i+1} \omega_{\nu_1\cdots\nu_{j}\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \lbrack X_{i}, X_{j} \rbrack^{\nu_{j}}
+++++
+
+である。
+
+結局、latexmath:[\eqref{ex_2_13_3_2}]は、
+
+[stem,latexmath]
+++++
+\begin{align}
+&= \frac{1}{2}\Biggl(
+\sum_{1 \le i \lt j \le k+1}
+\left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right)
+(-1)^{i+1} \omega_{\nu_1\cdots\widehat{\nu_i}\cdots\nu_{j}\cdots\nu_{k+1}} \lbrack X_{i}, X_{j} \rbrack^{\nu_{j}} \\
+&\quad\quad + \sum_{1 \le j \lt i \le k+1}
+\left(X_{1}^{\nu_{1}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}}\right)
+(-1)^{i+1} \omega_{\nu_1\cdots\nu_{j}\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \lbrack X_{i}, X_{j} \rbrack^{\nu_{j}}
+\Biggr) \\
+&=
+\sum_{1 \le i \lt j \le k+1}(-1)^{i+j-1}
+\omega_{\mu\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}} \lbrack X_{i}, X_{j} \rbrack^{\mu}
+\left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+&=
+\sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1}
+\omega\left(
+  \lbrack X_{i}, X_{j} \rbrack,
+  X_{1}, \cdots, \widehat{X_{i}}, \cdots, \widehat{X_{j}}, \cdots, X_{k+1}
+\right) \tag{3-3} \label{ex_2_13_3_3} \\
+\end{align}
+++++
+
+ただし、 latexmath:[\omega_{\nu_{1}\cdots\nu_{k}}]の添え字の完全反対称性を用いて下線部の latexmath:[j]番目にあった添え字を先頭に移動し、添え字を取り直したことで latexmath:[(-1)^{j}]が出てきた。 latexmath:[\lbrack X_{i}, X_{j} \rbrack^{\mu} = - \lbrack X_{j}, X_{i} \rbrack^{\mu}]も用いて書き直した。
+latexmath:[\eqref{ex_2_13_3_2}] = latexmath:[\eqref{ex_2_13_3_3}]で、これが latexmath:[\eqref{def_2_13}]右辺の第二項と打ち消し合うことで次の式が得られたので、<<chap02_2_4.adoc#mjx-eqn-def_2_9,定義(2.9)>>が座標を用いない外微分の定義式 latexmath:[\eqref{def_2_13}] を満たすことが証明された。
+
+[stem,latexmath]
+++++
+\begin{align}
+\text{式(2.13)右辺}
+&=
+\sum_{i=1}^{k+1} \left(\partial_{\mu} \omega_{\nu_{1}\cdots\nu_{k}}\right) X_{1}^{\nu_{1}} \cdots X_{i-1}^{\nu_{i-1}} X_{i}^{\mu} X_{i+1}^{\nu_{i}} \cdots X_{k}^{\nu_{k+1}} \\
+&= \text{(1-1)}
+\end{align}
+++++
