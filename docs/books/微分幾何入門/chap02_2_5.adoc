@@ -477,8 +477,8 @@ dx^{\sigma(\mu_k)} \left(\frac{\partial}{\partial x^{\nu_k}}\right) \\
 ++++
 \begin{align}
 & (d\omega)(X_1,\cdots,X_{k+1}) \\
-&\quad = \sum_{i=1}^{k+1}(-1)^{i+1} X_i(\omega(X_1,\cdots,\widehat{X_i}, \cdots, X_{k+1})) \\
-&\quad\quad - \sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1} \omega(\lbrack X_i, X_j \rbrack,\cdots,\widehat{X_i}, \cdots, \hat{X}_j, \cdots, X_{k+1}) \tag{2.13} \label{def_2_13}
+&\quad = \sum_{i=1}^{k+1}(-1)^{i+1} X_i \left(\omega \left(X_1,\cdots,\widehat{X_i}, \cdots, X_{k+1}\right)\right) \\
+&\quad\quad - \sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1} \omega\left(\lbrack X_i, X_j \rbrack,\cdots,\widehat{X_i}, \cdots, \hat{X}_j, \cdots, X_{k+1}\right) \tag{2.13} \label{def_2_13}
 \end{align}
 ++++
 
