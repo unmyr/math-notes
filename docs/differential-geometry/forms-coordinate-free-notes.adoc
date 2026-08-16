@@ -316,8 +316,8 @@ latexmath:[\rho], latexmath:[\mu], latexmath:[\nu]は、はダミー添字であ
  + \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
  - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
 &\quad
- + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
- + \omega_{\rho\mu} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu} \\
+ + \omega_{\rho\mu} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
+ + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu} \\
 &\quad
  + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
  - \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
@@ -326,11 +326,11 @@ latexmath:[\rho], latexmath:[\mu], latexmath:[\nu]は、はダミー添字であ
  - (\partial_{\mu}\omega_{\rho\nu})
  + (\partial_{\nu}\omega_{\rho\mu})) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
 &\quad
- - \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ + \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
  - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
 &\quad
- + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
- - \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu} \\
+ + \omega_{\rho\mu} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
+ + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu} \\
 &\quad
  + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
  - \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
@@ -434,10 +434,10 @@ latexmath:[X_1^{\rho} X_2^{\mu} X_3^{\nu}]と同じ並び順になるように�
  + \omega_{\nu\mu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
  - \omega_{\nu\rho} X_1^{\rho} X_2^{\mu} (\partial_{\mu} X_3^{\nu}) \\
  &=
-   \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ - \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
  + \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
 &\quad
- + \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
+ - \omega_{\rho\mu} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
  - \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu} \\
 &\quad
  - \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
@@ -460,23 +460,23 @@ latexmath:[X_1^{\rho} X_2^{\mu} X_3^{\nu}]と同じ並び順になるように�
  - (\partial_{\mu}\omega_{\rho\nu})
  + (\partial_{\nu}\omega_{\rho\mu})) X_1^{\rho} X_2^{\mu} X_3^{\nu} \\
 &\quad
- - \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ + \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
  - \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
 &\quad
- + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu}
- - \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu} \\
+ + \omega_{\rho\mu} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
+ + \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu} \\
 &\quad
  + \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
  - \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu}) \\
 &\quad
- + \omega_{\mu\rho} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
+ - \omega_{\rho\mu} (\partial_{\nu} X_1^{\rho}) X_2^{\mu} X_3^{\nu}
  + \omega_{\rho\nu} (\partial_{\mu} X_1^{\rho}) X_2^{\mu} X_3^{\nu} \\
 &\quad
- + \omega_{\mu\rho} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
+ - \omega_{\rho\mu} X_1^{\rho} (\partial_{\nu} X_2^{\mu}) X_3^{\nu}
  - \omega_{\mu\nu} X_1^{\rho} (\partial_{\rho} X_2^{\mu}) X_3^{\nu} \\
 &\quad
  - \omega_{\mu\nu} X_1^{\rho} X_2^{\mu} (\partial_{\rho} X_3^{\nu})
- + \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\mu} X_3^{\nu})\\
+ + \omega_{\rho\nu} X_1^{\rho} X_2^{\mu} (\partial_{\mu} X_3^{\nu}) \\
 &=
 (  \partial_{\rho}\omega_{\mu\nu}
  - \partial_{\mu}\omega_{\rho\nu}
