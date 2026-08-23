@@ -213,45 +213,83 @@ d\omega
 \end{aligned}
 ++++
 
+ここで
+
 [stem,latexmath]
 ++++
-\begin{aligned}
+A_{\mu\nu_{1}} := \partial_{\mu}\omega_{\nu_{1}}
+  - \partial_{\nu_{1}}\omega_{\mu},
+\qquad A_{\nu_{1}\mu}=-A_{\mu\nu_{1}}
+++++
+
+とおく。
+
+[stem,latexmath]
+++++
+\begin{align}
 & d\omega(X_1,X_2) \\
-&= \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
-  (dx^{\mu} \wedge dx^{\nu_{1}})(X_1,X_2) \\
-&= \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
+&= \frac{1}{2} A_{\mu\nu_{1}} (dx^{\mu} \wedge dx^{\nu_{1}})(X_1,X_2) \\
+&= \frac{1}{2} A_{\mu\nu_{1}} \left(dx^{\mu} \otimes dx^{\nu_{1}} - dx^{\nu_{1}} \otimes dx^{\mu}\right) (X_1,X_2) \\
+&= \frac{1}{2} A_{\mu\nu_{1}} \left(dx^{\mu} \otimes dx^{\nu_{1}} (X_1,X_2) - dx^{\nu_{1}} \otimes dx^{\mu} (X_1,X_2)\right) \\
+&= \frac{1}{2} A_{\mu\nu_{1}}
   \left(X_1^{\mu}X_2^{\nu_{1}} - X_1^{\nu_{1}}X_2^{\mu}\right) \\
-&= \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
-  X_1^{\mu}X_2^{\nu_{1}}
-  + \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
-  X_1^{\mu}X_2^{\nu_{1}} \\
-&= \left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
-  X_1^{\mu}X_2^{\nu_{1}}.
-\end{aligned}
+&= \frac{1}{2} A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}}
+  - \frac{1}{2} A_{\mu\nu_{1}} X_1^{\nu_{1}}X_2^{\mu} \\
+&= \frac{1}{2} A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}}
+  - \frac{1}{2} A_{\nu_{1}\mu} X_1^{\mu}X_2^{\nu_{1}} \tag{1} \label{ex_1_2_local_d_omega_X1_X2_1} \\
+&= \frac{1}{2} A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}}
+  + \frac{1}{2} A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}} \tag{2} \label{ex_1_2_local_d_omega_X1_X2_2}\\
+&= A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}}.
+\end{align}
 ++++
 
-ここで、3行目から4行目では、括弧内の第2項のダミー添字
-latexmath:[\mu \leftrightarrow \nu_{1}] を交換している。この交換により、
-ウェッジ積の評価で現れた2つの項は同じ単項式
-latexmath:[X_1^{\mu}X_2^{\nu_{1}}] を持つ項として加算できる。そのため、
-局所座標表示に現れる latexmath:[1/2] は、ウェッジ積の2項の加算によって
-相殺され、最終的には
+なお、latexmath:[\eqref{ex_1_2_local_d_omega_X1_X2_1}] から latexmath:[\eqref{ex_1_2_local_d_omega_X1_X2_2}] では、第2項のダミー添字
+latexmath:[\mu \leftrightarrow \nu_{1}] を交換している。この交換により
+latexmath:[-\frac{1}{2}A_{\mu\nu_{1}}X_1^{\nu_{1}}X_2^{\mu}] は
+latexmath:[-\frac{1}{2}A_{\nu_{1}\mu}X_1^{\mu}X_2^{\nu_{1}}] となる。
+さらに latexmath:[A_{\nu_{1}\mu}=-A_{\mu\nu_{1}}] を使うと、第2項も第1項と
+同じ符号・同じ単項式になる。そのため、2つの latexmath:[1/2] の項が加算され、
+係数は1になる。
 
-[stem,latexmath]
-++++
-\begin{aligned}
-\frac{1}{2} A_{\mu\nu_{1}}
-\left(X_1^{\mu}X_2^{\nu_{1}}-X_1^{\nu_{1}}X_2^{\mu}\right)
-&= A_{\mu\nu_{1}}X_1^{\mu}X_2^{\nu_{1}},
-\\
-A_{\mu\nu_{1}}
-&:= \partial_{\mu}\omega_{\nu_{1}}-\partial_{\nu_{1}}\omega_{\mu}
-\end{aligned}
-++++
-
-となる。したがって、後の座標非依存の導出で得られる
+したがって、後の座標非依存の導出で得られる
 latexmath:[(\partial_{\mu}\omega_{\nu_{1}}-\partial_{\nu_{1}}\omega_{\mu})
 X_1^{\mu}X_2^{\nu_{1}}] と一致する。
+
+参考までに、 2次の対称群による偶置換・奇置換の符号による計算は次のようになる。
+
+[stem,latexmath]
+++++
+\begin{align}
+& d\omega(X_1,X_2) \\
+&= \frac{1}{2} A_{\mu\nu_{1}} (dx^{\mu} \wedge dx^{\nu_{1}})(X_1,X_2) \\
+&= \frac{1}{2} A_{\mu\nu_{1}} \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_{1} \\
+\sigma(\mu) & \sigma(\nu_{1}) \\ 
+\end{pmatrix}
+dx^{\sigma(\mu)} \otimes dx^{\sigma(\nu_{1})} (X_1,X_2) \\
+&= \frac{1}{2} A_{\mu\nu_{1}} \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_{1} \\
+\sigma(\mu) & \sigma(\nu_{1}) \\ 
+\end{pmatrix}
+X_1^{\sigma(\mu)} X_2^{\sigma(\nu_{1})} \\
+&= \frac{1}{2} \sum_{\sigma \in S_2}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_{1} \\
+\sigma(\mu) & \sigma(\nu_{1}) \\ 
+\end{pmatrix}
+A_{\mu\nu_{1}} X_1^{\sigma(\mu)} X_2^{\sigma(\nu_{1})} \\
+&= \frac{1}{2} \sum_{\sigma \in S_2}\mathrm{sgn}\left(\sigma^{-1}\right)
+A_{\sigma(\mu)\sigma(\nu_{1})} X_1^{\mu} X_2^{\nu_{1}} \\
+&= \frac{1}{2} \sum_{\sigma \in S_2}\mathrm{sgn}\left(\sigma\right)
+A_{\sigma(\mu)\sigma(\nu_{1})} X_1^{\mu} X_2^{\nu_{1}} \\
+&= \frac{1}{2} \sum_{\sigma \in S_2} A_{\mu \nu_{1}} X_1^{\mu} X_2^{\nu_{1}} \\
+&= \frac{1}{2} A_{\mu \nu_{1}} X_1^{\mu} X_2^{\nu_{1}} \sum_{\sigma \in S_2} 1 \\
+&= \frac{1}{2} A_{\mu \nu_{1}} X_1^{\mu} X_2^{\nu_{1}} |S_2| \\
+&= A_{\mu \nu_{1}} X_1^{\mu} X_2^{\nu_{1}}.
+\end{align}
+++++
 
 latexmath:[\omega_{\nu_{1}} = \omega_{\nu_{1}\widehat{\nu_{2}}}]、および latexmath:[\omega_{\nu_{2}} = \omega_{\widehat{\nu_{1}}\nu_{2}}]とすると、
 
