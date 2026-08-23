@@ -17,7 +17,7 @@ include::../attrs.adoc[]
 This note verifies that the coordinate expression of the exterior derivative
 for a 2-form agrees with the coordinate-free definition (see equation <<../books/微分幾何入門/chap02_2_5.adoc#mjx-eqn-def_2_13,定義(2.13)>>).
 
-=== 例1: 1-形式の場合
+=== 例1-1: 1-形式の場合 (解法1)
 
 まず、1-形式の座標非依存定義を確認する。
 
@@ -175,6 +175,255 @@ X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1,X_2 \rbrack)
 * latexmath:[\omega_{\mu}]自体は 1 個の添字しか持たないため、反対称性 latexmath:[\omega_{\mu} = -\omega_{\mu}]を根拠に 0 にできるわけではない。むしろ、外微分の評価式に現れる二項組 latexmath:[(\partial_{\nu} \omega_{\mu}, \partial_{\mu} \omega_{\nu})]は、引数の順序を交換すると符号が変わるので、交代和として整理される。
 * latexmath:[\sum_{\mu,\nu}] と latexmath:[\sum_{\sigma \in S_2}\mathrm{sgn}(\sigma)]との対応関係 +
 基底 latexmath:[x^{1}, x^{2}]に対する添え字の組 latexmath:[(\mu, \nu) \in \left\{(1, 1), (1, 2), (2, 1), (2, 2)\right\}]は4つの組み合わせがあるが、上記の通り、latexmath:[\mu = \nu]となる成分は 0 となる。非ゼロなのは latexmath:[(\mu, \nu)]が互いに異なる並びだけである。これらは 2! = 2 通りの順列に対応し、各順列に latexmath:[\mathrm{sgn}(\sigma)]をつけてまとめると、交代和の形になる。
+
+=== 例1-2: 1-形式の場合 (解法2)
+
+_k_-形式の局所座標による導出結果と 座標非依存定義との結果の一致でテキストの解答では詳細が明らかでなかった点を補完することが主旨です。
+
+_k_-形式の座標非依存の定義の証明の準備のため、代入した各項を展開して一致するよりも、展開したものを打ち消す項の表現に戻すような方法導出します。
+
+==== 局所座標による定義による導出を行う
+
+式 <<../books/微分幾何入門/chap02_2_5.adoc#mjx-eqn-def_2_13,定義(2.13)>>の左辺を局所座標を用いて書くと、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+d\omega 
+&= \frac{1}{1!}\left(\partial_{\mu}\omega_{\nu_{1}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \\
+&=
+   \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}}
++ \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \\
+\end{aligned}
+++++
+
+ここで2つ目の項のダミー添字 latexmath:[\mu,\nu_{1}] を入れ替える、 latexmath:[dx^{\nu_{1}} \wedge dx^\mu = - dx^\mu \wedge dx^{\nu_{1}}] を適用すると、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&=
+   \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}}
++ \frac{1}{2}\left(\partial_{\nu_{1}}\omega_{\mu}\right) \, dx^{\nu_{1}} \wedge dx^{\mu} \\
+&=
+   \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}}
+- \frac{1}{2}\left(\partial_{\nu_{1}}\omega_{\mu}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \\
+&=
+   \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \\
+\end{aligned}
+++++
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& d\omega(X_1,X_2) \\
+&= \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
+  (dx^{\mu} \wedge dx^{\nu_{1}})(X_1,X_2) \\
+&= \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
+  \left(X_1^{\mu}X_2^{\nu_{1}} - X_1^{\nu_{1}}X_2^{\mu}\right) \\
+&= \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
+  X_1^{\mu}X_2^{\nu_{1}}
+  + \frac{1}{2}\left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
+  X_1^{\mu}X_2^{\nu_{1}} \\
+&= \left(\partial_{\mu}\omega_{\nu_{1}} - \partial_{\nu_{1}}\omega_{\mu}\right)
+  X_1^{\mu}X_2^{\nu_{1}}.
+\end{aligned}
+++++
+
+ここで、3行目から4行目では、括弧内の第2項のダミー添字
+latexmath:[\mu \leftrightarrow \nu_{1}] を交換している。この交換により、
+ウェッジ積の評価で現れた2つの項は同じ単項式
+latexmath:[X_1^{\mu}X_2^{\nu_{1}}] を持つ項として加算できる。そのため、
+局所座標表示に現れる latexmath:[1/2] は、ウェッジ積の2項の加算によって
+相殺され、最終的には
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{1}{2} A_{\mu\nu_{1}}
+\left(X_1^{\mu}X_2^{\nu_{1}}-X_1^{\nu_{1}}X_2^{\mu}\right)
+&= A_{\mu\nu_{1}}X_1^{\mu}X_2^{\nu_{1}},
+\\
+A_{\mu\nu_{1}}
+&:= \partial_{\mu}\omega_{\nu_{1}}-\partial_{\nu_{1}}\omega_{\mu}
+\end{aligned}
+++++
+
+となる。したがって、後の座標非依存の導出で得られる
+latexmath:[(\partial_{\mu}\omega_{\nu_{1}}-\partial_{\nu_{1}}\omega_{\mu})
+X_1^{\mu}X_2^{\nu_{1}}] と一致する。
+
+latexmath:[\omega_{\nu_{1}} = \omega_{\nu_{1}\widehat{\nu_{2}}}]、および latexmath:[\omega_{\nu_{2}} = \omega_{\widehat{\nu_{1}}\nu_{2}}]とすると、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& d\omega(X_1,X_2) \\
+&= \sum_{i=1}^{k+1}
+X_{i}^{\mu} \partial_{\mu}\omega_{\nu_{1}\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} X_1^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+\end{aligned}
+++++
+
+_k_ = 1 を代入すると、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& d\omega(X_1,X_2) \\
+&=
+   X_{1}^{\mu} \partial_{\mu}\omega_{\widehat{\nu_{1}}\nu_{2}} X_{2}^{\nu_{2}}
++ X_{2}^{\mu} \partial_{\mu}\omega_{\nu_{1}\widehat{\nu_{2}}} X_1^{\nu_{1}} \\
+&=
+   \partial_{\mu}\omega_{\widehat{\nu_{1}}\nu_{2}} X_{1}^{\mu} X_{2}^{\nu_{2}}
++ \partial_{\mu}\omega_{\nu_{1}\widehat{\nu_{2}}} X_1^{\nu_{1}} X_{2}^{\mu} \\
+\end{aligned}
+++++
+
+となる。
+
+==== 座標非依存の式展開
+
+_k_ = 1 として、座標非依存定義に代入する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& (d\omega)\left(X_1,X_{2}\right) \\
+&\quad
+= \sum_{i=1}^{2}(-1)^{i+1} X_{i} \left(\omega \left(X_{1},\cdots,\widehat{X_{i}}, \cdots, X_{2}\right)\right) \\
+&\quad\quad - \sum_{1 \le i \lt j \le 2}(-1)^{i+j+1} \omega \left(\lbrack X_{i}, X_{j} \rbrack, \widehat{X_i}, \widehat{X_j}\right) \\
+&\quad
+= (-1)^{1+1} X_{1} \left(\omega \left(\widehat{X_{1}}, X_{2}\right)\right)
++ (-1)^{2+1} X_{2} \left(\omega \left(X_{1}, \widehat{X_{2}}\right)\right) \\
+&\quad\quad
+- (-1)^{1+2+1} \omega \left(\lbrack X_{1}, X_{2} \rbrack \right) \\
+\end{aligned}
+++++
+
+上記の第一項を計算する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&\sum_{i=1}^{2}(-1)^{i+1} X_{i} \left(\omega \left(X_{1},\cdots,\widehat{X_{i}}, \cdots, X_{2}\right)\right) \\
+&\left(= (-1)^{1+1} X_{1} \left(\omega \left(\widehat{X_{1}}, X_{2}\right)\right)
++ (-1)^{2+1} X_{2} \left(\omega \left(X_{1}, \widehat{X_{2}}\right)\right) \right) \\
+&= \sum_{i=1}^{2}(-1)^{i+1} X_{i} \left(\omega_{\nu_{1}\cdots\widehat{\nu_{i}}\cdots\nu_{2}} \, X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{2}^{\nu_{2}}\right) \\
+&= \sum_{i=1}^{2}(-1)^{i+1} X_{i}^{\mu}
+\left(\partial_{\mu} \omega_{\nu_{1}\cdots\widehat{\nu_{i}}\cdots\nu_{2}}\right)
+X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots, X_{2}^{\nu_{2}} \\
+&\quad
++ \sum_{i=1}^{2}(-1)^{i+1} X_{i}^{\mu} \omega_{\nu_{1}\cdots\widehat{\nu_{i}}\cdots\nu_{2}} \, \sum_{j=1, j \ne i}^{2} X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \left(\partial_{\mu} X_{j}^{\nu_{j}}\right) \cdots X_{2}^{\nu_{2}} \\
+\end{aligned}
+++++
+
+==== 第一項の前半の項を整理する
+[stem,latexmath]
+++++
+\begin{aligned}
+& \sum_{i=1}^{2}(-1)^{i+1} X_{i}^{\mu}
+\left(\partial_{\mu} \omega_{\nu_{1}\cdots\widehat{\nu_{i}}\cdots\nu_{2}}\right)
+X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots, X_{2}^{\nu_{2}} \\
+&=
+    (-1)^{1+1} X_{1}^{\mu} \left(\partial_{\mu} \omega_{\widehat{\nu_{1}}\nu_{2}}\right) \widehat{X_{1}^{\nu_{1}}} X_{2}^{\nu_{2}}
++ (-1)^{2+1} X_{2}^{\mu} \left(\partial_{\mu} \omega_{\nu_{1}\widehat{\nu_{2}}}\right) X_{1}^{\nu_{1}} \widehat{X_{2}^{\nu_{2}}} \\
+&=
+  X_{1}^{\mu} \left(\partial_{\mu} \omega_{\nu_{2}}\right) X_{2}^{\nu_{2}}
+- X_{2}^{\mu} \left(\partial_{\mu} \omega_{\nu_{1}}\right) X_{1}^{\nu_{1}} \\
+\end{aligned}
+++++
+
+latexmath:[\nu_{1}], latexmath:[\nu_{1}] はダミー添字であり、各項において独立に改名できる。第1項の latexmath:[\nu_{2}] を latexmath:[\nu_{1}] に改名すると、両項を同じ添字で表せる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&=
+  X_{1}^{\mu} \left(\partial_{\mu} \omega_{\nu_{1}}\right) X_{2}^{\nu_{1}}
+- X_{2}^{\mu} \left(\partial_{\mu} \omega_{\nu_{1}}\right) X_{1}^{\nu_{1}} \\
+&=
+  \left(\partial_{\mu} \omega_{\nu_{1}}\right) X_{1}^{\mu} X_{2}^{\nu_{1}}
+- \left(\partial_{\mu} \omega_{\nu_{1}}\right) X_{1}^{\nu_{1}} X_{2}^{\mu} \\
+\end{aligned}
+++++
+
+第2項のダミー添え字を latexmath:[\mu \leftrightarrow \nu_{1}]の入れ替えを行うと、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&=
+  \left(\partial_{\mu} \omega_{\nu_{1}}\right) X_{1}^{\mu} X_{2}^{\nu_{1}}
+- \left(\partial_{\nu_{1}} \omega_{\mu}\right) X_{1}^{\mu} X_{2}^{\nu_{1}} \\
+&=
+  \left(\partial_{\mu} \omega_{\nu_{1}} - \partial_{\nu_{1}} \omega_{\mu}\right) X_{1}^{\mu} X_{2}^{\nu_{1}} \\
+\end{aligned}
+++++
+
+==== 第一項の後半の項を整理する
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& \sum_{i=1}^{2}(-1)^{i+1} X_{i}^{\mu} \omega_{\nu_{1}\cdots\widehat{\nu_{i}}\cdots\nu_{2}} \, \sum_{j=1, j \ne i}^{2} X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \left(\partial_{\mu} X_{j}^{\nu_{j}}\right) \cdots X_{2}^{\nu_{2}} \\
+&=
+\sum_{i=1}^{2}(-1)^{i+1} X_{i}^{\mu} \, \sum_{j=1, j \ne i}^{2}
+\omega_{\widehat{\nu_{i}}\nu_{j}} \widehat{X_{i}^{\nu_{i}}} \left(\partial_{\mu} X_{j}^{\nu_{j}}\right) \\
+&=
+  (-1)^{1+1} X_{1}^{\mu} \omega_{\widehat{\nu_{1}}\nu_{2}} \widehat{X_{1}^{\nu_{1}}} \left(\partial_{\mu} X_{2}^{\nu_{2}}\right)
++ (-1)^{2+1} X_{2}^{\mu} \omega_{\widehat{\nu_{2}}\nu_{1}} \widehat{X_{2}^{\nu_{2}}} \left(\partial_{\mu} X_{1}^{\nu_{1}}\right) \\
+&=
+  \omega_{\nu_{2}} X_{1}^{\mu} \left(\partial_{\mu} X_{2}^{\nu_{2}}\right)
+- \omega_{\nu_{1}} X_{2}^{\mu} \left(\partial_{\mu} X_{1}^{\nu_{1}}\right) \\
+&=
+ \omega \left(X_{1}^{\mu} \left(\partial_{\mu} X_{2}^{\nu_{2}}\right)\right)
+- \omega \left( X_{2}^{\mu} \left(\partial_{\mu} X_{1}^{\nu_{1}}\right)\right) \\
+&= \omega \left(X_{1}^{\mu} \left(\partial_{\mu} X_{2}^{\nu_{2}}\right) - X_{2}^{\mu} \left(\partial_{\mu} X_{1}^{\nu_{1}}\right) \right) \\
+\end{aligned}
+++++
+
+latexmath:[\nu_{1}], latexmath:[\nu_{1}] はダミー添字であり、各項において独立に改名できる。第1項の latexmath:[\nu_{2}] を latexmath:[\nu_{1}] に改名すると、両項を同じ添字で表せる。したがって、Lie 括弧の成分表示に戻せる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \omega \left(X_{1}^{\mu} \left(\partial_{\mu} X_{2}^{\nu_{1}}\right) - X_{2}^{\mu} \left(\partial_{\mu} X_{1}^{\nu_{1}}\right) \right) \\
+&= \omega\left(\lbrack X_{1}, X_{2} \rbrack^{\nu_{1}}\right) \\
+\end{aligned}
+++++
+
+
+==== 第二項を計算する
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&- \sum_{1 \le i \lt j \le 2}(-1)^{i+j+1} \omega \left(\lbrack X_{i}, X_{j} \rbrack, \widehat{X_i}, \widehat{X_j}\right) \\
+&= - (-1)^{1+2+1} \omega \left(\lbrack X_{1}, X_{2} \rbrack^{\nu_{1}} \right) \\
+&= - \omega \left(\lbrack X_{1}, X_{2} \rbrack^{\nu_{1}} \right) \\
+&\left(= - \omega \left(X_{1}^{\mu} \left(\partial_{\mu} X_{2}^{\nu_{1}}\right) - X_{2}^{\mu} \left(\partial_{\mu} X_{1}^{\nu_{1}}\right) \right)\right) \\
+\end{aligned}
+++++
+
+==== 結果をまとめる
+
+前半と後半の項の計算結果をまとめる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& (-1)^{1+1} X_{1} \left(\omega \left(\widehat{X_{1}}, X_{2}\right)\right)
++ (-1)^{2+1} X_{2} \left(\omega \left(X_{1}, \widehat{X_{2}}\right)\right) \\
+&\quad\quad
+- (-1)^{1+2+1} \omega \left(\lbrack X_{1}, X_{2} \rbrack \right) \\
+&=
+  \left(\partial_{\mu} \omega_{\nu_{1}} - \partial_{\nu_{1}} \omega_{\mu}\right) X_{1}^{\mu} X_{2}^{\nu_{1}}
++ \omega\left(\lbrack X_{1}, X_{2} \rbrack^{\nu_{1}}\right) \\
+&\quad - \omega \left(\lbrack X_{1}, X_{2} \rbrack^{\nu_{1}} \right) \\
+&=
+  \left(\partial_{\mu} \omega_{\nu_{1}} - \partial_{\nu_{1}} \omega_{\mu}\right) X_{1}^{\mu} X_{2}^{\nu_{1}} \\
+\end{aligned}
+++++
 
 === 例2: 2-形式の場合
 
