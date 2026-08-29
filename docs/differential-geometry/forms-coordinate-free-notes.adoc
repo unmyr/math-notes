@@ -236,9 +236,9 @@ A_{\mu\nu_{1}} := \partial_{\mu}\omega_{\nu_{1}}
 &= \frac{1}{2} A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}}
   - \frac{1}{2} A_{\mu\nu_{1}} X_1^{\nu_{1}}X_2^{\mu} \\
 &= \frac{1}{2} A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}}
-  - \frac{1}{2} A_{\nu_{1}\mu} X_1^{\mu}X_2^{\nu_{1}} \tag{1} \label{ex_1_2_local_d_omega_X1_X2_1} \\
+  - \frac{1}{2} A_{\nu_{1}\mu} X_1^{\mu}X_2^{\nu_{1}} \tag{ω(X¹,X²)#1} \label{ex_1_2_local_d_omega_X1_X2_1} \\
 &= \frac{1}{2} A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}}
-  + \frac{1}{2} A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}} \tag{2} \label{ex_1_2_local_d_omega_X1_X2_2}\\
+  + \frac{1}{2} A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}} \tag{ω(X¹,X²)#2} \label{ex_1_2_local_d_omega_X1_X2_2}\\
 &= A_{\mu\nu_{1}} X_1^{\mu}X_2^{\nu_{1}}.
 \end{align}
 ++++
