@@ -1,26 +1,19 @@
-BASE_DIR=../..
-DOC_ROOT=..
+BASE_DIR=../../..
+DOC_ROOT=../..
 
 DIST_DIR=$(BASE_DIR)/dist
-DIST_SUBDIR=$(DIST_DIR)/differential-geometry
+DIST_SUBDIR=$(DIST_DIR)/differential-geometry/forms-coordinate-free
 SRC_IMAGES_DIR=$(IMAGES_DIR)
 DST_IMAGES_DIR=$(DIST_SUBDIR)/$(IMAGES_DIR)
 
 include $(DOC_ROOT)/asciidoc.mk
 
 HTML_LIST=\
-$(DIST_SUBDIR)/atlas_rp1.html \
-$(DIST_SUBDIR)/atlas_s1_transition.html \
-$(DIST_SUBDIR)/atlas_s2_angular_coords.html \
-$(DIST_SUBDIR)/atlas_s2_stereographic.html \
-$(DIST_SUBDIR)/atlas.html \
-$(DIST_SUBDIR)/forms-coordinate-free-notes.html \
-$(DIST_SUBDIR)/tangent_vectors.html \
-$(DIST_SUBDIR)/vector_field_commutator.html \
+$(DIST_SUBDIR)/1_form.html \
+$(DIST_SUBDIR)/2_form.html \
 $(DIST_SUBDIR)/index.html
 
-SUB_TARGETS=\
-forms-coordinate-free
+SUB_TARGETS=
 
 .PHONY: adoc $(SUB_TARGETS)
 
@@ -33,6 +26,3 @@ mkdir_and_copy:
 
 $(DIST_SUBDIR)/%.html: %.adoc $(DOC_ROOT)/attrs.adoc header.adoc
 	asciidoctor --trace $(AD_OPTS_HTML5_ROUGE) -o "$@" "$<"
-
-forms-coordinate-free:
-	(cd $@ && make adoc)

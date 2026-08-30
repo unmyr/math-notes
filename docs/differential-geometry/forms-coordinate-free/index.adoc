@@ -1,0 +1,20 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+endif::[]
+
+include::header.adoc[]
+
+:stem: latexmath
+include::../../attrs.adoc[]
+
+// 対象者: 初学者
+// このノートでは、座標式と座標非依存表現の対応を計算の過程まで追う
+// 省略記法や添え字の整理など、専門向けテキストでは省略されがちな計算の工夫を明示する
+== Coordinate-free verification of the exterior derivative
+
+This note compares the coordinate-free definition with the coordinate formula for 1-forms and 2-forms.
+
+* <<1_form.adoc#,Exterior derivative of a 1-form>>
+* <<2_form.adoc#,Exterior derivative of a 2-form>>
