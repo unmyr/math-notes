@@ -18,7 +18,7 @@ This note verifies that the coordinate expression of the exterior derivative
 for a 2-form agrees with the coordinate-free definition (see equation <<../books/微分幾何入門/chap02_2_5.adoc#mjx-eqn-def_2_13,定義(2.13)>>).
 
 
-=== 例2-1: 2-形式の場合 (解法1)
+=== 例2-1. 2-形式の場合 (解法1)
 
 まず、2-形式の座標非依存定義を確認する。
 
@@ -39,7 +39,7 @@ for a 2-form agrees with the coordinate-free definition (see equation <<../books
 
 この計算のポイントは、まず各項を成分表示に戻し、次に同じ型の項を揃えてから、反対称性 latexmath:[\omega_{\mu\nu}=-\omega_{\nu\mu}] を使って相殺することにある。見落としやすいのは、項の比較ができるように添え字の順序を揃えるところである。
 
-==== 1. 方向微分項 latexmath:[X_i(\omega(X_j,X_k))] を展開する
+==== 例2-1. Step1 方向微分項 latexmath:[X_i(\omega(X_j,X_k))] を展開する
 
 [stem,latexmath]
 ++++
@@ -201,7 +201,7 @@ latexmath:[\rho], latexmath:[\mu], latexmath:[\nu]は、はダミー添字であ
 \end{aligned}
 ++++
 
-==== 2. Lie括弧項の展開
+==== 例2-1. Step2 Lie括弧項の展開
 各 latexmath:[\omega(\lbrack X_i,X_j\rbrack,X_k)] の展開をします。
 
 Lie 括弧の成分は
@@ -287,7 +287,7 @@ latexmath:[X_1^{\rho} X_2^{\mu} X_3^{\nu}]と同じ並び順になるように�
 \end{aligned}
 ++++
 
-==== 3. 反対称性を使って相殺する
+==== 例2-1. Step3 反対称性を使って相殺する
 
 ここでの目的は、微分項と Lie bracket 項が相殺して、 latexmath:[\partial\omega] の項だけが残ることを示すことである。
 以下の通り、最終的に残るのは latexmath:[\partial_{\rho}\omega_{\mu\nu}] の項だけになる。
