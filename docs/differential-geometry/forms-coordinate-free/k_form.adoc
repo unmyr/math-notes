@@ -14,7 +14,6 @@ include::../../attrs.adoc[]
 // 省略記法や添え字の整理など、専門向けテキストでは省略されがちな計算の工夫を明示する
 == k-形式の外微分: 座標に依存しない定義と座標表示の一致
 
-
 === 例k-1: k-形式の場合 (解法1)
 
 _k_-形式の局所座標による導出結果と 座標非依存定義との結果の一致でテキストの解答では詳細が明らかでなかった点を補完することが主旨です。
@@ -36,24 +35,24 @@ _k_-形式の座標非依存の定義は次のようになる。
 \end{align}
 ++++
 
-==== 例k-1. Step2 座標非依存の式展開
+==== 例k-1. Step2 座標非依存の第一項の式から、第二項の成分を打ち消すことを確認する
 
 latexmath:[\eqref{ex_k_1_step1_1}] より、
 
 [stem,latexmath]
 ++++
-\begin{align}
+\begin{aligned}
 & \sum_{i=1}^{k+1}(-1)^{i+1} X_i \left(\omega \left(X_1,\cdots,\widehat{X_i}, \cdots, X_{k+1}\right)\right) \\
 &= \sum_{i=1}^{k+1}(-1)^{i+1}
 X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
 &= \sum_{i=1}^{k+1}(-1)^{i+1}
-X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \tag{Step3.1} \label{ex_2_2_step3_1_1} \\
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
 &\quad
 + \sum_{i=1}^{k+1} (-1)^{i+1}
     X_{i}^{\mu}\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}}
 \sum_{j=1 ,j \ne i}^{k+1}
-    X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \left(\partial_{\mu} X_{j}^{\nu_{j}}\right) \cdots X_{k+1}^{\nu_{k+1}} \tag{Step3.2} \label{ex_2_2_step3_1_2} \\
-\end{align}
+    X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \left(\partial_{\mu} X_{j}^{\nu_{j}}\right) \cdots X_{k+1}^{\nu_{k+1}} \\
+\end{aligned}
 ++++
 
 この後、 Lie 括弧の成分でまとめることを目的として式を整理する。
@@ -72,7 +71,7 @@ X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k
    (-1)^{i+1}
     \omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{j}\cdots\nu_{k+1}}
     X_{i}^{\mu} \left(\partial_{\mu} X_{j}^{\nu_{j}}\right)
-    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right)　\\
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
 \end{aligned}
 ++++
 
@@ -215,8 +214,9 @@ X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k
 X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
 &\quad
 + \sum_{1 \le i \lt j \le k+1}
-(-1)^{i+j+1} \omega_{\rho\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}} [X_i, X_j]^{\rho}
- \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+(-1)^{i+j+1} \omega_{\rho\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+[X_i, X_j]^{\rho}
+\, X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}} \\
 &= \sum_{i=1}^{k+1}(-1)^{i+1}
 X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
 &\quad
@@ -229,7 +229,7 @@ X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k
 \end{aligned}
 ++++
 
-以上より、  latexmath:[\eqref{ex_k_1_step1_2}] と一致する。
+以上より、最後の式の2項目は latexmath:[\eqref{ex_k_1_step1_2}] と打ち消し合うことが分かる。
 
 ==== 例k-1. Step3 まとめ
 
