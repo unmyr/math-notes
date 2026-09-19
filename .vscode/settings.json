@@ -10,6 +10,8 @@
     "asciidoctor",
     "autowidth",
     "bgcolor",
+    "biggl",
+    "biggr",
     "bigl",
     "bigr",
     "boldsymbol",
