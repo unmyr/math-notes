@@ -1,0 +1,245 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+endif::[]
+
+include::header.adoc[]
+
+:stem: latexmath
+include::../../attrs.adoc[]
+
+// 対象者: 初学者
+// このノートでは、座標式と座標非依存表現の対応を計算の過程まで追う
+// 省略記法や添え字の整理など、専門向けテキストでは省略されがちな計算の工夫を明示する
+== k-形式の外微分: 座標に依存しない定義と座標表示の一致
+
+
+=== 例k-1: k-形式の場合 (解法1)
+
+_k_-形式の局所座標による導出結果と 座標非依存定義との結果の一致でテキストの解答では詳細が明らかでなかった点を補完することが主旨です。
+
+_k_-形式の座標非依存の定義の証明の準備のため、代入した各項を展開して一致するよりも、展開したものを打ち消す項の表現に戻すような方法導出します。
+
+
+
+==== 例k-1. Step1 座標非依存の式展開
+
+_k_-形式の座標非依存の定義は次のようになる。
+
+[stem,latexmath]
+++++
+\begin{align}
+& (d\omega)(X_1,\cdots,X_{k+1}) \\
+&\quad = \sum_{i=1}^{k+1}(-1)^{i+1} X_i \left(\omega \left(X_1,\cdots,\widehat{X_i}, \cdots, X_{k+1}\right)\right) \tag{dω(X₁,…,Xₖ₊₁)#1} \label{ex_k_1_step1_1} \\
+&\quad\quad - \sum_{1 \le i \lt j \le k+1}(-1)^{i+j+1} \omega\left(\lbrack X_i, X_j \rbrack,\cdots,\widehat{X_i}, \cdots, \widehat{X_j}, \cdots, X_{k+1}\right) \tag{dω(X₁,…,Xₖ₊₁)#2} \label{ex_k_1_step1_2}
+\end{align}
+++++
+
+==== 例k-1. Step2 座標非依存の式展開
+
+latexmath:[\eqref{ex_k_1_step1_1}] より、
+
+[stem,latexmath]
+++++
+\begin{align}
+& \sum_{i=1}^{k+1}(-1)^{i+1} X_i \left(\omega \left(X_1,\cdots,\widehat{X_i}, \cdots, X_{k+1}\right)\right) \\
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \tag{Step3.1} \label{ex_2_2_step3_1_1} \\
+&\quad
++ \sum_{i=1}^{k+1} (-1)^{i+1}
+    X_{i}^{\mu}\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}}
+\sum_{j=1 ,j \ne i}^{k+1}
+    X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \left(\partial_{\mu} X_{j}^{\nu_{j}}\right) \cdots X_{k+1}^{\nu_{k+1}} \tag{Step3.2} \label{ex_2_2_step3_1_2} \\
+\end{align}
+++++
+
+この後、 Lie 括弧の成分でまとめることを目的として式を整理する。
+この先 latexmath:[\lbrack X_i,X_j \rbrack^{\rho} = X_i^{\mu}\partial_{\mu}X_j^{\rho} - X_j^{\mu}\partial_{\mu}X_i^{\rho}]の形になるように導く。
+
+計算の準備として、 latexmath:[(i, j)]に依存しない以外の共通の係数とそれに依存する成分をまとめる
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \sum_{i=1}^{k+1}
+\sum_{j=1 ,j \ne i}^{k+1}
+   (-1)^{i+1}
+    \omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{j}\cdots\nu_{k+1}}
+    X_{i}^{\mu} \left(\partial_{\mu} X_{j}^{\nu_{j}}\right)
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right)　\\
+\end{aligned}
+++++
+
+続けて、添え字を入れ替えた項同士を足し合わせる。この時点で latexmath:[i, j]に大小関係はなく、それぞれの大小により latexmath:[\omega_{\nu_1\cdots\widehat{\nu_{j}}\cdots\nu_{i}\cdots\nu_{k+1}}]、あるいは latexmath:[\omega_{\nu_1\cdots\nu_{i}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}]になる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \frac{1}{2} \sum_{i=1}^{k+1}
+\sum_{j=1 ,j \ne i}^{k+1}
+   (-1)^{i+1}
+    \omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{j}\cdots\nu_{k+1}}
+    X_{i}^{\mu} \left(\partial_{\mu} X_{j}^{\nu_{j}}\right)
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+&\quad
++ \frac{1}{2} \sum_{i=1}^{k+1}
+\sum_{j=1 ,j \ne i}^{k+1}
+   (-1)^{j+1}
+    \omega_{\nu_1\cdots\nu_{i}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+    X_{j}^{\mu} \left(\partial_{\mu} X_{i}^{\nu_{i}}\right)
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+\end{aligned}
+++++
+
+前式の2項目と3項目の総和は、一つにまとめることができる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \frac{1}{2} \sum_{i=1}^{k+1}
+\sum_{j=1 ,j \ne i}^{k+1}
+\Bigl\{
+     (-1)^{i+1}
+    \omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{j}\cdots\nu_{k+1}}
+    X_{i}^{\mu} \left(\partial_{\mu} X_{j}^{\nu_{j}}\right) \\
+&\quad\quad\quad
+ +  (-1)^{j+1}
+    \omega_{\nu_1\cdots\nu_{i}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+    X_{j}^{\mu} \left(\partial_{\mu} X_{i}^{\nu_{i}}\right)
+\Bigr\}
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right)
+\end{aligned}
+++++
+
+前式の二重和では、latexmath:[i, j]を入れ替えると各項が対応するもう一つの項に移る。したがって、latexmath:[i \ne j]の全二重和では各組を二重に数えている。括弧の前の latexmath:[1/2] と合わせると、latexmath:[i \lt j] の場合だけの和に置き換えることができる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \sum_{1 \le i \lt j \le k+1}
+\Bigl\{
+     (-1)^{i+1}
+    \omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{j}\cdots\nu_{k+1}}
+    X_{i}^{\mu} \left(\partial_{\mu} X_{j}^{\nu_{j}}\right)
+ +  (-1)^{j+1}
+    \omega_{\nu_1\cdots\nu_{i}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+    X_{j}^{\mu} \left(\partial_{\mu} X_{i}^{\nu_{i}}\right)
+\Bigr\} \\
+&\quad\quad\quad\quad\quad\quad
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right)
+\end{aligned}
+++++
+
+latexmath:[\omega_{\cdots\nu_{i}\cdots}]、および latexmath:[\omega_{\cdots\nu_{j}\cdots}]の添え字を先頭に移動する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \sum_{1 \le i \lt j \le k+1}
+\left\{
+     (-1)^{i+1+(j-2)}
+    \omega_{\nu_{j}\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+    X_{i}^{\mu} \left(\partial_{\mu} X_{j}^{\nu_{j}}\right)
+ +  (-1)^{j+1+(i-1)}
+    \omega_{\nu_{i}\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+    X_{j}^{\mu} \left(\partial_{\mu} X_{i}^{\nu_{i}}\right)
+\right\} \\
+&\quad\quad\quad\quad\quad\quad
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \sum_{1 \le i \lt j \le k+1}
+\left\{
+     (-1)^{i+j-1}
+    \omega_{\nu_{j}\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+    X_{i}^{\mu} \left(\partial_{\mu} X_{j}^{\nu_{j}}\right)
+ +  (-1)^{i+j}
+    \omega_{\nu_{i}\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+    X_{j}^{\mu} \left(\partial_{\mu} X_{i}^{\nu_{i}}\right)
+\right\} \\
+&\quad\quad\quad\quad\quad\quad
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \sum_{1 \le i \lt j \le k+1}
+(-1)^{i+j+1} \left\{
+    \omega_{\nu_{j}\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+    X_{i}^{\mu} \left(\partial_{\mu} X_{j}^{\nu_{j}}\right)
+-   \omega_{\nu_{i}\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+    X_{j}^{\mu} \left(\partial_{\mu} X_{i}^{\nu_{i}}\right)
+\right\} \\
+&\quad\quad\quad\quad\quad\quad
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right)
+\end{aligned}
+++++
+
+各固定した latexmath:[(i,j)] に対して、各項で縮約されている latexmath:[\nu_j] と latexmath:[\nu_i] は、それぞれ独立なダミー添え字である。したがって、第1項の latexmath:[\nu_j] と第2項の latexmath:[\nu_i] を、各項ごとに新しいダミー添え字 latexmath:[\rho] へ改名できる。これにより、2つの項に共通する latexmath:[\omega] の成分を括り出し、Lie 括弧の成分をまとめることができる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \sum_{1 \le i \lt j \le k+1}
+(-1)^{i+j+1} \left\{
+        \omega_{\rho\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}}
+        \left\{
+            X_{i}^{\mu} \left(\partial_{\mu} X_{j}^{\rho}\right)
+        - X_{j}^{\mu} \left(\partial_{\mu} X_{i}^{\rho}\right)
+        \right\}
+\right\} \\
+&\quad\quad\quad\quad\quad\quad
+    \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \sum_{1 \le i \lt j \le k+1}
+(-1)^{i+j+1} \omega_{\rho\nu_1\cdots\widehat{\nu_{i}}\cdots\widehat{\nu_{j}}\cdots\nu_{k+1}} [X_i, X_j]^{\rho}
+ \left(X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots \widehat{X_{j}^{\nu_{j}}} \cdots X_{k+1}^{\nu_{k+1}}\right) \\
+&= \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}} \\
+&\quad
++ \sum_{1 \le i \lt j \le k+1}
+(-1)^{i+j+1}
+\omega\left(
+    [X_i, X_j],
+    X_1,\ldots,\widehat{X_i},\ldots,\widehat{X_j},\ldots,X_{k+1}
+\right) \\
+\end{aligned}
+++++
+
+以上より、  latexmath:[\eqref{ex_k_1_step1_2}] と一致する。
+
+==== 例k-1. Step3 まとめ
+
+よって、結果は次のようになり、詳細は省くが座標依存の定義から導出した結果と同じになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& (d\omega)(X_1,\cdots,X_{k+1}) \\
+&\quad = \sum_{i=1}^{k+1}(-1)^{i+1}
+X_{i}^{\mu}\partial_{\mu} \left(\omega_{\nu_1\cdots\widehat{\nu_{i}}\cdots\nu_{k+1}} \right) X_{1}^{\nu_{1}} \cdots \widehat{X_{i}^{\nu_{i}}} \cdots X_{k+1}^{\nu_{k+1}}
+\end{aligned}
+++++

@@ -1,3 +1,4 @@
 <<../../index.adoc#,Index>> ≫ <<../index.adoc#,Differential geometry>>  ≫ <<index.adoc#,Index>> {vbar}
 <<1_form.adoc#,1 form>> {vbar}
-<<2_form.adoc#,2 form>> +
+<<2_form.adoc#,2 form>> {vbar}
+<<k_form.adoc#,k form>> +

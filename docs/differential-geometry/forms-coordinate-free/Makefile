@@ -11,6 +11,7 @@ include $(DOC_ROOT)/asciidoc.mk
 HTML_LIST=\
 $(DIST_SUBDIR)/1_form.html \
 $(DIST_SUBDIR)/2_form.html \
+$(DIST_SUBDIR)/k_form.html \
 $(DIST_SUBDIR)/index.html
 
 SUB_TARGETS=
