@@ -20,7 +20,154 @@ for a 2-form agrees with the coordinate-free definition (see equation <<../books
 
 === 例2-1. 2-形式の場合 (解法1)
 
-==== 例2-1. Step1. 座標に依存しない定義の展開
+==== 例2-1. Step1 局所座標による定義による導出を行う
+
+式 <<../books/微分幾何入門/chap02_2_5.adoc#mjx-eqn-def_2_13,定義(2.13)>>の左辺を局所座標を用いて書く。
+
+[stem,latexmath]
+++++
+\begin{align}
+d\omega
+&= \frac{1}{2!}\left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}} \\
+&=
+\frac{1}{2!}
+\biggl\{
+  \frac{1}{6}\left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}}
++ \frac{1}{6}\left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}} \\
+&\quad
++ \frac{1}{6}\left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}}
++ \frac{1}{6}\left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}} \\
+&\quad
++ \frac{1}{6}\left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}}
++ \frac{1}{6}\left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}}
+\biggr\} \\
+&=
+\frac{1}{2! \cdot 6}
+\bigl\{
+   \left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}}
++ \left(\partial_{\nu_{1}}\omega_{\mu\nu_{2}}\right) \, dx^{\nu_{1}} \wedge dx^{\mu} \wedge dx^{\nu_{2}} \\
+&\quad\quad\quad
++ \left(\partial_{\nu_{1}}\omega_{\mu\nu_{2}}\right) \, dx^{\nu_{1}} \wedge dx^{\mu} \wedge dx^{\nu_{2}}
++ \left(\partial_{\nu_{2}}\omega_{\mu\nu_{1}}\right) \, dx^{\nu_{2}} \wedge dx^{\mu} \wedge dx^{\nu_{1}} \\
+&\quad\quad\quad
++ \left(\partial_{\nu_{2}}\omega_{\mu\nu_{1}}\right) \, dx^{\nu_{2}} \wedge dx^{\mu} \wedge dx^{\nu_{1}}
++ \left(\partial_{\mu}\omega_{\nu_{2}\nu_{1}}\right) \, dx^{\mu} \wedge dx^{\nu_{2}} \wedge dx^{\nu_{1}}
+\bigr\} \tag{dω#1} \label{ex_2_2_local_d_omega_1} \\
+&=
+\frac{1}{2! \cdot 6}
+\bigl\{
+   \left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}}
+- \left(\partial_{\nu_{1}}\omega_{\mu\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}} \\
+&\quad\quad\quad
+- \left(\partial_{\nu_{1}}\omega_{\mu\nu_{2}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}}
++ \left(\partial_{\nu_{2}}\omega_{\mu\nu_{1}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}} \\
+&\quad\quad\quad
++ \left(\partial_{\nu_{2}}\omega_{\mu\nu_{1}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}}
+- \left(\partial_{\mu}\omega_{\nu_{2}\nu_{1}}\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}}
+\bigr\} \tag{dω#2} \label{ex_2_2_local_d_omega_2} \\
+&=
+\frac{1}{2! \cdot 6}
+\left\{
+   2 \left(\partial_{\mu}\omega_{\nu_{1}\nu_{2}}\right)
+- 2 \left(\partial_{\nu_{1}}\omega_{\mu\nu_{2}}\right)
++ 2 \left(\partial_{\nu_{2}}\omega_{\mu\nu_{1}}\right) \right\}
+\, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}} \\
+&=
+\frac{1}{6}
+\left(
+   \partial_{\mu}\omega_{\nu_{1}\nu_{2}}
+- \partial_{\nu_{1}}\omega_{\mu\nu_{2}}
++ \partial_{\nu_{2}}\omega_{\mu\nu_{1}}
+\right) \, dx^{\mu} \wedge dx^{\nu_{1}} \wedge dx^{\nu_{2}} \\
+\end{align}
+++++
+
+なお、 途中の式変形は次のような操作を行っている
+
+* latexmath:[\eqref{ex_2_2_local_d_omega_1}] で latexmath:[(\mu, \nu_{1}, \nu_{1}) \leftrightarrow (\nu_{1}, \mu, \nu_{2})] のように添え字を入れ替えている
+* latexmath:[\eqref{ex_2_2_local_d_omega_2}] で latexmath:[dx^{\nu_{1}} \wedge dx^\mu \wedge dx^{\nu_{1}} = - dx^\mu \wedge dx^{\nu_{1}} \wedge dx^{\nu_{1}}] を適用
+
+ここで、latexmath:[A_{\mu\nu_{1}\nu_{2}}] を次のように定義する。
+
+[stem,latexmath]
+++++
+A_{\mu\nu_{1}\nu_{2}} := 
+ \partial_{\mu}\omega_{\nu_{1}\nu_{2}}
+- \partial_{\nu_{1}}\omega_{\mu\nu_{2}}
++ \partial_{\nu_{2}}\omega_{\mu\nu_{1}} \\
+++++
+
+このとき、 latexmath:[A_{\mu\nu_{1}\nu_{2}}] は完全反対称性を持つ。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+A_{\nu_{1}\mu\nu_{2}}
+&= \partial_{\nu_{1}}\omega_{\mu\nu_{2}}
+- \partial_{\mu}\omega_{\nu_{1}\nu_{2}}
++ \partial_{\nu_{2}}\omega_{\nu_{1}\mu} \\
+&= 
+- \partial_{\mu}\omega_{\nu_{1}\nu_{2}}
++ \partial_{\nu_{1}}\omega_{\mu\nu_{2}}
++ \partial_{\nu_{2}}\omega_{\nu_{1}\mu} \\
+&=
+- \partial_{\mu}\omega_{\nu_{1}\nu_{2}}
++ \partial_{\nu_{1}}\omega_{\mu\nu_{2}}
+- \partial_{\nu_{2}}\omega_{\mu\nu_{1}} \\
+&= -A_{\mu\nu_{1}\nu_{2}} \\
+A_{\mu\nu_{2}\nu_{1}}
+&= \partial_{\mu}\omega_{\nu_{2}\nu_{1}}
+- \partial_{\nu_{2}}\omega_{\mu\nu_{1}}
++ \partial_{\nu_{1}}\omega_{\mu\nu_{2}} \\
+&= - \partial_{\mu}\omega_{\nu_{1}\nu_{2}}
++ \partial_{\nu_{1}}\omega_{\mu\nu_{2}}
+- \partial_{\nu_{2}}\omega_{\mu\nu_{1}} \\
+&= -A_{\mu\nu_{1}\nu_{2}} \\
+\end{aligned}
+++++
+
+双対ペアリングを多重線形写像に拡張した関数に対して、2次の対称群による偶置換・奇置換の符号による計算は次のようになる。
+
+[stem,latexmath]
+++++
+\begin{align}
+& d\omega(X_1,X_2,X_3) \\
+&= \frac{1}{3!} A_{\mu\nu_{1}\nu_{2}} (dx^{\mu} \wedge dx^{\nu_{1}})(X_1,X_2,X_3) \\
+&= \frac{1}{3!} A_{\mu\nu_{1}\nu_{2}} \sum_{\sigma \in S_3}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_{1} & \nu_{2} \\
+\sigma(\mu) & \sigma(\nu_{1}) & \sigma(\nu_{2}) \\ 
+\end{pmatrix}
+dx^{\sigma(\mu)} \otimes dx^{\sigma(\nu_{1})} (X_1,X_2,X_3) \\
+&= \frac{1}{3!} A_{\mu\nu_{1}\nu_{2}} \sum_{\sigma \in S_3}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_{1} & \nu_{2} \\
+\sigma(\mu) & \sigma(\nu_{1}) & \sigma(\nu_{2}) \\ 
+\end{pmatrix}
+X_1^{\sigma(\mu)} X_2^{\sigma(\nu_{1})} X_3^{\sigma(\nu_{2})} \\
+&= \frac{1}{3!} \sum_{\sigma \in S_3}\mathrm{sgn}
+\begin{pmatrix}
+\mu & \nu_{1} & \nu_{2} \\
+\sigma(\mu) & \sigma(\nu_{1}) & \sigma(\nu_{2}) \\ 
+\end{pmatrix}
+A_{\mu\nu_{1}\nu_{2}} X_1^{\sigma(\mu)} X_2^{\sigma(\nu_{1})} X_3^{\sigma(\nu_{2})} \\
+&= \frac{1}{3!} \sum_{\sigma \in S_3}\mathrm{sgn}\left(\sigma^{-1}\right)
+A_{\sigma(\mu)\sigma(\nu_{1})\sigma(\nu_{2})} X_1^{\mu} X_2^{\nu_{1}} X_3^{\nu_{2}} \\
+&= \frac{1}{3!} \sum_{\sigma \in S_3}\mathrm{sgn}\left(\sigma\right)
+A_{\sigma(\mu)\sigma(\nu_{1})\sigma(\nu_{2})} X_1^{\mu} X_2^{\nu_{1}} X_3^{\nu_{2}} \\
+&= \frac{1}{3!} \sum_{\sigma \in S_3} A_{\mu\nu_{1}\nu_{2}} X_1^{\mu} X_2^{\nu_{1}} X_3^{\nu_{2}} \\
+&= \frac{1}{3!} A_{\mu\nu_{1}\nu_{2}} X_1^{\mu} X_2^{\nu_{1}} X_3^{\nu_{2}} \sum_{\sigma \in S_3} 1 \\
+&= \frac{1}{3!} A_{\mu\nu_{1}\nu_{2}} X_1^{\mu} X_2^{\nu_{1}} X_3^{\nu_{2}} |S_3| \\
+&= A_{\mu\nu_{1}\nu_{2}} X_1^{\mu} X_2^{\nu_{1}} X_3^{\nu_{2}}.
+\end{align}
+++++
+
+したがって、後の座標非依存の導出で得られる
+latexmath:[\left( \partial_{\mu}\omega_{\nu_{1}\nu_{2}}
+- \partial_{\nu_{1}}\omega_{\mu\nu_{2}}
++ \partial_{\nu_{2}}\omega_{\mu\nu_{1}}\right) X_1^{\mu} X_2^{\nu_{1}} X_2^{\nu_{2}}] と一致する。
+
+==== 例2-1. Step2. 座標に依存しない定義の展開
 まず、2-形式の座標非依存定義を確認する。
 
 [stem,latexmath]
@@ -40,7 +187,7 @@ for a 2-form agrees with the coordinate-free definition (see equation <<../books
 
 この計算のポイントは、まず各項を成分表示に戻し、次に同じ型の項を揃えてから、反対称性 latexmath:[\omega_{\mu\nu}=-\omega_{\nu\mu}] を使って相殺することにある。見落としやすいのは、項の比較ができるように添え字の順序を揃えるところである。
 
-==== 例2-1. Step2 ベクトル場の作用項を展開する
+==== 例2-1. Step3 ベクトル場の作用項を展開する
 
 方向微分項 latexmath:[X_i(\omega(X_j,X_k))] を成分表示に展開する。
 
@@ -108,7 +255,7 @@ X_3(\omega(X_1,X_2))
 \end{aligned}
 ++++
 
-==== 例2-1. Step3 添字の入れ替えと整理
+==== 例2-1. Step4 添字の入れ替えと整理
 
 外微分の定義に現れる方向微分項 latexmath:[\eqref{ex_2_1_d_omega_123_1}] に代入して式を整理する。
 
@@ -223,7 +370,7 @@ X_3(\omega(X_1,X_2))
 \end{aligned}
 ++++
 
-==== 例2-1. Step4 交換子項との相殺
+==== 例2-1. Step5 交換子項との相殺
 
 [stem,latexmath]
 ++++
