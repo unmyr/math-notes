@@ -19,6 +19,8 @@ include::../../attrs.adoc[]
 === 2.2.5 局所座標を用いない定義 (p53-p57)
 
 ==== _k_-形式を完全反対称線形写像 _T_~p~M × … ×  _T_~p~M → R と扱う
+
+[#eqn_2_12]
 .式(2.12)
 ====
 添え字に対して完全反対称な関数 latexmath:[\omega_{\mu_1\cdots\mu_k}] を用いて表される _k_-形式 latexmath:[\omega=\frac{1}{k!} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^1} \wedge \cdots \wedge dx^{\mu^k}]に対しては、
@@ -440,6 +442,7 @@ i_X\omega
 \end{aligned}
 ++++
 
+[#eqn_2_14]
 .定義 2.5 局所座標を用いた内部積の定義(k-形式)
 ====
 _k_-形式 latexmath:[\omega=\frac{1}{k!} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^1} \wedge dx^{\mu^2} \wedge \cdots \wedge dx^{\mu^k}]に対して、次のように定義する。
@@ -462,7 +465,7 @@ i_X\omega
 ++++
 ====
 
-
+[#def_2_5]
 .定義 2.5 局所座標を用いない内部積の定義
 ====
 latexmath:[X, X_i (i=1,\cdots,k-1)]をlatexmath:[M]上のベクトル場とする。内部積 latexmath:[i_X:\Omega^{k}(M) \to \Omega^{k-1}]をlatexmath:[\omega\in\Omega^{k}(M)]に対して
@@ -480,3 +483,8 @@ i_X\omega(X_{1},X_{2},\cdots,X_{k-1}) := \omega(X, X_{1},X_{2},\cdots,X_{k-1})
 === 問題2.15 (p57)
 
 問:: latexmath:[\omega]が _k_-形式, latexmath:[X_1,\cdots,X_k] がそれぞれベクトル場のとき、 latexmath:[\omega(X_1,\cdots,X_k)]を局所座標を用いて表すと式 latexmath:[\eqref{eqn-2.12}] であった。内部積について、latexmath:[\eqref{def-2_5_2}]と局所座標を用いた定義latexmath:[\eqref{def-2_5_1}] が同値であることを確かめよ。
+
+解答::
+以下を参照
++
+* <<chap02_2_5_ex02_15.adoc#,問題2.15>>

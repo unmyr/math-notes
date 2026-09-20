@@ -1,0 +1,87 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== 演習問題2.15
+演習問題の解法の理解を深めるための覚書です。
+
+問:: latexmath:[\omega]が _k_-形式, latexmath:[X_1,\cdots,X_k] がそれぞれベクトル場のとき、 latexmath:[\omega(X_1,\cdots,X_k)]を局所座標を用いて表すと式 <<chap02_2_5.adoc#eqn_2_12,定義(2.12)>> であった。内部積について、
+<<chap02_2_5.adoc#def_2_5,(定義2.5)>> と局所座標を用いた定義 <<chap02_2_5.adoc#eqn_2_14,(2.14)>> が同値であることを確かめよ。
+
+=== 解答
+
+式 <<chap02_2_5.adoc#eqn_2_12,定義(2.12)>>より、_k_-形式 latexmath:[\omega=\frac{1}{k!} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^1} \wedge dx^{\mu^2} \wedge \cdots \wedge dx^{\mu^k}]に対しては、
+
+[stem,latexmath]
+++++
+\omega(X_{1},\cdots,X_{k}) = \omega_{\mu_1\cdots\mu_k} X_{1}^{\mu_1} \cdots X_{k}^{\mu_k}
+++++
+
+である。一方、式 <<chap02_2_5.adoc#eqn_2_14,(2.14)>>より、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+i_X\omega(X_{1},X_{2},\cdots,X_{k-1})
+&= \frac{1}{(k-1)!}X_1^{\mu_1} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^2} \wedge \cdots \wedge dx^{\mu^k}
+\left(X_2,\cdots,X_k\right) \\
+&=
+\frac{1}{(k-1)!}X_1^{\mu_1} \omega_{\mu_1\cdots\mu_k}
+\sum_{\sigma \in S_{k-1}}\mathrm{sgn}
+\begin{pmatrix}
+\mu_2 & \cdots & \mu_k \\
+\sigma(\mu_2) & \cdots & \sigma(\mu_k)
+\end{pmatrix}
+\, dx^{\sigma\left(\mu^2\right)} \otimes \cdots \otimes dx^{\sigma\left(\mu^k\right)}
+\left(X_2,\cdots,X_k\right) \\
+&=
+\frac{1}{(k-1)!}X_1^{\mu_1} \omega_{\mu_1\cdots\mu_k}
+\sum_{\sigma \in S_{k-1}}\mathrm{sgn}
+\begin{pmatrix}
+\mu_2 & \cdots & \mu_k \\
+\sigma(\mu_2) & \cdots & \sigma(\mu_k)
+\end{pmatrix}
+\, X_2^{\sigma\left(\mu^2\right)} \cdots X_k^{\sigma\left(\mu^k\right)} \\
+&=
+\frac{1}{(k-1)!}X_1^{\mu_1}
+\sum_{\sigma \in S_{k-1}}\mathrm{sgn}\left(\sigma^{-1}\right)
+\omega_{\mu_1\sigma\left(\mu^2\right)\cdots\sigma\left(\mu^k\right)}
+\, X_2^{\mu_2} \cdots X_k^{\mu_k} \\
+&=
+\frac{1}{(k-1)!}X_1^{\mu_1}
+\left(
+    \sum_{\sigma \in S_{k-1}}\mathrm{sgn}\left(\sigma\right)
+    \omega_{\mu_1\sigma\left(\mu^2\right)\cdots\sigma\left(\mu^k\right)}
+\right)
+\, X_2^{\mu_2} \cdots X_k^{\mu_k} \\
+&=
+\frac{1}{(k-1)!}X_1^{\mu_1}
+\left(
+    \sum_{\sigma \in S_{k-1}}
+    \omega_{\mu_1\cdots\mu_k}
+\right)
+\, X_2^{\mu_2} \cdots X_k^{\mu_k} \\
+&=
+\frac{1}{(k-1)!}
+\omega_{\mu_1\cdots\mu_k}
+X_1^{\mu_1}
+|S_{k-1}|
+\, X_2^{\mu_2} \cdots X_k^{\mu_k} \\
+&=
+\omega_{\mu_1\cdots\mu_k}
+X_1^{\mu_1} X_2^{\mu_2} \cdots X_k^{\mu_k} \\
+\end{aligned}
+++++
+
+となり一致していることが示された。
