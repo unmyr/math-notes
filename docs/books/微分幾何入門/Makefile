@@ -14,6 +14,8 @@ $(DIST_SUBDIR)/chap02_1.html \
 $(DIST_SUBDIR)/chap02_2_2.html \
 $(DIST_SUBDIR)/chap02_2_3.html \
 $(DIST_SUBDIR)/chap02_2_4.html \
+$(DIST_SUBDIR)/chap02_2_5_ex02_12.html \
+$(DIST_SUBDIR)/chap02_2_5_ex02_13.html \
 $(DIST_SUBDIR)/chap02_2_5.html \
 $(DIST_SUBDIR)/chap02_differential_form.html \
 $(DIST_SUBDIR)/index.html
