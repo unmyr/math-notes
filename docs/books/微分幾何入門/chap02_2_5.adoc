@@ -18,6 +18,20 @@ include::../../attrs.adoc[]
 
 === 2.2.5 局所座標を用いない定義 (p53-p57)
 
+==== _k_-形式を完全反対称線形写像 _T_~p~M × … ×  _T_~p~M → R と扱う
+.式(2.12)
+====
+添え字に対して完全反対称な関数 latexmath:[\omega_{\mu_1\cdots\mu_k}] を用いて表される _k_-形式 latexmath:[\omega=\frac{1}{k!} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^1} \wedge \cdots \wedge dx^{\mu^k}]に対しては、
+[stem,latexmath]
+++++
+\begin{equation}
+\omega(X_{1},\cdots,X_{k}) = \omega_{\mu_1\cdots\mu_k} X_{1}^{\mu_1} \cdots X_{k}^{\mu_k}
+\tag{2.12}\label{eqn-2.12}
+\end{equation}
+++++
+となる
+====
+
 ====  2-形式の例(p53)
 
 latexmath:[\displaystyle \omega=\frac{1}{2}\omega_{\mu\nu} d x^\mu \wedge d x^\nu]と二つのベクトル場 latexmath:[\displaystyle X_1 = X_1^{\nu}\frac{\partial}{\partial x^\nu}, X_2 = X_2^{\nu} \frac{\partial}{\partial x^\nu}]に対して、双対ペアリングが双線形写像であることを使う。
@@ -403,3 +417,66 @@ d\omega(X_1,X_2) = X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1, X_2
 以下を参照
 +
 * <<chap02_2_5_ex02_14.adoc#,問題2.14>>
+
+
+=== 内部積
+内部積(interior product) latexmath:[i_X]は、あるベクトル場 _X_ を用いて、 latexmath:[\Omega^{k}(M)]から latexmath:[\Omega^{k-1}(M)]への写像を与えるものである。
+
+1-形式 latexmath:[\omega=\omega_{\mu} \, dx^{\mu}]に対して、次のように定義する。
+
+[stem,latexmath]
+++++
+i_X\omega = \omega(X) = X^{\mu} \omega_{\mu}
+++++
+
+2-形式 latexmath:[\omega=\frac{1}{k!} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^1} \wedge dx^{\mu^2} \wedge \cdots \wedge dx^{\mu^k}]に対して、次のように定義する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+i_X\omega
+= \frac{1}{2!}\left(X^{\mu} \omega_{\mu\nu} dx^{\nu} - X^{\nu} \omega_{\mu\nu} dx^{\mu} \right)
+= X^{\mu} \omega_{\mu\nu} dx^{\nu}
+\end{aligned}
+++++
+
+.定義 2.5 局所座標を用いた内部積の定義(k-形式)
+====
+_k_-形式 latexmath:[\omega=\frac{1}{k!} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^1} \wedge dx^{\mu^2} \wedge \cdots \wedge dx^{\mu^k}]に対して、次のように定義する。
+
+[stem,latexmath]
+++++
+\begin{align}
+i_X\omega
+&=\frac{1}{k!}
+\Bigl(
+  X^{\mu_1} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^2} \wedge \cdots \wedge dx^{\mu^k} \\
+&\quad\quad\quad\quad
+-X^{\mu_2} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^1} \wedge dx^{\mu^3} \wedge \cdots \wedge dx^{\mu^k} \\
+&\quad\quad\quad\quad
++ \cdots + (-1)^{k-1} X^{\mu_k} \omega_{\mu_1\cdots\mu_k}\, dx^{\mu^1} \wedge dx^{\mu^3} \wedge \cdots \wedge dx^{\mu^{k-1}}
+\Bigr) \\
+&=
+\frac{1}{(k-1)!} X^{\mu_1} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^2} \wedge \cdots \wedge dx^{\mu^k} \tag{2.14}\label{def-2_5_1} \\
+\end{align}
+++++
+====
+
+
+.定義 2.5 局所座標を用いない内部積の定義
+====
+latexmath:[X, X_i (i=1,\cdots,k-1)]をlatexmath:[M]上のベクトル場とする。内部積 latexmath:[i_X:\Omega^{k}(M) \to \Omega^{k-1}]をlatexmath:[\omega\in\Omega^{k}(M)]に対して
+[stem,latexmath]
+++++
+\begin{equation}
+i_X\omega(X_{1},X_{2},\cdots,X_{k-1}) := \omega(X, X_{1},X_{2},\cdots,X_{k-1})
+\tag{定義2.5}\label{def-2_5_2}
+\end{equation}
+++++
+
+と定義する
+====
+
+=== 問題2.15 (p57)
+
+問:: latexmath:[\omega]が _k_-形式, latexmath:[X_1,\cdots,X_k] がそれぞれベクトル場のとき、 latexmath:[\omega(X_1,\cdots,X_k)]を局所座標を用いて表すと式 latexmath:[\eqref{eqn-2.12}] であった。内部積について、latexmath:[\eqref{def-2_5_2}]と局所座標を用いた定義latexmath:[\eqref{def-2_5_1}] が同値であることを確かめよ。
