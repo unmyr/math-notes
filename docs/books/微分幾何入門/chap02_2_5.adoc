@@ -394,3 +394,12 @@ d\omega(X_1,X_2) = X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1, X_2
 以下を参照
 +
 * <<chap02_2_5_ex02_13.adoc#,問題2.13>>
+
+=== 問題2.14 (p57)
+
+問:: latexmath:[\mathbb{R}^2]上の1-形式 latexmath:[\eta = y dx + x dy] と 2-形式 latexmath:[\omega = xy^2 dx \wedge dy]に対して、ベクトル場 latexmath:[X=x^2 \frac{\partial}{\partial x} + y \frac{\partial}{\partial y}] による内部積 latexmath:[i_X \eta] と latexmath:[i_X \omega]を求めよ
+
+解答::
+以下を参照
++
+* <<chap02_2_5_ex02_14.adoc#,問題2.14>>

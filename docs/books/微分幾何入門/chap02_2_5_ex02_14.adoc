@@ -1,0 +1,45 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== 演習問題2.14
+演習問題の解法の理解を深めるための覚書です。
+
+問:: latexmath:[\mathbb{R}^2]上の1-形式 latexmath:[\eta = y dx + x dy] と 2-形式 latexmath:[\omega = xy^2 \, dx \wedge dy]に対して、ベクトル場 latexmath:[X=x^2 \frac{\partial}{\partial x} + y \frac{\partial}{\partial y}] による内部積 latexmath:[i_X \eta] と latexmath:[i_X \omega]を求めよ
+
+=== 解答: 1-形式
+latexmath:[(x,y) = (x^1, x^2)]とすると、latexmath:[\eta_1 = y], latexmath:[\eta_2 = x], latexmath:[X^1 = x^2], latexmath:[X^2 = y]であるから、
+
+
+[stem,latexmath]
+++++
+i_X \eta
+= X^{\mu} \eta_{\mu}
+= x^2 \cdot y + y \cdot x
+= x^2 y + xy
+++++
+
+=== 解答: 2-形式
+
+latexmath:[(x,y) = (x^1, x^2)]とすると、latexmath:[\omega_{12} = -\omega_{21}=xy^2], latexmath:[X^1 = x^2], latexmath:[X^2 = y] であるから、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+i_X \omega
+&= X^{1} \omega_{12} dx^2 - X^{2}\omega_{21} dx^1 \\
+&= x^2 \cdot xy^2 dy - y \cdot xy^2 dx \\
+&= x^3 y^2 dy - xy^3 dx \\
+\end{aligned}
+++++
