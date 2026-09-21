@@ -22,7 +22,7 @@ include::../../attrs.adoc[]
 
 [#eqn_2_12]
 .式(2.12)
-====
+****
 添え字に対して完全反対称な関数 latexmath:[\omega_{\mu_1\cdots\mu_k}] を用いて表される _k_-形式 latexmath:[\omega=\frac{1}{k!} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^1} \wedge \cdots \wedge dx^{\mu^k}]に対しては、
 [stem,latexmath]
 ++++
@@ -32,7 +32,7 @@ include::../../attrs.adoc[]
 \end{equation}
 ++++
 となる
-====
+****
 
 ====  2-形式の例(p53)
 
@@ -394,13 +394,13 @@ dx^{\sigma(\mu_3)} \left(\frac{\partial}{\partial x^{\nu_3}}\right) \\
 * latexmath:[\lbrack X_i, X_j \rbrack]は、ベクトル場の交換子積で latexmath:[\lbrack X, Y \rbrack = XY - YX]と定義する
 
 .1-形式の場合
-====
+****
 latexmath:[X_i(\omega(X_2))]は、双対ペアリングで作られたスカラー関数 latexmath:[\omega(X_2)]に微分作用素としてのベクトル場 \(X_1\)が作用して得られたスカラー関数となる
 [stem,latexmath]
 ++++
 d\omega(X_1,X_2) = X_1(\omega(X_2)) - X_2(\omega(X_1)) - \omega(\lbrack X_1, X_2 \rbrack)
 ++++
-====
+****
 
 === 問題2.13 (p56)
 
@@ -444,7 +444,7 @@ i_X\omega
 
 [#eqn_2_14]
 .定義 2.5 局所座標を用いた内部積の定義(k-形式)
-====
+****
 _k_-形式 latexmath:[\omega=\frac{1}{k!} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^1} \wedge dx^{\mu^2} \wedge \cdots \wedge dx^{\mu^k}]に対して、次のように定義する。
 
 [stem,latexmath]
@@ -463,11 +463,11 @@ i_X\omega
 \frac{1}{(k-1)!} X^{\mu_1} \omega_{\mu_1\cdots\mu_k} \, dx^{\mu^2} \wedge \cdots \wedge dx^{\mu^k} \tag{2.14}\label{def-2_5_1} \\
 \end{align}
 ++++
-====
+****
 
 [#def_2_5]
 .定義 2.5 局所座標を用いない内部積の定義
-====
+****
 latexmath:[X, X_i (i=1,\cdots,k-1)]をlatexmath:[M]上のベクトル場とする。内部積 latexmath:[i_X:\Omega^{k}(M) \to \Omega^{k-1}]をlatexmath:[\omega\in\Omega^{k}(M)]に対して
 [stem,latexmath]
 ++++
@@ -478,7 +478,7 @@ i_X\omega(X_{1},X_{2},\cdots,X_{k-1}) := \omega(X, X_{1},X_{2},\cdots,X_{k-1})
 ++++
 
 と定義する
-====
+****
 
 === 問題2.15 (p57)
 
