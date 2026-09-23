@@ -54,6 +54,7 @@
     "scaleratio",
     "semidirect",
     "semigroup",
+    "showarrow",
     "showlegend",
     "solveset",
     "stylesdir",
@@ -69,6 +70,7 @@
     "vmatrix",
     "widehat",
     "xaxis",
-    "yaxis"
+    "yaxis",
+    "zeroline"
   ]
 }

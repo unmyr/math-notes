@@ -1,0 +1,153 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+:stem: latexmath
+endif::[]
+
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
+ifeval::["{backend}" == "html5"]
+pass:[<script src="https://cdn.plot.ly/plotly-4.1.1.min.js"></script>]
+pass:[<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>]
+endif::[]
+
+include::header.adoc[]
+
+include::../../attrs.adoc[]
+
+== 微分幾何入門 第2章: 2.3 微分形式の積分 › 2.3.1 具体例による考察 (p58-p62)
+演習問題の解法の理解を深めるための覚書です。
+
+latexmath:[S^1 = \left\{(x,y)\in\mathbb{R}\mid x^2+y^2=1 \right\}]
+
+* latexmath:[U_1 = \left\{(\cos \theta, \sin \theta) \mid 0 \lt \theta \lt \frac{3}{2}\pi \right\}]
+* latexmath:[U_2 = \left\{(\cos \theta, \sin \theta) \mid \pi \lt \theta \lt \frac{5}{2}\pi \right\}]
+
+上記に対して、 latexmath:[\phi_i(U_i)=V_i (i=1,2)]として、latexmath:[V_1, V_2]を次のように定めることができる。
+
+* latexmath:[V_1 = \left\{\theta \in \mathbb{R} \mid 0 \lt \theta \lt \frac{3}{2}\pi \right\}]
+* latexmath:[V_2 = \left\{\theta \in \mathbb{R} \mid \pi \lt \theta \lt \frac{5}{2}\pi \right\}]
+
+1を分割した不連続な関数 latexmath:[\rho_i \to \lbrack 0, 1 \rbrack] の例
+
+[stem,latexmath]
+++++
+\rho_1 =
+\begin{cases}
+0 & \left( p \notin U_1 \right) \\
+1 & \left( p \in U_1 \wedge p \notin U_1 \cap U_2 \right) \\
+\frac{1}{2} & \left( p \in U_1 \cap U_2 \right) \\
+\end{cases}
+++++
+
+[stem,latexmath]
+++++
+\rho_2 =
+\begin{cases}
+0 & \left( p \notin U_2 \right) \\
+1 & \left( p \in U_2 \wedge p \notin U_1 \cap U_2 \right) \\
+\frac{1}{2} & \left( p \in U_1 \cap U_2 \right) \\
+\end{cases}
+++++
+
+[stem,latexmath]
+++++
+\psi(x) =
+\begin{cases}
+0                          & (x \le 0) \\
+e^{-\frac{1}{x}} & (x \gt 0) \\
+\end{cases},
+f_{a,b}(\theta) = \frac{\psi(\theta - a)}{\psi(\theta - a) + \psi(b - \theta)}
+++++
+
+ifeval::["{backend}" == "html5"]
+latexmath:[0 \text{ for } x \le 0, e^{-\frac{1}{x}} \text{ for } x>0]
+
+[pass]
+++++
+<div id="chap02_3_1_exp_neg_inv_x_piecewise_plot_area"><!-- Plotly chart will be drawn inside this DIV --></div>
+<script>
+include::js/chap02_3_1_exp_neg_inv_x_piecewise.js[]
+</script>
+++++
+
+区間 latexmath:[\lbrack \pi, 3\pi/2\rbrack] における滑らかな1の分割
+
+[pass]
+++++
+<div id="chap02_3_1_smooth_transition_pi_3pi_over_2_plot_area"><!-- Plotly chart will be drawn inside this DIV --></div>
+<script>
+include::js/chap02_3_1_smooth_transition_pi_3pi_over_2.js[]
+</script>
+++++
+endif::[]
+
+=== 演習問題2.16 (p62)
+
+問:: 例2.8に対して、滑らかな latexmath:[\rho_1], latexmath:[\rho_2] を実際に作れ。
+
+解答(テキスト)::
++
+latexmath:[0 \lt \theta \le \pi]に対して、例えば latexmath:[\rho_1]は latexmath:[U_1]で
+[stem,latexmath]
+++++
+\rho_1((\cos\theta,\sin\theta)) =
+\begin{cases}
+f_{0,\frac{\pi}{2}}(\theta) & \left( 0 \lt \theta \le \frac{3}{4}\pi \right) \\
+1 - f_{\pi,\frac{3}{2}\pi}(\theta) & \left( \frac{3}{4}\pi \lt \theta \lt \frac{3}{2}\pi \right) \\
+0 & \left(\frac{3}{2}\pi \le \theta \le 2\pi \right)(= S^1 - U_1)
+\end{cases}
+++++
+とする。latexmath:[\rho_2]は latexmath:[1 - \rho_1]で定義する。
+
+解答(自力の解答)::
++
+次のような latexmath:[C^{\infty}]級関数を考える
+[stem,latexmath]
+++++
+\psi(x) =
+\begin{cases}
+0                          & (x \le 0) \\
+e^{-\frac{1}{x}} & (x \gt 0) \\
+\end{cases},
+f_{a,b}(\theta) = \frac{\psi(\theta-a)}{\psi(\theta-a) + \psi(b-\theta)}
+++++
+
+latexmath:[\rho_1(p)]について、latexmath:[f_{a,b}の]第1象限と第3象限の符号に注意すると次のように定義できる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& \rho_1(p)=
+\begin{cases}
+f_{0,\frac{\pi}{2}}(\phi_1(p))
+& p \in U_1, 0 \lt \phi_1(p) \lt \frac{\pi}{2},\\
+1
+& p \in U_1, \frac{\pi}{2}\le\phi_1(p)\le\pi,\\
+1-f_{\pi,\frac{3\pi}{2}}(\phi_1(p))
+& p \in U_1, \pi \lt \phi_1(p) \lt \frac{3\pi}{2},\\
+0
+& p\notin U_1.
+\end{cases} \\
+\end{aligned}
+++++
+
+latexmath:[\rho_2(p)]について、latexmath:[\rho_1(p)]がlatexmath:[U_1]上でのみ定義されることに注意して、次のように定義できる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+& \rho_2(p)=
+\begin{cases}
+1 - \rho_1(p)
+& p \in U_1 \cap U_2 \Leftrightarrow \left(\left(\pi \lt \phi_2(p) \lt \frac{3\pi}{2}\right) \cup \left(2\pi \lt \phi_2(p) \lt \frac{5\pi}{2}\right) \right),\\
+1
+& p \in (U_2 \backslash U_1) \Leftrightarrow \frac{3\pi}{2} \le \phi_2(p) \le 2\pi \\
+0
+& p\notin U_2.
+\end{cases}
+\end{aligned}
+++++

@@ -19,6 +19,7 @@ $(DIST_SUBDIR)/chap02_2_5_ex02_13.html \
 $(DIST_SUBDIR)/chap02_2_5_ex02_14.html \
 $(DIST_SUBDIR)/chap02_2_5_ex02_15.html \
 $(DIST_SUBDIR)/chap02_2_5.html \
+$(DIST_SUBDIR)/chap02_3_1.html \
 $(DIST_SUBDIR)/chap02_differential_form.html \
 $(DIST_SUBDIR)/index.html
 
@@ -34,6 +35,9 @@ mkdir_and_copy:
 	test ! -d $(DST_IMAGES_DIR) || cp $(CP_OPTS) $(SRC_IMAGES_DIR)/* $(DST_IMAGES_DIR)/
 
 $(DIST_SUBDIR)/chap01_manifold.html: chap01_manifold.adoc $(DOC_ROOT)/attrs.adoc header.adoc js/chap01_01_14_vector_field.js
+	asciidoctor --trace $(AD_OPTS_HTML5_ROUGE) -o "$@" "$<"
+
+$(DIST_SUBDIR)/chap02_3_1.html: chap02_3_1.adoc $(DOC_ROOT)/attrs.adoc header.adoc js/chap02_3_1_exp_neg_inv_x_piecewise.js js/chap02_3_1_smooth_transition_pi_3pi_over_2.js
 	asciidoctor --trace $(AD_OPTS_HTML5_ROUGE) -o "$@" "$<"
 
 $(DIST_SUBDIR)/%.html: %.adoc $(DOC_ROOT)/attrs.adoc header.adoc
