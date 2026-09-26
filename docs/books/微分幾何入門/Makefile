@@ -20,6 +20,7 @@ $(DIST_SUBDIR)/chap02_2_5_ex02_14.html \
 $(DIST_SUBDIR)/chap02_2_5_ex02_15.html \
 $(DIST_SUBDIR)/chap02_2_5.html \
 $(DIST_SUBDIR)/chap02_3_1.html \
+$(DIST_SUBDIR)/chap02_3_3.html \
 $(DIST_SUBDIR)/chap02_differential_form.html \
 $(DIST_SUBDIR)/index.html
 
