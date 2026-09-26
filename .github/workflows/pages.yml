@@ -24,6 +24,8 @@ jobs:
       uses: actions/checkout@v6
 
     # Convert AsciiDoc files to HTML using the official image pinned to release 1.107.0
+    # Release: https://github.com/asciidoctor/docker-asciidoctor/releases
+    # Tag: https://hub.docker.com/r/asciidoctor/docker-asciidoctor/tags
     - name: Build HTML with Asciidoctor
       run: |
         docker run --rm \
