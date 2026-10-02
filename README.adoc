@@ -1,5 +1,22 @@
 == Math notes
 
+== Local build setup
+
+Add the following setting to your VS Code user `settings.json`.
+
+* Windows
++
+[source,json]
+----
+{
+  "docs.outputBaseDir": "C:\\path\\to\\docs"
+}
+----
+
+Then run the build task in VS Code.
+
+The build output will be written to `<docs.outputBaseDir>\<repository-name>`.
+
 === About custom instructions
 
 Custom instructions let you define workspace-specific guidance that Copilot automatically applies when you work in this project. You can use custom instructions to specify formatting rules, coding conventions, or any other guidelines that you want Copilot to follow when generating suggestions for this repository.
