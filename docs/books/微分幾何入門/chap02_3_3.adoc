@@ -20,6 +20,59 @@ include::../../attrs.adoc[]
 
 === 演習問題2.17 (p72)
 
-問:: 例2.10 と同様に latexmath:[\mathbb{R}^2]上の円盤 latexmath:[x^2 + y^2 \le 1] を latexmath:[D] とする。1-形式 latexmath:[\omega = (-2x + 3y) dx + (x - 3y)dy] に対して、以下の問に答えよ。
-(1)::: ストークスの定理を [underline]#用いずに#、面積分を用いて latexmath:[\displaystyle \int_D d\omega] を求めよ。
+問:: 例2.10 と同様に latexmath:[\mathbb{R}^2]上の円盤 latexmath:[x^2 + y^2 \le 1]を latexmath:[D] とする。1-形式 latexmath:[\omega = -(-2x + 3y) dx + (x - 3y)dy] に対して、以下の問に答えよ。
+(1)::: ストークスの定理を[underline]##用いずに##、面積分を用いて latexmath:[\displaystyle \int_D d\omega] を求めよ。
 (2)::: 積分 latexmath:[\displaystyle \int_D d\omega]を、[underline]##ストークスの定理を用いて##線積分を計算せよ。
+
+==== 問2.17(1)の解答
+
+まず、1-形式 latexmath:[\omega] の外微分 latexmath:[d\omega] を計算する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+d\omega
+&= d(-(-2x + 3y) dx + (x - 3y)dy) = d(-(-2x + 3y)dx) + d((x - 3y)dy) \\
+&= \left\{\frac{\partial -(-2x + 3y)}{\partial x} dx + \frac{\partial -(-2x + 3y)}{\partial y}dy \right\} \,\wedge dx
+  + \left\{\frac{\partial (x - 3y)}{\partial x} dx + \frac{\partial (x - 3y)}{\partial y}dy \right\} \,\wedge dy \\
+&= \frac{\partial -(-2x + 3y)}{\partial y} \, dy \,\wedge dx + \frac{\partial (x - 3y)}{\partial x} \, dx \wedge dy \\
+&= -3 \, dy \,\wedge dx + dx \wedge dy \\
+&= 3 \, dx \,\wedge dy + dx \wedge dy \\
+&= 4 dx \wedge dy \\
+\end{aligned}
+++++
+
+座標を latexmath:[(x,y)=(r\cos\theta,r\sin\theta)] と置いて、極座標 latexmath:[(r,\theta)] に変換する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+dx \wedge dy
+&= \left\{\frac{\partial x}{\partial r}dr + \frac{\partial x}{\partial \theta}d\theta\right\} \wedge \left\{\frac{\partial y}{\partial r}dr + \frac{\partial y}{\partial \theta}d\theta\right\} \\
+&=
+\frac{\partial x}{\partial r}dr \wedge \frac{\partial y}{\partial \theta}d\theta
++ \frac{\partial x}{\partial \theta}d\theta \wedge \frac{\partial y}{\partial r}dr \\
+&=
+\left(
+  \frac{\partial x}{\partial r}\frac{\partial y}{\partial \theta}
+- \frac{\partial x}{\partial \theta} \frac{\partial y}{\partial r}
+\right) dr \wedge d\theta \\
+&= (\cos\theta \cdot r\cos\theta - (-r\sin\theta)\cdot \sin\theta) \, dr \wedge d\theta \\
+&= r \, dr \wedge d\theta \\
+\end{aligned}
+++++
+
+円盤 latexmath:[D] は、極座標では latexmath:[0 \le r \le 1,\ 0 \le \theta \le 2\pi] に対応するから、
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\int_D d\omega
+&= 4 \int_D dx dy \\
+&= 4 \int_0^1 \int_0^{2\pi} r \, dr d\theta \\
+&= 4 \int_0^1 r dr \int_0^{2\pi} d\theta \\
+&= 4 \left[\frac{r^2}{2}\right]_0^{1} \left[\theta\right]_0^{2\pi} \\
+&= 4\pi.
+\end{aligned}
+++++
+
