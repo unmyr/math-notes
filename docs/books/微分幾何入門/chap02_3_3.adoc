@@ -78,7 +78,7 @@ dx \wedge dy
 
 ==== 問2.17(2)の解答
 
-領域 latexmath:[D] は境界を持つ2次元多様体であり、その境界 latexmath:[\partial D]は単位円周 latexmath:[S^1={(x,y) \mid x^2 + y^2 = 1}]である。準備として、次の局所座標によるパラーメーター表示を考える。
+領域 latexmath:[D] は境界を持つ2次元多様体であり、その境界 latexmath:[\partial D]は単位円周 latexmath:[S^1=\{(x,y) \mid x^2 + y^2 = 1\}]である。準備として、次の局所座標によるパラーメーター表示を考える。
 
 [stem,latexmath]
 ++++
