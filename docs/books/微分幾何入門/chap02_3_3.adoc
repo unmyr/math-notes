@@ -76,3 +76,77 @@ dx \wedge dy
 \end{aligned}
 ++++
 
+==== 問2.17(2)の解答
+
+領域 latexmath:[D] は境界を持つ2次元多様体であり、その境界 latexmath:[\partial D]は単位円周 latexmath:[S^1={(x,y) \mid x^2 + y^2 = 1}]である。準備として、次の局所座標によるパラーメーター表示を考える。
+
+[stem,latexmath]
+++++
+x=r cos\theta, y=r \sin\theta
+++++
+
+latexmath:[\omega=\omega_1 dx + \omega_2 dy]を極座標で表す。
+このとき係数は latexmath:[\omega_1=-(-2x + 3y)]、latexmath:[\omega_2 = x - 3y]となり、latexmath:[(r,\theta)]の関数として整理できる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\omega_1 &= -(-2x + 3y) = r(2 \cos\theta - 3 \sin\theta) \\
+\omega_2 &= x - 3y = r(\cos\theta -3 \sin\theta) \\
+\end{aligned}
+++++
+
+この先の領域latexmath:[D]上の線積分の準備として、latexmath:[\omega]を極座標 latexmath:[r,\theta] に基底変換する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\omega
+&= \omega_1 dx + \omega_2 dy \\
+&= \omega_1 d(r \cos\theta) + \omega_2 d(r \sin\theta) \\
+&= \omega_1 \left\{\frac{\partial r \cos\theta}{\partial r} dr + \frac{\partial r \cos\theta}{\partial \theta} d\theta \right\}
+  + \omega_2 \left\{\frac{\partial r \sin\theta}{\partial r} dr + \frac{\partial r \sin\theta}{\partial \theta} d\theta \right\} \\
+&= \omega_1 (\cos\theta dr - r \sin\theta d\theta) + \omega_2 (\sin\theta dr + r \cos\theta d\theta) \\
+&= (\omega_1 \cos\theta + \omega_2 \sin\theta) dr + r(- \omega_1 \sin\theta + \omega_2 \cos\theta) d\theta \\
+&= (r(2 \cos\theta - 3 \sin\theta) \cos\theta + r(\cos\theta -3 \sin\theta) \sin\theta) dr + r(- r(2 \cos\theta - 3 \sin\theta) \sin\theta + r(\cos\theta -3 \sin\theta) \cos\theta) d\theta \\
+&= r((2 \cos\theta - 3 \sin\theta) \cos\theta + (\cos\theta -3 \sin\theta) \sin\theta) dr
+   + r^2((-2 \cos\theta + 3 \sin\theta) \sin\theta + (\cos\theta -3 \sin\theta) \cos\theta) d\theta \\
+&= r(2 \cos^2\theta  -3 \sin\theta \cos\theta + \sin\theta \cos\theta  -3 \sin^2\theta) dr
+   + r^2(-2 \sin\theta \cos\theta + 3 \sin^2\theta + \cos^2\theta  -3 \sin\theta \cos\theta) d\theta \\
+&= r( -3 \sin^2\theta + 2 \cos^2\theta  -2 \sin\theta \cos\theta) dr
+   + r^2(3 \sin^2\theta + \cos^2\theta  -5 \sin\theta \cos\theta) d\theta \\
+&= r\left( -3 (1- \cos^2\theta) + 2 \cos^2\theta  - \sin 2\theta \right) dr
+   + r^2\left(3 (1- \cos^2\theta) + \cos^2\theta - \frac{5}{2}\sin 2\theta \right) d\theta \\
+&= r\left( -3  + 5 \cos^2\theta - \sin 2\theta \right) dr
+   + r^2\left(3 - 2 \cos^2\theta - \frac{5}{2}\sin 2\theta \right) d\theta \\
+&= r\left(2  + 5 (\cos^2\theta - 1) - \sin 2\theta \right) dr
+   + r^2\left(2 - (2 \cos^2\theta - 1) - \frac{5}{2}\sin 2\theta \right) d\theta \\
+&= r\left(2  + 5 \cos 2\theta - \sin 2\theta \right) dr
+   + r^2\left(2 - \cos 2\theta - \frac{5}{2}\sin 2\theta \right) d\theta \\
+\end{aligned}
+++++
+
+境界 latexmath:[\partial D]上の線積分では、1-形式 latexmath:[\omega]を境界への写像で引き戻して考える。
+単位円周を latexmath:[\gamma(\theta)=(\cos\theta,\sin\theta)]に沿って引き戻して考える。境界上では latexmath:[r=1] であり、接方向には latexmath:[dr=0] となるため、latexmath:[d\theta]の項だけが積分に寄与する。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\gamma^*\omega
+&= \left(2 - \cos 2\theta - \frac{5}{2}\sin 2\theta \right) d\theta \\
+\end{aligned}
+++++
+
+ストークスの定理より、
+[stem,latexmath]
+++++
+\begin{aligned}
+\int_D d\omega
+&= \int_{\partial D} \omega \\
+&= \int_{S^1} \omega \\
+&= \int_{0}^{2\pi} \left(2 - \cos 2\theta - \frac{5}{2}\sin 2\theta \right) d\theta \\
+&= 2 \left[\theta\right]_{0}^{2\pi} - \left[\frac{1}{2}\sin 2\theta\right]_{0}^{2\pi} - \frac{5}{2} \left[-\frac{1}{2}\cos 2\theta \right]_{0}^{2\pi} \\
+&= 4 \pi - (0 - 0) + \frac{5}{4} (1 - 1) \\
+&= 4 \pi. \\
+\end{aligned}
+++++
