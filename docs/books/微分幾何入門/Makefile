@@ -1,28 +1,28 @@
 BASE_DIR=../../..
 DOC_ROOT=../..
 
-DIST_DIR=$(BASE_DIR)/dist
-DIST_SUBDIR=$(DIST_DIR)/books/微分幾何入門
+DEST_DIR=$(BASE_DIR)/dist
+DEST_SUBDIR=$(DEST_DIR)/books/微分幾何入門
 SRC_IMAGES_DIR=$(IMAGES_DIR)
-DST_IMAGES_DIR=$(DIST_SUBDIR)/$(IMAGES_DIR)
+DST_IMAGES_DIR=$(DEST_SUBDIR)/$(IMAGES_DIR)
 
 include $(DOC_ROOT)/asciidoc.mk
 
 HTML_LIST=\
-$(DIST_SUBDIR)/chap01_manifold.html \
-$(DIST_SUBDIR)/chap02_1.html \
-$(DIST_SUBDIR)/chap02_2_2.html \
-$(DIST_SUBDIR)/chap02_2_3.html \
-$(DIST_SUBDIR)/chap02_2_4.html \
-$(DIST_SUBDIR)/chap02_2_5_ex02_12.html \
-$(DIST_SUBDIR)/chap02_2_5_ex02_13.html \
-$(DIST_SUBDIR)/chap02_2_5_ex02_14.html \
-$(DIST_SUBDIR)/chap02_2_5_ex02_15.html \
-$(DIST_SUBDIR)/chap02_2_5.html \
-$(DIST_SUBDIR)/chap02_3_1.html \
-$(DIST_SUBDIR)/chap02_3_3.html \
-$(DIST_SUBDIR)/chap02_differential_form.html \
-$(DIST_SUBDIR)/index.html
+$(DEST_SUBDIR)/chap01_manifold.html \
+$(DEST_SUBDIR)/chap02_1.html \
+$(DEST_SUBDIR)/chap02_2_2.html \
+$(DEST_SUBDIR)/chap02_2_3.html \
+$(DEST_SUBDIR)/chap02_2_4.html \
+$(DEST_SUBDIR)/chap02_2_5_ex02_12.html \
+$(DEST_SUBDIR)/chap02_2_5_ex02_13.html \
+$(DEST_SUBDIR)/chap02_2_5_ex02_14.html \
+$(DEST_SUBDIR)/chap02_2_5_ex02_15.html \
+$(DEST_SUBDIR)/chap02_2_5.html \
+$(DEST_SUBDIR)/chap02_3_1.html \
+$(DEST_SUBDIR)/chap02_3_3.html \
+$(DEST_SUBDIR)/chap02_differential_form.html \
+$(DEST_SUBDIR)/index.html
 
 SUB_TARGETS=
 
@@ -31,15 +31,15 @@ SUB_TARGETS=
 adoc: mkdir_and_copy $(HTML_LIST) $(SUB_TARGETS)
 
 mkdir_and_copy:
-	mkdir -p $(DIST_SUBDIR)
+	mkdir -p $(DEST_SUBDIR)
 	test ! -d $(SRC_IMAGES_DIR) || test -d $(DST_IMAGES_DIR) || mkdir $(DST_IMAGES_DIR)
 	test ! -d $(DST_IMAGES_DIR) || cp $(CP_OPTS) $(SRC_IMAGES_DIR)/* $(DST_IMAGES_DIR)/
 
-$(DIST_SUBDIR)/chap01_manifold.html: chap01_manifold.adoc $(DOC_ROOT)/attrs.adoc header.adoc js/chap01_01_14_vector_field.js
+$(DEST_SUBDIR)/chap01_manifold.html: chap01_manifold.adoc $(DOC_ROOT)/attrs.adoc header.adoc js/chap01_01_14_vector_field.js
 	asciidoctor --trace $(AD_OPTS_HTML5_ROUGE) -o "$@" "$<"
 
-$(DIST_SUBDIR)/chap02_3_1.html: chap02_3_1.adoc $(DOC_ROOT)/attrs.adoc header.adoc js/chap02_3_1_exp_neg_inv_x_piecewise.js js/chap02_3_1_smooth_transition_pi_3pi_over_2.js
+$(DEST_SUBDIR)/chap02_3_1.html: chap02_3_1.adoc $(DOC_ROOT)/attrs.adoc header.adoc js/chap02_3_1_exp_neg_inv_x_piecewise.js js/chap02_3_1_smooth_transition_pi_3pi_over_2.js
 	asciidoctor --trace $(AD_OPTS_HTML5_ROUGE) -o "$@" "$<"
 
-$(DIST_SUBDIR)/%.html: %.adoc $(DOC_ROOT)/attrs.adoc header.adoc
+$(DEST_SUBDIR)/%.html: %.adoc $(DOC_ROOT)/attrs.adoc header.adoc
 	asciidoctor --trace $(AD_OPTS_HTML5_ROUGE) -o "$@" "$<"

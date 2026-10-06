@@ -1,17 +1,17 @@
 BASE_DIR=../../..
 DOC_ROOT=../..
 
-DIST_DIR=$(BASE_DIR)/dist
-DIST_SUBDIR=$(DIST_DIR)/ml/perceptron
+DEST_DIR=$(BASE_DIR)/dist
+DEST_SUBDIR=$(DEST_DIR)/ml/perceptron
 SRC_IMAGES_DIR=$(IMAGES_DIR)
-DST_IMAGES_DIR=$(DIST_SUBDIR)/$(IMAGES_DIR)
+DST_IMAGES_DIR=$(DEST_SUBDIR)/$(IMAGES_DIR)
 
 include $(DOC_ROOT)/asciidoc.mk
 
 HTML_LIST=\
-$(DIST_SUBDIR)/index.html \
-$(DIST_SUBDIR)/loss_and_gradient_dynamics.html \
-$(DIST_SUBDIR)/strict_margin_lemma.html
+$(DEST_SUBDIR)/index.html \
+$(DEST_SUBDIR)/loss_and_gradient_dynamics.html \
+$(DEST_SUBDIR)/strict_margin_lemma.html
 
 SUB_TARGETS=
 
@@ -20,9 +20,9 @@ SUB_TARGETS=
 adoc: mkdir_and_copy $(HTML_LIST) $(SUB_TARGETS)
 
 mkdir_and_copy:
-	mkdir -p $(DIST_SUBDIR)
+	mkdir -p $(DEST_SUBDIR)
 	test ! -d $(SRC_IMAGES_DIR) || test -d $(DST_IMAGES_DIR) || mkdir $(DST_IMAGES_DIR)
 	test ! -d $(SRC_IMAGES_DIR) || cp $(CP_OPTS) $(SRC_IMAGES_DIR)/* $(DST_IMAGES_DIR)/
 
-$(DIST_SUBDIR)/%.html: %.adoc $(DOC_ROOT)/attrs.adoc header.adoc
+$(DEST_SUBDIR)/%.html: %.adoc $(DOC_ROOT)/attrs.adoc header.adoc
 	asciidoctor --trace $(AD_OPTS_HTML5_ROUGE) -o "$@" "$<"
