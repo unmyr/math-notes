@@ -14,6 +14,7 @@ $(DEST_SUBDIR)/atlas_s1_transition.html \
 $(DEST_SUBDIR)/atlas_s2_angular_coords.html \
 $(DEST_SUBDIR)/atlas_s2_stereographic.html \
 $(DEST_SUBDIR)/atlas.html \
+$(DEST_SUBDIR)/coordinate_transformation.html \
 $(DEST_SUBDIR)/tangent_vectors.html \
 $(DEST_SUBDIR)/vector_field_commutator.html \
 $(DEST_SUBDIR)/index.html

@@ -1,0 +1,71 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+endif::[]
+
+ifdef::env-github[]
+// GitHub Flavored AsciiDoc (GFA) specific content
+// Alternative to `:icons: font` on GitHub.
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+// End of GFA-specific content
+endif::[]
+ifndef::env-github[]
+// Content for AsciiDoc (not GFA)
+:icons: font
+// End of AsciiDoc-specific content
+endif::[]
+
+ifndef::leveloffset[]
+include::header.adoc[]
+endif::[]
+
+:stem: latexmath
+include::../attrs.adoc[]
+
+== Coordinate transformation using differential forms
+
+latexmath:[\mathbb{R}^2] 上での座標変換 latexmath:[(x, y) \mapsto (r, \theta)] を極座標変換とみなし、これがヤコビアンの計算と同様の関係を持つことを示す。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+dx \wedge dy
+&= \left(\frac{\partial x}{\partial r}dr + \frac{\partial x}{\partial \theta}d\theta \right) \wedge
+\left(\frac{\partial y}{\partial r}dr + \frac{\partial y}{\partial \theta}d\theta \right) \\
+&=
+\frac{\partial x}{\partial r} \frac{\partial y}{\partial r} \, dr \wedge dr
++ \frac{\partial x}{\partial r} \frac{\partial y}{\partial \theta} \, dr \wedge d\theta
++ \frac{\partial x}{\partial \theta}\frac{\partial y}{\partial r} \, d\theta \wedge dr
++ \frac{\partial x}{\partial \theta} \frac{\partial y}{\partial \theta}\, d\theta \wedge d\theta \\
+&=
+\frac{\partial x}{\partial r} \frac{\partial y}{\partial \theta} \, dr \wedge d\theta
++ \frac{\partial x}{\partial \theta}\frac{\partial y}{\partial r} \, d\theta \wedge dr \\
+&=
+\left(
+    \frac{\partial x}{\partial r} \frac{\partial y}{\partial \theta}
+  - \frac{\partial x}{\partial \theta}\frac{\partial y}{\partial r}
+\right) \, dr \wedge d\theta \\
+&=
+\det\begin{pmatrix}
+  \frac{\partial x}{\partial r} & \frac{\partial y}{\partial \theta} \\
+  \frac{\partial x}{\partial \theta} & \frac{\partial y}{\partial r} \\
+\end{pmatrix} \, dr \wedge d\theta \\
+\end{aligned}
+++++
+
+また、latexmath:[\mathbf{r}=(r\cos\theta, r\sin\theta)] として、極座標変換後の1-形式の係数を計算すると、次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+dx \wedge dy
+&= d(r \cos\theta) \wedge d(r \sin\theta) \\
+&= ((dr)\cos\theta - r \sin\theta\, d \theta) \wedge ((dr)\sin\theta + r \cos\theta\, d \theta) \\
+&= r \cos^2 \theta \, d r \wedge d\theta - r \sin^2\theta \, d\theta \wedge dr \\
+&= r \, dr \wedge d \theta \\
+\end{aligned}
+++++
