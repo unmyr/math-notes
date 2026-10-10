@@ -19,6 +19,10 @@ ifndef::env-github[]
 // End of AsciiDoc-specific content
 endif::[]
 
+ifndef::imagesdir[]
+:imagesdir: images
+endif::[]
+
 ifndef::leveloffset[]
 include::header.adoc[]
 endif::[]
