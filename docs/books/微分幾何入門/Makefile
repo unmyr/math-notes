@@ -21,6 +21,7 @@ $(DEST_SUBDIR)/chap02_2_5_ex02_15.html \
 $(DEST_SUBDIR)/chap02_2_5.html \
 $(DEST_SUBDIR)/chap02_3_1.html \
 $(DEST_SUBDIR)/chap02_3_3.html \
+$(DEST_SUBDIR)/chap02_3_4.html \
 $(DEST_SUBDIR)/chap02_differential_form.html \
 $(DEST_SUBDIR)/index.html
 
