@@ -1,14 +1,30 @@
 ifndef::leveloffset[]
 :toc: left
 :toclevels: 3
-:icons: font
+endif::[]
 
+ifdef::env-github[]
+// GitHub Flavored AsciiDoc (GFA) specific content
+// Alternative to `:icons: font` on GitHub.
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+// End of GFA-specific content
+endif::[]
+ifndef::env-github[]
+// Content for AsciiDoc (not GFA)
+:icons: font
+// End of AsciiDoc-specific content
+endif::[]
+
+ifndef::leveloffset[]
 include::header.adoc[]
+endif::[]
 
 :stem: latexmath
 include::../attrs.adoc[]
-
-endif::[]
 
 == Example: Real projective line RP^1^
 To cover the real projective line RP^1^, we can consider the following two charts:

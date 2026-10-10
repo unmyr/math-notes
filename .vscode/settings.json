@@ -28,6 +28,7 @@
     "headport",
     "hoverinfo",
     "hovermode",
+    "ifdef",
     "ifeval",
     "ifndef",
     "imagesdir",
