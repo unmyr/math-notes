@@ -51,8 +51,8 @@ dx \wedge dy
 \right) \, dr \wedge d\theta \\
 &=
 \det\begin{pmatrix}
-  \frac{\partial x}{\partial r} & \frac{\partial y}{\partial \theta} \\
-  \frac{\partial x}{\partial \theta} & \frac{\partial y}{\partial r} \\
+  \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta} \\
+  \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta} \\
 \end{pmatrix} \, dr \wedge d\theta \\
 \end{aligned}
 ++++
