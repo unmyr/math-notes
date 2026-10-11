@@ -41,3 +41,54 @@ F=df
 +
 この latexmath:[f] (の符号を逆転たもの)はポテンシャルと呼ばれ、こういったポテンシャルの外微分で得られる力は保存力と呼ばれる。例えば星が作る重力や、電荷(正や負の電荷を帯びた粒子)が作る電場による保存力である。ポテンシャルが空間全体で定義される保存力の場合に、点 _A_ から点 _B_ への経路 _C_ に沿って物体を動かす状況を考える。
 _C_ は、latexmath:[\mathbb{R}^3]の一次元部分多様体である。このときに、保存力がする(あるいはこの力に逆らって物体を動かす)仕事が _C_ によらないことをストークスの定理を用いて示せ。
+
+==== 問2.18の解答 ※自力の解答
+
+まず、1-形式は次のように表される
+
+[stem,latexmath]
+++++
+\omega=\mathbf F\cdot d\mathbf r=df
+++++
+
+
+経路 _C_ に沿った仕事は次のように表される
+
+[stem,latexmath]
+++++
+\int_C \mathbf F\cdot d\mathbf r
+++++
+
+ストークスの定理を適用すると、右辺は端点 (_A_,_B_) だけで決まり、経路 _C_ には依存しません。
+
+[stem,latexmath]
+++++
+\int_C \mathbf F\cdot d\mathbf r
+=\int_C \omega
+=\int_C df
+=\int_{\partial C} f
+=f(B)-f(A)
+++++
+
+==== 問2.18の解答 ※テキストの解答
+
+点 latexmath:[A] から点 latexmath:[B] への経路 latexmath:[C_1] と、点 latexmath:[A] から latexmath:[B] への別経路 latexmath:[C_2] で仕事を計算する。
+latexmath:[C_2] を逆向きにした latexmath:[B] から latexmath:[A] の経路を latexmath:[\overline{C}_2]とする。
+latexmath:[C_1]とlatexmath:[\overline{C}_2]を連結して閉じた和を latexmath:[C_1 + \overline{C}_2] とする(厳密にいえば、点 _A_ と _B_ でなめらかではないかもしれないが、本質ではないのでその処置は省略する)。閉じた輪 latexmath:[C_1 + \overline{C}_2] には境界がないのでストークスの定理より
+
+[stem,latexmath]
+++++
+\int_{C_1 + \overline{C}_2} F
+= \int_{C_1 + \overline{C}_2} df
+= 0
+++++
+
+である。つまり、 latexmath:[\displaystyle \int_{C_1}F + \int_{\overline{C}_2} F = 0] である。
+latexmath:[\displaystyle \int_{\overline{C}_2} F = - \int_{C_2} F] なので
+
+[stem,latexmath]
+++++
+\int_{C_1} F =  \int_{C_2} F
+++++
+
+が得られる。
