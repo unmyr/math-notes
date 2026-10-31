@@ -1,0 +1,2 @@
+<<../index.adoc#,Index>> {vbar}
+<<taylor_expansion.adoc#,Taylor expansion>> +

@@ -1,0 +1,145 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+endif::[]
+
+ifdef::env-github[]
+// GitHub Flavored AsciiDoc (GFA) specific content
+// Alternative to `:icons: font` on GitHub.
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+// End of GFA-specific content
+endif::[]
+ifndef::env-github[]
+// Content for AsciiDoc (not GFA)
+:icons: font
+// End of AsciiDoc-specific content
+endif::[]
+
+ifndef::leveloffset[]
+include::header.adoc[]
+endif::[]
+
+:stem: latexmath
+include::../attrs.adoc[]
+
+== Taylor expansion (テイラー展開)
+
+微分幾何の演習で多変数のテイラー展開を使ったものがあったので、忘れている内容を整理します。
+まずは1変数のテイラー展開の剰余項を求め方を順を追って整理します。
+
+=== 1変数のテイラー展開と誤差項
+
+==== ① 誤差項(剰余項) _R_~_n_~ の定義
+
+点 _x_=_a_ の周りの _n_階テイラー展開は、次のように書かれます。
+
+[stem,latexmath]
+++++
+f(x) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x - a)^k + R_n(x)
+++++
+
+この時の誤差を知るのがこの証明の目的です。
+
+==== ② 補助関数 _F_(_t_)の設定
+
+latexmath:[x]を固定し、変数を latexmath:[t \, (a \le t \le x)] に関する補助関数を次のように定めます。なお、latexmath:[C]は、あとでlatexmath:[F(a)=0]を満たすように決める定数です。
+
+[stem,latexmath]
+++++
+F(t) = f(x) - \sum_{k=0}^n \frac{f^{(k)}(t)}{k!}(x - t)^k - C(x - t)^{n + 1}
+++++
+
+このとき、latexmath:[F(x) = 0] であり、また latexmath:[F(t)] は latexmath:[t] の関数です。
+
+==== ③ 微分による打ち消し合いの確認
+
+ここで、有限和の微分は、次のように隣り合う項が打ち消しあうことにより、簡単に計算できます。
+[stem,latexmath]
+++++
+\begin{aligned}
+\frac{d}{dt} \left[\sum_{k=0}^n \frac{f^{(k)}(t)}{k!}(x - t)^{k}\right]
+&=
+\sum_{k=0}^n \frac{f^{(k+1)}(t)}{k!}(x - t)^{k}
+- \sum_{k=1}^n \frac{f^{(k)}(t)}{(k-1)!}(x - t)^{k-1} \\
+\end{aligned}
+++++
+
+ここで、第2項の和について、latexmath:[k - 1 = l]とおき latexmath:[l=0 \cdots (n-1)]のようにシフトするように添え字を揃えると、第1項の和の \(k=0,\ldots,n-1\) の項と第2項の和 \(l=0,\ldots,l-1\) の打ち消し合います。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&=
+\sum_{k=0}^n \frac{f^{(k+1)}(t)}{k!}(x - t)^{k}
+- \sum_{l=0}^{n-1} \frac{f^{(l+1)}(t)}{l!}(x - t)^{l} \\
+&= \frac{f^{(n+1)}(t)}{n!}(x - t)^{n}
+\end{aligned}
+++++
+
+ただし、直前の定義 latexmath:[F(t)=f(x)-\sum_{k=0}^{n}\cdots] に戻ると、定数 \(f(x)\) の微分は 0 なので、
+
+[stem,latexmath]
+++++
+F'(t)=-\frac{f^{(n+1)}(t)}{n!}(x-t)^n + C(n + 1)(x - t)^{n}.
+++++
+
+==== ④ロルの定理の適用と定数の決定
+
+ロルの定理の定理を適用します。
+latexmath:[F(a)=0]とlatexmath:[F(x)=0]を満たす区間を作り、latexmath:[F^\prime(c)=0]となる点 _c_ を導く。
+_F_(_t_)は閉区間 [_a_, _x_] で連続、開区間 (_a_, _x_)で微分可能であり、 latexmath:[F(a)=F(x)=0]となる。
+ロルの定理により、 latexmath:[F^{\prime}(c) = 0]を満たす点 _c_ が (_a_, _x_) の中に少なくとも一つ存在します。
+
+これに _t_= _c_ を代入すると:
+
+[stem,latexmath]
+++++
+\begin{aligned}
+F'(c) &= 0 \\
+-\frac{f^{(n+1)}(c)}{n!}(x-c)^n + C(n + 1)(x - c)^{n} &= 0 \\
+\end{aligned}
+++++
+
+ここから、定数 _C_ について解くと、 latexmath:[(x - c)^n \ne 0]として割ることで、次のように _C_ が定まります。
+
+[stem,latexmath]
+++++
+C = \frac{f^{(n+1)}(c)}{(n + 1)!} \\
+++++
+
+==== ⑤ 剰余項 _R_~_n_~の完成
+
+剰余項の確定: latexmath:[F^{\prime}(c) = 0]から未知の係数を決定し、ラグランジュの剰余項を得る。
+_F_(_a_)=0 の式に _t_ = _a_ を代入すると、次式が得られる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+F(a) &= 0 \\
+f(x) - \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x - a)^k - C(x - a)^{n + 1} &= 0 \\
+\end{aligned}
+++++
+
+_n_ 階のテイラー多項式 _P_~_n_~(_x_)で読み替える。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+f(x) - P_n(x) - C(x - a)^{n + 1} &= 0 \\
+f(x) - P_n(x) = C(x - a)^{n + 1} \\
+\end{aligned}
+++++
+
+左辺が求めたかった誤差項 _R_~_n_~ となる。求めた _C_ を代入すると、ラグランジュ剰余項が導出できる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+R_n = \frac{f^{(n+1)}(c)}{(n + 1)!} (x - a)^{n + 1} \quad (a \lt c \lt x)
+\end{aligned}
+++++
+

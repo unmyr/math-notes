@@ -1,5 +1,6 @@
 <<index.adoc#,Index>> {vbar}
 <<algebra/index.adoc#,Algebra>> {vbar}
+<<analysis/index.adoc#,Analysis>> {vbar}
 <<books/index.adoc#,Books>> {vbar}
 <<differential-geometry/index.adoc#,Differential geometry>> {vbar}
 <<plane_curve.adoc#,Plane curve>> {vbar}

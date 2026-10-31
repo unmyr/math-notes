@@ -14,6 +14,7 @@ $(DEST_DIR)/index.html
 
 SUB_TARGETS=\
 algebra \
+analysis \
 books \
 differential-geometry \
 ml
@@ -31,6 +32,9 @@ $(DEST_DIR)/%.html: %.adoc $(DOC_ROOT)/attrs.adoc header.adoc
 	asciidoctor --trace $(AD_OPTS_HTML5_ROUGE) -o "$@" "$<"
 
 algebra:
+	(cd $@ && make adoc)
+
+analysis:
 	(cd $@ && make adoc)
 
 books:
