@@ -111,3 +111,74 @@ latexmath:[\mathbf{r}(u, v)]を点 _P_, latexmath:[\mathbf{r}(u + du, v)]を点 
 ++++
 
 である。あとは、問題 2.19 で示したとおりである。
+
+==== 問2.20の解答 ※自力の解答
+
+latexmath:[\mathbf{r}(u, v)]を点 _P_, latexmath:[\mathbf{r}(u + du, v)]を点 _Q_, latexmath:[\mathbf{r}(u, v + dv)]を点 _R_ とする。
+
+PQ について、多変数におけるテイラー展開を適用すると、次のようになる
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\mathbf{r}(u + du, v) &=
+\mathbf{r}(u, v) + \left(du\frac{\partial}{\partial u} + 0\cdot\frac{\partial}{\partial v} \right)\mathbf{r}(u, v) + \frac{1}{2}\left(du\frac{\partial}{\partial u} + 0\cdot\frac{\partial}{\partial v} \right)^2 \mathbf{r}(u, v) + \cdots \\
+&= \mathbf{r}(u, v) + \frac{\partial \mathbf{r}}{\partial u}(u, v) \, du + \frac{1}{2}\frac{\partial^2 \mathbf{r}}{\partial u^2} (u, v) \, du^2 + \cdots \\
+\end{aligned}
+++++
+
+2次以上の項をstem:[\mathbb{R}^3]上のビックオーのベクトル関数stem:[\mathbf{O}(\cdot)=(O(\cdot),O(\cdot),O(\cdot))]でまとめると、次のようになる。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+&= \mathbf{r}(u, v) + \frac{\partial \mathbf{r}}{\partial u}(u, v) \, du + \mathbf{O}(du^2) \\
+\end{aligned}
+++++
+
+同様にして PR について、多変数におけるテイラー展開を適用すると、次のようになる
+
+[stem,latexmath]
+++++
+\begin{aligned}
+\mathbf{r}(u, v + dv)
+&= \mathbf{r}(u, v) + \left(0 \cdot \frac{\partial}{\partial u} + dv \frac{\partial}{\partial v} \right)\mathbf{r}(u, v) + \frac{1}{2}\left(0\cdot \frac{\partial}{\partial u} + dv \frac{\partial}{\partial v} \right)^2 \mathbf{r}(u, v) + \cdots \\
+&= \mathbf{r}(u, v) + \frac{\partial \mathbf{r}}{\partial v}(u, v) \, dv + \frac{1}{2} \frac{\partial^2 \mathbf{r}}{\partial v^2}(u, v) \, dv^2 + \cdots \\
+&= \mathbf{r}(u, v) + \frac{\partial \mathbf{r}}{\partial v}(u, v) \, dv + \mathbf{O}(dv^2) \\
+\end{aligned}
+++++
+
+面積素 stem:[dS] を求める。
+
+[stem,latexmath]
+++++
+\begin{aligned}
+dS
+&= \left(\frac{\partial\mathbf{r}}{\partial{u}}\times\frac{\partial\mathbf{r}}{\partial{v}}\right) du dv \\
+&= \left(
+    \left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v) - \mathbf{O}(du^2)\right)
+\times
+    \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v) - \mathbf{O}(dv^2)\right)
+\right) \\
+&=
+\left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right) \\
+&\quad - \left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \mathbf{O}(dv^2)
+- \mathbf{O}(du^2) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right) - \mathbf{O}(du^2) \times \mathbf{O}(dv^2) \\
+&=
+\left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right) \\
+&\quad - \mathbf{O}(du) \times \mathbf{O}(dv^2) - \mathbf{O}(du^2) \times \mathbf{O}(dv)  - \mathbf{O}(du^2) \times \mathbf{O}(dv^2) \\
+&=
+\left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right)
+- \mathbf{O}(du dv^2) - \mathbf{O}(du^2 dv) - \mathbf{O}(du^2 dv^2) \\
+\end{aligned}
+++++
+
+ここで stem:[du], stem:[dv]を1次の微小量とみなし、3次以上の項を無視すると、ベクトル stem:[\vec{PQ}]、stem:[\vec{PR}]の張る面積素となることが示される。
+[stem,latexmath]
+++++
+\begin{aligned}
+dS
+&=
+\left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right) \\
+\end{aligned}
+++++
