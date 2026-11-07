@@ -154,31 +154,30 @@ PQ について、多変数におけるテイラー展開を適用すると、�
 ++++
 \begin{aligned}
 dS
-&= \left(\frac{\partial\mathbf{r}}{\partial{u}}\times\frac{\partial\mathbf{r}}{\partial{v}}\right) du dv \\
-&= \left(
-    \left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v) - \mathbf{O}(du^2)\right)
+&= \vec{PQ} \times \vec{PR} \\
+&= \left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right) \\
+&=
+\left(\frac{\partial \mathbf{r}}{\partial u}(u, v) \, du + \mathbf{O}(du^2)\right)
 \times
-    \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v) - \mathbf{O}(dv^2)\right)
-\right) \\
+\left(\frac{\partial \mathbf{r}}{\partial v}(u, v) \, dv + \mathbf{O}(dv^2)\right) \\
 &=
-\left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right) \\
-&\quad - \left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \mathbf{O}(dv^2)
-- \mathbf{O}(du^2) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right) - \mathbf{O}(du^2) \times \mathbf{O}(dv^2) \\
+\frac{\partial \mathbf{r}}{\partial u}(u, v) \, du \times \frac{\partial \mathbf{r}}{\partial v}(u, v) \, dv
++ \frac{\partial \mathbf{r}}{\partial u}(u, v) \, du \times \mathbf{O}(dv^2)
++ \mathbf{O}(du^2) \times \frac{\partial \mathbf{r}}{\partial v}(u, v) \, dv
++ \mathbf{O}(du^2) \times \mathbf{O}(dv^2) \\
 &=
-\left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right) \\
-&\quad - \mathbf{O}(du) \times \mathbf{O}(dv^2) - \mathbf{O}(du^2) \times \mathbf{O}(dv)  - \mathbf{O}(du^2) \times \mathbf{O}(dv^2) \\
-&=
-\left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right)
-- \mathbf{O}(du dv^2) - \mathbf{O}(du^2 dv) - \mathbf{O}(du^2 dv^2) \\
+\left(\frac{\partial \mathbf{r}}{\partial u}(u, v) \times \frac{\partial \mathbf{r}}{\partial v}(u, v)\right) \, du dv
++ \mathbf{O}(du) \times \mathbf{O}(dv^2)
++ \mathbf{O}(du^2) \times \mathbf{O}(dv)
++ \mathbf{O}(du^2) \times \mathbf{O}(dv^2) \\ 
 \end{aligned}
 ++++
 
-ここで stem:[du], stem:[dv]を1次の微小量とみなし、3次以上の項を無視すると、ベクトル stem:[\vec{PQ}]、stem:[\vec{PR}]の張る面積素となることが示される。
+ここで stem:[du], stem:[dv]を1次の微小量とみなし、3次以上の項を無視すると、式latexmath:[\eqref{def_2_23}]で定義された面積素となることが示される。
 [stem,latexmath]
 ++++
 \begin{aligned}
 dS
-&=
-\left(\mathbf{r}(u + du, v) - \mathbf{r}(u, v)\right) \times \left(\mathbf{r}(u, v + dv) - \mathbf{r}(u, v)\right) \\
+&= \left(\frac{\partial\mathbf{r}}{\partial{u}}\times\frac{\partial\mathbf{r}}{\partial{v}}\right) du dv \\
 \end{aligned}
 ++++
